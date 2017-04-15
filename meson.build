@@ -4,7 +4,7 @@ project('gtk-js-app', 'c',
 )
 
 app_command = 'jsgtk'
-app_id = 'io.mspencer.JSGtk'
+app_id = 'jsgtk'
 
 gnome = import('gnome')
 

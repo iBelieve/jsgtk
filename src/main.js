@@ -4,11 +4,11 @@ pkg.require({ 'Gio': '2.0',
               'GObject': '2.0' });
 
 let resource = imports.gi.Gio.Resource.load(imports.gi.GLib.build_filenamev([
-  pkg.datadir, 'io.mspencer.JSGtk', 'io.mspencer.JSGtk.runtime.gresource'
+  pkg.datadir, 'jsgtk', 'jsgtk.runtime.gresource'
 ]));
 resource._register();
 
-imports.searchPath.unshift('resource:///io/mspencer/JSGtk')
+imports.searchPath.unshift('resource:///jsgtk')
 
 function main(argv) {
   imports.jsgtk.runtime.bootstrap()

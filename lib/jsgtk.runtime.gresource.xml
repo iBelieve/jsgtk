@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/mspencer/JSGtk/jsgtk">
+  <gresource prefix="/jsgtk/jsgtk">
     <file>core_modules/child_process.js</file>
     <file>core_modules/console.js</file>
     <file>core_modules/events.js</file>

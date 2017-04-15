@@ -1,5 +1,5 @@
 #!@GJS@
-imports.package.init({ name: "io.mspencer.JSGtk",
+imports.package.init({ name: "jsgtk",
                        version: "@PACKAGE_VERSION@",
                        prefix: "@prefix@",
                        libdir: "@libdir@" });

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/mspencer/JSGtk/js">
+  <gresource prefix="/jsgtk/js">
     <file>index.js</file>
+    <file>build.js</file>
     <file>main.js</file>
   </gresource>
 </gresources>
