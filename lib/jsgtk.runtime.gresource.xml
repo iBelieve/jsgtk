@@ -16,7 +16,9 @@
     <file>template/main.js</file>
     <file>template/module.js</file>
 
+    <file>babel.js</file>
     <file>constants.js</file>
+    <file>extended.js</file>
     <file>hybrid_emitter.js</file>
     <file>mainloop.js</file>
     <file>polyfills.js</file>
