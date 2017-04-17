@@ -1,0 +1,15 @@
+{
+  "name": "jsgtk",
+  "version": "0.0.1",
+  "description": "JSGtk+ (work-in-progress fork)",
+  "main": "index.js",
+  "repository": "iBelieve/jsgtk",
+  "author": "Michael Spencer <sonrisesoftware@gmail.com>",
+  "license": "GPL-3.0+",
+  "devDependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "xml2js": "^0.4.17",
+    "yargs": "^7.1.0"
+  }
+}
