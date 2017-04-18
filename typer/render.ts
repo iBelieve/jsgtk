@@ -65,7 +65,7 @@ function renderProperty(node: ParameterNode, { modifiers = [] }: PropertyOptions
 function renderParam(node: ParameterNode, { forExternalInterfaceInNamespace }: ParamOptions, options: GeneratorOptions) {
   let name = node.$.name
 
-  if (reservedWords.includes(node.$.name)) {
+  if (reservedWords.includes(node.$.name + '\n')) {
     name = '_' + name
   }
 
@@ -79,7 +79,27 @@ function renderParam(node: ParameterNode, { forExternalInterfaceInNamespace }: P
     type = forExternalInterfaceInNamespace + '.' + type
   }
 
+  if (name === '...') {
+    name = '...params'
+    if (!type) {
+      type = 'any[]'
+    }
+  }
+
   return `${name}: ${type}`
+}
+
+function renderFreeFunction(node: FunctionNode, options: GeneratorOptions): string {
+  let name = node.$.name
+  const params = getParamNodes(node.parameters)
+    .map(param => renderParam(param, {}, options))
+  const returnType = getTypeFromParametersNode(node['return-value'])
+
+  if (options.jsgtk) {
+    name = camel(name)
+  }
+
+  return `function ${name}(${params.join(', ')}): ${returnType};`
 }
 
 function renderMethod(node: FunctionNode, { modifiers = [], includeName = true, forExternalInterfaceInNamespace }: MethodOptions = {}, options: GeneratorOptions) {
@@ -219,13 +239,21 @@ function renderInterface(node: InterfaceNode, options: GeneratorOptions) {
   return `${interfaceHeader(node.$.name, [])} {\n${indent(body)}\n}`
 }
 
+function renderNodeAsBlankInterface(node: Node) {
+  return `interface ${node.$.name} {}`
+}
+
+
 export function renderNamespace(node: NamespaceNode, options: GeneratorOptions) {
   const entries = [
     { name: 'alias', render: renderAlias },
     { name: 'constant', render: renderConstant },
+    { name: 'function', render: renderFreeFunction },
     { name: 'callback', render: renderCallback },
     { name: 'enumeration', render: renderEnum },
+    { name: 'bitfield', render: renderEnum },
     { name: 'record', render: renderRecord },
+    { name: 'union', render: renderNodeAsBlankInterface },
     { name: 'interface', render: renderInterface },
     { name: 'class', render: renderClass }
   ]

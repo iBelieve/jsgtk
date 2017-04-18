@@ -24,6 +24,7 @@ function convertToJSType(nativeType: string): string {
     case 'gudouble':
     case 'gsize':
     case 'gssize':
+    case 'long double':
       return 'number';
     case 'utf8':
     case 'gchar':
@@ -61,7 +62,7 @@ export function getTypeFromParameterNode(param_node: ParameterNode) {
   return { type, isPrimitive }
 }
 
-export function getTypeFromParametersNode(param_node: ParameterNode[]) {
+export function getTypeFromParametersNode(param_node: ParameterNode[]): string {
   let type: string = ''
   let isPrimitive = false
 
@@ -69,33 +70,5 @@ export function getTypeFromParametersNode(param_node: ParameterNode[]) {
     return '[' + param_node.map(param => getTypeFromParameterNode(param).type) + ']'
   } else {
     return getTypeFromParameterNode(param_node[0]).type
-  }
-}
-
-export function getFunctionInfo(func_node: FunctionNode): FunctionInfo {
-  var func_name = func_node.$.name;
-  var return_type = getTypeFromParameterNode(func_node['return-value'][0])[0];
-  var params: Parameter[] = [];
-  //var has_params = "parameter" in method_node.parameters[0];
-
-  if (func_node.parameters && func_node.parameters[0].parameter) {
-    for (var param_node of func_node.parameters[0].parameter) {
-      if (param_node.$.name === '...') continue;
-      let param_name = param_node.$.name;
-      if (js_reserved_words.indexOf(param_name) !== -1) { // if clashes with JS reserved word.
-        param_name = '_' + param_name;
-      }
-      let { type, isPrimitive } = getTypeFromParameterNode(param_node);
-      params.push({
-        name: param_name,
-        type: type
-      });
-    }
-  }
-
-  return {
-    name: func_name,
-    return_type: return_type,
-    params: params
   }
 }

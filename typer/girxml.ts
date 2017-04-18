@@ -44,7 +44,7 @@ export interface Parameter {
 
 export interface FunctionInfo {
   name: string;
-  return_type: string;
+  returnType: string;
   params: Parameter[];
 }
 
