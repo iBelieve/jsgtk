@@ -19,6 +19,6 @@ pkgdatadir = join_paths(get_option('datadir'), app_id)
 app_configuration.set('libdir', join_paths(get_option('prefix'), get_option('libdir')))
 app_configuration.set('pkgdatadir', pkgdatadir)
 
-
+subdir('data')
 subdir('src')
 subdir('lib')

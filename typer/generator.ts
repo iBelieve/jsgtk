@@ -34,16 +34,18 @@ export async function generateTypings(girs: GIRepository[], options: GeneratorOp
       const xml = await parseXML(gir.xml)
 
       const imports = (xml.repository.include || [])
-        .map(include => `import ${include.$.name} from '${include.$.name}'`)
+        .map(include => `import * as ${include.$.name} from '${include.$.name}'`)
+        .join('\n')
 
-      const namespaces = await Promise.all(xml.repository.namespace
-        .map(namespace => renderNamespace(namespace, options)))
+      const namespaces = (await Promise.all(xml.repository.namespace
+        .map(namespace => renderNamespace(namespace, options))))
+        .join('\n\n')
 
-      const typing = `${imports}\n\n${namespaces.join('\n\n')}`
+      // const typing = `${imports}\n\n${namespaces}`
 
       return {
         name: gir.name,
-        typing: typing
+        typing: namespaces
       }
     })))
 }

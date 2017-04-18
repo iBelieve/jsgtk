@@ -30,5 +30,10 @@ const girs = girFiles
   }))
 
 generateTypings(girs, { jsgtk: true })
-  .then((results) => console.log(results[0].typing))
+  .then((typings) => {
+    return Promise.all(typings
+      .map(typing => (
+        fs.writeFileSync(`${__dirname}/../data/typings/modules/${typing.name}.d.ts`, typing.typing, { encoding: 'utf8' })
+      )))
+  })
   .catch((error) => console.error(error))

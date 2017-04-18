@@ -10,7 +10,7 @@ import reservedWords from './reserved'
 const _az = /[_-]([a-z])/g
 const aZ = /([a-z])([A-Z]+)/g
 const camel = s => s[0] + s.slice(1).replace(_az, ($0, $1) => $1.toUpperCase())
-const classHeader = (name, ifaces) => `class ${name}${ifaces.length > 0 ? ` extends ${ifaces.join(', ')}` : ''}`
+const classHeader = (name, parent, ifaces) => `class ${name}${parent ? ` extends ${parent}` : ''}${ifaces.length > 0 ? ` implements ${ifaces.join(', ')}` : ''}`
 const interfaceHeader = (name, ifaces) => `interface ${name}${ifaces.length > 0 ? ` extends ${ifaces.join(', ')}` : ''}`
 
 type PropertyOptions = {
@@ -59,7 +59,7 @@ function renderProperty(node: ParameterNode, { modifiers = [] }: PropertyOptions
     name += '_'
   }
 
-  return `${modifiers ? modifiers.join(' ') + ' ' : ''}${name}: ${getTypeFromParameterNode(node).type};`
+  return `${modifiers.length > 0 ? modifiers.join(' ') + ' ' : ''}${name}: ${getTypeFromParameterNode(node).type};`
 }
 
 function renderParam(node: ParameterNode, { forExternalInterfaceInNamespace }: ParamOptions, options: GeneratorOptions) {
@@ -194,22 +194,21 @@ function renderRecord(node: RecordNode, options: GeneratorOptions): string {
 }
 
 function renderClass(node: ClassNode, options: GeneratorOptions) {
-  const ifaces = (node.$.parent ? [node.$.parent] : [])
-    .concat((node.implements || []).map(iface => iface.$.name))
-
-  const staticMethods = (node.function || [])
-    .map(method => renderMethod(method, {}, options))
-    .join('\n')
+  const ifaces = (node.implements || []).map(iface => iface.$.name)
+  const allIfaces = (node.$.parent ? [node.$.parent] : []).concat(ifaces)
 
   const props = (node.property || [])
     .map(prop => renderProperty(prop, {}, options))
     .join('\n')
 
   const groups = [
-    `constructor(props: ${node.$.name}Props);`,
+    `constructor(props?: ${node.$.name}Props);`,
     props,
     getMethods(node)
-      .map(method => renderMethod(method, {}, options))
+      .map(method => renderMethod(method, { modifiers: ['public'] }, options))
+      .join('\n'),
+    (node.function || [])
+      .map(method => renderMethod(method, { modifiers: ['public', 'static'] }, options))
       .join('\n')
   ]
 
@@ -217,11 +216,10 @@ function renderClass(node: ClassNode, options: GeneratorOptions) {
     .filter(group => !!group)
     .join('\n\n')
 
-  let classInterface = `${interfaceHeader(node.$.name, ifaces)} {\n${indent(body)}\n}`
-  let propsInterface = `${interfaceHeader(node.$.name + 'Props', ifaces.map(iface => iface + 'Props'))} {\n${indent(props)}\n}`
-  let staticConst = staticMethods.length > 0 && `const ${node.$.name}: {\n${indent(staticMethods)}\n}`
+  let classInterface = `${classHeader(node.$.name, node.$.parent, ifaces)} {\n${indent(body)}\n}`
+  let propsInterface = `${interfaceHeader(node.$.name + 'Props', allIfaces.map(iface => iface + 'Props'))} {\n${indent(props)}\n}`
 
-  return [classInterface, propsInterface, staticConst].filter(item => !!item).join('\n\n')
+  return classInterface + '\n\n' + propsInterface
 }
 
 function renderInterface(node: InterfaceNode, options: GeneratorOptions) {
@@ -268,9 +266,10 @@ export function renderNamespace(node: NamespaceNode, options: GeneratorOptions) 
         : []
     ))
     .flatten()
+    .map(item => `export ${item}`)
     .join('\n\n')
 
   return options.jsgtk
-    ? `declare module ${node.$.name} {\n\n${indent(body)}\n\n}`
-    : `declare namespace imports.gi.${node.$.name} {\n\n${indent(body)}\n\n}`
+    ? `declare module "${node.$.name}" {\n\n${indent(body)}\n\n}`
+    : `declare namespace "imports.gi.${node.$.name} {\n\n${indent(body)}\n\n}`
 }
