@@ -197,8 +197,12 @@ function renderClass(node: ClassNode, options: GeneratorOptions) {
   const ifaces = (node.$.parent ? [node.$.parent] : [])
     .concat((node.implements || []).map(iface => iface.$.name))
 
+  const staticMethods = (node.function || [])
+    .map(method => renderMethod(method, {}, options))
+    .join('\n')
+
   const props = (node.property || [])
-    .map(prop => renderProperty(prop, { modifiers: ['public'] }, options))
+    .map(prop => renderProperty(prop, {}, options))
     .join('\n')
 
   const groups = [
@@ -206,9 +210,6 @@ function renderClass(node: ClassNode, options: GeneratorOptions) {
     props,
     getMethods(node)
       .map(method => renderMethod(method, {}, options))
-      .join('\n'),
-    (node.function || [])
-      .map(method => renderMethod(method, { modifiers: ['static'] }, options))
       .join('\n')
   ]
 
@@ -216,10 +217,11 @@ function renderClass(node: ClassNode, options: GeneratorOptions) {
     .filter(group => !!group)
     .join('\n\n')
 
-  let classInterface = `${classHeader(node.$.name, ifaces)} {\n${indent(body)}\n}`
+  let classInterface = `${interfaceHeader(node.$.name, ifaces)} {\n${indent(body)}\n}`
   let propsInterface = `${interfaceHeader(node.$.name + 'Props', ifaces.map(iface => iface + 'Props'))} {\n${indent(props)}\n}`
+  let staticConst = staticMethods.length > 0 && `const ${node.$.name}: {\n${indent(staticMethods)}\n}`
 
-  return classInterface + '\n\n' + propsInterface
+  return [classInterface, propsInterface, staticConst].filter(item => !!item).join('\n\n')
 }
 
 function renderInterface(node: InterfaceNode, options: GeneratorOptions) {
