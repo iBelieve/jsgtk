@@ -53,11 +53,23 @@ export function getTypeFromParameterNode(param_node: ParameterNode) {
     type = convertToJSType(param_node.type[0].$.name)
     isPrimitive = (type !== param_node.type[0].$.name)
   } else if (param_node.array) {
-    type = convertToJSType(param_node.array[0].type[0].$.name) + '[]'
-    isPrimitive = (type !== (param_node.array[0].type[0].$.name + '[]'))
+    let arrayType = getTypeFromParameterNode(param_node.array[0])
+    type = arrayType.type + '[]'
+    isPrimitive = arrayType.isPrimitive
   }
 
   return { type, isPrimitive }
+}
+
+export function getTypeFromParametersNode(param_node: ParameterNode[]) {
+  let type: string = ''
+  let isPrimitive = false
+
+  if (param_node.length > 1) {
+    return '[' + param_node.map(param => getTypeFromParameterNode(param).type) + ']'
+  } else {
+    return getTypeFromParameterNode(param_node[0]).type
+  }
 }
 
 export function getFunctionInfo(func_node: FunctionNode): FunctionInfo {
@@ -73,7 +85,7 @@ export function getFunctionInfo(func_node: FunctionNode): FunctionInfo {
       if (js_reserved_words.indexOf(param_name) !== -1) { // if clashes with JS reserved word.
         param_name = '_' + param_name;
       }
-      let [type, is_primitive] = getTypeFromParameterNode(param_node);
+      let { type, isPrimitive } = getTypeFromParameterNode(param_node);
       params.push({
         name: param_name,
         type: type

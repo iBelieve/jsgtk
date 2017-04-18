@@ -17,7 +17,7 @@ const argv = yargs
   .argv
 
 const girFiles = (argv._.length > 0 ? argv._ : ['/usr/share/gir-1.0/'])
-  .reduce((files, fileOrDir) => (
+  .reduce<string[]>((files, fileOrDir) => (
     files.concat(fs.statSync(fileOrDir).isDirectory()
       ? fs.readdirSync(fileOrDir).map((file) => path.join(fileOrDir, file))
       : [fileOrDir])

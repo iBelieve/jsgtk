@@ -4,12 +4,10 @@
     "target": "es6",
     "noImplicitAny": false,
     "sourceMap": false,
-    "typeRoots": [
-      "./typings"
-    ]
+    "strictNullChecks": true
   },
   "include": [
     "typer/**/*",
-    "typings/**/*"
+    "typings/index.d.ts"
   ]
 }

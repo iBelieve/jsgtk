@@ -78,9 +78,14 @@ export interface ClassNode extends Node {
 }
 
 export interface InterfaceNode extends Node {
+  "function": FunctionNode[];
   "method": FunctionNode[];
   "virtual-method": FunctionNode[];
   "property": ParameterNode[];
+}
+
+export interface ConstantNode extends ParameterNode {
+
 }
 
 export interface NamespaceNode extends Node {
@@ -93,10 +98,16 @@ export interface NamespaceNode extends Node {
   "function": FunctionNode[];
   "union": Node[];
   "alias": ParameterNode[];
+  "constant": ConstantNode[];
+}
+
+export interface IncludeNode extends Node {
+
 }
 
 export interface GIRepositoryXML {
   repository: {
+    include: IncludeNode[]
     namespace: NamespaceNode[]
   }
 }
