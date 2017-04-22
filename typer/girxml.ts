@@ -14,8 +14,12 @@ export interface ClassAttributes extends NodeAttributes {
   parent?: string;
 }
 
+export interface IncludeAttributes extends NodeAttributes {
+  version: number;
+}
+
 export interface Node {
-  "$": NodeAttributes
+  $: NodeAttributes;
 }
 
 export interface ParameterNode extends Node {
@@ -33,6 +37,11 @@ export interface ParametersNode extends Node {
 }
 
 export interface FunctionNode extends Node {
+  "return-value": ParameterNode[];
+  parameters: ParametersNode[];
+}
+
+export interface SignalNode extends Node {
   "return-value": ParameterNode[];
   parameters: ParametersNode[];
 }
@@ -71,7 +80,7 @@ export interface ClassNode extends Node {
   "constructor": FunctionNode[];
   "function": FunctionNode[];
   //"field": NodeWithType[];
-  "glib-signal": Node[];
+  "glib:signal": SignalNode[];
   "method": FunctionNode[];
   "virtual-method": FunctionNode[];
   "property": ParameterNode[];
@@ -102,7 +111,7 @@ export interface NamespaceNode extends Node {
 }
 
 export interface IncludeNode extends Node {
-
+  $: IncludeAttributes;
 }
 
 export interface GIRepositoryXML {

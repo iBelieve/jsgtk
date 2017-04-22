@@ -1,5 +1,7 @@
 declare module "Gio" {
-
+  import * as GObject from 'GObject'
+  import * as GLib from 'GLib'
+  
   export const DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME: string;
   
   export const FILE_ATTRIBUTE_ACCESS_CAN_DELETE: string;
@@ -1225,17 +1227,17 @@ declare module "Gio" {
   }
   
   export class ActionEntry {
-    public name: string;
-    public parameterType: string;
-    public state: string;
-    public padding: number[];
+    public name?: string;
+    public parameterType?: string;
+    public state?: string;
+    public padding?: number[];
     
     activate : { (action: SimpleAction, parameter: GLib.Variant, userData: any): void; };
     changeState : { (action: SimpleAction, value: GLib.Variant, userData: any): void; };
   }
   
   export class ActionGroupInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     hasAction : { (actionGroup: ActionGroup, actionName: string): boolean; };
     listActions : { (actionGroup: ActionGroup): string[]; };
@@ -1254,7 +1256,7 @@ declare module "Gio" {
   }
   
   export class ActionInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getName : { (action: Action): string; };
     getParameterType : { (action: Action): GLib.VariantType; };
@@ -1267,7 +1269,7 @@ declare module "Gio" {
   }
   
   export class ActionMapInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     lookupAction : { (actionMap: ActionMap, actionName: string): Action; };
     addAction : { (actionMap: ActionMap, action: Action): void; };
@@ -1275,7 +1277,7 @@ declare module "Gio" {
   }
   
   export class AppInfoIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     dup : { (appinfo: AppInfo): AppInfo; };
     equal : { (appinfo1: AppInfo, appinfo2: AppInfo): boolean; };
@@ -1303,7 +1305,7 @@ declare module "Gio" {
   }
   
   export class AppLaunchContextClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getDisplay : { (context: AppLaunchContext, info: AppInfo, files: GLib.List): string; };
     getStartupNotifyId : { (context: AppLaunchContext, info: AppInfo, files: GLib.List): string; };
@@ -1320,8 +1322,8 @@ declare module "Gio" {
   }
   
   export class ApplicationClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     startup : { (application: Application): void; };
     activate : { (application: Application): void; };
@@ -1340,8 +1342,8 @@ declare module "Gio" {
   }
   
   export class ApplicationCommandLineClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     printLiteral : { (cmdline: ApplicationCommandLine, message: string): void; };
     printerrLiteral : { (cmdline: ApplicationCommandLine, message: string): void; };
@@ -1357,14 +1359,14 @@ declare module "Gio" {
   }
   
   export class AsyncInitableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     initAsync : { (initable: AsyncInitable, ioPriority: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
     initFinish : { (initable: AsyncInitable, res: AsyncResult): boolean; };
   }
   
   export class AsyncResultIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getUserData : { (res: AsyncResult): any; };
     getSourceObject : { (res: AsyncResult): GObject.Object; };
@@ -1372,7 +1374,7 @@ declare module "Gio" {
   }
   
   export class BufferedInputStreamClass {
-    public parentClass: FilterInputStreamClass;
+    public parentClass?: FilterInputStreamClass;
     
     fill : { (stream: BufferedInputStream, count: number, cancellable: Cancellable): number; };
     fillAsync : { (stream: BufferedInputStream, count: number, ioPriority: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -1389,7 +1391,7 @@ declare module "Gio" {
   }
   
   export class BufferedOutputStreamClass {
-    public parentClass: FilterOutputStreamClass;
+    public parentClass?: FilterOutputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -1400,7 +1402,7 @@ declare module "Gio" {
   }
   
   export class CancellableClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     cancelled : { (cancellable: Cancellable): void; };
     _gReserved1 : { (): void; };
@@ -1415,18 +1417,18 @@ declare module "Gio" {
   }
   
   export class CharsetConverterClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class ConverterIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     convert : { (converter: Converter, inbuf: number[], inbufSize: number, outbuf: number[], outbufSize: number, flags: ConverterFlags, bytesRead: number, bytesWritten: number): ConverterResult; };
     reset : { (converter: Converter): void; };
   }
   
   export class ConverterInputStreamClass {
-    public parentClass: FilterInputStreamClass;
+    public parentClass?: FilterInputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -1440,7 +1442,7 @@ declare module "Gio" {
   }
   
   export class ConverterOutputStreamClass {
-    public parentClass: FilterOutputStreamClass;
+    public parentClass?: FilterOutputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -1458,32 +1460,32 @@ declare module "Gio" {
   }
   
   export class DBusAnnotationInfo {
-    public refCount: number;
-    public key: string;
-    public value: string;
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public key?: string;
+    public value?: string;
+    public annotations?: DBusAnnotationInfo[];
     
     public ref(): DBusAnnotationInfo;
     public unref(): void;
   }
   
   export class DBusArgInfo {
-    public refCount: number;
-    public name: string;
-    public signature: string;
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public name?: string;
+    public signature?: string;
+    public annotations?: DBusAnnotationInfo[];
     
     public ref(): DBusArgInfo;
     public unref(): void;
   }
   
   export class DBusErrorEntry {
-    public errorCode: number;
-    public dbusErrorName: string;
+    public errorCode?: number;
+    public dbusErrorName?: string;
   }
   
   export class DBusInterfaceIface {
-    public parentIface: GObject.TypeInterface;
+    public parentIface?: GObject.TypeInterface;
     
     getInfo : { (interface_: DBusInterface): DBusInterfaceInfo; };
     getObject : { (interface_: DBusInterface): DBusObject; };
@@ -1492,12 +1494,12 @@ declare module "Gio" {
   }
   
   export class DBusInterfaceInfo {
-    public refCount: number;
-    public name: string;
-    public methods: DBusMethodInfo[];
-    public signals: DBusSignalInfo[];
-    public properties: DBusPropertyInfo[];
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public name?: string;
+    public methods?: DBusMethodInfo[];
+    public signals?: DBusSignalInfo[];
+    public properties?: DBusPropertyInfo[];
+    public annotations?: DBusAnnotationInfo[];
     
     public cacheBuild(): void;
     public cacheRelease(): void;
@@ -1510,9 +1512,9 @@ declare module "Gio" {
   }
   
   export class DBusInterfaceSkeletonClass {
-    public parentClass: GObject.ObjectClass;
-    public vfuncPadding: any[];
-    public signalPadding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public vfuncPadding?: any[];
+    public signalPadding?: any[];
     
     getInfo : { (interface_: DBusInterfaceSkeleton): DBusInterfaceInfo; };
     getVtable : { (interface_: DBusInterfaceSkeleton): DBusInterfaceVTable; };
@@ -1526,29 +1528,29 @@ declare module "Gio" {
   }
   
   export class DBusInterfaceVTable {
-    public methodCall: DBusInterfaceMethodCallFunc;
-    public getProperty: DBusInterfaceGetPropertyFunc;
-    public setProperty: DBusInterfaceSetPropertyFunc;
-    public padding: any[];
+    public methodCall?: DBusInterfaceMethodCallFunc;
+    public getProperty?: DBusInterfaceGetPropertyFunc;
+    public setProperty?: DBusInterfaceSetPropertyFunc;
+    public padding?: any[];
   }
   
   export class DBusMethodInfo {
-    public refCount: number;
-    public name: string;
-    public inArgs: DBusArgInfo[];
-    public outArgs: DBusArgInfo[];
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public name?: string;
+    public inArgs?: DBusArgInfo[];
+    public outArgs?: DBusArgInfo[];
+    public annotations?: DBusAnnotationInfo[];
     
     public ref(): DBusMethodInfo;
     public unref(): void;
   }
   
   export class DBusNodeInfo {
-    public refCount: number;
-    public path: string;
-    public interfaces: DBusInterfaceInfo[];
-    public nodes: DBusNodeInfo[];
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public path?: string;
+    public interfaces?: DBusInterfaceInfo[];
+    public nodes?: DBusNodeInfo[];
+    public annotations?: DBusAnnotationInfo[];
     
     public generateXml(indent: number, stringBuilder: GLib.String): void;
     public lookupInterface(name: string): DBusInterfaceInfo;
@@ -1557,7 +1559,7 @@ declare module "Gio" {
   }
   
   export class DBusObjectIface {
-    public parentIface: GObject.TypeInterface;
+    public parentIface?: GObject.TypeInterface;
     
     getObjectPath : { (object: DBusObject): string; };
     getInterfaces : { (object: DBusObject): GLib.List; };
@@ -1567,8 +1569,8 @@ declare module "Gio" {
   }
   
   export class DBusObjectManagerClientClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     interfaceProxySignal : { (manager: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void; };
     interfaceProxyPropertiesChanged : { (manager: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void; };
@@ -1579,7 +1581,7 @@ declare module "Gio" {
   }
   
   export class DBusObjectManagerIface {
-    public parentIface: GObject.TypeInterface;
+    public parentIface?: GObject.TypeInterface;
     
     getObjectPath : { (manager: DBusObjectManager): string; };
     getObjects : { (manager: DBusObjectManager): GLib.List; };
@@ -1592,8 +1594,8 @@ declare module "Gio" {
   }
   
   export class DBusObjectManagerServerClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
   }
   
   export class DBusObjectManagerServerPrivate {
@@ -1601,8 +1603,8 @@ declare module "Gio" {
   }
   
   export class DBusObjectProxyClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
   }
   
   export class DBusObjectProxyPrivate {
@@ -1610,8 +1612,8 @@ declare module "Gio" {
   }
   
   export class DBusObjectSkeletonClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     authorizeMethod : { (object: DBusObjectSkeleton, interface_: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): boolean; };
   }
@@ -1621,19 +1623,19 @@ declare module "Gio" {
   }
   
   export class DBusPropertyInfo {
-    public refCount: number;
-    public name: string;
-    public signature: string;
-    public flags: DBusPropertyInfoFlags;
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public name?: string;
+    public signature?: string;
+    public flags?: DBusPropertyInfoFlags;
+    public annotations?: DBusAnnotationInfo[];
     
     public ref(): DBusPropertyInfo;
     public unref(): void;
   }
   
   export class DBusProxyClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     gPropertiesChanged : { (proxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void; };
     gSignal : { (proxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void; };
@@ -1644,24 +1646,24 @@ declare module "Gio" {
   }
   
   export class DBusSignalInfo {
-    public refCount: number;
-    public name: string;
-    public args: DBusArgInfo[];
-    public annotations: DBusAnnotationInfo[];
+    public refCount?: number;
+    public name?: string;
+    public args?: DBusArgInfo[];
+    public annotations?: DBusAnnotationInfo[];
     
     public ref(): DBusSignalInfo;
     public unref(): void;
   }
   
   export class DBusSubtreeVTable {
-    public enumerate: DBusSubtreeEnumerateFunc;
-    public introspect: DBusSubtreeIntrospectFunc;
-    public dispatch: DBusSubtreeDispatchFunc;
-    public padding: any[];
+    public enumerate?: DBusSubtreeEnumerateFunc;
+    public introspect?: DBusSubtreeIntrospectFunc;
+    public dispatch?: DBusSubtreeDispatchFunc;
+    public padding?: any[];
   }
   
   export class DataInputStreamClass {
-    public parentClass: BufferedInputStreamClass;
+    public parentClass?: BufferedInputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -1675,7 +1677,7 @@ declare module "Gio" {
   }
   
   export class DataOutputStreamClass {
-    public parentClass: FilterOutputStreamClass;
+    public parentClass?: FilterOutputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -1689,7 +1691,7 @@ declare module "Gio" {
   }
   
   export class DatagramBasedInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     receiveMessages : { (datagramBased: DatagramBased, messages: InputMessage[], numMessages: number, flags: number, timeout: number, cancellable: Cancellable): number; };
     sendMessages : { (datagramBased: DatagramBased, messages: OutputMessage[], numMessages: number, flags: number, timeout: number, cancellable: Cancellable): number; };
@@ -1699,17 +1701,17 @@ declare module "Gio" {
   }
   
   export class DesktopAppInfoClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class DesktopAppInfoLookupIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getDefaultForUriScheme : { (lookup: DesktopAppInfoLookup, uriScheme: string): AppInfo; };
   }
   
   export class DriveIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     changed : { (drive: Drive): void; };
     disconnected : { (drive: Drive): void; };
@@ -1746,11 +1748,11 @@ declare module "Gio" {
   }
   
   export class DtlsClientConnectionInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
   }
   
   export class DtlsConnectionInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     acceptCertificate : { (connection: DtlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean; };
     handshake : { (conn: DtlsConnection, cancellable: Cancellable): boolean; };
@@ -1762,7 +1764,7 @@ declare module "Gio" {
   }
   
   export class DtlsServerConnectionInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
   }
   
   export class EmblemClass {
@@ -1770,7 +1772,7 @@ declare module "Gio" {
   }
   
   export class EmblemedIconClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class EmblemedIconPrivate {
@@ -1778,14 +1780,14 @@ declare module "Gio" {
   }
   
   export class FileAttributeInfo {
-    public name: string;
-    public type: FileAttributeType;
-    public flags: FileAttributeInfoFlags;
+    public name?: string;
+    public type?: FileAttributeType;
+    public flags?: FileAttributeInfoFlags;
   }
   
   export class FileAttributeInfoList {
-    public infos: FileAttributeInfo;
-    public nInfos: number;
+    public infos?: FileAttributeInfo;
+    public nInfos?: number;
     
     public add(name: string, type: FileAttributeType, flags: FileAttributeInfoFlags): void;
     public dup(): FileAttributeInfoList;
@@ -1806,13 +1808,13 @@ declare module "Gio" {
   }
   
   export class FileDescriptorBasedIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getFd : { (fdBased: FileDescriptorBased): number; };
   }
   
   export class FileEnumeratorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     nextFile : { (enumerator: FileEnumerator, cancellable: Cancellable): FileInfo; };
     closeFn : { (enumerator: FileEnumerator, cancellable: Cancellable): boolean; };
@@ -1834,7 +1836,7 @@ declare module "Gio" {
   }
   
   export class FileIOStreamClass {
-    public parentClass: IOStreamClass;
+    public parentClass?: IOStreamClass;
     
     tell : { (stream: FileIOStream): number; };
     canSeek : { (stream: FileIOStream): boolean; };
@@ -1861,8 +1863,8 @@ declare module "Gio" {
   }
   
   export class FileIface {
-    public gIface: GObject.TypeInterface;
-    public supportsThreadContexts: boolean;
+    public gIface?: GObject.TypeInterface;
+    public supportsThreadContexts?: boolean;
     
     dup : { (file: File): File; };
     hash : { (file: File): number; };
@@ -1973,7 +1975,7 @@ declare module "Gio" {
   }
   
   export class FileInputStreamClass {
-    public parentClass: InputStreamClass;
+    public parentClass?: InputStreamClass;
     
     tell : { (stream: FileInputStream): number; };
     canSeek : { (stream: FileInputStream): boolean; };
@@ -1993,7 +1995,7 @@ declare module "Gio" {
   }
   
   export class FileMonitorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     changed : { (monitor: FileMonitor, file: File, otherFile: File, eventType: FileMonitorEvent): void; };
     cancel : { (monitor: FileMonitor): boolean; };
@@ -2009,7 +2011,7 @@ declare module "Gio" {
   }
   
   export class FileOutputStreamClass {
-    public parentClass: OutputStreamClass;
+    public parentClass?: OutputStreamClass;
     
     tell : { (stream: FileOutputStream): number; };
     canSeek : { (stream: FileOutputStream): boolean; };
@@ -2032,7 +2034,7 @@ declare module "Gio" {
   }
   
   export class FilenameCompleterClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     gotCompletionData : { (filenameCompleter: FilenameCompleter): void; };
     _gReserved1 : { (): void; };
@@ -2041,7 +2043,7 @@ declare module "Gio" {
   }
   
   export class FilterInputStreamClass {
-    public parentClass: InputStreamClass;
+    public parentClass?: InputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2049,7 +2051,7 @@ declare module "Gio" {
   }
   
   export class FilterOutputStreamClass {
-    public parentClass: OutputStreamClass;
+    public parentClass?: OutputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2089,7 +2091,7 @@ declare module "Gio" {
   }
   
   export class IOStreamClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getInputStream : { (stream: IOStream): InputStream; };
     getOutputStream : { (stream: IOStream): OutputStream; };
@@ -2113,7 +2115,7 @@ declare module "Gio" {
   }
   
   export class IconIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     hash : { (icon: Icon): number; };
     equal : { (icon1: Icon, icon2: Icon): boolean; };
@@ -2123,14 +2125,14 @@ declare module "Gio" {
   }
   
   export class InetAddressClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     toString : { (address: InetAddress): string; };
     toBytes : { (address: InetAddress): number; };
   }
   
   export class InetAddressMaskClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class InetAddressMaskPrivate {
@@ -2142,7 +2144,7 @@ declare module "Gio" {
   }
   
   export class InetSocketAddressClass {
-    public parentClass: SocketAddressClass;
+    public parentClass?: SocketAddressClass;
   }
   
   export class InetSocketAddressPrivate {
@@ -2150,23 +2152,23 @@ declare module "Gio" {
   }
   
   export class InitableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     init : { (initable: Initable, cancellable: Cancellable): boolean; };
   }
   
   export class InputMessage {
-    public address: SocketAddress;
-    public vectors: InputVector[];
-    public numVectors: number;
-    public bytesReceived: number;
-    public flags: number;
-    public controlMessages: SocketControlMessage[];
-    public numControlMessages: number;
+    public address?: SocketAddress;
+    public vectors?: InputVector[];
+    public numVectors?: number;
+    public bytesReceived?: number;
+    public flags?: number;
+    public controlMessages?: SocketControlMessage[];
+    public numControlMessages?: number;
   }
   
   export class InputStreamClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     readFn : { (stream: InputStream, buffer: any, count: number, cancellable: Cancellable): number; };
     skip : { (stream: InputStream, count: number, cancellable: Cancellable): number; };
@@ -2189,12 +2191,12 @@ declare module "Gio" {
   }
   
   export class InputVector {
-    public buffer: any;
-    public size: number;
+    public buffer?: any;
+    public size?: number;
   }
   
   export class ListModelInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getItemType : { (list: ListModel): GObject.Type; };
     getNItems : { (list: ListModel): number; };
@@ -2202,11 +2204,11 @@ declare module "Gio" {
   }
   
   export class ListStoreClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class LoadableIconIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     load : { (icon: LoadableIcon, size: number, type: string, cancellable: Cancellable): InputStream; };
     loadAsync : { (icon: LoadableIcon, size: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -2214,7 +2216,7 @@ declare module "Gio" {
   }
   
   export class MemoryInputStreamClass {
-    public parentClass: InputStreamClass;
+    public parentClass?: InputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2228,7 +2230,7 @@ declare module "Gio" {
   }
   
   export class MemoryOutputStreamClass {
-    public parentClass: OutputStreamClass;
+    public parentClass?: OutputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2242,7 +2244,7 @@ declare module "Gio" {
   }
   
   export class MenuAttributeIterClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getNext : { (iter: MenuAttributeIter, outName: string, value: GLib.Variant): boolean; };
   }
@@ -2252,7 +2254,7 @@ declare module "Gio" {
   }
   
   export class MenuLinkIterClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getNext : { (iter: MenuLinkIter, outLink: string, value: MenuModel): boolean; };
   }
@@ -2262,7 +2264,7 @@ declare module "Gio" {
   }
   
   export class MenuModelClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     isMutable : { (model: MenuModel): boolean; };
     getNItems : { (model: MenuModel): number; };
@@ -2279,7 +2281,7 @@ declare module "Gio" {
   }
   
   export class MountIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     changed : { (mount: Mount): void; };
     unmounted : { (mount: Mount): void; };
@@ -2311,7 +2313,7 @@ declare module "Gio" {
   }
   
   export class MountOperationClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     askPassword : { (op: MountOperation, message: string, defaultUser: string, defaultDomain: string, flags: AskPasswordFlags): void; };
     askQuestion : { (op: MountOperation, message: string, choices: string): void; };
@@ -2339,13 +2341,13 @@ declare module "Gio" {
   }
   
   export class NativeVolumeMonitorClass {
-    public parentClass: VolumeMonitorClass;
+    public parentClass?: VolumeMonitorClass;
     
     getMountForMountPath : { (mountPath: string, cancellable: Cancellable): Mount; };
   }
   
   export class NetworkAddressClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class NetworkAddressPrivate {
@@ -2353,7 +2355,7 @@ declare module "Gio" {
   }
   
   export class NetworkMonitorInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     networkChanged : { (monitor: NetworkMonitor, available: boolean): void; };
     canReach : { (monitor: NetworkMonitor, connectable: SocketConnectable, cancellable: Cancellable): boolean; };
@@ -2362,7 +2364,7 @@ declare module "Gio" {
   }
   
   export class NetworkServiceClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class NetworkServicePrivate {
@@ -2370,16 +2372,16 @@ declare module "Gio" {
   }
   
   export class OutputMessage {
-    public address: SocketAddress;
-    public vectors: OutputVector;
-    public numVectors: number;
-    public bytesSent: number;
-    public controlMessages: SocketControlMessage[];
-    public numControlMessages: number;
+    public address?: SocketAddress;
+    public vectors?: OutputVector;
+    public numVectors?: number;
+    public bytesSent?: number;
+    public controlMessages?: SocketControlMessage[];
+    public numControlMessages?: number;
   }
   
   export class OutputStreamClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     writeFn : { (stream: OutputStream, buffer: number[], count: number, cancellable: Cancellable): number; };
     splice : { (stream: OutputStream, source: InputStream, flags: OutputStreamSpliceFlags, cancellable: Cancellable): number; };
@@ -2408,13 +2410,13 @@ declare module "Gio" {
   }
   
   export class OutputVector {
-    public buffer: any;
-    public size: number;
+    public buffer?: any;
+    public size?: number;
   }
   
   export class PermissionClass {
-    public parentClass: GObject.ObjectClass;
-    public reserved: any[];
+    public parentClass?: GObject.ObjectClass;
+    public reserved?: any[];
     
     acquire : { (permission: Permission, cancellable: Cancellable): boolean; };
     acquireAsync : { (permission: Permission, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -2429,7 +2431,7 @@ declare module "Gio" {
   }
   
   export class PollableInputStreamInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     canPoll : { (stream: PollableInputStream): boolean; };
     isReadable : { (stream: PollableInputStream): boolean; };
@@ -2438,7 +2440,7 @@ declare module "Gio" {
   }
   
   export class PollableOutputStreamInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     canPoll : { (stream: PollableOutputStream): boolean; };
     isWritable : { (stream: PollableOutputStream): boolean; };
@@ -2447,11 +2449,11 @@ declare module "Gio" {
   }
   
   export class ProxyAddressClass {
-    public parentClass: InetSocketAddressClass;
+    public parentClass?: InetSocketAddressClass;
   }
   
   export class ProxyAddressEnumeratorClass {
-    public parentClass: SocketAddressEnumeratorClass;
+    public parentClass?: SocketAddressEnumeratorClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2471,7 +2473,7 @@ declare module "Gio" {
   }
   
   export class ProxyInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     connect : { (proxy: Proxy, connection: IOStream, proxyAddress: ProxyAddress, cancellable: Cancellable): IOStream; };
     connectAsync : { (proxy: Proxy, connection: IOStream, proxyAddress: ProxyAddress, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -2480,7 +2482,7 @@ declare module "Gio" {
   }
   
   export class ProxyResolverInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     isSupported : { (resolver: ProxyResolver): boolean; };
     lookup : { (resolver: ProxyResolver, uri: string, cancellable: Cancellable): string[]; };
@@ -2489,14 +2491,14 @@ declare module "Gio" {
   }
   
   export class RemoteActionGroupInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     activateActionFull : { (remote: RemoteActionGroup, actionName: string, parameter: GLib.Variant, platformData: GLib.Variant): void; };
     changeActionStateFull : { (remote: RemoteActionGroup, actionName: string, value: GLib.Variant, platformData: GLib.Variant): void; };
   }
   
   export class ResolverClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     reload : { (resolver: Resolver): void; };
     lookupByName : { (resolver: Resolver, hostname: string, cancellable: Cancellable): GLib.List; };
@@ -2532,7 +2534,7 @@ declare module "Gio" {
   }
   
   export class SeekableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     tell : { (seekable: Seekable): number; };
     canSeek : { (seekable: Seekable): boolean; };
@@ -2542,8 +2544,8 @@ declare module "Gio" {
   }
   
   export class SettingsBackendClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     read : { (backend: SettingsBackend, key: string, expectedType: GLib.VariantType, defaultValue: boolean): GLib.Variant; };
     getWritable : { (backend: SettingsBackend, key: string): boolean; };
@@ -2562,8 +2564,8 @@ declare module "Gio" {
   }
   
   export class SettingsClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     writableChanged : { (settings: Settings, key: string): void; };
     changed : { (settings: Settings, key: string): void; };
@@ -2606,8 +2608,8 @@ declare module "Gio" {
   }
   
   export class SimpleActionGroupClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
   }
   
   export class SimpleActionGroupPrivate {
@@ -2619,7 +2621,7 @@ declare module "Gio" {
   }
   
   export class SimpleProxyResolverClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2633,7 +2635,7 @@ declare module "Gio" {
   }
   
   export class SocketAddressClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getFamily : { (address: SocketAddress): SocketFamily; };
     getNativeSize : { (address: SocketAddress): number; };
@@ -2641,7 +2643,7 @@ declare module "Gio" {
   }
   
   export class SocketAddressEnumeratorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     next : { (enumerator: SocketAddressEnumerator, cancellable: Cancellable): SocketAddress; };
     nextAsync : { (enumerator: SocketAddressEnumerator, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -2649,7 +2651,7 @@ declare module "Gio" {
   }
   
   export class SocketClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2664,7 +2666,7 @@ declare module "Gio" {
   }
   
   export class SocketClientClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     event : { (client: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream): void; };
     _gReserved1 : { (): void; };
@@ -2678,7 +2680,7 @@ declare module "Gio" {
   }
   
   export class SocketConnectableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     enumerate : { (connectable: SocketConnectable): SocketAddressEnumerator; };
     proxyEnumerate : { (connectable: SocketConnectable): SocketAddressEnumerator; };
@@ -2686,7 +2688,7 @@ declare module "Gio" {
   }
   
   export class SocketConnectionClass {
-    public parentClass: IOStreamClass;
+    public parentClass?: IOStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2701,7 +2703,7 @@ declare module "Gio" {
   }
   
   export class SocketControlMessageClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getSize : { (message: SocketControlMessage): number; };
     getLevel : { (message: SocketControlMessage): number; };
@@ -2720,7 +2722,7 @@ declare module "Gio" {
   }
   
   export class SocketListenerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     changed : { (listener: SocketListener): void; };
     event : { (listener: SocketListener, event: SocketListenerEvent, socket: Socket): void; };
@@ -2740,7 +2742,7 @@ declare module "Gio" {
   }
   
   export class SocketServiceClass {
-    public parentClass: SocketListenerClass;
+    public parentClass?: SocketListenerClass;
     
     incoming : { (service: SocketService, connection: SocketConnection, sourceObject: GObject.Object): boolean; };
     _gReserved1 : { (): void; };
@@ -2765,11 +2767,11 @@ declare module "Gio" {
   }
   
   export class StaticResource {
-    public data: number;
-    public dataLen: number;
-    public resource: Resource;
-    public next: StaticResource;
-    public padding: any;
+    public data?: number;
+    public dataLen?: number;
+    public resource?: Resource;
+    public next?: StaticResource;
+    public padding?: any;
     
     public fini(): void;
     public getResource(): Resource;
@@ -2781,7 +2783,7 @@ declare module "Gio" {
   }
   
   export class TcpConnectionClass {
-    public parentClass: SocketConnectionClass;
+    public parentClass?: SocketConnectionClass;
   }
   
   export class TcpConnectionPrivate {
@@ -2789,7 +2791,7 @@ declare module "Gio" {
   }
   
   export class TcpWrapperConnectionClass {
-    public parentClass: TcpConnectionClass;
+    public parentClass?: TcpConnectionClass;
   }
   
   export class TcpWrapperConnectionPrivate {
@@ -2801,7 +2803,7 @@ declare module "Gio" {
   }
   
   export class ThreadedSocketServiceClass {
-    public parentClass: SocketServiceClass;
+    public parentClass?: SocketServiceClass;
     
     run : { (service: ThreadedSocketService, connection: SocketConnection, sourceObject: GObject.Object): boolean; };
     _gReserved1 : { (): void; };
@@ -2816,7 +2818,7 @@ declare module "Gio" {
   }
   
   export class TlsBackendInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     supportsTls : { (backend: TlsBackend): boolean; };
     getCertificateType : { (): GObject.Type; };
@@ -2830,8 +2832,8 @@ declare module "Gio" {
   }
   
   export class TlsCertificateClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     verify : { (cert: TlsCertificate, identity: SocketConnectable, trustedCa: TlsCertificate): TlsCertificateFlags; };
   }
@@ -2841,14 +2843,14 @@ declare module "Gio" {
   }
   
   export class TlsClientConnectionInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     copySessionState : { (conn: TlsClientConnection, source: TlsClientConnection): void; };
   }
   
   export class TlsConnectionClass {
-    public parentClass: IOStreamClass;
-    public padding: any[];
+    public parentClass?: IOStreamClass;
+    public padding?: any[];
     
     acceptCertificate : { (connection: TlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean; };
     handshake : { (conn: TlsConnection, cancellable: Cancellable): boolean; };
@@ -2861,8 +2863,8 @@ declare module "Gio" {
   }
   
   export class TlsDatabaseClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     verifyChain : { (self: TlsDatabase, chain: TlsCertificate, purpose: string, identity: SocketConnectable, interaction: TlsInteraction, flags: TlsDatabaseVerifyFlags, cancellable: Cancellable): TlsCertificateFlags; };
     verifyChainAsync : { (self: TlsDatabase, chain: TlsCertificate, purpose: string, identity: SocketConnectable, interaction: TlsInteraction, flags: TlsDatabaseVerifyFlags, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -2884,13 +2886,13 @@ declare module "Gio" {
   }
   
   export class TlsFileDatabaseInterface {
-    public gIface: GObject.TypeInterface;
-    public padding: any[];
+    public gIface?: GObject.TypeInterface;
+    public padding?: any[];
   }
   
   export class TlsInteractionClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     askPassword : { (interaction: TlsInteraction, password: TlsPassword, cancellable: Cancellable): TlsInteractionResult; };
     askPasswordAsync : { (interaction: TlsInteraction, password: TlsPassword, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void; };
@@ -2905,8 +2907,8 @@ declare module "Gio" {
   }
   
   export class TlsPasswordClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     getValue : { (password: TlsPassword, length: number): number; };
     setValue : { (password: TlsPassword, value: number, length: number, destroy: GLib.DestroyNotify): void; };
@@ -2918,11 +2920,11 @@ declare module "Gio" {
   }
   
   export class TlsServerConnectionInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
   }
   
   export class UnixConnectionClass {
-    public parentClass: SocketConnectionClass;
+    public parentClass?: SocketConnectionClass;
   }
   
   export class UnixConnectionPrivate {
@@ -2930,7 +2932,7 @@ declare module "Gio" {
   }
   
   export class UnixCredentialsMessageClass {
-    public parentClass: SocketControlMessageClass;
+    public parentClass?: SocketControlMessageClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2941,7 +2943,7 @@ declare module "Gio" {
   }
   
   export class UnixFDListClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2955,7 +2957,7 @@ declare module "Gio" {
   }
   
   export class UnixFDMessageClass {
-    public parentClass: SocketControlMessageClass;
+    public parentClass?: SocketControlMessageClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -2966,7 +2968,7 @@ declare module "Gio" {
   }
   
   export class UnixInputStreamClass {
-    public parentClass: InputStreamClass;
+    public parentClass?: InputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -3004,7 +3006,7 @@ declare module "Gio" {
   }
   
   export class UnixOutputStreamClass {
-    public parentClass: OutputStreamClass;
+    public parentClass?: OutputStreamClass;
     
     _gReserved1 : { (): void; };
     _gReserved2 : { (): void; };
@@ -3018,7 +3020,7 @@ declare module "Gio" {
   }
   
   export class UnixSocketAddressClass {
-    public parentClass: SocketAddressClass;
+    public parentClass?: SocketAddressClass;
   }
   
   export class UnixSocketAddressPrivate {
@@ -3026,7 +3028,7 @@ declare module "Gio" {
   }
   
   export class VfsClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     isActive : { (vfs: Vfs): boolean; };
     getFileForPath : { (vfs: Vfs, path: string): File; };
@@ -3048,7 +3050,7 @@ declare module "Gio" {
   }
   
   export class VolumeIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     changed : { (volume: Volume): void; };
     removed : { (volume: Volume): void; };
@@ -3074,7 +3076,7 @@ declare module "Gio" {
   }
   
   export class VolumeMonitorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     volumeAdded : { (volumeMonitor: VolumeMonitor, volume: Volume): void; };
     volumeRemoved : { (volumeMonitor: VolumeMonitor, volume: Volume): void; };
@@ -3104,11 +3106,11 @@ declare module "Gio" {
   }
   
   export class ZlibCompressorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class ZlibDecompressorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export interface Action {
@@ -3656,6 +3658,8 @@ declare module "Gio" {
   export class AppInfoMonitor extends GObject.Object {
     constructor(props?: AppInfoMonitorProps);
     
+    public on(event: 'changed', listener: () => void): this;
+    
     public static get(): AppInfoMonitor;
   }
   
@@ -3673,6 +3677,9 @@ declare module "Gio" {
     public setenv(variable: string, value: string): void;
     public unsetenv(variable: string): void;
     public launched(info: AppInfo, platformData: GLib.Variant): void;
+    
+    public on(event: 'launchFailed', listener: (startupNotifyId: string) => void): this;
+    public on(event: 'launched', listener: (info: AppInfo, platformData: GLib.Variant) => void): this;
   }
   
   interface AppLaunchContextProps extends GObject.ObjectProps {
@@ -3682,14 +3689,14 @@ declare module "Gio" {
   export class Application extends GObject.Object implements ActionGroup, ActionMap {
     constructor(props?: ApplicationProps);
     
-    actionGroup: ActionGroup;
-    applicationId: string;
-    flags: ApplicationFlags;
-    inactivityTimeout: number;
-    isBusy: boolean;
-    isRegistered: boolean;
-    isRemote: boolean;
-    resourceBasePath: string;
+    actionGroup?: ActionGroup;
+    applicationId?: string;
+    flags?: ApplicationFlags;
+    inactivityTimeout?: number;
+    isBusy?: boolean;
+    isRegistered?: boolean;
+    isRemote?: boolean;
+    resourceBasePath?: string;
     
     public activate(): void;
     public addMainOption(longName: string, shortName: string, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, argDescription: string): void;
@@ -3735,28 +3742,35 @@ declare module "Gio" {
     public shutdown(): void;
     public startup(): void;
     
+    public on(event: 'activate', listener: () => void): this;
+    public on(event: 'commandLine', listener: (commandLine: ApplicationCommandLine) => number): this;
+    public on(event: 'handleLocalOptions', listener: (options: GLib.VariantDict) => number): this;
+    public on(event: 'open', listener: (files: File[], nFiles: number, hint: string) => void): this;
+    public on(event: 'shutdown', listener: () => void): this;
+    public on(event: 'startup', listener: () => void): this;
+    
     public static getDefault(): Application;
     public static idIsValid(applicationId: string): boolean;
   }
   
   interface ApplicationProps extends GObject.ObjectProps, ActionGroupProps, ActionMapProps {
-    actionGroup: ActionGroup;
-    applicationId: string;
-    flags: ApplicationFlags;
-    inactivityTimeout: number;
-    isBusy: boolean;
-    isRegistered: boolean;
-    isRemote: boolean;
-    resourceBasePath: string;
+    actionGroup?: ActionGroup;
+    applicationId?: string;
+    flags?: ApplicationFlags;
+    inactivityTimeout?: number;
+    isBusy?: boolean;
+    isRegistered?: boolean;
+    isRemote?: boolean;
+    resourceBasePath?: string;
   }
   
   export class ApplicationCommandLine extends GObject.Object {
     constructor(props?: ApplicationCommandLineProps);
     
-    arguments: GLib.Variant;
-    isRemote: boolean;
-    options: GLib.Variant;
-    platformData: GLib.Variant;
+    arguments?: GLib.Variant;
+    isRemote?: boolean;
+    options?: GLib.Variant;
+    platformData?: GLib.Variant;
     
     public createFileForArg(arg: string): File;
     public getArguments(argc: number): string[];
@@ -3776,16 +3790,16 @@ declare module "Gio" {
   }
   
   interface ApplicationCommandLineProps extends GObject.ObjectProps {
-    arguments: GLib.Variant;
-    isRemote: boolean;
-    options: GLib.Variant;
-    platformData: GLib.Variant;
+    arguments?: GLib.Variant;
+    isRemote?: boolean;
+    options?: GLib.Variant;
+    platformData?: GLib.Variant;
   }
   
   export class BufferedInputStream extends FilterInputStream implements Seekable {
     constructor(props?: BufferedInputStreamProps);
     
-    bufferSize: number;
+    bufferSize?: number;
     
     public fill(count: number, cancellable: Cancellable): number;
     public fillAsync(count: number, ioPriority: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -3799,14 +3813,14 @@ declare module "Gio" {
   }
   
   interface BufferedInputStreamProps extends FilterInputStreamProps, SeekableProps {
-    bufferSize: number;
+    bufferSize?: number;
   }
   
   export class BufferedOutputStream extends FilterOutputStream implements Seekable {
     constructor(props?: BufferedOutputStreamProps);
     
-    autoGrow: boolean;
-    bufferSize: number;
+    autoGrow?: boolean;
+    bufferSize?: number;
     
     public getAutoGrow(): boolean;
     public getBufferSize(): number;
@@ -3815,20 +3829,20 @@ declare module "Gio" {
   }
   
   interface BufferedOutputStreamProps extends FilterOutputStreamProps, SeekableProps {
-    autoGrow: boolean;
-    bufferSize: number;
+    autoGrow?: boolean;
+    bufferSize?: number;
   }
   
   export class BytesIcon extends GObject.Object implements Icon, LoadableIcon {
     constructor(props?: BytesIconProps);
     
-    bytes: GLib.Bytes;
+    bytes?: GLib.Bytes;
     
     public getBytes(): GLib.Bytes;
   }
   
   interface BytesIconProps extends GObject.ObjectProps, IconProps, LoadableIconProps {
-    bytes: GLib.Bytes;
+    bytes?: GLib.Bytes;
   }
   
   export class Cancellable extends GObject.Object {
@@ -3848,6 +3862,8 @@ declare module "Gio" {
     public sourceNew(): GLib.Source;
     public cancelled(): void;
     
+    public on(event: 'cancelled', listener: () => void): this;
+    
     public static getCurrent(): Cancellable;
   }
   
@@ -3858,9 +3874,9 @@ declare module "Gio" {
   export class CharsetConverter extends GObject.Object implements Converter, Initable {
     constructor(props?: CharsetConverterProps);
     
-    fromCharset: string;
-    toCharset: string;
-    useFallback: boolean;
+    fromCharset?: string;
+    toCharset?: string;
+    useFallback?: boolean;
     
     public getNumFallbacks(): number;
     public getUseFallback(): boolean;
@@ -3868,33 +3884,33 @@ declare module "Gio" {
   }
   
   interface CharsetConverterProps extends GObject.ObjectProps, ConverterProps, InitableProps {
-    fromCharset: string;
-    toCharset: string;
-    useFallback: boolean;
+    fromCharset?: string;
+    toCharset?: string;
+    useFallback?: boolean;
   }
   
   export class ConverterInputStream extends FilterInputStream implements PollableInputStream {
     constructor(props?: ConverterInputStreamProps);
     
-    converter: Converter;
+    converter?: Converter;
     
     public getConverter(): Converter;
   }
   
   interface ConverterInputStreamProps extends FilterInputStreamProps, PollableInputStreamProps {
-    converter: Converter;
+    converter?: Converter;
   }
   
   export class ConverterOutputStream extends FilterOutputStream implements PollableOutputStream {
     constructor(props?: ConverterOutputStreamProps);
     
-    converter: Converter;
+    converter?: Converter;
     
     public getConverter(): Converter;
   }
   
   interface ConverterOutputStreamProps extends FilterOutputStreamProps, PollableOutputStreamProps {
-    converter: Converter;
+    converter?: Converter;
   }
   
   export class Credentials extends GObject.Object {
@@ -3928,6 +3944,9 @@ declare module "Gio" {
     
     public allowMechanism(mechanism: string): boolean;
     public authorizeAuthenticatedPeer(stream: IOStream, credentials: Credentials): boolean;
+    
+    public on(event: 'allowMechanism', listener: (mechanism: string) => boolean): this;
+    public on(event: 'authorizeAuthenticatedPeer', listener: (stream: IOStream, credentials: Credentials) => boolean): this;
   }
   
   interface DBusAuthObserverProps extends GObject.ObjectProps {
@@ -3937,15 +3956,15 @@ declare module "Gio" {
   export class DBusConnection extends GObject.Object implements AsyncInitable, Initable {
     constructor(props?: DBusConnectionProps);
     
-    address: string;
-    authenticationObserver: DBusAuthObserver;
-    capabilities: DBusCapabilityFlags;
-    closed: boolean;
-    exitOnClose: boolean;
-    flags: DBusConnectionFlags;
-    guid: string;
-    stream: IOStream;
-    uniqueName: string;
+    address?: string;
+    authenticationObserver?: DBusAuthObserver;
+    capabilities?: DBusCapabilityFlags;
+    closed?: boolean;
+    exitOnClose?: boolean;
+    flags?: DBusConnectionFlags;
+    guid?: string;
+    stream?: IOStream;
+    uniqueName?: string;
     
     public addFilter(filterFunction: DBusMessageFilterFunction, userData: any, userDataFreeFunc: GLib.DestroyNotify): number;
     public call(busName: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, replyType: GLib.VariantType, flags: DBusCallFlags, timeoutMsec: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -3988,26 +4007,28 @@ declare module "Gio" {
     public unregisterObject(registrationId: number): boolean;
     public unregisterSubtree(registrationId: number): boolean;
     
+    public on(event: 'closed', listener: (remotePeerVanished: boolean, error: GLib.Error) => void): this;
+    
     public static new(stream: IOStream, guid: string, flags: DBusConnectionFlags, observer: DBusAuthObserver, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
     public static newForAddress(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
   }
   
   interface DBusConnectionProps extends GObject.ObjectProps, AsyncInitableProps, InitableProps {
-    address: string;
-    authenticationObserver: DBusAuthObserver;
-    capabilities: DBusCapabilityFlags;
-    closed: boolean;
-    exitOnClose: boolean;
-    flags: DBusConnectionFlags;
-    guid: string;
-    stream: IOStream;
-    uniqueName: string;
+    address?: string;
+    authenticationObserver?: DBusAuthObserver;
+    capabilities?: DBusCapabilityFlags;
+    closed?: boolean;
+    exitOnClose?: boolean;
+    flags?: DBusConnectionFlags;
+    guid?: string;
+    stream?: IOStream;
+    uniqueName?: string;
   }
   
   export class DBusInterfaceSkeleton extends GObject.Object implements DBusInterface {
     constructor(props?: DBusInterfaceSkeletonProps);
     
-    gFlags: DBusInterfaceSkeletonFlags;
+    gFlags?: DBusInterfaceSkeletonFlags;
     
     public export(connection: DBusConnection, objectPath: string): boolean;
     public flush(): void;
@@ -4023,10 +4044,12 @@ declare module "Gio" {
     public unexport(): void;
     public unexportFromConnection(connection: DBusConnection): void;
     public gAuthorizeMethod(invocation: DBusMethodInvocation): boolean;
+    
+    public on(event: 'gAuthorizeMethod', listener: (invocation: DBusMethodInvocation) => boolean): this;
   }
   
   interface DBusInterfaceSkeletonProps extends GObject.ObjectProps, DBusInterfaceProps {
-    gFlags: DBusInterfaceSkeletonFlags;
+    gFlags?: DBusInterfaceSkeletonFlags;
   }
   
   export class DBusMenuModel extends MenuModel {
@@ -4042,7 +4065,7 @@ declare module "Gio" {
   export class DBusMessage extends GObject.Object {
     constructor(props?: DBusMessageProps);
     
-    locked: boolean;
+    locked?: boolean;
     
     public copy(): DBusMessage;
     public getArg0(): string;
@@ -4093,7 +4116,7 @@ declare module "Gio" {
   }
   
   interface DBusMessageProps extends GObject.ObjectProps {
-    locked: boolean;
+    locked?: boolean;
   }
   
   export class DBusMethodInvocation extends GObject.Object {
@@ -4126,15 +4149,15 @@ declare module "Gio" {
   export class DBusObjectManagerClient extends GObject.Object implements AsyncInitable, DBusObjectManager, Initable {
     constructor(props?: DBusObjectManagerClientProps);
     
-    busType: BusType;
-    connection: DBusConnection;
-    flags: DBusObjectManagerClientFlags;
-    getProxyTypeDestroyNotify: any;
-    getProxyTypeFunc: any;
-    getProxyTypeUserData: any;
-    name: string;
-    nameOwner: string;
-    objectPath: string;
+    busType?: BusType;
+    connection?: DBusConnection;
+    flags?: DBusObjectManagerClientFlags;
+    getProxyTypeDestroyNotify?: any;
+    getProxyTypeFunc?: any;
+    getProxyTypeUserData?: any;
+    name?: string;
+    nameOwner?: string;
+    objectPath?: string;
     
     public getConnection(): DBusConnection;
     public getFlags(): DBusObjectManagerClientFlags;
@@ -4143,27 +4166,30 @@ declare module "Gio" {
     public interfaceProxyPropertiesChanged(objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void;
     public interfaceProxySignal(objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void;
     
+    public on(event: 'interfaceProxyPropertiesChanged', listener: (objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): this;
+    public on(event: 'interfaceProxySignal', listener: (objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void): this;
+    
     public static new(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string, objectPath: string, getProxyTypeFunc: DBusProxyTypeFunc, getProxyTypeUserData: any, getProxyTypeDestroyNotify: GLib.DestroyNotify, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
     public static newForBus(busType: BusType, flags: DBusObjectManagerClientFlags, name: string, objectPath: string, getProxyTypeFunc: DBusProxyTypeFunc, getProxyTypeUserData: any, getProxyTypeDestroyNotify: GLib.DestroyNotify, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
   }
   
   interface DBusObjectManagerClientProps extends GObject.ObjectProps, AsyncInitableProps, DBusObjectManagerProps, InitableProps {
-    busType: BusType;
-    connection: DBusConnection;
-    flags: DBusObjectManagerClientFlags;
-    getProxyTypeDestroyNotify: any;
-    getProxyTypeFunc: any;
-    getProxyTypeUserData: any;
-    name: string;
-    nameOwner: string;
-    objectPath: string;
+    busType?: BusType;
+    connection?: DBusConnection;
+    flags?: DBusObjectManagerClientFlags;
+    getProxyTypeDestroyNotify?: any;
+    getProxyTypeFunc?: any;
+    getProxyTypeUserData?: any;
+    name?: string;
+    nameOwner?: string;
+    objectPath?: string;
   }
   
   export class DBusObjectManagerServer extends GObject.Object implements DBusObjectManager {
     constructor(props?: DBusObjectManagerServerProps);
     
-    connection: DBusConnection;
-    objectPath: string;
+    connection?: DBusConnection;
+    objectPath?: string;
     
     public export(object: DBusObjectSkeleton): void;
     public exportUniquely(object: DBusObjectSkeleton): void;
@@ -4174,28 +4200,28 @@ declare module "Gio" {
   }
   
   interface DBusObjectManagerServerProps extends GObject.ObjectProps, DBusObjectManagerProps {
-    connection: DBusConnection;
-    objectPath: string;
+    connection?: DBusConnection;
+    objectPath?: string;
   }
   
   export class DBusObjectProxy extends GObject.Object implements DBusObject {
     constructor(props?: DBusObjectProxyProps);
     
-    gConnection: DBusConnection;
-    gObjectPath: string;
+    gConnection?: DBusConnection;
+    gObjectPath?: string;
     
     public getConnection(): DBusConnection;
   }
   
   interface DBusObjectProxyProps extends GObject.ObjectProps, DBusObjectProps {
-    gConnection: DBusConnection;
-    gObjectPath: string;
+    gConnection?: DBusConnection;
+    gObjectPath?: string;
   }
   
   export class DBusObjectSkeleton extends GObject.Object implements DBusObject {
     constructor(props?: DBusObjectSkeletonProps);
     
-    gObjectPath: string;
+    gObjectPath?: string;
     
     public addInterface(interface_: DBusInterfaceSkeleton): void;
     public flush(): void;
@@ -4203,24 +4229,26 @@ declare module "Gio" {
     public removeInterfaceByName(interfaceName: string): void;
     public setObjectPath(objectPath: string): void;
     public authorizeMethod(interface_: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): boolean;
+    
+    public on(event: 'authorizeMethod', listener: (_interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean): this;
   }
   
   interface DBusObjectSkeletonProps extends GObject.ObjectProps, DBusObjectProps {
-    gObjectPath: string;
+    gObjectPath?: string;
   }
   
   export class DBusProxy extends GObject.Object implements AsyncInitable, DBusInterface, Initable {
     constructor(props?: DBusProxyProps);
     
-    gBusType: BusType;
-    gConnection: DBusConnection;
-    gDefaultTimeout: number;
-    gFlags: DBusProxyFlags;
-    gInterfaceInfo: DBusInterfaceInfo;
-    gInterfaceName: string;
-    gName: string;
-    gNameOwner: string;
-    gObjectPath: string;
+    gBusType?: BusType;
+    gConnection?: DBusConnection;
+    gDefaultTimeout?: number;
+    gFlags?: DBusProxyFlags;
+    gInterfaceInfo?: DBusInterfaceInfo;
+    gInterfaceName?: string;
+    gName?: string;
+    gNameOwner?: string;
+    gObjectPath?: string;
     
     public call(methodName: string, parameters: GLib.Variant, flags: DBusCallFlags, timeoutMsec: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
     public callFinish(res: AsyncResult): GLib.Variant;
@@ -4244,31 +4272,34 @@ declare module "Gio" {
     public gPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void;
     public gSignal(senderName: string, signalName: string, parameters: GLib.Variant): void;
     
+    public on(event: 'gPropertiesChanged', listener: (changedProperties: GLib.Variant, invalidatedProperties: string[]) => void): this;
+    public on(event: 'gSignal', listener: (senderName: string, signalName: string, parameters: GLib.Variant) => void): this;
+    
     public static new(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo, name: string, objectPath: string, interfaceName: string, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
     public static newForBus(busType: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo, name: string, objectPath: string, interfaceName: string, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
   }
   
   interface DBusProxyProps extends GObject.ObjectProps, AsyncInitableProps, DBusInterfaceProps, InitableProps {
-    gBusType: BusType;
-    gConnection: DBusConnection;
-    gDefaultTimeout: number;
-    gFlags: DBusProxyFlags;
-    gInterfaceInfo: DBusInterfaceInfo;
-    gInterfaceName: string;
-    gName: string;
-    gNameOwner: string;
-    gObjectPath: string;
+    gBusType?: BusType;
+    gConnection?: DBusConnection;
+    gDefaultTimeout?: number;
+    gFlags?: DBusProxyFlags;
+    gInterfaceInfo?: DBusInterfaceInfo;
+    gInterfaceName?: string;
+    gName?: string;
+    gNameOwner?: string;
+    gObjectPath?: string;
   }
   
   export class DBusServer extends GObject.Object implements Initable {
     constructor(props?: DBusServerProps);
     
-    active: boolean;
-    address: string;
-    authenticationObserver: DBusAuthObserver;
-    clientAddress: string;
-    flags: DBusServerFlags;
-    guid: string;
+    active?: boolean;
+    address?: string;
+    authenticationObserver?: DBusAuthObserver;
+    clientAddress?: string;
+    flags?: DBusServerFlags;
+    guid?: string;
     
     public getClientAddress(): string;
     public getFlags(): DBusServerFlags;
@@ -4276,22 +4307,24 @@ declare module "Gio" {
     public isActive(): boolean;
     public start(): void;
     public stop(): void;
+    
+    public on(event: 'newConnection', listener: (connection: DBusConnection) => boolean): this;
   }
   
   interface DBusServerProps extends GObject.ObjectProps, InitableProps {
-    active: boolean;
-    address: string;
-    authenticationObserver: DBusAuthObserver;
-    clientAddress: string;
-    flags: DBusServerFlags;
-    guid: string;
+    active?: boolean;
+    address?: string;
+    authenticationObserver?: DBusAuthObserver;
+    clientAddress?: string;
+    flags?: DBusServerFlags;
+    guid?: string;
   }
   
   export class DataInputStream extends BufferedInputStream implements Seekable {
     constructor(props?: DataInputStreamProps);
     
-    byteOrder: DataStreamByteOrder;
-    newlineType: DataStreamNewlineType;
+    byteOrder?: DataStreamByteOrder;
+    newlineType?: DataStreamNewlineType;
     
     public getByteOrder(): DataStreamByteOrder;
     public getNewlineType(): DataStreamNewlineType;
@@ -4318,14 +4351,14 @@ declare module "Gio" {
   }
   
   interface DataInputStreamProps extends BufferedInputStreamProps, SeekableProps {
-    byteOrder: DataStreamByteOrder;
-    newlineType: DataStreamNewlineType;
+    byteOrder?: DataStreamByteOrder;
+    newlineType?: DataStreamNewlineType;
   }
   
   export class DataOutputStream extends FilterOutputStream implements Seekable {
     constructor(props?: DataOutputStreamProps);
     
-    byteOrder: DataStreamByteOrder;
+    byteOrder?: DataStreamByteOrder;
     
     public getByteOrder(): DataStreamByteOrder;
     public putByte(data: number, cancellable: Cancellable): boolean;
@@ -4340,13 +4373,13 @@ declare module "Gio" {
   }
   
   interface DataOutputStreamProps extends FilterOutputStreamProps, SeekableProps {
-    byteOrder: DataStreamByteOrder;
+    byteOrder?: DataStreamByteOrder;
   }
   
   export class DesktopAppInfo extends GObject.Object implements AppInfo {
     constructor(props?: DesktopAppInfoProps);
     
-    filename: string;
+    filename?: string;
     
     public getActionName(actionName: string): string;
     public getBoolean(key: string): boolean;
@@ -4370,28 +4403,28 @@ declare module "Gio" {
   }
   
   interface DesktopAppInfoProps extends GObject.ObjectProps, AppInfoProps {
-    filename: string;
+    filename?: string;
   }
   
   export class Emblem extends GObject.Object implements Icon {
     constructor(props?: EmblemProps);
     
-    icon: GObject.Object;
-    origin: EmblemOrigin;
+    icon?: GObject.Object;
+    origin?: EmblemOrigin;
     
     public getIcon(): Icon;
     public getOrigin(): EmblemOrigin;
   }
   
   interface EmblemProps extends GObject.ObjectProps, IconProps {
-    icon: GObject.Object;
-    origin: EmblemOrigin;
+    icon?: GObject.Object;
+    origin?: EmblemOrigin;
   }
   
   export class EmblemedIcon extends GObject.Object implements Icon {
     constructor(props?: EmblemedIconProps);
     
-    gicon: Icon;
+    gicon?: Icon;
     
     public addEmblem(emblem: Emblem): void;
     public clearEmblems(): void;
@@ -4400,13 +4433,13 @@ declare module "Gio" {
   }
   
   interface EmblemedIconProps extends GObject.ObjectProps, IconProps {
-    gicon: Icon;
+    gicon?: Icon;
   }
   
   export class FileEnumerator extends GObject.Object {
     constructor(props?: FileEnumeratorProps);
     
-    container: File;
+    container?: File;
     
     public close(cancellable: Cancellable): boolean;
     public closeAsync(ioPriority: number, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -4424,7 +4457,7 @@ declare module "Gio" {
   }
   
   interface FileEnumeratorProps extends GObject.ObjectProps {
-    container: File;
+    container?: File;
   }
   
   export class FileIOStream extends IOStream implements Seekable {
@@ -4448,13 +4481,13 @@ declare module "Gio" {
   export class FileIcon extends GObject.Object implements Icon, LoadableIcon {
     constructor(props?: FileIconProps);
     
-    file: File;
+    file?: File;
     
     public getFile(): File;
   }
   
   interface FileIconProps extends GObject.ObjectProps, IconProps, LoadableIconProps {
-    file: File;
+    file?: File;
   }
   
   export class FileInfo extends GObject.Object {
@@ -4546,19 +4579,21 @@ declare module "Gio" {
   export class FileMonitor extends GObject.Object {
     constructor(props?: FileMonitorProps);
     
-    cancelled: boolean;
-    rateLimit: number;
+    cancelled?: boolean;
+    rateLimit?: number;
     
     public cancel(): boolean;
     public emitEvent(child: File, otherFile: File, eventType: FileMonitorEvent): void;
     public isCancelled(): boolean;
     public setRateLimit(limitMsecs: number): void;
     public changed(file: File, otherFile: File, eventType: FileMonitorEvent): void;
+    
+    public on(event: 'changed', listener: (file: File, otherFile: File, eventType: FileMonitorEvent) => void): this;
   }
   
   interface FileMonitorProps extends GObject.ObjectProps {
-    cancelled: boolean;
-    rateLimit: number;
+    cancelled?: boolean;
+    rateLimit?: number;
   }
   
   export class FileOutputStream extends OutputStream implements Seekable {
@@ -4586,6 +4621,8 @@ declare module "Gio" {
     public getCompletions(initialText: string): string[];
     public setDirsOnly(dirsOnly: boolean): void;
     public gotCompletionData(): void;
+    
+    public on(event: 'gotCompletionData', listener: () => void): this;
   }
   
   interface FilenameCompleterProps extends GObject.ObjectProps {
@@ -4595,8 +4632,8 @@ declare module "Gio" {
   export class FilterInputStream extends InputStream {
     constructor(props?: FilterInputStreamProps);
     
-    baseStream: InputStream;
-    closeBaseStream: boolean;
+    baseStream?: InputStream;
+    closeBaseStream?: boolean;
     
     public getBaseStream(): InputStream;
     public getCloseBaseStream(): boolean;
@@ -4604,15 +4641,15 @@ declare module "Gio" {
   }
   
   interface FilterInputStreamProps extends InputStreamProps {
-    baseStream: InputStream;
-    closeBaseStream: boolean;
+    baseStream?: InputStream;
+    closeBaseStream?: boolean;
   }
   
   export class FilterOutputStream extends OutputStream {
     constructor(props?: FilterOutputStreamProps);
     
-    baseStream: OutputStream;
-    closeBaseStream: boolean;
+    baseStream?: OutputStream;
+    closeBaseStream?: boolean;
     
     public getBaseStream(): OutputStream;
     public getCloseBaseStream(): boolean;
@@ -4620,8 +4657,8 @@ declare module "Gio" {
   }
   
   interface FilterOutputStreamProps extends OutputStreamProps {
-    baseStream: OutputStream;
-    closeBaseStream: boolean;
+    baseStream?: OutputStream;
+    closeBaseStream?: boolean;
   }
   
   export class IOModule extends GObject.TypeModule implements GObject.TypePlugin {
@@ -4640,9 +4677,9 @@ declare module "Gio" {
   export class IOStream extends GObject.Object {
     constructor(props?: IOStreamProps);
     
-    closed: boolean;
-    inputStream: InputStream;
-    outputStream: OutputStream;
+    closed?: boolean;
+    inputStream?: InputStream;
+    outputStream?: OutputStream;
     
     public clearPending(): void;
     public close(cancellable: Cancellable): boolean;
@@ -4660,26 +4697,26 @@ declare module "Gio" {
   }
   
   interface IOStreamProps extends GObject.ObjectProps {
-    closed: boolean;
-    inputStream: InputStream;
-    outputStream: OutputStream;
+    closed?: boolean;
+    inputStream?: InputStream;
+    outputStream?: OutputStream;
   }
   
   export class InetAddress extends GObject.Object {
     constructor(props?: InetAddressProps);
     
-    bytes: any;
-    family: SocketFamily;
-    isAny: boolean;
-    isLinkLocal: boolean;
-    isLoopback: boolean;
-    isMcGlobal: boolean;
-    isMcLinkLocal: boolean;
-    isMcNodeLocal: boolean;
-    isMcOrgLocal: boolean;
-    isMcSiteLocal: boolean;
-    isMulticast: boolean;
-    isSiteLocal: boolean;
+    bytes?: any;
+    family?: SocketFamily;
+    isAny?: boolean;
+    isLinkLocal?: boolean;
+    isLoopback?: boolean;
+    isMcGlobal?: boolean;
+    isMcLinkLocal?: boolean;
+    isMcNodeLocal?: boolean;
+    isMcOrgLocal?: boolean;
+    isMcSiteLocal?: boolean;
+    isMulticast?: boolean;
+    isSiteLocal?: boolean;
     
     public equal(otherAddress: InetAddress): boolean;
     public getFamily(): SocketFamily;
@@ -4699,26 +4736,26 @@ declare module "Gio" {
   }
   
   interface InetAddressProps extends GObject.ObjectProps {
-    bytes: any;
-    family: SocketFamily;
-    isAny: boolean;
-    isLinkLocal: boolean;
-    isLoopback: boolean;
-    isMcGlobal: boolean;
-    isMcLinkLocal: boolean;
-    isMcNodeLocal: boolean;
-    isMcOrgLocal: boolean;
-    isMcSiteLocal: boolean;
-    isMulticast: boolean;
-    isSiteLocal: boolean;
+    bytes?: any;
+    family?: SocketFamily;
+    isAny?: boolean;
+    isLinkLocal?: boolean;
+    isLoopback?: boolean;
+    isMcGlobal?: boolean;
+    isMcLinkLocal?: boolean;
+    isMcNodeLocal?: boolean;
+    isMcOrgLocal?: boolean;
+    isMcSiteLocal?: boolean;
+    isMulticast?: boolean;
+    isSiteLocal?: boolean;
   }
   
   export class InetAddressMask extends GObject.Object implements Initable {
     constructor(props?: InetAddressMaskProps);
     
-    address: InetAddress;
-    family: SocketFamily;
-    length: number;
+    address?: InetAddress;
+    family?: SocketFamily;
+    length?: number;
     
     public equal(mask2: InetAddressMask): boolean;
     public getAddress(): InetAddress;
@@ -4729,18 +4766,18 @@ declare module "Gio" {
   }
   
   interface InetAddressMaskProps extends GObject.ObjectProps, InitableProps {
-    address: InetAddress;
-    family: SocketFamily;
-    length: number;
+    address?: InetAddress;
+    family?: SocketFamily;
+    length?: number;
   }
   
   export class InetSocketAddress extends SocketAddress implements SocketConnectable {
     constructor(props?: InetSocketAddressProps);
     
-    address: InetAddress;
-    flowinfo: number;
-    port: number;
-    scopeId: number;
+    address?: InetAddress;
+    flowinfo?: number;
+    port?: number;
+    scopeId?: number;
     
     public getAddress(): InetAddress;
     public getFlowinfo(): number;
@@ -4749,10 +4786,10 @@ declare module "Gio" {
   }
   
   interface InetSocketAddressProps extends SocketAddressProps, SocketConnectableProps {
-    address: InetAddress;
-    flowinfo: number;
-    port: number;
-    scopeId: number;
+    address?: InetAddress;
+    flowinfo?: number;
+    port?: number;
+    scopeId?: number;
   }
   
   export class InputStream extends GObject.Object {
@@ -4788,7 +4825,7 @@ declare module "Gio" {
   export class ListStore extends GObject.Object implements ListModel {
     constructor(props?: ListStoreProps);
     
-    itemType: GObject.Type;
+    itemType?: GObject.Type;
     
     public append(item: GObject.Object): void;
     public insert(position: number, item: GObject.Object): void;
@@ -4800,7 +4837,7 @@ declare module "Gio" {
   }
   
   interface ListStoreProps extends GObject.ObjectProps, ListModelProps {
-    itemType: GObject.Type;
+    itemType?: GObject.Type;
   }
   
   export class MemoryInputStream extends InputStream implements PollableInputStream, Seekable {
@@ -4817,11 +4854,11 @@ declare module "Gio" {
   export class MemoryOutputStream extends OutputStream implements PollableOutputStream, Seekable {
     constructor(props?: MemoryOutputStreamProps);
     
-    data: any;
-    dataSize: number;
-    destroyFunction: any;
-    reallocFunction: any;
-    size: number;
+    data?: any;
+    dataSize?: number;
+    destroyFunction?: any;
+    reallocFunction?: any;
+    size?: number;
     
     public getData(): any;
     public getDataSize(): number;
@@ -4831,11 +4868,11 @@ declare module "Gio" {
   }
   
   interface MemoryOutputStreamProps extends OutputStreamProps, PollableOutputStreamProps, SeekableProps {
-    data: any;
-    dataSize: number;
-    destroyFunction: any;
-    reallocFunction: any;
-    size: number;
+    data?: any;
+    dataSize?: number;
+    destroyFunction?: any;
+    reallocFunction?: any;
+    size?: number;
   }
   
   export class Menu extends MenuModel {
@@ -4923,6 +4960,8 @@ declare module "Gio" {
     public iterateItemLinks(itemIndex: number): MenuLinkIter;
     public getItemAttributes(itemIndex: number, attributes: GLib.HashTable): void;
     public getItemLinks(itemIndex: number, links: GLib.HashTable): void;
+    
+    public on(event: 'itemsChanged', listener: (position: number, removed: number, added: number) => void): this;
   }
   
   interface MenuModelProps extends GObject.ObjectProps {
@@ -4932,12 +4971,12 @@ declare module "Gio" {
   export class MountOperation extends GObject.Object {
     constructor(props?: MountOperationProps);
     
-    anonymous: boolean;
-    choice: number;
-    domain: string;
-    password: string;
-    passwordSave: PasswordSave;
-    username: string;
+    anonymous?: boolean;
+    choice?: number;
+    domain?: string;
+    password?: string;
+    passwordSave?: PasswordSave;
+    username?: string;
     
     public getAnonymous(): boolean;
     public getChoice(): number;
@@ -4957,15 +4996,22 @@ declare module "Gio" {
     public askQuestion(message: string, choices: string): void;
     public showProcesses(message: string, processes: any[], choices: string): void;
     public showUnmountProgress(message: string, timeLeft: number, bytesLeft: number): void;
+    
+    public on(event: 'aborted', listener: () => void): this;
+    public on(event: 'askPassword', listener: (message: string, defaultUser: string, defaultDomain: string, flags: AskPasswordFlags) => void): this;
+    public on(event: 'askQuestion', listener: (message: string, choices: string[]) => void): this;
+    public on(event: 'reply', listener: (result: MountOperationResult) => void): this;
+    public on(event: 'showProcesses', listener: (message: string, processes: GLib.Pid[], choices: string[]) => void): this;
+    public on(event: 'showUnmountProgress', listener: (message: string, timeLeft: number, bytesLeft: number) => void): this;
   }
   
   interface MountOperationProps extends GObject.ObjectProps {
-    anonymous: boolean;
-    choice: number;
-    domain: string;
-    password: string;
-    passwordSave: PasswordSave;
-    username: string;
+    anonymous?: boolean;
+    choice?: number;
+    domain?: string;
+    password?: string;
+    passwordSave?: PasswordSave;
+    username?: string;
   }
   
   export class NativeVolumeMonitor extends VolumeMonitor {
@@ -4979,9 +5025,9 @@ declare module "Gio" {
   export class NetworkAddress extends GObject.Object implements SocketConnectable {
     constructor(props?: NetworkAddressProps);
     
-    hostname: string;
-    port: number;
-    scheme: string;
+    hostname?: string;
+    port?: number;
+    scheme?: string;
     
     public getHostname(): string;
     public getPort(): number;
@@ -4992,18 +5038,18 @@ declare module "Gio" {
   }
   
   interface NetworkAddressProps extends GObject.ObjectProps, SocketConnectableProps {
-    hostname: string;
-    port: number;
-    scheme: string;
+    hostname?: string;
+    port?: number;
+    scheme?: string;
   }
   
   export class NetworkService extends GObject.Object implements SocketConnectable {
     constructor(props?: NetworkServiceProps);
     
-    domain: string;
-    protocol: string;
-    scheme: string;
-    service: string;
+    domain?: string;
+    protocol?: string;
+    scheme?: string;
+    service?: string;
     
     public getDomain(): string;
     public getProtocol(): string;
@@ -5013,10 +5059,10 @@ declare module "Gio" {
   }
   
   interface NetworkServiceProps extends GObject.ObjectProps, SocketConnectableProps {
-    domain: string;
-    protocol: string;
-    scheme: string;
-    service: string;
+    domain?: string;
+    protocol?: string;
+    scheme?: string;
+    service?: string;
   }
   
   export class Notification extends GObject.Object {
@@ -5078,9 +5124,9 @@ declare module "Gio" {
   export class Permission extends GObject.Object {
     constructor(props?: PermissionProps);
     
-    allowed: boolean;
-    canAcquire: boolean;
-    canRelease: boolean;
+    allowed?: boolean;
+    canAcquire?: boolean;
+    canRelease?: boolean;
     
     public acquire(cancellable: Cancellable): boolean;
     public acquireAsync(cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -5095,45 +5141,45 @@ declare module "Gio" {
   }
   
   interface PermissionProps extends GObject.ObjectProps {
-    allowed: boolean;
-    canAcquire: boolean;
-    canRelease: boolean;
+    allowed?: boolean;
+    canAcquire?: boolean;
+    canRelease?: boolean;
   }
   
   export class PropertyAction extends GObject.Object implements Action {
     constructor(props?: PropertyActionProps);
     
-    enabled: boolean;
-    invertBoolean: boolean;
-    name: string;
-    object: GObject.Object;
-    parameterType: GLib.VariantType;
-    propertyName: string;
-    state: GLib.Variant;
-    stateType: GLib.VariantType;
+    enabled?: boolean;
+    invertBoolean?: boolean;
+    name?: string;
+    object?: GObject.Object;
+    parameterType?: GLib.VariantType;
+    propertyName?: string;
+    state?: GLib.Variant;
+    stateType?: GLib.VariantType;
   }
   
   interface PropertyActionProps extends GObject.ObjectProps, ActionProps {
-    enabled: boolean;
-    invertBoolean: boolean;
-    name: string;
-    object: GObject.Object;
-    parameterType: GLib.VariantType;
-    propertyName: string;
-    state: GLib.Variant;
-    stateType: GLib.VariantType;
+    enabled?: boolean;
+    invertBoolean?: boolean;
+    name?: string;
+    object?: GObject.Object;
+    parameterType?: GLib.VariantType;
+    propertyName?: string;
+    state?: GLib.Variant;
+    stateType?: GLib.VariantType;
   }
   
   export class ProxyAddress extends InetSocketAddress implements SocketConnectable {
     constructor(props?: ProxyAddressProps);
     
-    destinationHostname: string;
-    destinationPort: number;
-    destinationProtocol: string;
-    password: string;
-    protocol: string;
-    uri: string;
-    username: string;
+    destinationHostname?: string;
+    destinationPort?: number;
+    destinationProtocol?: string;
+    password?: string;
+    protocol?: string;
+    uri?: string;
+    username?: string;
     
     public getDestinationHostname(): string;
     public getDestinationPort(): number;
@@ -5145,29 +5191,29 @@ declare module "Gio" {
   }
   
   interface ProxyAddressProps extends InetSocketAddressProps, SocketConnectableProps {
-    destinationHostname: string;
-    destinationPort: number;
-    destinationProtocol: string;
-    password: string;
-    protocol: string;
-    uri: string;
-    username: string;
+    destinationHostname?: string;
+    destinationPort?: number;
+    destinationProtocol?: string;
+    password?: string;
+    protocol?: string;
+    uri?: string;
+    username?: string;
   }
   
   export class ProxyAddressEnumerator extends SocketAddressEnumerator {
     constructor(props?: ProxyAddressEnumeratorProps);
     
-    connectable: SocketConnectable;
-    defaultPort: number;
-    proxyResolver: ProxyResolver;
-    uri: string;
+    connectable?: SocketConnectable;
+    defaultPort?: number;
+    proxyResolver?: ProxyResolver;
+    uri?: string;
   }
   
   interface ProxyAddressEnumeratorProps extends SocketAddressEnumeratorProps {
-    connectable: SocketConnectable;
-    defaultPort: number;
-    proxyResolver: ProxyResolver;
-    uri: string;
+    connectable?: SocketConnectable;
+    defaultPort?: number;
+    proxyResolver?: ProxyResolver;
+    uri?: string;
   }
   
   export class Resolver extends GObject.Object {
@@ -5188,6 +5234,8 @@ declare module "Gio" {
     public setDefault(): void;
     public reload(): void;
     
+    public on(event: 'reload', listener: () => void): this;
+    
     public static freeAddresses(addresses: GLib.List): void;
     public static freeTargets(targets: GLib.List): void;
     public static getDefault(): Resolver;
@@ -5200,13 +5248,13 @@ declare module "Gio" {
   export class Settings extends GObject.Object {
     constructor(props?: SettingsProps);
     
-    backend: SettingsBackend;
-    delayApply: boolean;
-    hasUnapplied: boolean;
-    path: string;
-    schema: string;
-    schemaId: string;
-    settingsSchema: SettingsSchema;
+    backend?: SettingsBackend;
+    delayApply?: boolean;
+    hasUnapplied?: boolean;
+    path?: string;
+    schema?: string;
+    schemaId?: string;
+    settingsSchema?: SettingsSchema;
     
     public apply(): void;
     public bind(key: string, object: GObject.Object, property: string, flags: SettingsBindFlags): void;
@@ -5255,6 +5303,11 @@ declare module "Gio" {
     public writableChangeEvent(key: GLib.Quark): boolean;
     public writableChanged(key: string): void;
     
+    public on(event: 'changeEvent', listener: (keys: GLib.Quark[], nKeys: number) => boolean): this;
+    public on(event: 'changed', listener: (key: string) => void): this;
+    public on(event: 'writableChangeEvent', listener: (key: number) => boolean): this;
+    public on(event: 'writableChanged', listener: (key: string) => void): this;
+    
     public static listRelocatableSchemas(): string[];
     public static listSchemas(): string[];
     public static sync(): void;
@@ -5262,13 +5315,13 @@ declare module "Gio" {
   }
   
   interface SettingsProps extends GObject.ObjectProps {
-    backend: SettingsBackend;
-    delayApply: boolean;
-    hasUnapplied: boolean;
-    path: string;
-    schema: string;
-    schemaId: string;
-    settingsSchema: SettingsSchema;
+    backend?: SettingsBackend;
+    delayApply?: boolean;
+    hasUnapplied?: boolean;
+    path?: string;
+    schema?: string;
+    schemaId?: string;
+    settingsSchema?: SettingsSchema;
   }
   
   export class SettingsBackend extends GObject.Object {
@@ -5302,23 +5355,26 @@ declare module "Gio" {
   export class SimpleAction extends GObject.Object implements Action {
     constructor(props?: SimpleActionProps);
     
-    enabled: boolean;
-    name: string;
-    parameterType: GLib.VariantType;
-    state: GLib.Variant;
-    stateType: GLib.VariantType;
+    enabled?: boolean;
+    name?: string;
+    parameterType?: GLib.VariantType;
+    state?: GLib.Variant;
+    stateType?: GLib.VariantType;
     
     public setEnabled(enabled: boolean): void;
     public setState(value: GLib.Variant): void;
     public setStateHint(stateHint: GLib.Variant): void;
+    
+    public on(event: 'activate', listener: (parameter: GLib.Variant) => void): this;
+    public on(event: 'changeState', listener: (value: GLib.Variant) => void): this;
   }
   
   interface SimpleActionProps extends GObject.ObjectProps, ActionProps {
-    enabled: boolean;
-    name: string;
-    parameterType: GLib.VariantType;
-    state: GLib.Variant;
-    stateType: GLib.VariantType;
+    enabled?: boolean;
+    name?: string;
+    parameterType?: GLib.VariantType;
+    state?: GLib.Variant;
+    stateType?: GLib.VariantType;
   }
   
   export class SimpleActionGroup extends GObject.Object implements ActionGroup, ActionMap {
@@ -5365,13 +5421,13 @@ declare module "Gio" {
   export class SimpleIOStream extends IOStream {
     constructor(props?: SimpleIOStreamProps);
     
-    inputStream: InputStream;
-    outputStream: OutputStream;
+    inputStream?: InputStream;
+    outputStream?: OutputStream;
   }
   
   interface SimpleIOStreamProps extends IOStreamProps {
-    inputStream: InputStream;
-    outputStream: OutputStream;
+    inputStream?: InputStream;
+    outputStream?: OutputStream;
   }
   
   export class SimplePermission extends Permission {
@@ -5385,8 +5441,8 @@ declare module "Gio" {
   export class SimpleProxyResolver extends GObject.Object implements ProxyResolver {
     constructor(props?: SimpleProxyResolverProps);
     
-    defaultProxy: string;
-    ignoreHosts: string[];
+    defaultProxy?: string;
+    ignoreHosts?: string[];
     
     public setDefaultProxy(defaultProxy: string): void;
     public setIgnoreHosts(ignoreHosts: string): void;
@@ -5396,27 +5452,27 @@ declare module "Gio" {
   }
   
   interface SimpleProxyResolverProps extends GObject.ObjectProps, ProxyResolverProps {
-    defaultProxy: string;
-    ignoreHosts: string[];
+    defaultProxy?: string;
+    ignoreHosts?: string[];
   }
   
   export class Socket extends GObject.Object implements DatagramBased, Initable {
     constructor(props?: SocketProps);
     
-    blocking: boolean;
-    broadcast: boolean;
-    family: SocketFamily;
-    fd: number;
-    keepalive: boolean;
-    listenBacklog: number;
-    localAddress: SocketAddress;
-    multicastLoopback: boolean;
-    multicastTtl: number;
-    protocol: SocketProtocol;
-    remoteAddress: SocketAddress;
-    timeout: number;
-    ttl: number;
-    type: SocketType;
+    blocking?: boolean;
+    broadcast?: boolean;
+    family?: SocketFamily;
+    fd?: number;
+    keepalive?: boolean;
+    listenBacklog?: number;
+    localAddress?: SocketAddress;
+    multicastLoopback?: boolean;
+    multicastTtl?: number;
+    protocol?: SocketProtocol;
+    remoteAddress?: SocketAddress;
+    timeout?: number;
+    ttl?: number;
+    type?: SocketType;
     
     public accept(cancellable: Cancellable): Socket;
     public bind(address: SocketAddress, allowReuse: boolean): boolean;
@@ -5474,26 +5530,26 @@ declare module "Gio" {
   }
   
   interface SocketProps extends GObject.ObjectProps, DatagramBasedProps, InitableProps {
-    blocking: boolean;
-    broadcast: boolean;
-    family: SocketFamily;
-    fd: number;
-    keepalive: boolean;
-    listenBacklog: number;
-    localAddress: SocketAddress;
-    multicastLoopback: boolean;
-    multicastTtl: number;
-    protocol: SocketProtocol;
-    remoteAddress: SocketAddress;
-    timeout: number;
-    ttl: number;
-    type: SocketType;
+    blocking?: boolean;
+    broadcast?: boolean;
+    family?: SocketFamily;
+    fd?: number;
+    keepalive?: boolean;
+    listenBacklog?: number;
+    localAddress?: SocketAddress;
+    multicastLoopback?: boolean;
+    multicastTtl?: number;
+    protocol?: SocketProtocol;
+    remoteAddress?: SocketAddress;
+    timeout?: number;
+    ttl?: number;
+    type?: SocketType;
   }
   
   export class SocketAddress extends GObject.Object implements SocketConnectable {
     constructor(props?: SocketAddressProps);
     
-    family: SocketFamily;
+    family?: SocketFamily;
     
     public getFamily(): SocketFamily;
     public getNativeSize(): number;
@@ -5501,7 +5557,7 @@ declare module "Gio" {
   }
   
   interface SocketAddressProps extends GObject.ObjectProps, SocketConnectableProps {
-    family: SocketFamily;
+    family?: SocketFamily;
   }
   
   export class SocketAddressEnumerator extends GObject.Object {
@@ -5519,15 +5575,15 @@ declare module "Gio" {
   export class SocketClient extends GObject.Object {
     constructor(props?: SocketClientProps);
     
-    enableProxy: boolean;
-    family: SocketFamily;
-    localAddress: SocketAddress;
-    protocol: SocketProtocol;
-    proxyResolver: ProxyResolver;
-    timeout: number;
-    tls: boolean;
-    tlsValidationFlags: TlsCertificateFlags;
-    type: SocketType;
+    enableProxy?: boolean;
+    family?: SocketFamily;
+    localAddress?: SocketAddress;
+    protocol?: SocketProtocol;
+    proxyResolver?: ProxyResolver;
+    timeout?: number;
+    tls?: boolean;
+    tlsValidationFlags?: TlsCertificateFlags;
+    type?: SocketType;
     
     public addApplicationProxy(protocol: string): void;
     public connect(connectable: SocketConnectable, cancellable: Cancellable): SocketConnection;
@@ -5561,24 +5617,26 @@ declare module "Gio" {
     public setTls(tls: boolean): void;
     public setTlsValidationFlags(flags: TlsCertificateFlags): void;
     public event(event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream): void;
+    
+    public on(event: 'event', listener: (event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream) => void): this;
   }
   
   interface SocketClientProps extends GObject.ObjectProps {
-    enableProxy: boolean;
-    family: SocketFamily;
-    localAddress: SocketAddress;
-    protocol: SocketProtocol;
-    proxyResolver: ProxyResolver;
-    timeout: number;
-    tls: boolean;
-    tlsValidationFlags: TlsCertificateFlags;
-    type: SocketType;
+    enableProxy?: boolean;
+    family?: SocketFamily;
+    localAddress?: SocketAddress;
+    protocol?: SocketProtocol;
+    proxyResolver?: ProxyResolver;
+    timeout?: number;
+    tls?: boolean;
+    tlsValidationFlags?: TlsCertificateFlags;
+    type?: SocketType;
   }
   
   export class SocketConnection extends IOStream {
     constructor(props?: SocketConnectionProps);
     
-    socket: Socket;
+    socket?: Socket;
     
     public connect(address: SocketAddress, cancellable: Cancellable): boolean;
     public connectAsync(address: SocketAddress, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -5593,7 +5651,7 @@ declare module "Gio" {
   }
   
   interface SocketConnectionProps extends IOStreamProps {
-    socket: Socket;
+    socket?: Socket;
   }
   
   export class SocketControlMessage extends GObject.Object {
@@ -5615,7 +5673,7 @@ declare module "Gio" {
   export class SocketListener extends GObject.Object {
     constructor(props?: SocketListenerProps);
     
-    listenBacklog: number;
+    listenBacklog?: number;
     
     public accept(sourceObject: GObject.Object, cancellable: Cancellable): SocketConnection;
     public acceptAsync(cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -5631,32 +5689,36 @@ declare module "Gio" {
     public setBacklog(listenBacklog: number): void;
     public changed(): void;
     public event(event: SocketListenerEvent, socket: Socket): void;
+    
+    public on(event: 'event', listener: (event: SocketListenerEvent, socket: Socket) => void): this;
   }
   
   interface SocketListenerProps extends GObject.ObjectProps {
-    listenBacklog: number;
+    listenBacklog?: number;
   }
   
   export class SocketService extends SocketListener {
     constructor(props?: SocketServiceProps);
     
-    active: boolean;
+    active?: boolean;
     
     public isActive(): boolean;
     public start(): void;
     public stop(): void;
     public incoming(connection: SocketConnection, sourceObject: GObject.Object): boolean;
+    
+    public on(event: 'incoming', listener: (connection: SocketConnection, sourceObject: GObject.Object) => boolean): this;
   }
   
   interface SocketServiceProps extends SocketListenerProps {
-    active: boolean;
+    active?: boolean;
   }
   
   export class Subprocess extends GObject.Object implements Initable {
     constructor(props?: SubprocessProps);
     
-    argv: string[];
-    flags: SubprocessFlags;
+    argv?: string[];
+    flags?: SubprocessFlags;
     
     public communicate(stdinBuf: GLib.Bytes, cancellable: Cancellable, stdoutBuf: GLib.Bytes, stderrBuf: GLib.Bytes): boolean;
     public communicateAsync(stdinBuf: GLib.Bytes, cancellable: Cancellable, callback: AsyncReadyCallback, userData: any): void;
@@ -5685,14 +5747,14 @@ declare module "Gio" {
   }
   
   interface SubprocessProps extends GObject.ObjectProps, InitableProps {
-    argv: string[];
-    flags: SubprocessFlags;
+    argv?: string[];
+    flags?: SubprocessFlags;
   }
   
   export class SubprocessLauncher extends GObject.Object {
     constructor(props?: SubprocessLauncherProps);
     
-    flags: SubprocessFlags;
+    flags?: SubprocessFlags;
     
     public getenv(variable: string): string;
     public setChildSetup(childSetup: GLib.SpawnChildSetupFunc, userData: any, destroyNotify: GLib.DestroyNotify): void;
@@ -5713,13 +5775,13 @@ declare module "Gio" {
   }
   
   interface SubprocessLauncherProps extends GObject.ObjectProps {
-    flags: SubprocessFlags;
+    flags?: SubprocessFlags;
   }
   
   export class Task extends GObject.Object implements AsyncResult {
     constructor(props?: TaskProps);
     
-    completed: boolean;
+    completed?: boolean;
     
     public attachSource(source: GLib.Source, callback: GLib.SourceFunc): void;
     public getCancellable(): Cancellable;
@@ -5755,38 +5817,38 @@ declare module "Gio" {
   }
   
   interface TaskProps extends GObject.ObjectProps, AsyncResultProps {
-    completed: boolean;
+    completed?: boolean;
   }
   
   export class TcpConnection extends SocketConnection {
     constructor(props?: TcpConnectionProps);
     
-    gracefulDisconnect: boolean;
+    gracefulDisconnect?: boolean;
     
     public getGracefulDisconnect(): boolean;
     public setGracefulDisconnect(gracefulDisconnect: boolean): void;
   }
   
   interface TcpConnectionProps extends SocketConnectionProps {
-    gracefulDisconnect: boolean;
+    gracefulDisconnect?: boolean;
   }
   
   export class TcpWrapperConnection extends TcpConnection {
     constructor(props?: TcpWrapperConnectionProps);
     
-    baseIoStream: IOStream;
+    baseIoStream?: IOStream;
     
     public getBaseIoStream(): IOStream;
   }
   
   interface TcpWrapperConnectionProps extends TcpConnectionProps {
-    baseIoStream: IOStream;
+    baseIoStream?: IOStream;
   }
   
   export class TestDBus extends GObject.Object {
     constructor(props?: TestDBusProps);
     
-    flags: TestDBusFlags;
+    flags?: TestDBusFlags;
     
     public addServiceDir(path: string): void;
     public down(): void;
@@ -5799,15 +5861,15 @@ declare module "Gio" {
   }
   
   interface TestDBusProps extends GObject.ObjectProps {
-    flags: TestDBusFlags;
+    flags?: TestDBusFlags;
   }
   
   export class ThemedIcon extends GObject.Object implements Icon {
     constructor(props?: ThemedIconProps);
     
-    name: string;
-    names: string[];
-    useDefaultFallbacks: boolean;
+    name?: string;
+    names?: string[];
+    useDefaultFallbacks?: boolean;
     
     public appendName(iconname: string): void;
     public getNames(): string[];
@@ -5815,31 +5877,33 @@ declare module "Gio" {
   }
   
   interface ThemedIconProps extends GObject.ObjectProps, IconProps {
-    name: string;
-    names: string[];
-    useDefaultFallbacks: boolean;
+    name?: string;
+    names?: string[];
+    useDefaultFallbacks?: boolean;
   }
   
   export class ThreadedSocketService extends SocketService {
     constructor(props?: ThreadedSocketServiceProps);
     
-    maxThreads: number;
+    maxThreads?: number;
     
     public run(connection: SocketConnection, sourceObject: GObject.Object): boolean;
+    
+    public on(event: 'run', listener: (connection: SocketConnection, sourceObject: GObject.Object) => boolean): this;
   }
   
   interface ThreadedSocketServiceProps extends SocketServiceProps {
-    maxThreads: number;
+    maxThreads?: number;
   }
   
   export class TlsCertificate extends GObject.Object {
     constructor(props?: TlsCertificateProps);
     
-    certificate: any[];
-    certificatePem: string;
-    issuer: TlsCertificate;
-    privateKey: any[];
-    privateKeyPem: string;
+    certificate?: any[];
+    certificatePem?: string;
+    issuer?: TlsCertificate;
+    privateKey?: any[];
+    privateKeyPem?: string;
     
     public getIssuer(): TlsCertificate;
     public isSame(certTwo: TlsCertificate): boolean;
@@ -5849,25 +5913,25 @@ declare module "Gio" {
   }
   
   interface TlsCertificateProps extends GObject.ObjectProps {
-    certificate: any[];
-    certificatePem: string;
-    issuer: TlsCertificate;
-    privateKey: any[];
-    privateKeyPem: string;
+    certificate?: any[];
+    certificatePem?: string;
+    issuer?: TlsCertificate;
+    privateKey?: any[];
+    privateKeyPem?: string;
   }
   
   export class TlsConnection extends IOStream {
     constructor(props?: TlsConnectionProps);
     
-    baseIoStream: IOStream;
-    certificate: TlsCertificate;
-    database: TlsDatabase;
-    interaction: TlsInteraction;
-    peerCertificate: TlsCertificate;
-    peerCertificateErrors: TlsCertificateFlags;
-    rehandshakeMode: TlsRehandshakeMode;
-    requireCloseNotify: boolean;
-    useSystemCertdb: boolean;
+    baseIoStream?: IOStream;
+    certificate?: TlsCertificate;
+    database?: TlsDatabase;
+    interaction?: TlsInteraction;
+    peerCertificate?: TlsCertificate;
+    peerCertificateErrors?: TlsCertificateFlags;
+    rehandshakeMode?: TlsRehandshakeMode;
+    requireCloseNotify?: boolean;
+    useSystemCertdb?: boolean;
     
     public emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean;
     public getCertificate(): TlsCertificate;
@@ -5888,18 +5952,20 @@ declare module "Gio" {
     public setRequireCloseNotify(requireCloseNotify: boolean): void;
     public setUseSystemCertdb(useSystemCertdb: boolean): void;
     public acceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean;
+    
+    public on(event: 'acceptCertificate', listener: (peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean): this;
   }
   
   interface TlsConnectionProps extends IOStreamProps {
-    baseIoStream: IOStream;
-    certificate: TlsCertificate;
-    database: TlsDatabase;
-    interaction: TlsInteraction;
-    peerCertificate: TlsCertificate;
-    peerCertificateErrors: TlsCertificateFlags;
-    rehandshakeMode: TlsRehandshakeMode;
-    requireCloseNotify: boolean;
-    useSystemCertdb: boolean;
+    baseIoStream?: IOStream;
+    certificate?: TlsCertificate;
+    database?: TlsDatabase;
+    interaction?: TlsInteraction;
+    peerCertificate?: TlsCertificate;
+    peerCertificateErrors?: TlsCertificateFlags;
+    rehandshakeMode?: TlsRehandshakeMode;
+    requireCloseNotify?: boolean;
+    useSystemCertdb?: boolean;
   }
   
   export class TlsDatabase extends GObject.Object {
@@ -5944,9 +6010,9 @@ declare module "Gio" {
   export class TlsPassword extends GObject.Object {
     constructor(props?: TlsPasswordProps);
     
-    description: string;
-    flags: TlsPasswordFlags;
-    warning: string;
+    description?: string;
+    flags?: TlsPasswordFlags;
+    warning?: string;
     
     public getDescription(): string;
     public getFlags(): TlsPasswordFlags;
@@ -5961,9 +6027,9 @@ declare module "Gio" {
   }
   
   interface TlsPasswordProps extends GObject.ObjectProps {
-    description: string;
-    flags: TlsPasswordFlags;
-    warning: string;
+    description?: string;
+    flags?: TlsPasswordFlags;
+    warning?: string;
   }
   
   export class UnixConnection extends SocketConnection {
@@ -5986,7 +6052,7 @@ declare module "Gio" {
   export class UnixCredentialsMessage extends SocketControlMessage {
     constructor(props?: UnixCredentialsMessageProps);
     
-    credentials: Credentials;
+    credentials?: Credentials;
     
     public getCredentials(): Credentials;
     
@@ -5994,7 +6060,7 @@ declare module "Gio" {
   }
   
   interface UnixCredentialsMessageProps extends SocketControlMessageProps {
-    credentials: Credentials;
+    credentials?: Credentials;
   }
   
   export class UnixFDList extends GObject.Object {
@@ -6014,7 +6080,7 @@ declare module "Gio" {
   export class UnixFDMessage extends SocketControlMessage {
     constructor(props?: UnixFDMessageProps);
     
-    fdList: UnixFDList;
+    fdList?: UnixFDList;
     
     public appendFd(fd: number): boolean;
     public getFdList(): UnixFDList;
@@ -6022,14 +6088,14 @@ declare module "Gio" {
   }
   
   interface UnixFDMessageProps extends SocketControlMessageProps {
-    fdList: UnixFDList;
+    fdList?: UnixFDList;
   }
   
   export class UnixInputStream extends InputStream implements FileDescriptorBased, PollableInputStream {
     constructor(props?: UnixInputStreamProps);
     
-    closeFd: boolean;
-    fd: number;
+    closeFd?: boolean;
+    fd?: number;
     
     public getCloseFd(): boolean;
     public getFd(): number;
@@ -6037,14 +6103,17 @@ declare module "Gio" {
   }
   
   interface UnixInputStreamProps extends InputStreamProps, FileDescriptorBasedProps, PollableInputStreamProps {
-    closeFd: boolean;
-    fd: number;
+    closeFd?: boolean;
+    fd?: number;
   }
   
   export class UnixMountMonitor extends GObject.Object {
     constructor(props?: UnixMountMonitorProps);
     
     public setRateLimit(limitMsec: number): void;
+    
+    public on(event: 'mountpointsChanged', listener: () => void): this;
+    public on(event: 'mountsChanged', listener: () => void): this;
     
     public static get(): UnixMountMonitor;
   }
@@ -6056,8 +6125,8 @@ declare module "Gio" {
   export class UnixOutputStream extends OutputStream implements FileDescriptorBased, PollableOutputStream {
     constructor(props?: UnixOutputStreamProps);
     
-    closeFd: boolean;
-    fd: number;
+    closeFd?: boolean;
+    fd?: number;
     
     public getCloseFd(): boolean;
     public getFd(): number;
@@ -6065,17 +6134,17 @@ declare module "Gio" {
   }
   
   interface UnixOutputStreamProps extends OutputStreamProps, FileDescriptorBasedProps, PollableOutputStreamProps {
-    closeFd: boolean;
-    fd: number;
+    closeFd?: boolean;
+    fd?: number;
   }
   
   export class UnixSocketAddress extends SocketAddress implements SocketConnectable {
     constructor(props?: UnixSocketAddressProps);
     
-    abstract: boolean;
-    addressType: UnixSocketAddressType;
-    path: string;
-    pathAsArray: any[];
+    abstract?: boolean;
+    addressType?: UnixSocketAddressType;
+    path?: string;
+    pathAsArray?: any[];
     
     public getAddressType(): UnixSocketAddressType;
     public getIsAbstract(): boolean;
@@ -6086,10 +6155,10 @@ declare module "Gio" {
   }
   
   interface UnixSocketAddressProps extends SocketAddressProps, SocketConnectableProps {
-    abstract: boolean;
-    addressType: UnixSocketAddressType;
-    path: string;
-    pathAsArray: any[];
+    abstract?: boolean;
+    addressType?: UnixSocketAddressType;
+    path?: string;
+    pathAsArray?: any[];
   }
   
   export class Vfs extends GObject.Object {
@@ -6138,6 +6207,19 @@ declare module "Gio" {
     public volumeChanged(volume: Volume): void;
     public volumeRemoved(volume: Volume): void;
     
+    public on(event: 'driveChanged', listener: (drive: Drive) => void): this;
+    public on(event: 'driveConnected', listener: (drive: Drive) => void): this;
+    public on(event: 'driveDisconnected', listener: (drive: Drive) => void): this;
+    public on(event: 'driveEjectButton', listener: (drive: Drive) => void): this;
+    public on(event: 'driveStopButton', listener: (drive: Drive) => void): this;
+    public on(event: 'mountAdded', listener: (mount: Mount) => void): this;
+    public on(event: 'mountChanged', listener: (mount: Mount) => void): this;
+    public on(event: 'mountPreUnmount', listener: (mount: Mount) => void): this;
+    public on(event: 'mountRemoved', listener: (mount: Mount) => void): this;
+    public on(event: 'volumeAdded', listener: (volume: Volume) => void): this;
+    public on(event: 'volumeChanged', listener: (volume: Volume) => void): this;
+    public on(event: 'volumeRemoved', listener: (volume: Volume) => void): this;
+    
     public static adoptOrphanMount(mount: Mount): Volume;
     public static get(): VolumeMonitor;
   }
@@ -6149,32 +6231,32 @@ declare module "Gio" {
   export class ZlibCompressor extends GObject.Object implements Converter {
     constructor(props?: ZlibCompressorProps);
     
-    fileInfo: FileInfo;
-    format: ZlibCompressorFormat;
-    level: number;
+    fileInfo?: FileInfo;
+    format?: ZlibCompressorFormat;
+    level?: number;
     
     public getFileInfo(): FileInfo;
     public setFileInfo(fileInfo: FileInfo): void;
   }
   
   interface ZlibCompressorProps extends GObject.ObjectProps, ConverterProps {
-    fileInfo: FileInfo;
-    format: ZlibCompressorFormat;
-    level: number;
+    fileInfo?: FileInfo;
+    format?: ZlibCompressorFormat;
+    level?: number;
   }
   
   export class ZlibDecompressor extends GObject.Object implements Converter {
     constructor(props?: ZlibDecompressorProps);
     
-    fileInfo: FileInfo;
-    format: ZlibCompressorFormat;
+    fileInfo?: FileInfo;
+    format?: ZlibCompressorFormat;
     
     public getFileInfo(): FileInfo;
   }
   
   interface ZlibDecompressorProps extends GObject.ObjectProps, ConverterProps {
-    fileInfo: FileInfo;
-    format: ZlibCompressorFormat;
+    fileInfo?: FileInfo;
+    format?: ZlibCompressorFormat;
   }
 
 }

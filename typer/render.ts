@@ -1,7 +1,7 @@
 import { uniqBy } from 'lodash'
 import {
   Node, ConstantNode, NamespaceNode, ClassNode, InterfaceNode, FunctionNode, ParameterNode,
-  ParametersNode, RecordNode, EnumNode
+  ParametersNode, RecordNode, EnumNode, SignalNode
 } from './girxml'
 import { GeneratorOptions } from './generator'
 import { getTypeFromParameterNode, getTypeFromParametersNode } from './convert'
@@ -25,6 +25,10 @@ type MethodOptions = {
   modifiers?: string[],
   includeName?: boolean,
   forExternalInterfaceInNamespace?: string
+}
+
+type SignalOptions = {
+  modifiers?: string[]
 }
 
 function indent(block: string, spaces: number = 2) {
@@ -59,7 +63,7 @@ function renderProperty(node: ParameterNode, { modifiers = [] }: PropertyOptions
     name += '_'
   }
 
-  return `${modifiers.length > 0 ? modifiers.join(' ') + ' ' : ''}${name}: ${getTypeFromParameterNode(node).type};`
+  return `${modifiers.length > 0 ? modifiers.join(' ') + ' ' : ''}${name}?: ${getTypeFromParameterNode(node).type};`
 }
 
 function renderParam(node: ParameterNode, { forExternalInterfaceInNamespace }: ParamOptions, options: GeneratorOptions) {
@@ -118,6 +122,23 @@ function renderMethod(node: FunctionNode, { modifiers = [], includeName = true, 
   }
 
   method += `(${params.join(', ')}): ${returnType};`
+
+  return method
+}
+
+function renderSignal(node: SignalNode, { modifiers = [] }: SignalOptions = {}, options: GeneratorOptions) {
+  const name = options.jsgtk ? camel(node.$.name) : node.$.name
+  const returnType = getTypeFromParametersNode(node['return-value'])
+  const params = getParamNodes(node.parameters)
+    .map(param => renderParam(param, {}, options))
+
+  let method = ''
+
+  if (modifiers.length > 0) {
+    method += modifiers.join(' ') + ' '
+  }
+
+  method += `on(event: '${name}', listener: (${params.join(', ')}) => ${returnType}): this;`
 
   return method
 }
@@ -207,6 +228,9 @@ function renderClass(node: ClassNode, options: GeneratorOptions) {
     getMethods(node)
       .map(method => renderMethod(method, { modifiers: ['public'] }, options))
       .join('\n'),
+    (node['glib:signal'] || [])
+      .map(signal => renderSignal(signal, { modifiers: ['public'] }, options))
+      .join('\n'),
     (node.function || [])
       .map(method => renderMethod(method, { modifiers: ['public', 'static'] }, options))
       .join('\n')
@@ -244,7 +268,7 @@ function renderNodeAsBlankInterface(node: Node) {
 }
 
 
-export function renderNamespace(node: NamespaceNode, options: GeneratorOptions) {
+export function renderNamespace(node: NamespaceNode, imports: string[], options: GeneratorOptions) {
   const entries = [
     { name: 'alias', render: renderAlias },
     { name: 'constant', render: renderConstant },
@@ -258,7 +282,7 @@ export function renderNamespace(node: NamespaceNode, options: GeneratorOptions) 
     { name: 'class', render: renderClass }
   ]
 
-  const body = entries
+  let body = entries
     .map(({ name, render }: { name: string, render: (node: Node, options: GeneratorOptions) => string }) => (
       node[name]
         ? node[name]
@@ -269,7 +293,9 @@ export function renderNamespace(node: NamespaceNode, options: GeneratorOptions) 
     .map(item => `export ${item}`)
     .join('\n\n')
 
+  body = imports.map(module => `import * as ${module} from '${module}'`).join('\n') + '\n\n' + body
+
   return options.jsgtk
-    ? `declare module "${node.$.name}" {\n\n${indent(body)}\n\n}`
-    : `declare namespace "imports.gi.${node.$.name} {\n\n${indent(body)}\n\n}`
+    ? `declare module "${node.$.name}" {\n${indent(body)}\n\n}`
+    : `declare namespace "imports.gi.${node.$.name} {\n${indent(body)}\n\n}`
 }

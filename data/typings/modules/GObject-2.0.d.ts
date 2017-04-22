@@ -1,5 +1,6 @@
 declare module "GObject" {
-
+  import * as GLib from 'GLib'
+  
   export type SignalCMarshaller = ClosureMarshal;
   
   export type SignalCVaMarshaller = VaClosureMarshal;
@@ -571,23 +572,23 @@ declare module "GObject" {
   }
   
   export class CClosure {
-    public closure: Closure;
-    public callback: any;
+    public closure?: Closure;
+    public callback?: any;
   }
   
   export class Closure {
-    public refCount: number;
-    public metaMarshalNouse: number;
-    public nGuards: number;
-    public nFnotifiers: number;
-    public nInotifiers: number;
-    public inInotify: number;
-    public floating: number;
-    public derivativeFlag: number;
-    public inMarshal: number;
-    public isInvalid: number;
-    public data: any;
-    public notifiers: ClosureNotifyData;
+    public refCount?: number;
+    public metaMarshalNouse?: number;
+    public nGuards?: number;
+    public nFnotifiers?: number;
+    public nInotifiers?: number;
+    public inInotify?: number;
+    public floating?: number;
+    public derivativeFlag?: number;
+    public inMarshal?: number;
+    public isInvalid?: number;
+    public data?: any;
+    public notifiers?: ClosureNotifyData;
     
     marshal : { (closure: Closure, returnValue: Value, nParamValues: number, paramValues: Value, invocationHint: any, marshalData: any): void; };
     
@@ -606,42 +607,42 @@ declare module "GObject" {
   }
   
   export class ClosureNotifyData {
-    public data: any;
-    public notify: ClosureNotify;
+    public data?: any;
+    public notify?: ClosureNotify;
   }
   
   export class EnumClass {
-    public gTypeClass: TypeClass;
-    public minimum: number;
-    public maximum: number;
-    public nValues: number;
-    public values: EnumValue;
+    public gTypeClass?: TypeClass;
+    public minimum?: number;
+    public maximum?: number;
+    public nValues?: number;
+    public values?: EnumValue;
   }
   
   export class EnumValue {
-    public value: number;
-    public valueName: string;
-    public valueNick: string;
+    public value?: number;
+    public valueName?: string;
+    public valueNick?: string;
   }
   
   export class FlagsClass {
-    public gTypeClass: TypeClass;
-    public mask: number;
-    public nValues: number;
-    public values: FlagsValue;
+    public gTypeClass?: TypeClass;
+    public mask?: number;
+    public nValues?: number;
+    public values?: FlagsValue;
   }
   
   export class FlagsValue {
-    public value: number;
-    public valueName: string;
-    public valueNick: string;
+    public value?: number;
+    public valueName?: string;
+    public valueNick?: string;
   }
   
   export class InitiallyUnownedClass {
-    public gTypeClass: TypeClass;
-    public constructProperties: GLib.SList;
-    public flags: number;
-    public pdummy: any[];
+    public gTypeClass?: TypeClass;
+    public constructProperties?: GLib.SList;
+    public flags?: number;
+    public pdummy?: any[];
     
     constructor_ : { (type: GObject.Type, nConstructProperties: number, constructProperties: ObjectConstructParam): Object; };
     setProperty : { (object: Object, propertyId: number, value: Value, pspec: ParamSpec): void; };
@@ -654,16 +655,16 @@ declare module "GObject" {
   }
   
   export class InterfaceInfo {
-    public interfaceInit: InterfaceInitFunc;
-    public interfaceFinalize: InterfaceFinalizeFunc;
-    public interfaceData: any;
+    public interfaceInit?: InterfaceInitFunc;
+    public interfaceFinalize?: InterfaceFinalizeFunc;
+    public interfaceData?: any;
   }
   
   export class ObjectClass {
-    public gTypeClass: TypeClass;
-    public constructProperties: GLib.SList;
-    public flags: number;
-    public pdummy: any[];
+    public gTypeClass?: TypeClass;
+    public constructProperties?: GLib.SList;
+    public flags?: number;
+    public pdummy?: any[];
     
     constructor_ : { (type: GObject.Type, nConstructProperties: number, constructProperties: ObjectConstructParam): Object; };
     setProperty : { (object: Object, propertyId: number, value: Value, pspec: ParamSpec): void; };
@@ -682,14 +683,14 @@ declare module "GObject" {
   }
   
   export class ObjectConstructParam {
-    public pspec: ParamSpec;
-    public value: Value;
+    public pspec?: ParamSpec;
+    public value?: Value;
   }
   
   export class ParamSpecClass {
-    public gTypeClass: TypeClass;
-    public valueType: GObject.Type;
-    public dummy: any[];
+    public gTypeClass?: TypeClass;
+    public valueType?: GObject.Type;
+    public dummy?: any[];
     
     finalize : { (pspec: ParamSpec): void; };
     valueSetDefault : { (pspec: ParamSpec, value: Value): void; };
@@ -706,9 +707,9 @@ declare module "GObject" {
   }
   
   export class ParamSpecTypeInfo {
-    public instanceSize: number;
-    public nPreallocs: number;
-    public valueType: GObject.Type;
+    public instanceSize?: number;
+    public nPreallocs?: number;
+    public valueType?: GObject.Type;
     
     instanceInit : { (pspec: ParamSpec): void; };
     finalize : { (pspec: ParamSpec): void; };
@@ -718,28 +719,28 @@ declare module "GObject" {
   }
   
   export class Parameter {
-    public name: string;
-    public value: Value;
+    public name?: string;
+    public value?: Value;
   }
   
   export class SignalInvocationHint {
-    public signalId: number;
-    public detail: GLib.Quark;
-    public runType: SignalFlags;
+    public signalId?: number;
+    public detail?: GLib.Quark;
+    public runType?: SignalFlags;
   }
   
   export class SignalQuery {
-    public signalId: number;
-    public signalName: string;
-    public itype: GObject.Type;
-    public signalFlags: SignalFlags;
-    public returnType: GObject.Type;
-    public nParams: number;
-    public paramTypes: GObject.Type[];
+    public signalId?: number;
+    public signalName?: string;
+    public itype?: GObject.Type;
+    public signalFlags?: SignalFlags;
+    public returnType?: GObject.Type;
+    public nParams?: number;
+    public paramTypes?: GObject.Type[];
   }
   
   export class TypeClass {
-    public gType: GObject.Type;
+    public gType?: GObject.Type;
     
     public addPrivate(privateSize: number): void;
     public getInstancePrivateOffset(): number;
@@ -750,37 +751,37 @@ declare module "GObject" {
   }
   
   export class TypeFundamentalInfo {
-    public typeFlags: TypeFundamentalFlags;
+    public typeFlags?: TypeFundamentalFlags;
   }
   
   export class TypeInfo {
-    public classSize: number;
-    public baseInit: BaseInitFunc;
-    public baseFinalize: BaseFinalizeFunc;
-    public classInit: ClassInitFunc;
-    public classFinalize: ClassFinalizeFunc;
-    public classData: any;
-    public instanceSize: number;
-    public nPreallocs: number;
-    public instanceInit: InstanceInitFunc;
-    public valueTable: TypeValueTable;
+    public classSize?: number;
+    public baseInit?: BaseInitFunc;
+    public baseFinalize?: BaseFinalizeFunc;
+    public classInit?: ClassInitFunc;
+    public classFinalize?: ClassFinalizeFunc;
+    public classData?: any;
+    public instanceSize?: number;
+    public nPreallocs?: number;
+    public instanceInit?: InstanceInitFunc;
+    public valueTable?: TypeValueTable;
   }
   
   export class TypeInstance {
-    public gClass: TypeClass;
+    public gClass?: TypeClass;
     
     public getPrivate(privateType: GObject.Type): any;
   }
   
   export class TypeInterface {
-    public gType: GObject.Type;
-    public gInstanceType: GObject.Type;
+    public gType?: GObject.Type;
+    public gInstanceType?: GObject.Type;
     
     public peekParent(): TypeInterface;
   }
   
   export class TypeModuleClass {
-    public parentClass: ObjectClass;
+    public parentClass?: ObjectClass;
     
     load : { (module: TypeModule): boolean; };
     unload : { (module: TypeModule): void; };
@@ -791,23 +792,23 @@ declare module "GObject" {
   }
   
   export class TypePluginClass {
-    public baseIface: TypeInterface;
-    public usePlugin: TypePluginUse;
-    public unusePlugin: TypePluginUnuse;
-    public completeTypeInfo: TypePluginCompleteTypeInfo;
-    public completeInterfaceInfo: TypePluginCompleteInterfaceInfo;
+    public baseIface?: TypeInterface;
+    public usePlugin?: TypePluginUse;
+    public unusePlugin?: TypePluginUnuse;
+    public completeTypeInfo?: TypePluginCompleteTypeInfo;
+    public completeInterfaceInfo?: TypePluginCompleteInterfaceInfo;
   }
   
   export class TypeQuery {
-    public type: GObject.Type;
-    public typeName: string;
-    public classSize: number;
-    public instanceSize: number;
+    public type?: GObject.Type;
+    public typeName?: string;
+    public classSize?: number;
+    public instanceSize?: number;
   }
   
   export class TypeValueTable {
-    public collectFormat: string;
-    public lcopyFormat: string;
+    public collectFormat?: string;
+    public lcopyFormat?: string;
     
     valueInit : { (value: Value): void; };
     valueFree : { (value: Value): void; };
@@ -818,8 +819,8 @@ declare module "GObject" {
   }
   
   export class Value {
-    public gType: GObject.Type;
-    public data: _Value__data__union[];
+    public gType?: GObject.Type;
+    public data?: _Value__data__union[];
     
     public copy(destValue: Value): void;
     public dupBoxed(): any;
@@ -891,9 +892,9 @@ declare module "GObject" {
   }
   
   export class ValueArray {
-    public nValues: number;
-    public values: Value;
-    public nPrealloced: number;
+    public nValues?: number;
+    public values?: Value;
+    public nPrealloced?: number;
     
     public append(value: Value): ValueArray;
     public copy(): ValueArray;
@@ -927,11 +928,11 @@ declare module "GObject" {
   export class Binding extends Object {
     constructor(props?: BindingProps);
     
-    flags: BindingFlags;
-    source: Object;
-    sourceProperty: string;
-    target: Object;
-    targetProperty: string;
+    flags?: BindingFlags;
+    source?: Object;
+    sourceProperty?: string;
+    target?: Object;
+    targetProperty?: string;
     
     public getFlags(): BindingFlags;
     public getSource(): Object;
@@ -942,11 +943,11 @@ declare module "GObject" {
   }
   
   interface BindingProps extends ObjectProps {
-    flags: BindingFlags;
-    source: Object;
-    sourceProperty: string;
-    target: Object;
-    targetProperty: string;
+    flags?: BindingFlags;
+    source?: Object;
+    sourceProperty?: string;
+    target?: Object;
+    targetProperty?: string;
   }
   
   export class InitiallyUnowned extends Object {
@@ -1004,6 +1005,8 @@ declare module "GObject" {
     public dispatchPropertiesChanged(nPspecs: number, pspecs: ParamSpec): void;
     public dispose(): void;
     public finalize(): void;
+    
+    public on(event: 'notify', listener: (pspec: ParamSpec) => void): this;
     
     public static compatControl(what: number, data: any): number;
     public static interfaceFindProperty(gIface: TypeInterface, propertyName: string): ParamSpec;

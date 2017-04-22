@@ -1,5 +1,17 @@
 declare module "WebKit2" {
-
+  import * as GObject from 'GObject'
+  import * as GLib from 'GLib'
+  import * as Gtk from 'Gtk'
+  import * as Atk from 'Atk'
+  import * as Gdk from 'Gdk'
+  import * as GdkPixbuf from 'GdkPixbuf'
+  import * as Gio from 'Gio'
+  import * as Pango from 'Pango'
+  import * as cairo from 'cairo'
+  import * as xlib from 'xlib'
+  import * as JavaScriptCore from 'JavaScriptCore'
+  import * as Soup from 'Soup'
+  
   export const EDITING_COMMAND_COPY: string;
   
   export const EDITING_COMMAND_CREATE_LINK: string;
@@ -293,7 +305,7 @@ declare module "WebKit2" {
   }
   
   export class AuthenticationRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -306,7 +318,7 @@ declare module "WebKit2" {
   }
   
   export class BackForwardListClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -315,7 +327,7 @@ declare module "WebKit2" {
   }
   
   export class BackForwardListItemClass {
-    public parentClass: GObject.InitiallyUnownedClass;
+    public parentClass?: GObject.InitiallyUnownedClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -332,7 +344,7 @@ declare module "WebKit2" {
   }
   
   export class ColorChooserRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class ColorChooserRequestPrivate {
@@ -340,7 +352,7 @@ declare module "WebKit2" {
   }
   
   export class ContextMenuClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -349,7 +361,7 @@ declare module "WebKit2" {
   }
   
   export class ContextMenuItemClass {
-    public parentClass: GObject.InitiallyUnownedClass;
+    public parentClass?: GObject.InitiallyUnownedClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -366,7 +378,7 @@ declare module "WebKit2" {
   }
   
   export class CookieManagerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -388,7 +400,7 @@ declare module "WebKit2" {
   }
   
   export class DownloadClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     decideDestination : { (download: Download, suggestedFilename: string): boolean; };
     _webkitReserved0 : { (): void; };
@@ -402,7 +414,7 @@ declare module "WebKit2" {
   }
   
   export class EditorStateClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -415,7 +427,7 @@ declare module "WebKit2" {
   }
   
   export class FaviconDatabaseClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -428,7 +440,7 @@ declare module "WebKit2" {
   }
   
   export class FileChooserRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -441,7 +453,7 @@ declare module "WebKit2" {
   }
   
   export class FindControllerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -454,7 +466,7 @@ declare module "WebKit2" {
   }
   
   export class FormSubmissionRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -467,7 +479,7 @@ declare module "WebKit2" {
   }
   
   export class GeolocationPermissionRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -480,7 +492,7 @@ declare module "WebKit2" {
   }
   
   export class HitTestResultClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -493,7 +505,7 @@ declare module "WebKit2" {
   }
   
   export class InstallMissingMediaPluginsPermissionRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -531,7 +543,7 @@ declare module "WebKit2" {
   }
   
   export class NavigationPolicyDecisionClass {
-    public parentClass: PolicyDecisionClass;
+    public parentClass?: PolicyDecisionClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -544,7 +556,7 @@ declare module "WebKit2" {
   }
   
   export class NotificationClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -555,7 +567,7 @@ declare module "WebKit2" {
   }
   
   export class NotificationPermissionRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
   }
   
   export class NotificationPermissionRequestPrivate {
@@ -567,14 +579,14 @@ declare module "WebKit2" {
   }
   
   export class PermissionRequestIface {
-    public parentInterface: GObject.TypeInterface;
+    public parentInterface?: GObject.TypeInterface;
     
     allow : { (request: PermissionRequest): void; };
     deny : { (request: PermissionRequest): void; };
   }
   
   export class PluginClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -587,7 +599,7 @@ declare module "WebKit2" {
   }
   
   export class PolicyDecisionClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -600,7 +612,7 @@ declare module "WebKit2" {
   }
   
   export class PrintOperationClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -613,7 +625,7 @@ declare module "WebKit2" {
   }
   
   export class ResponsePolicyDecisionClass {
-    public parentClass: PolicyDecisionClass;
+    public parentClass?: PolicyDecisionClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -634,7 +646,7 @@ declare module "WebKit2" {
   }
   
   export class SecurityManagerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -647,7 +659,7 @@ declare module "WebKit2" {
   }
   
   export class SettingsClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -660,7 +672,7 @@ declare module "WebKit2" {
   }
   
   export class URIRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -673,7 +685,7 @@ declare module "WebKit2" {
   }
   
   export class URIResponseClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -686,7 +698,7 @@ declare module "WebKit2" {
   }
   
   export class URISchemeRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -699,7 +711,7 @@ declare module "WebKit2" {
   }
   
   export class UserContentManagerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -712,7 +724,7 @@ declare module "WebKit2" {
   }
   
   export class UserMediaPermissionRequestClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -735,7 +747,7 @@ declare module "WebKit2" {
   }
   
   export class WebContextClass {
-    public parent: GObject.ObjectClass;
+    public parent?: GObject.ObjectClass;
     
     downloadStarted : { (context: WebContext, download: Download): void; };
     initializeWebExtensions : { (context: WebContext): void; };
@@ -752,7 +764,7 @@ declare module "WebKit2" {
   }
   
   export class WebInspectorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -765,7 +777,7 @@ declare module "WebKit2" {
   }
   
   export class WebResourceClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -778,7 +790,7 @@ declare module "WebKit2" {
   }
   
   export class WebViewBaseClass {
-    public parentClass: Gtk.ContainerClass;
+    public parentClass?: Gtk.ContainerClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -791,7 +803,7 @@ declare module "WebKit2" {
   }
   
   export class WebViewClass {
-    public parent: WebViewBaseClass;
+    public parent?: WebViewBaseClass;
     
     loadChanged : { (webView: WebView, loadEvent: LoadEvent): void; };
     loadFailed : { (webView: WebView, loadEvent: LoadEvent, failingUri: string, error: GLib.Error): boolean; };
@@ -834,7 +846,7 @@ declare module "WebKit2" {
   }
   
   export class WebsiteDataManagerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -847,7 +859,7 @@ declare module "WebKit2" {
   }
   
   export class WindowPropertiesClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _webkitReserved0 : { (): void; };
     _webkitReserved1 : { (): void; };
@@ -877,6 +889,8 @@ declare module "WebKit2" {
     public getScheme(): AuthenticationScheme;
     public isForProxy(): boolean;
     public isRetry(): boolean;
+    
+    public on(event: 'cancelled', listener: () => void): this;
   }
   
   interface AuthenticationRequestProps extends GObject.ObjectProps {
@@ -895,6 +909,8 @@ declare module "WebKit2" {
     public getForwardListWithLimit(limit: number): GLib.List;
     public getLength(): number;
     public getNthItem(index: number): BackForwardListItem;
+    
+    public on(event: 'changed', listener: (itemAdded: BackForwardListItem, itemsRemoved: any) => void): this;
   }
   
   interface BackForwardListProps extends GObject.ObjectProps {
@@ -916,17 +932,19 @@ declare module "WebKit2" {
   export class ColorChooserRequest extends GObject.Object {
     constructor(props?: ColorChooserRequestProps);
     
-    rgba: Gdk.RGBA;
+    rgba?: Gdk.RGBA;
     
     public cancel(): void;
     public finish(): void;
     public getElementRectangle(rect: Gdk.Rectangle): void;
     public getRgba(rgba: Gdk.RGBA): void;
     public setRgba(rgba: Gdk.RGBA): void;
+    
+    public on(event: 'finished', listener: () => void): this;
   }
   
   interface ColorChooserRequestProps extends GObject.ObjectProps {
-    rgba: Gdk.RGBA;
+    rgba?: Gdk.RGBA;
   }
   
   export class ContextMenu extends GObject.Object {
@@ -976,6 +994,8 @@ declare module "WebKit2" {
     public getDomainsWithCookiesFinish(result: Gio.AsyncResult): string[];
     public setAcceptPolicy(policy: CookieAcceptPolicy): void;
     public setPersistentStorage(filename: string, storage: CookiePersistentStorage): void;
+    
+    public on(event: 'changed', listener: () => void): this;
   }
   
   interface CookieManagerProps extends GObject.ObjectProps {
@@ -985,10 +1005,10 @@ declare module "WebKit2" {
   export class Download extends GObject.Object {
     constructor(props?: DownloadProps);
     
-    allowOverwrite: boolean;
-    destination: string;
-    estimatedProgress: number;
-    response: URIResponse;
+    allowOverwrite?: boolean;
+    destination?: string;
+    estimatedProgress?: number;
+    response?: URIResponse;
     
     public cancel(): void;
     public getAllowOverwrite(): boolean;
@@ -1002,25 +1022,31 @@ declare module "WebKit2" {
     public setAllowOverwrite(allowed: boolean): void;
     public setDestination(uri: string): void;
     public decideDestination(suggestedFilename: string): boolean;
+    
+    public on(event: 'createdDestination', listener: (destination: string) => void): this;
+    public on(event: 'decideDestination', listener: (suggestedFilename: string) => boolean): this;
+    public on(event: 'failed', listener: (error: GLib.Error) => void): this;
+    public on(event: 'finished', listener: () => void): this;
+    public on(event: 'receivedData', listener: (dataLength: number) => void): this;
   }
   
   interface DownloadProps extends GObject.ObjectProps {
-    allowOverwrite: boolean;
-    destination: string;
-    estimatedProgress: number;
-    response: URIResponse;
+    allowOverwrite?: boolean;
+    destination?: string;
+    estimatedProgress?: number;
+    response?: URIResponse;
   }
   
   export class EditorState extends GObject.Object {
     constructor(props?: EditorStateProps);
     
-    typingAttributes: number;
+    typingAttributes?: number;
     
     public getTypingAttributes(): number;
   }
   
   interface EditorStateProps extends GObject.ObjectProps {
-    typingAttributes: number;
+    typingAttributes?: number;
   }
   
   export class FaviconDatabase extends GObject.Object {
@@ -1030,6 +1056,8 @@ declare module "WebKit2" {
     public getFavicon(pageUri: string, cancellable: Gio.Cancellable, callback: Gio.AsyncReadyCallback, userData: any): void;
     public getFaviconFinish(result: Gio.AsyncResult): cairo.Surface;
     public getFaviconUri(pageUri: string): string;
+    
+    public on(event: 'faviconChanged', listener: (pageUri: string, faviconUri: string) => void): this;
   }
   
   interface FaviconDatabaseProps extends GObject.ObjectProps {
@@ -1039,10 +1067,10 @@ declare module "WebKit2" {
   export class FileChooserRequest extends GObject.Object {
     constructor(props?: FileChooserRequestProps);
     
-    filter: Gtk.FileFilter;
-    mimeTypes: string[];
-    selectMultiple: boolean;
-    selectedFiles: string[];
+    filter?: Gtk.FileFilter;
+    mimeTypes?: string[];
+    selectMultiple?: boolean;
+    selectedFiles?: string[];
     
     public cancel(): void;
     public getMimeTypes(): string[];
@@ -1053,19 +1081,19 @@ declare module "WebKit2" {
   }
   
   interface FileChooserRequestProps extends GObject.ObjectProps {
-    filter: Gtk.FileFilter;
-    mimeTypes: string[];
-    selectMultiple: boolean;
-    selectedFiles: string[];
+    filter?: Gtk.FileFilter;
+    mimeTypes?: string[];
+    selectMultiple?: boolean;
+    selectedFiles?: string[];
   }
   
   export class FindController extends GObject.Object {
     constructor(props?: FindControllerProps);
     
-    maxMatchCount: number;
-    options: FindOptions;
-    text: string;
-    webView: WebView;
+    maxMatchCount?: number;
+    options?: FindOptions;
+    text?: string;
+    webView?: WebView;
     
     public countMatches(searchText: string, findOptions: number, maxMatchCount: number): void;
     public getMaxMatchCount(): number;
@@ -1076,13 +1104,17 @@ declare module "WebKit2" {
     public searchFinish(): void;
     public searchNext(): void;
     public searchPrevious(): void;
+    
+    public on(event: 'countedMatches', listener: (matchCount: number) => void): this;
+    public on(event: 'failedToFindText', listener: () => void): this;
+    public on(event: 'foundText', listener: (matchCount: number) => void): this;
   }
   
   interface FindControllerProps extends GObject.ObjectProps {
-    maxMatchCount: number;
-    options: FindOptions;
-    text: string;
-    webView: WebView;
+    maxMatchCount?: number;
+    options?: FindOptions;
+    text?: string;
+    webView?: WebView;
   }
   
   export class FormSubmissionRequest extends GObject.Object {
@@ -1107,12 +1139,12 @@ declare module "WebKit2" {
   export class HitTestResult extends GObject.Object {
     constructor(props?: HitTestResultProps);
     
-    context: number;
-    imageUri: string;
-    linkLabel: string;
-    linkTitle: string;
-    linkUri: string;
-    mediaUri: string;
+    context?: number;
+    imageUri?: string;
+    linkLabel?: string;
+    linkTitle?: string;
+    linkUri?: string;
+    mediaUri?: string;
     
     public contextIsEditable(): boolean;
     public contextIsImage(): boolean;
@@ -1129,12 +1161,12 @@ declare module "WebKit2" {
   }
   
   interface HitTestResultProps extends GObject.ObjectProps {
-    context: number;
-    imageUri: string;
-    linkLabel: string;
-    linkTitle: string;
-    linkUri: string;
-    mediaUri: string;
+    context?: number;
+    imageUri?: string;
+    linkLabel?: string;
+    linkTitle?: string;
+    linkUri?: string;
+    mediaUri?: string;
   }
   
   export class InstallMissingMediaPluginsPermissionRequest extends GObject.Object implements PermissionRequest {
@@ -1150,12 +1182,12 @@ declare module "WebKit2" {
   export class NavigationPolicyDecision extends PolicyDecision {
     constructor(props?: NavigationPolicyDecisionProps);
     
-    frameName: string;
-    modifiers: number;
-    mouseButton: number;
-    navigationAction: NavigationAction;
-    navigationType: NavigationType;
-    request: URIRequest;
+    frameName?: string;
+    modifiers?: number;
+    mouseButton?: number;
+    navigationAction?: NavigationAction;
+    navigationType?: NavigationType;
+    request?: URIRequest;
     
     public getFrameName(): string;
     public getModifiers(): number;
@@ -1166,32 +1198,35 @@ declare module "WebKit2" {
   }
   
   interface NavigationPolicyDecisionProps extends PolicyDecisionProps {
-    frameName: string;
-    modifiers: number;
-    mouseButton: number;
-    navigationAction: NavigationAction;
-    navigationType: NavigationType;
-    request: URIRequest;
+    frameName?: string;
+    modifiers?: number;
+    mouseButton?: number;
+    navigationAction?: NavigationAction;
+    navigationType?: NavigationType;
+    request?: URIRequest;
   }
   
   export class Notification extends GObject.Object {
     constructor(props?: NotificationProps);
     
-    body: string;
-    id: number;
-    title: string;
+    body?: string;
+    id?: number;
+    title?: string;
     
     public clicked(): void;
     public close(): void;
     public getBody(): string;
     public getId(): number;
     public getTitle(): string;
+    
+    public on(event: 'clicked', listener: () => void): this;
+    public on(event: 'closed', listener: () => void): this;
   }
   
   interface NotificationProps extends GObject.ObjectProps {
-    body: string;
-    id: number;
-    title: string;
+    body?: string;
+    id?: number;
+    title?: string;
   }
   
   export class NotificationPermissionRequest extends GObject.Object implements PermissionRequest {
@@ -1230,9 +1265,9 @@ declare module "WebKit2" {
   export class PrintOperation extends GObject.Object {
     constructor(props?: PrintOperationProps);
     
-    pageSetup: Gtk.PageSetup;
-    printSettings: Gtk.PrintSettings;
-    webView: WebView;
+    pageSetup?: Gtk.PageSetup;
+    printSettings?: Gtk.PrintSettings;
+    webView?: WebView;
     
     public getPageSetup(): Gtk.PageSetup;
     public getPrintSettings(): Gtk.PrintSettings;
@@ -1240,19 +1275,22 @@ declare module "WebKit2" {
     public runDialog(parent: Gtk.Window): PrintOperationResponse;
     public setPageSetup(pageSetup: Gtk.PageSetup): void;
     public setPrintSettings(printSettings: Gtk.PrintSettings): void;
+    
+    public on(event: 'failed', listener: (error: GLib.Error) => void): this;
+    public on(event: 'finished', listener: () => void): this;
   }
   
   interface PrintOperationProps extends GObject.ObjectProps {
-    pageSetup: Gtk.PageSetup;
-    printSettings: Gtk.PrintSettings;
-    webView: WebView;
+    pageSetup?: Gtk.PageSetup;
+    printSettings?: Gtk.PrintSettings;
+    webView?: WebView;
   }
   
   export class ResponsePolicyDecision extends PolicyDecision {
     constructor(props?: ResponsePolicyDecisionProps);
     
-    request: URIRequest;
-    response: URIResponse;
+    request?: URIRequest;
+    response?: URIResponse;
     
     public getRequest(): URIRequest;
     public getResponse(): URIResponse;
@@ -1260,8 +1298,8 @@ declare module "WebKit2" {
   }
   
   interface ResponsePolicyDecisionProps extends PolicyDecisionProps {
-    request: URIRequest;
-    response: URIResponse;
+    request?: URIRequest;
+    response?: URIResponse;
   }
   
   export class SecurityManager extends GObject.Object {
@@ -1288,56 +1326,56 @@ declare module "WebKit2" {
   export class Settings extends GObject.Object {
     constructor(props?: SettingsProps);
     
-    allowFileAccessFromFileUrls: boolean;
-    allowModalDialogs: boolean;
-    allowUniversalAccessFromFileUrls: boolean;
-    autoLoadImages: boolean;
-    cursiveFontFamily: string;
-    defaultCharset: string;
-    defaultFontFamily: string;
-    defaultFontSize: number;
-    defaultMonospaceFontSize: number;
-    drawCompositingIndicators: boolean;
-    enableAccelerated_2dCanvas: boolean;
-    enableCaretBrowsing: boolean;
-    enableDeveloperExtras: boolean;
-    enableDnsPrefetching: boolean;
-    enableFrameFlattening: boolean;
-    enableFullscreen: boolean;
-    enableHtml5Database: boolean;
-    enableHtml5LocalStorage: boolean;
-    enableHyperlinkAuditing: boolean;
-    enableJava: boolean;
-    enableJavascript: boolean;
-    enableMediaStream: boolean;
-    enableMediasource: boolean;
-    enableOfflineWebApplicationCache: boolean;
-    enablePageCache: boolean;
-    enablePlugins: boolean;
-    enablePrivateBrowsing: boolean;
-    enableResizableTextAreas: boolean;
-    enableSiteSpecificQuirks: boolean;
-    enableSmoothScrolling: boolean;
-    enableSpatialNavigation: boolean;
-    enableTabsToLinks: boolean;
-    enableWebaudio: boolean;
-    enableWebgl: boolean;
-    enableWriteConsoleMessagesToStdout: boolean;
-    enableXssAuditor: boolean;
-    fantasyFontFamily: string;
-    javascriptCanAccessClipboard: boolean;
-    javascriptCanOpenWindowsAutomatically: boolean;
-    loadIconsIgnoringImageLoadSetting: boolean;
-    mediaPlaybackAllowsInline: boolean;
-    mediaPlaybackRequiresUserGesture: boolean;
-    minimumFontSize: number;
-    monospaceFontFamily: string;
-    pictographFontFamily: string;
-    printBackgrounds: boolean;
-    sansSerifFontFamily: string;
-    serifFontFamily: string;
-    userAgent: string;
-    zoomTextOnly: boolean;
+    allowFileAccessFromFileUrls?: boolean;
+    allowModalDialogs?: boolean;
+    allowUniversalAccessFromFileUrls?: boolean;
+    autoLoadImages?: boolean;
+    cursiveFontFamily?: string;
+    defaultCharset?: string;
+    defaultFontFamily?: string;
+    defaultFontSize?: number;
+    defaultMonospaceFontSize?: number;
+    drawCompositingIndicators?: boolean;
+    enableAccelerated_2dCanvas?: boolean;
+    enableCaretBrowsing?: boolean;
+    enableDeveloperExtras?: boolean;
+    enableDnsPrefetching?: boolean;
+    enableFrameFlattening?: boolean;
+    enableFullscreen?: boolean;
+    enableHtml5Database?: boolean;
+    enableHtml5LocalStorage?: boolean;
+    enableHyperlinkAuditing?: boolean;
+    enableJava?: boolean;
+    enableJavascript?: boolean;
+    enableMediaStream?: boolean;
+    enableMediasource?: boolean;
+    enableOfflineWebApplicationCache?: boolean;
+    enablePageCache?: boolean;
+    enablePlugins?: boolean;
+    enablePrivateBrowsing?: boolean;
+    enableResizableTextAreas?: boolean;
+    enableSiteSpecificQuirks?: boolean;
+    enableSmoothScrolling?: boolean;
+    enableSpatialNavigation?: boolean;
+    enableTabsToLinks?: boolean;
+    enableWebaudio?: boolean;
+    enableWebgl?: boolean;
+    enableWriteConsoleMessagesToStdout?: boolean;
+    enableXssAuditor?: boolean;
+    fantasyFontFamily?: string;
+    javascriptCanAccessClipboard?: boolean;
+    javascriptCanOpenWindowsAutomatically?: boolean;
+    loadIconsIgnoringImageLoadSetting?: boolean;
+    mediaPlaybackAllowsInline?: boolean;
+    mediaPlaybackRequiresUserGesture?: boolean;
+    minimumFontSize?: number;
+    monospaceFontFamily?: string;
+    pictographFontFamily?: string;
+    printBackgrounds?: boolean;
+    sansSerifFontFamily?: string;
+    serifFontFamily?: string;
+    userAgent?: string;
+    zoomTextOnly?: boolean;
     
     public getAllowFileAccessFromFileUrls(): boolean;
     public getAllowModalDialogs(): boolean;
@@ -1443,62 +1481,62 @@ declare module "WebKit2" {
   }
   
   interface SettingsProps extends GObject.ObjectProps {
-    allowFileAccessFromFileUrls: boolean;
-    allowModalDialogs: boolean;
-    allowUniversalAccessFromFileUrls: boolean;
-    autoLoadImages: boolean;
-    cursiveFontFamily: string;
-    defaultCharset: string;
-    defaultFontFamily: string;
-    defaultFontSize: number;
-    defaultMonospaceFontSize: number;
-    drawCompositingIndicators: boolean;
-    enableAccelerated_2dCanvas: boolean;
-    enableCaretBrowsing: boolean;
-    enableDeveloperExtras: boolean;
-    enableDnsPrefetching: boolean;
-    enableFrameFlattening: boolean;
-    enableFullscreen: boolean;
-    enableHtml5Database: boolean;
-    enableHtml5LocalStorage: boolean;
-    enableHyperlinkAuditing: boolean;
-    enableJava: boolean;
-    enableJavascript: boolean;
-    enableMediaStream: boolean;
-    enableMediasource: boolean;
-    enableOfflineWebApplicationCache: boolean;
-    enablePageCache: boolean;
-    enablePlugins: boolean;
-    enablePrivateBrowsing: boolean;
-    enableResizableTextAreas: boolean;
-    enableSiteSpecificQuirks: boolean;
-    enableSmoothScrolling: boolean;
-    enableSpatialNavigation: boolean;
-    enableTabsToLinks: boolean;
-    enableWebaudio: boolean;
-    enableWebgl: boolean;
-    enableWriteConsoleMessagesToStdout: boolean;
-    enableXssAuditor: boolean;
-    fantasyFontFamily: string;
-    javascriptCanAccessClipboard: boolean;
-    javascriptCanOpenWindowsAutomatically: boolean;
-    loadIconsIgnoringImageLoadSetting: boolean;
-    mediaPlaybackAllowsInline: boolean;
-    mediaPlaybackRequiresUserGesture: boolean;
-    minimumFontSize: number;
-    monospaceFontFamily: string;
-    pictographFontFamily: string;
-    printBackgrounds: boolean;
-    sansSerifFontFamily: string;
-    serifFontFamily: string;
-    userAgent: string;
-    zoomTextOnly: boolean;
+    allowFileAccessFromFileUrls?: boolean;
+    allowModalDialogs?: boolean;
+    allowUniversalAccessFromFileUrls?: boolean;
+    autoLoadImages?: boolean;
+    cursiveFontFamily?: string;
+    defaultCharset?: string;
+    defaultFontFamily?: string;
+    defaultFontSize?: number;
+    defaultMonospaceFontSize?: number;
+    drawCompositingIndicators?: boolean;
+    enableAccelerated_2dCanvas?: boolean;
+    enableCaretBrowsing?: boolean;
+    enableDeveloperExtras?: boolean;
+    enableDnsPrefetching?: boolean;
+    enableFrameFlattening?: boolean;
+    enableFullscreen?: boolean;
+    enableHtml5Database?: boolean;
+    enableHtml5LocalStorage?: boolean;
+    enableHyperlinkAuditing?: boolean;
+    enableJava?: boolean;
+    enableJavascript?: boolean;
+    enableMediaStream?: boolean;
+    enableMediasource?: boolean;
+    enableOfflineWebApplicationCache?: boolean;
+    enablePageCache?: boolean;
+    enablePlugins?: boolean;
+    enablePrivateBrowsing?: boolean;
+    enableResizableTextAreas?: boolean;
+    enableSiteSpecificQuirks?: boolean;
+    enableSmoothScrolling?: boolean;
+    enableSpatialNavigation?: boolean;
+    enableTabsToLinks?: boolean;
+    enableWebaudio?: boolean;
+    enableWebgl?: boolean;
+    enableWriteConsoleMessagesToStdout?: boolean;
+    enableXssAuditor?: boolean;
+    fantasyFontFamily?: string;
+    javascriptCanAccessClipboard?: boolean;
+    javascriptCanOpenWindowsAutomatically?: boolean;
+    loadIconsIgnoringImageLoadSetting?: boolean;
+    mediaPlaybackAllowsInline?: boolean;
+    mediaPlaybackRequiresUserGesture?: boolean;
+    minimumFontSize?: number;
+    monospaceFontFamily?: string;
+    pictographFontFamily?: string;
+    printBackgrounds?: boolean;
+    sansSerifFontFamily?: string;
+    serifFontFamily?: string;
+    userAgent?: string;
+    zoomTextOnly?: boolean;
   }
   
   export class URIRequest extends GObject.Object {
     constructor(props?: URIRequestProps);
     
-    uri: string;
+    uri?: string;
     
     public getHttpHeaders(): Soup.MessageHeaders;
     public getHttpMethod(): string;
@@ -1507,18 +1545,18 @@ declare module "WebKit2" {
   }
   
   interface URIRequestProps extends GObject.ObjectProps {
-    uri: string;
+    uri?: string;
   }
   
   export class URIResponse extends GObject.Object {
     constructor(props?: URIResponseProps);
     
-    contentLength: number;
-    httpHeaders: Soup.MessageHeaders;
-    mimeType: string;
-    statusCode: number;
-    suggestedFilename: string;
-    uri: string;
+    contentLength?: number;
+    httpHeaders?: Soup.MessageHeaders;
+    mimeType?: string;
+    statusCode?: number;
+    suggestedFilename?: string;
+    uri?: string;
     
     public getContentLength(): number;
     public getHttpHeaders(): Soup.MessageHeaders;
@@ -1529,12 +1567,12 @@ declare module "WebKit2" {
   }
   
   interface URIResponseProps extends GObject.ObjectProps {
-    contentLength: number;
-    httpHeaders: Soup.MessageHeaders;
-    mimeType: string;
-    statusCode: number;
-    suggestedFilename: string;
-    uri: string;
+    contentLength?: number;
+    httpHeaders?: Soup.MessageHeaders;
+    mimeType?: string;
+    statusCode?: number;
+    suggestedFilename?: string;
+    uri?: string;
   }
   
   export class URISchemeRequest extends GObject.Object {
@@ -1561,6 +1599,8 @@ declare module "WebKit2" {
     public removeAllScripts(): void;
     public removeAllStyleSheets(): void;
     public unregisterScriptMessageHandler(name: string): void;
+    
+    public on(event: 'scriptMessageReceived', listener: (jsResult: JavascriptResult) => void): this;
   }
   
   interface UserContentManagerProps extends GObject.ObjectProps {
@@ -1570,20 +1610,20 @@ declare module "WebKit2" {
   export class UserMediaPermissionRequest extends GObject.Object implements PermissionRequest {
     constructor(props?: UserMediaPermissionRequestProps);
     
-    isForAudioDevice: boolean;
-    isForVideoDevice: boolean;
+    isForAudioDevice?: boolean;
+    isForVideoDevice?: boolean;
   }
   
   interface UserMediaPermissionRequestProps extends GObject.ObjectProps, PermissionRequestProps {
-    isForAudioDevice: boolean;
-    isForVideoDevice: boolean;
+    isForAudioDevice?: boolean;
+    isForVideoDevice?: boolean;
   }
   
   export class WebContext extends GObject.Object {
     constructor(props?: WebContextProps);
     
-    localStorageDirectory: string;
-    websiteDataManager: WebsiteDataManager;
+    localStorageDirectory?: string;
+    websiteDataManager?: WebsiteDataManager;
     
     public allowTlsCertificateForHost(certificate: Gio.TlsCertificate, host: string): void;
     public clearCache(): void;
@@ -1618,20 +1658,23 @@ declare module "WebKit2" {
     public downloadStarted(download: Download): void;
     public initializeWebExtensions(): void;
     
+    public on(event: 'downloadStarted', listener: (download: Download) => void): this;
+    public on(event: 'initializeWebExtensions', listener: () => void): this;
+    
     public static getDefault(): WebContext;
   }
   
   interface WebContextProps extends GObject.ObjectProps {
-    localStorageDirectory: string;
-    websiteDataManager: WebsiteDataManager;
+    localStorageDirectory?: string;
+    websiteDataManager?: WebsiteDataManager;
   }
   
   export class WebInspector extends GObject.Object {
     constructor(props?: WebInspectorProps);
     
-    attachedHeight: number;
-    canAttach: boolean;
-    inspectedUri: string;
+    attachedHeight?: number;
+    canAttach?: boolean;
+    inspectedUri?: string;
     
     public attach(): void;
     public close(): void;
@@ -1642,46 +1685,58 @@ declare module "WebKit2" {
     public getWebView(): WebViewBase;
     public isAttached(): boolean;
     public show(): void;
+    
+    public on(event: 'attach', listener: () => boolean): this;
+    public on(event: 'bringToFront', listener: () => boolean): this;
+    public on(event: 'closed', listener: () => void): this;
+    public on(event: 'detach', listener: () => boolean): this;
+    public on(event: 'openWindow', listener: () => boolean): this;
   }
   
   interface WebInspectorProps extends GObject.ObjectProps {
-    attachedHeight: number;
-    canAttach: boolean;
-    inspectedUri: string;
+    attachedHeight?: number;
+    canAttach?: boolean;
+    inspectedUri?: string;
   }
   
   export class WebResource extends GObject.Object {
     constructor(props?: WebResourceProps);
     
-    response: URIResponse;
-    uri: string;
+    response?: URIResponse;
+    uri?: string;
     
     public getData(cancellable: Gio.Cancellable, callback: Gio.AsyncReadyCallback, userData: any): void;
     public getDataFinish(result: Gio.AsyncResult, length: number): number[];
     public getResponse(): URIResponse;
     public getUri(): string;
+    
+    public on(event: 'failed', listener: (error: GLib.Error) => void): this;
+    public on(event: 'failedWithTlsErrors', listener: (certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void): this;
+    public on(event: 'finished', listener: () => void): this;
+    public on(event: 'receivedData', listener: (dataLength: number) => void): this;
+    public on(event: 'sentRequest', listener: (request: URIRequest, redirectedResponse: URIResponse) => void): this;
   }
   
   interface WebResourceProps extends GObject.ObjectProps {
-    response: URIResponse;
-    uri: string;
+    response?: URIResponse;
+    uri?: string;
   }
   
   export class WebView extends WebViewBase implements Atk.ImplementorIface, Gtk.Buildable {
     constructor(props?: WebViewProps);
     
-    editable: boolean;
-    estimatedLoadProgress: number;
-    favicon: any;
-    isLoading: boolean;
-    isPlayingAudio: boolean;
-    relatedView: WebView;
-    settings: Settings;
-    title: string;
-    uri: string;
-    userContentManager: UserContentManager;
-    webContext: WebContext;
-    zoomLevel: number;
+    editable?: boolean;
+    estimatedLoadProgress?: number;
+    favicon?: any;
+    isLoading?: boolean;
+    isPlayingAudio?: boolean;
+    relatedView?: WebView;
+    settings?: Settings;
+    title?: string;
+    uri?: string;
+    userContentManager?: UserContentManager;
+    webContext?: WebContext;
+    zoomLevel?: number;
     
     public canExecuteEditingCommand(command: string, cancellable: Gio.Cancellable, callback: Gio.AsyncReadyCallback, userData: any): void;
     public canExecuteEditingCommandFinish(result: Gio.AsyncResult): boolean;
@@ -1768,21 +1823,46 @@ declare module "WebKit2" {
     public showNotification(notification: Notification): boolean;
     public submitForm(request: FormSubmissionRequest): void;
     public webProcessCrashed(): boolean;
+    
+    public on(event: 'authenticate', listener: (request: AuthenticationRequest) => boolean): this;
+    public on(event: 'close', listener: () => void): this;
+    public on(event: 'contextMenu', listener: (contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => boolean): this;
+    public on(event: 'contextMenuDismissed', listener: () => void): this;
+    public on(event: 'create', listener: (navigationAction: NavigationAction) => Gtk.Widget): this;
+    public on(event: 'decidePolicy', listener: (decision: PolicyDecision, decisionType: PolicyDecisionType) => boolean): this;
+    public on(event: 'enterFullscreen', listener: () => boolean): this;
+    public on(event: 'insecureContentDetected', listener: (event: InsecureContentEvent) => void): this;
+    public on(event: 'leaveFullscreen', listener: () => boolean): this;
+    public on(event: 'loadChanged', listener: (loadEvent: LoadEvent) => void): this;
+    public on(event: 'loadFailed', listener: (loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => boolean): this;
+    public on(event: 'loadFailedWithTlsErrors', listener: (failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean): this;
+    public on(event: 'mouseTargetChanged', listener: (hitTestResult: HitTestResult, modifiers: number) => void): this;
+    public on(event: 'permissionRequest', listener: (request: PermissionRequest) => boolean): this;
+    public on(event: 'print', listener: (printOperation: PrintOperation) => boolean): this;
+    public on(event: 'readyToShow', listener: () => void): this;
+    public on(event: 'resourceLoadStarted', listener: (resource: WebResource, request: URIRequest) => void): this;
+    public on(event: 'runAsModal', listener: () => void): this;
+    public on(event: 'runColorChooser', listener: (request: ColorChooserRequest) => boolean): this;
+    public on(event: 'runFileChooser', listener: (request: FileChooserRequest) => boolean): this;
+    public on(event: 'scriptDialog', listener: (dialog: ScriptDialog) => boolean): this;
+    public on(event: 'showNotification', listener: (notification: Notification) => boolean): this;
+    public on(event: 'submitForm', listener: (request: FormSubmissionRequest) => void): this;
+    public on(event: 'webProcessCrashed', listener: () => boolean): this;
   }
   
   interface WebViewProps extends WebViewBaseProps, Atk.ImplementorIfaceProps, Gtk.BuildableProps {
-    editable: boolean;
-    estimatedLoadProgress: number;
-    favicon: any;
-    isLoading: boolean;
-    isPlayingAudio: boolean;
-    relatedView: WebView;
-    settings: Settings;
-    title: string;
-    uri: string;
-    userContentManager: UserContentManager;
-    webContext: WebContext;
-    zoomLevel: number;
+    editable?: boolean;
+    estimatedLoadProgress?: number;
+    favicon?: any;
+    isLoading?: boolean;
+    isPlayingAudio?: boolean;
+    relatedView?: WebView;
+    settings?: Settings;
+    title?: string;
+    uri?: string;
+    userContentManager?: UserContentManager;
+    webContext?: WebContext;
+    zoomLevel?: number;
   }
   
   export class WebViewBase extends Gtk.Container implements Atk.ImplementorIface, Gtk.Buildable {
@@ -1796,13 +1876,13 @@ declare module "WebKit2" {
   export class WebsiteDataManager extends GObject.Object {
     constructor(props?: WebsiteDataManagerProps);
     
-    baseCacheDirectory: string;
-    baseDataDirectory: string;
-    diskCacheDirectory: string;
-    indexeddbDirectory: string;
-    localStorageDirectory: string;
-    offlineApplicationCacheDirectory: string;
-    websqlDirectory: string;
+    baseCacheDirectory?: string;
+    baseDataDirectory?: string;
+    diskCacheDirectory?: string;
+    indexeddbDirectory?: string;
+    localStorageDirectory?: string;
+    offlineApplicationCacheDirectory?: string;
+    websqlDirectory?: string;
     
     public getBaseCacheDirectory(): string;
     public getBaseDataDirectory(): string;
@@ -1814,26 +1894,26 @@ declare module "WebKit2" {
   }
   
   interface WebsiteDataManagerProps extends GObject.ObjectProps {
-    baseCacheDirectory: string;
-    baseDataDirectory: string;
-    diskCacheDirectory: string;
-    indexeddbDirectory: string;
-    localStorageDirectory: string;
-    offlineApplicationCacheDirectory: string;
-    websqlDirectory: string;
+    baseCacheDirectory?: string;
+    baseDataDirectory?: string;
+    diskCacheDirectory?: string;
+    indexeddbDirectory?: string;
+    localStorageDirectory?: string;
+    offlineApplicationCacheDirectory?: string;
+    websqlDirectory?: string;
   }
   
   export class WindowProperties extends GObject.Object {
     constructor(props?: WindowPropertiesProps);
     
-    fullscreen: boolean;
-    geometry: Gdk.Rectangle;
-    locationbarVisible: boolean;
-    menubarVisible: boolean;
-    resizable: boolean;
-    scrollbarsVisible: boolean;
-    statusbarVisible: boolean;
-    toolbarVisible: boolean;
+    fullscreen?: boolean;
+    geometry?: Gdk.Rectangle;
+    locationbarVisible?: boolean;
+    menubarVisible?: boolean;
+    resizable?: boolean;
+    scrollbarsVisible?: boolean;
+    statusbarVisible?: boolean;
+    toolbarVisible?: boolean;
     
     public getFullscreen(): boolean;
     public getGeometry(geometry: Gdk.Rectangle): void;
@@ -1846,14 +1926,14 @@ declare module "WebKit2" {
   }
   
   interface WindowPropertiesProps extends GObject.ObjectProps {
-    fullscreen: boolean;
-    geometry: Gdk.Rectangle;
-    locationbarVisible: boolean;
-    menubarVisible: boolean;
-    resizable: boolean;
-    scrollbarsVisible: boolean;
-    statusbarVisible: boolean;
-    toolbarVisible: boolean;
+    fullscreen?: boolean;
+    geometry?: Gdk.Rectangle;
+    locationbarVisible?: boolean;
+    menubarVisible?: boolean;
+    resizable?: boolean;
+    scrollbarsVisible?: boolean;
+    statusbarVisible?: boolean;
+    toolbarVisible?: boolean;
   }
 
 }

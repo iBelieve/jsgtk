@@ -1,5 +1,14 @@
 declare module "Gtk" {
-
+  import * as Atk from 'Atk'
+  import * as GObject from 'GObject'
+  import * as GLib from 'GLib'
+  import * as Gdk from 'Gdk'
+  import * as GdkPixbuf from 'GdkPixbuf'
+  import * as Gio from 'Gio'
+  import * as Pango from 'Pango'
+  import * as cairo from 'cairo'
+  import * as xlib from 'xlib'
+  
   export type Allocation = Gdk.Rectangle;
   
   export type Stock = any;
@@ -2181,7 +2190,7 @@ declare module "Gtk" {
   }
   
   export class AboutDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     activateLink : { (dialog: AboutDialog, uri: string): boolean; };
     _gtkReserved1 : { (): void; };
@@ -2195,7 +2204,7 @@ declare module "Gtk" {
   }
   
   export class AccelGroupClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     accelChanged : { (accelGroup: AccelGroup, keyval: number, modifier: Gdk.ModifierType, accelClosure: GObject.Closure): void; };
     _gtkReserved1 : { (): void; };
@@ -2205,9 +2214,9 @@ declare module "Gtk" {
   }
   
   export class AccelGroupEntry {
-    public key: AccelKey;
-    public closure: GObject.Closure;
-    public accelPathQuark: GLib.Quark;
+    public key?: AccelKey;
+    public closure?: GObject.Closure;
+    public accelPathQuark?: GLib.Quark;
   }
   
   export class AccelGroupPrivate {
@@ -2215,19 +2224,19 @@ declare module "Gtk" {
   }
   
   export class AccelKey {
-    public accelKey: number;
-    public accelMods: Gdk.ModifierType;
-    public accelFlags: number;
+    public accelKey?: number;
+    public accelMods?: Gdk.ModifierType;
+    public accelFlags?: number;
   }
   
   export class AccelLabelClass {
-    public parentClass: LabelClass;
-    public signalQuote1: string;
-    public signalQuote2: string;
-    public modNameShift: string;
-    public modNameControl: string;
-    public modNameAlt: string;
-    public modSeparator: string;
+    public parentClass?: LabelClass;
+    public signalQuote1?: string;
+    public signalQuote2?: string;
+    public modNameShift?: string;
+    public modNameControl?: string;
+    public modNameAlt?: string;
+    public modSeparator?: string;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2244,7 +2253,7 @@ declare module "Gtk" {
   }
   
   export class AccessibleClass {
-    public parentClass: Atk.ObjectClass;
+    public parentClass?: Atk.ObjectClass;
     
     connectWidgetDestroyed : { (accessible: Accessible): void; };
     widgetSet : { (accessible: Accessible): void; };
@@ -2258,7 +2267,7 @@ declare module "Gtk" {
   }
   
   export class ActionBarClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2271,9 +2280,9 @@ declare module "Gtk" {
   }
   
   export class ActionClass {
-    public parentClass: GObject.ObjectClass;
-    public menuItemType: GObject.Type;
-    public toolbarItemType: GObject.Type;
+    public parentClass?: GObject.ObjectClass;
+    public menuItemType?: GObject.Type;
+    public toolbarItemType?: GObject.Type;
     
     activate : { (action: Action): void; };
     createMenuItem : { (action: Action): Widget; };
@@ -2288,16 +2297,16 @@ declare module "Gtk" {
   }
   
   export class ActionEntry {
-    public name: string;
-    public stockId: string;
-    public label: string;
-    public accelerator: string;
-    public tooltip: string;
-    public callback: GObject.Callback;
+    public name?: string;
+    public stockId?: string;
+    public label?: string;
+    public accelerator?: string;
+    public tooltip?: string;
+    public callback?: GObject.Callback;
   }
   
   export class ActionGroupClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getAction : { (actionGroup: ActionGroup, actionName: string): Action; };
     _gtkReserved1 : { (): void; };
@@ -2315,7 +2324,7 @@ declare module "Gtk" {
   }
   
   export class ActionableInterface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getActionName : { (actionable: Actionable): string; };
     setActionName : { (actionable: Actionable, actionName: string): void; };
@@ -2324,14 +2333,14 @@ declare module "Gtk" {
   }
   
   export class ActivatableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     update : { (activatable: Activatable, action: Action, propertyName: string): void; };
     syncActionProperties : { (activatable: Activatable, action: Action): void; };
   }
   
   export class AdjustmentClass {
-    public parentClass: GObject.InitiallyUnownedClass;
+    public parentClass?: GObject.InitiallyUnownedClass;
     
     changed : { (adjustment: Adjustment): void; };
     valueChanged : { (adjustment: Adjustment): void; };
@@ -2346,7 +2355,7 @@ declare module "Gtk" {
   }
   
   export class AlignmentClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2359,8 +2368,8 @@ declare module "Gtk" {
   }
   
   export class AppChooserButtonClass {
-    public parentClass: ComboBoxClass;
-    public padding: any[];
+    public parentClass?: ComboBoxClass;
+    public padding?: any[];
     
     customItemActivated : { (self: AppChooserButton, itemName: string): void; };
   }
@@ -2370,8 +2379,8 @@ declare module "Gtk" {
   }
   
   export class AppChooserDialogClass {
-    public parentClass: DialogClass;
-    public padding: any[];
+    public parentClass?: DialogClass;
+    public padding?: any[];
   }
   
   export class AppChooserDialogPrivate {
@@ -2379,8 +2388,8 @@ declare module "Gtk" {
   }
   
   export class AppChooserWidgetClass {
-    public parentClass: BoxClass;
-    public padding: any[];
+    public parentClass?: BoxClass;
+    public padding?: any[];
     
     applicationSelected : { (self: AppChooserWidget, appInfo: Gio.AppInfo): void; };
     applicationActivated : { (self: AppChooserWidget, appInfo: Gio.AppInfo): void; };
@@ -2392,8 +2401,8 @@ declare module "Gtk" {
   }
   
   export class ApplicationClass {
-    public parentClass: Gio.ApplicationClass;
-    public padding: any[];
+    public parentClass?: Gio.ApplicationClass;
+    public padding?: any[];
     
     windowAdded : { (application: Application, window: Window): void; };
     windowRemoved : { (application: Application, window: Window): void; };
@@ -2404,8 +2413,8 @@ declare module "Gtk" {
   }
   
   export class ApplicationWindowClass {
-    public parentClass: WindowClass;
-    public padding: any[];
+    public parentClass?: WindowClass;
+    public padding?: any[];
   }
   
   export class ApplicationWindowPrivate {
@@ -2413,7 +2422,7 @@ declare module "Gtk" {
   }
   
   export class ArrowAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class ArrowAccessiblePrivate {
@@ -2421,7 +2430,7 @@ declare module "Gtk" {
   }
   
   export class ArrowClass {
-    public parentClass: MiscClass;
+    public parentClass?: MiscClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2434,7 +2443,7 @@ declare module "Gtk" {
   }
   
   export class AspectFrameClass {
-    public parentClass: FrameClass;
+    public parentClass?: FrameClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2447,7 +2456,7 @@ declare module "Gtk" {
   }
   
   export class AssistantClass {
-    public parentClass: WindowClass;
+    public parentClass?: WindowClass;
     
     prepare : { (assistant: Assistant, page: Widget): void; };
     apply : { (assistant: Assistant): void; };
@@ -2465,7 +2474,7 @@ declare module "Gtk" {
   }
   
   export class BinClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2478,44 +2487,44 @@ declare module "Gtk" {
   }
   
   export class BindingArg {
-    public argType: GObject.Type;
+    public argType?: GObject.Type;
   }
   
   export class BindingEntry {
-    public keyval: number;
-    public modifiers: Gdk.ModifierType;
-    public bindingSet: BindingSet;
-    public destroyed: number;
-    public inEmission: number;
-    public marksUnbound: number;
-    public setNext: BindingEntry;
-    public hashNext: BindingEntry;
-    public signals: BindingSignal;
+    public keyval?: number;
+    public modifiers?: Gdk.ModifierType;
+    public bindingSet?: BindingSet;
+    public destroyed?: number;
+    public inEmission?: number;
+    public marksUnbound?: number;
+    public setNext?: BindingEntry;
+    public hashNext?: BindingEntry;
+    public signals?: BindingSignal;
   }
   
   export class BindingSet {
-    public setName: string;
-    public priority: number;
-    public widgetPathPspecs: GLib.SList;
-    public widgetClassPspecs: GLib.SList;
-    public classBranchPspecs: GLib.SList;
-    public entries: BindingEntry;
-    public current: BindingEntry;
-    public parsed: number;
+    public setName?: string;
+    public priority?: number;
+    public widgetPathPspecs?: GLib.SList;
+    public widgetClassPspecs?: GLib.SList;
+    public classBranchPspecs?: GLib.SList;
+    public entries?: BindingEntry;
+    public current?: BindingEntry;
+    public parsed?: number;
     
     public activate(keyval: number, modifiers: Gdk.ModifierType, object: GObject.Object): boolean;
     public addPath(pathType: PathType, pathPattern: string, priority: PathPriorityType): void;
   }
   
   export class BindingSignal {
-    public next: BindingSignal;
-    public signalName: string;
-    public nArgs: number;
-    public args: BindingArg[];
+    public next?: BindingSignal;
+    public signalName?: string;
+    public nArgs?: number;
+    public args?: BindingArg[];
   }
   
   export class BooleanCellAccessibleClass {
-    public parentClass: RendererCellAccessibleClass;
+    public parentClass?: RendererCellAccessibleClass;
   }
   
   export class BooleanCellAccessiblePrivate {
@@ -2523,17 +2532,17 @@ declare module "Gtk" {
   }
   
   export class Border {
-    public left: number;
-    public right: number;
-    public top: number;
-    public bottom: number;
+    public left?: number;
+    public right?: number;
+    public top?: number;
+    public bottom?: number;
     
     public copy(): Border;
     public free(): void;
   }
   
   export class BoxClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2546,7 +2555,7 @@ declare module "Gtk" {
   }
   
   export class BuildableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     setName : { (buildable: Buildable, name: string): void; };
     getName : { (buildable: Buildable): string; };
@@ -2561,7 +2570,7 @@ declare module "Gtk" {
   }
   
   export class BuilderClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     getTypeFromName : { (builder: Builder, typeName: string): GObject.Type; };
     _gtkReserved1 : { (): void; };
@@ -2579,7 +2588,7 @@ declare module "Gtk" {
   }
   
   export class ButtonAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class ButtonAccessiblePrivate {
@@ -2587,7 +2596,7 @@ declare module "Gtk" {
   }
   
   export class ButtonBoxClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2600,7 +2609,7 @@ declare module "Gtk" {
   }
   
   export class ButtonClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     pressed : { (button: Button): void; };
     released : { (button: Button): void; };
@@ -2619,7 +2628,7 @@ declare module "Gtk" {
   }
   
   export class CalendarClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     monthChanged : { (calendar: Calendar): void; };
     daySelected : { (calendar: Calendar): void; };
@@ -2639,13 +2648,13 @@ declare module "Gtk" {
   }
   
   export class CellAccessibleClass {
-    public parentClass: AccessibleClass;
+    public parentClass?: AccessibleClass;
     
     updateCache : { (cell: CellAccessible, emitSignal: boolean): void; };
   }
   
   export class CellAccessibleParentIface {
-    public parent: GObject.TypeInterface;
+    public parent?: GObject.TypeInterface;
     
     getCellExtents : { (parent: CellAccessibleParent, cell: CellAccessible, x: number, _y: number, width: number, height: number, coordType: Atk.CoordType): void; };
     getCellArea : { (parent: CellAccessibleParent, cell: CellAccessible, cellRect: Gdk.Rectangle): void; };
@@ -2663,7 +2672,7 @@ declare module "Gtk" {
   }
   
   export class CellAreaBoxClass {
-    public parentClass: CellAreaClass;
+    public parentClass?: CellAreaClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2676,7 +2685,7 @@ declare module "Gtk" {
   }
   
   export class CellAreaClass {
-    public parentClass: GObject.InitiallyUnownedClass;
+    public parentClass?: GObject.InitiallyUnownedClass;
     
     add : { (area: CellArea, renderer: CellRenderer): void; };
     remove : { (area: CellArea, renderer: CellRenderer): void; };
@@ -2712,7 +2721,7 @@ declare module "Gtk" {
   }
   
   export class CellAreaContextClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     allocate : { (context: CellAreaContext, width: number, height: number): void; };
     reset : { (context: CellAreaContext): void; };
@@ -2735,7 +2744,7 @@ declare module "Gtk" {
   }
   
   export class CellEditableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     editingDone : { (cellEditable: CellEditable): void; };
     removeWidget : { (cellEditable: CellEditable): void; };
@@ -2743,7 +2752,7 @@ declare module "Gtk" {
   }
   
   export class CellLayoutIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     packStart : { (cellLayout: CellLayout, cell: CellRenderer, expand: boolean): void; };
     packEnd : { (cellLayout: CellLayout, cell: CellRenderer, expand: boolean): void; };
@@ -2757,7 +2766,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererAccelClass {
-    public parentClass: CellRendererTextClass;
+    public parentClass?: CellRendererTextClass;
     
     accelEdited : { (accel: CellRendererAccel, pathString: string, accelKey: number, accelMods: Gdk.ModifierType, hardwareKeycode: number): void; };
     accelCleared : { (accel: CellRendererAccel, pathString: string): void; };
@@ -2773,8 +2782,8 @@ declare module "Gtk" {
   }
   
   export class CellRendererClass {
-    public parentClass: GObject.InitiallyUnownedClass;
-    public priv: CellRendererClassPrivate;
+    public parentClass?: GObject.InitiallyUnownedClass;
+    public priv?: CellRendererClassPrivate;
     
     getRequestMode : { (cell: CellRenderer): SizeRequestMode; };
     getPreferredWidth : { (cell: CellRenderer, widget: Widget, minimumSize: number, naturalSize: number): void; };
@@ -2800,7 +2809,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererComboClass {
-    public parent: CellRendererTextClass;
+    public parent?: CellRendererTextClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2813,7 +2822,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererPixbufClass {
-    public parentClass: CellRendererClass;
+    public parentClass?: CellRendererClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2830,7 +2839,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererProgressClass {
-    public parentClass: CellRendererClass;
+    public parentClass?: CellRendererClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2843,7 +2852,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererSpinClass {
-    public parent: CellRendererTextClass;
+    public parent?: CellRendererTextClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2856,7 +2865,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererSpinnerClass {
-    public parentClass: CellRendererClass;
+    public parentClass?: CellRendererClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2869,7 +2878,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererTextClass {
-    public parentClass: CellRendererClass;
+    public parentClass?: CellRendererClass;
     
     edited : { (cellRendererText: CellRendererText, path: string, newText: string): void; };
     _gtkReserved1 : { (): void; };
@@ -2883,7 +2892,7 @@ declare module "Gtk" {
   }
   
   export class CellRendererToggleClass {
-    public parentClass: CellRendererClass;
+    public parentClass?: CellRendererClass;
     
     toggled : { (cellRendererToggle: CellRendererToggle, path: string): void; };
     _gtkReserved1 : { (): void; };
@@ -2897,7 +2906,7 @@ declare module "Gtk" {
   }
   
   export class CellViewClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2910,7 +2919,7 @@ declare module "Gtk" {
   }
   
   export class CheckButtonClass {
-    public parentClass: ToggleButtonClass;
+    public parentClass?: ToggleButtonClass;
     
     drawIndicator : { (checkButton: CheckButton, cr: cairo.Context): void; };
     _gtkReserved1 : { (): void; };
@@ -2920,7 +2929,7 @@ declare module "Gtk" {
   }
   
   export class CheckMenuItemAccessibleClass {
-    public parentClass: MenuItemAccessibleClass;
+    public parentClass?: MenuItemAccessibleClass;
   }
   
   export class CheckMenuItemAccessiblePrivate {
@@ -2928,7 +2937,7 @@ declare module "Gtk" {
   }
   
   export class CheckMenuItemClass {
-    public parentClass: MenuItemClass;
+    public parentClass?: MenuItemClass;
     
     toggled : { (checkMenuItem: CheckMenuItem): void; };
     drawIndicator : { (checkMenuItem: CheckMenuItem, cr: cairo.Context): void; };
@@ -2943,7 +2952,7 @@ declare module "Gtk" {
   }
   
   export class ColorButtonClass {
-    public parentClass: ButtonClass;
+    public parentClass?: ButtonClass;
     
     colorSet : { (cp: ColorButton): void; };
     _gtkReserved1 : { (): void; };
@@ -2957,7 +2966,7 @@ declare module "Gtk" {
   }
   
   export class ColorChooserDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2970,8 +2979,8 @@ declare module "Gtk" {
   }
   
   export class ColorChooserInterface {
-    public baseInterface: GObject.TypeInterface;
-    public padding: any[];
+    public baseInterface?: GObject.TypeInterface;
+    public padding?: any[];
     
     getRgba : { (chooser: ColorChooser, color: Gdk.RGBA): void; };
     setRgba : { (chooser: ColorChooser, color: Gdk.RGBA): void; };
@@ -2980,7 +2989,7 @@ declare module "Gtk" {
   }
   
   export class ColorChooserWidgetClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -2997,7 +3006,7 @@ declare module "Gtk" {
   }
   
   export class ColorSelectionClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     colorChanged : { (colorSelection: ColorSelection): void; };
     _gtkReserved1 : { (): void; };
@@ -3007,7 +3016,7 @@ declare module "Gtk" {
   }
   
   export class ColorSelectionDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3024,7 +3033,7 @@ declare module "Gtk" {
   }
   
   export class ComboBoxAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class ComboBoxAccessiblePrivate {
@@ -3032,7 +3041,7 @@ declare module "Gtk" {
   }
   
   export class ComboBoxClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     changed : { (comboBox: ComboBox): void; };
     formatEntryText : { (comboBox: ComboBox, path: string): string; };
@@ -3046,7 +3055,7 @@ declare module "Gtk" {
   }
   
   export class ComboBoxTextClass {
-    public parentClass: ComboBoxClass;
+    public parentClass?: ComboBoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3059,7 +3068,7 @@ declare module "Gtk" {
   }
   
   export class ContainerAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
     
     addGtk : { (container: Container, widget: Widget, data: any): number; };
     removeGtk : { (container: Container, widget: Widget, data: any): number; };
@@ -3070,7 +3079,7 @@ declare module "Gtk" {
   }
   
   export class ContainerCellAccessibleClass {
-    public parentClass: CellAccessibleClass;
+    public parentClass?: CellAccessibleClass;
   }
   
   export class ContainerCellAccessiblePrivate {
@@ -3078,8 +3087,8 @@ declare module "Gtk" {
   }
   
   export class ContainerClass {
-    public parentClass: WidgetClass;
-    public _handleBorderWidth: number;
+    public parentClass?: WidgetClass;
+    public _handleBorderWidth?: number;
     
     add : { (container: Container, widget: Widget): void; };
     remove : { (container: Container, widget: Widget): void; };
@@ -3112,7 +3121,7 @@ declare module "Gtk" {
   }
   
   export class CssProviderClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     parsingError : { (provider: CssProvider, section: CssSection, error: GLib.Error): void; };
     _gtkReserved2 : { (): void; };
@@ -3137,7 +3146,7 @@ declare module "Gtk" {
   }
   
   export class DialogClass {
-    public parentClass: WindowClass;
+    public parentClass?: WindowClass;
     
     response : { (dialog: Dialog, responseId: number): void; };
     close : { (dialog: Dialog): void; };
@@ -3152,7 +3161,7 @@ declare module "Gtk" {
   }
   
   export class DrawingAreaClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3161,7 +3170,7 @@ declare module "Gtk" {
   }
   
   export class EditableInterface {
-    public baseIface: GObject.TypeInterface;
+    public baseIface?: GObject.TypeInterface;
     
     insertText : { (editable: Editable, newText: string, newTextLength: number, position: number): void; };
     deleteText : { (editable: Editable, startPos: number, endPos: number): void; };
@@ -3176,7 +3185,7 @@ declare module "Gtk" {
   }
   
   export class EntryAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class EntryAccessiblePrivate {
@@ -3184,7 +3193,7 @@ declare module "Gtk" {
   }
   
   export class EntryBufferClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     insertedText : { (buffer: EntryBuffer, position: number, chars: string, nChars: number): void; };
     deletedText : { (buffer: EntryBuffer, position: number, nChars: number): void; };
@@ -3207,7 +3216,7 @@ declare module "Gtk" {
   }
   
   export class EntryClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     populatePopup : { (entry: Entry, popup: Widget): void; };
     activate : { (entry: Entry): void; };
@@ -3231,7 +3240,7 @@ declare module "Gtk" {
   }
   
   export class EntryCompletionClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     matchSelected : { (completion: EntryCompletion, model: TreeModel, iter: TreeIter): boolean; };
     actionActivated : { (completion: EntryCompletion, index_: number): void; };
@@ -3252,7 +3261,7 @@ declare module "Gtk" {
   }
   
   export class EventBoxClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3269,7 +3278,7 @@ declare module "Gtk" {
   }
   
   export class ExpanderAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class ExpanderAccessiblePrivate {
@@ -3277,7 +3286,7 @@ declare module "Gtk" {
   }
   
   export class ExpanderClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     activate : { (expander: Expander): void; };
     _gtkReserved1 : { (): void; };
@@ -3291,11 +3300,11 @@ declare module "Gtk" {
   }
   
   export class FileChooserButtonClass {
-    public parentClass: BoxClass;
-    public _GtkReserved1: any;
-    public _GtkReserved2: any;
-    public _GtkReserved3: any;
-    public _GtkReserved4: any;
+    public parentClass?: BoxClass;
+    public _GtkReserved1?: any;
+    public _GtkReserved2?: any;
+    public _GtkReserved3?: any;
+    public _GtkReserved4?: any;
     
     fileSet : { (fc: FileChooserButton): void; };
   }
@@ -3305,7 +3314,7 @@ declare module "Gtk" {
   }
   
   export class FileChooserDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3318,11 +3327,11 @@ declare module "Gtk" {
   }
   
   export class FileChooserNativeClass {
-    public parentClass: NativeDialogClass;
+    public parentClass?: NativeDialogClass;
   }
   
   export class FileChooserWidgetClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3335,21 +3344,21 @@ declare module "Gtk" {
   }
   
   export class FileFilterInfo {
-    public contains: FileFilterFlags;
-    public filename: string;
-    public uri: string;
-    public displayName: string;
-    public mimeType: string;
+    public contains?: FileFilterFlags;
+    public filename?: string;
+    public uri?: string;
+    public displayName?: string;
+    public mimeType?: string;
   }
   
   export class FixedChild {
-    public widget: Widget;
-    public x: number;
-    public y: number;
+    public widget?: Widget;
+    public x?: number;
+    public y?: number;
   }
   
   export class FixedClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3362,7 +3371,7 @@ declare module "Gtk" {
   }
   
   export class FlowBoxAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class FlowBoxAccessiblePrivate {
@@ -3370,11 +3379,11 @@ declare module "Gtk" {
   }
   
   export class FlowBoxChildAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class FlowBoxChildClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     activate : { (child: FlowBoxChild): void; };
     _gtkReserved1 : { (): void; };
@@ -3382,7 +3391,7 @@ declare module "Gtk" {
   }
   
   export class FlowBoxClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     childActivated : { (box: FlowBox, child: FlowBoxChild): void; };
     selectedChildrenChanged : { (box: FlowBox): void; };
@@ -3400,7 +3409,7 @@ declare module "Gtk" {
   }
   
   export class FontButtonClass {
-    public parentClass: ButtonClass;
+    public parentClass?: ButtonClass;
     
     fontSet : { (gfp: FontButton): void; };
     _gtkReserved1 : { (): void; };
@@ -3414,7 +3423,7 @@ declare module "Gtk" {
   }
   
   export class FontChooserDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3427,8 +3436,8 @@ declare module "Gtk" {
   }
   
   export class FontChooserIface {
-    public baseIface: GObject.TypeInterface;
-    public padding: any[];
+    public baseIface?: GObject.TypeInterface;
+    public padding?: any[];
     
     getFontFamily : { (fontchooser: FontChooser): Pango.FontFamily; };
     getFontFace : { (fontchooser: FontChooser): Pango.FontFace; };
@@ -3440,7 +3449,7 @@ declare module "Gtk" {
   }
   
   export class FontChooserWidgetClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3457,7 +3466,7 @@ declare module "Gtk" {
   }
   
   export class FontSelectionClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3466,7 +3475,7 @@ declare module "Gtk" {
   }
   
   export class FontSelectionDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3483,7 +3492,7 @@ declare module "Gtk" {
   }
   
   export class FrameAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class FrameAccessiblePrivate {
@@ -3491,7 +3500,7 @@ declare module "Gtk" {
   }
   
   export class FrameClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     computeChildAllocation : { (frame: Frame, allocation: Allocation): void; };
     _gtkReserved1 : { (): void; };
@@ -3505,8 +3514,8 @@ declare module "Gtk" {
   }
   
   export class GLAreaClass {
-    public parentClass: WidgetClass;
-    public _padding: any[];
+    public parentClass?: WidgetClass;
+    public _padding?: any[];
     
     render : { (area: GLArea, context: Gdk.GLContext): boolean; };
     resize : { (area: GLArea, width: number, height: number): void; };
@@ -3559,7 +3568,7 @@ declare module "Gtk" {
   }
   
   export class GridClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3576,19 +3585,19 @@ declare module "Gtk" {
   }
   
   export class HBoxClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
   }
   
   export class HButtonBoxClass {
-    public parentClass: ButtonBoxClass;
+    public parentClass?: ButtonBoxClass;
   }
   
   export class HPanedClass {
-    public parentClass: PanedClass;
+    public parentClass?: PanedClass;
   }
   
   export class HSVClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     changed : { (hsv: HSV): void; };
     move : { (hsv: HSV, type: DirectionType): void; };
@@ -3603,19 +3612,19 @@ declare module "Gtk" {
   }
   
   export class HScaleClass {
-    public parentClass: ScaleClass;
+    public parentClass?: ScaleClass;
   }
   
   export class HScrollbarClass {
-    public parentClass: ScrollbarClass;
+    public parentClass?: ScrollbarClass;
   }
   
   export class HSeparatorClass {
-    public parentClass: SeparatorClass;
+    public parentClass?: SeparatorClass;
   }
   
   export class HandleBoxClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     childAttached : { (handleBox: HandleBox, child: Widget): void; };
     childDetached : { (handleBox: HandleBox, child: Widget): void; };
@@ -3630,7 +3639,7 @@ declare module "Gtk" {
   }
   
   export class HeaderBarClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3643,7 +3652,7 @@ declare module "Gtk" {
   }
   
   export class IMContextClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     preeditStart : { (context: IMContext): void; };
     preeditEnd : { (context: IMContext): void; };
@@ -3670,15 +3679,15 @@ declare module "Gtk" {
   }
   
   export class IMContextInfo {
-    public contextId: string;
-    public contextName: string;
-    public domain: string;
-    public domainDirname: string;
-    public defaultLocales: string;
+    public contextId?: string;
+    public contextName?: string;
+    public domain?: string;
+    public domainDirname?: string;
+    public defaultLocales?: string;
   }
   
   export class IMContextSimpleClass {
-    public parentClass: IMContextClass;
+    public parentClass?: IMContextClass;
   }
   
   export class IMContextSimplePrivate {
@@ -3686,7 +3695,7 @@ declare module "Gtk" {
   }
   
   export class IMMulticontextClass {
-    public parentClass: IMContextClass;
+    public parentClass?: IMContextClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3699,7 +3708,7 @@ declare module "Gtk" {
   }
   
   export class IconFactoryClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3750,7 +3759,7 @@ declare module "Gtk" {
   }
   
   export class IconThemeClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     changed : { (iconTheme: IconTheme): void; };
     _gtkReserved1 : { (): void; };
@@ -3764,7 +3773,7 @@ declare module "Gtk" {
   }
   
   export class IconViewAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class IconViewAccessiblePrivate {
@@ -3772,7 +3781,7 @@ declare module "Gtk" {
   }
   
   export class IconViewClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     itemActivated : { (iconView: IconView, path: TreePath): void; };
     selectionChanged : { (iconView: IconView): void; };
@@ -3793,7 +3802,7 @@ declare module "Gtk" {
   }
   
   export class ImageAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class ImageAccessiblePrivate {
@@ -3801,7 +3810,7 @@ declare module "Gtk" {
   }
   
   export class ImageCellAccessibleClass {
-    public parentClass: RendererCellAccessibleClass;
+    public parentClass?: RendererCellAccessibleClass;
   }
   
   export class ImageCellAccessiblePrivate {
@@ -3809,7 +3818,7 @@ declare module "Gtk" {
   }
   
   export class ImageClass {
-    public parentClass: MiscClass;
+    public parentClass?: MiscClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3818,7 +3827,7 @@ declare module "Gtk" {
   }
   
   export class ImageMenuItemClass {
-    public parentClass: MenuItemClass;
+    public parentClass?: MenuItemClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3835,7 +3844,7 @@ declare module "Gtk" {
   }
   
   export class InfoBarClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     response : { (infoBar: InfoBar, responseId: number): void; };
     close : { (infoBar: InfoBar): void; };
@@ -3850,7 +3859,7 @@ declare module "Gtk" {
   }
   
   export class InvisibleClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3863,7 +3872,7 @@ declare module "Gtk" {
   }
   
   export class LabelAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class LabelAccessiblePrivate {
@@ -3871,7 +3880,7 @@ declare module "Gtk" {
   }
   
   export class LabelClass {
-    public parentClass: MiscClass;
+    public parentClass?: MiscClass;
     
     moveCursor : { (label: Label, step: MovementStep, count: number, extendSelection: boolean): void; };
     copyClipboard : { (label: Label): void; };
@@ -3896,7 +3905,7 @@ declare module "Gtk" {
   }
   
   export class LayoutClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3909,7 +3918,7 @@ declare module "Gtk" {
   }
   
   export class LevelBarAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class LevelBarAccessiblePrivate {
@@ -3917,8 +3926,8 @@ declare module "Gtk" {
   }
   
   export class LevelBarClass {
-    public parentClass: WidgetClass;
-    public padding: any[];
+    public parentClass?: WidgetClass;
+    public padding?: any[];
     
     offsetChanged : { (self: LevelBar, name: string): void; };
   }
@@ -3928,7 +3937,7 @@ declare module "Gtk" {
   }
   
   export class LinkButtonAccessibleClass {
-    public parentClass: ButtonAccessibleClass;
+    public parentClass?: ButtonAccessibleClass;
   }
   
   export class LinkButtonAccessiblePrivate {
@@ -3936,7 +3945,7 @@ declare module "Gtk" {
   }
   
   export class LinkButtonClass {
-    public parentClass: ButtonClass;
+    public parentClass?: ButtonClass;
     
     activateLink : { (button: LinkButton): boolean; };
     _gtkPadding1 : { (): void; };
@@ -3950,7 +3959,7 @@ declare module "Gtk" {
   }
   
   export class ListBoxAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class ListBoxAccessiblePrivate {
@@ -3958,7 +3967,7 @@ declare module "Gtk" {
   }
   
   export class ListBoxClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     rowSelected : { (box: ListBox, _row: ListBoxRow): void; };
     rowActivated : { (box: ListBox, _row: ListBoxRow): void; };
@@ -3974,11 +3983,11 @@ declare module "Gtk" {
   }
   
   export class ListBoxRowAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class ListBoxRowClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     activate : { (_row: ListBoxRow): void; };
     _gtkReserved1 : { (): void; };
@@ -3986,7 +3995,7 @@ declare module "Gtk" {
   }
   
   export class ListStoreClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -3999,7 +4008,7 @@ declare module "Gtk" {
   }
   
   export class LockButtonAccessibleClass {
-    public parentClass: ButtonAccessibleClass;
+    public parentClass?: ButtonAccessibleClass;
   }
   
   export class LockButtonAccessiblePrivate {
@@ -4007,7 +4016,7 @@ declare module "Gtk" {
   }
   
   export class LockButtonClass {
-    public parentClass: ButtonClass;
+    public parentClass?: ButtonClass;
     
     reserved0 : { (): void; };
     reserved1 : { (): void; };
@@ -4024,7 +4033,7 @@ declare module "Gtk" {
   }
   
   export class MenuAccessibleClass {
-    public parentClass: MenuShellAccessibleClass;
+    public parentClass?: MenuShellAccessibleClass;
   }
   
   export class MenuAccessiblePrivate {
@@ -4032,7 +4041,7 @@ declare module "Gtk" {
   }
   
   export class MenuBarClass {
-    public parentClass: MenuShellClass;
+    public parentClass?: MenuShellClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4045,7 +4054,7 @@ declare module "Gtk" {
   }
   
   export class MenuButtonAccessibleClass {
-    public parentClass: ToggleButtonAccessibleClass;
+    public parentClass?: ToggleButtonAccessibleClass;
   }
   
   export class MenuButtonAccessiblePrivate {
@@ -4053,7 +4062,7 @@ declare module "Gtk" {
   }
   
   export class MenuButtonClass {
-    public parentClass: ToggleButtonClass;
+    public parentClass?: ToggleButtonClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4066,7 +4075,7 @@ declare module "Gtk" {
   }
   
   export class MenuClass {
-    public parentClass: MenuShellClass;
+    public parentClass?: MenuShellClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4075,7 +4084,7 @@ declare module "Gtk" {
   }
   
   export class MenuItemAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class MenuItemAccessiblePrivate {
@@ -4083,8 +4092,8 @@ declare module "Gtk" {
   }
   
   export class MenuItemClass {
-    public parentClass: BinClass;
-    public hideOnActivate: number;
+    public parentClass?: BinClass;
+    public hideOnActivate?: number;
     
     activate : { (menuItem: MenuItem): void; };
     activateItem : { (menuItem: MenuItem): void; };
@@ -4109,7 +4118,7 @@ declare module "Gtk" {
   }
   
   export class MenuShellAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class MenuShellAccessiblePrivate {
@@ -4117,8 +4126,8 @@ declare module "Gtk" {
   }
   
   export class MenuShellClass {
-    public parentClass: ContainerClass;
-    public submenuPlacement: number;
+    public parentClass?: ContainerClass;
+    public submenuPlacement?: number;
     
     deactivate : { (menuShell: MenuShell): void; };
     selectionDone : { (menuShell: MenuShell): void; };
@@ -4140,7 +4149,7 @@ declare module "Gtk" {
   }
   
   export class MenuToolButtonClass {
-    public parentClass: ToolButtonClass;
+    public parentClass?: ToolButtonClass;
     
     showMenu : { (button: MenuToolButton): void; };
     _gtkReserved1 : { (): void; };
@@ -4154,7 +4163,7 @@ declare module "Gtk" {
   }
   
   export class MessageDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4167,7 +4176,7 @@ declare module "Gtk" {
   }
   
   export class MiscClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4180,7 +4189,7 @@ declare module "Gtk" {
   }
   
   export class MountOperationClass {
-    public parentClass: Gio.MountOperationClass;
+    public parentClass?: Gio.MountOperationClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4193,7 +4202,7 @@ declare module "Gtk" {
   }
   
   export class NativeDialogClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     response : { (self: NativeDialog, responseId: number): void; };
     show : { (self: NativeDialog): void; };
@@ -4205,7 +4214,7 @@ declare module "Gtk" {
   }
   
   export class NotebookAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class NotebookAccessiblePrivate {
@@ -4213,7 +4222,7 @@ declare module "Gtk" {
   }
   
   export class NotebookClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     switchPage : { (notebook: Notebook, page: Widget, pageNum: number): void; };
     selectPage : { (notebook: Notebook, moveFocus: boolean): boolean; };
@@ -4237,7 +4246,7 @@ declare module "Gtk" {
   }
   
   export class NotebookPageAccessibleClass {
-    public parentClass: Atk.ObjectClass;
+    public parentClass?: Atk.ObjectClass;
   }
   
   export class NotebookPageAccessiblePrivate {
@@ -4249,8 +4258,8 @@ declare module "Gtk" {
   }
   
   export class NumerableIconClass {
-    public parentClass: Gio.EmblemedIconClass;
-    public padding: any[];
+    public parentClass?: Gio.EmblemedIconClass;
+    public padding?: any[];
   }
   
   export class NumerableIconPrivate {
@@ -4258,7 +4267,7 @@ declare module "Gtk" {
   }
   
   export class OffscreenWindowClass {
-    public parentClass: WindowClass;
+    public parentClass?: WindowClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4267,11 +4276,11 @@ declare module "Gtk" {
   }
   
   export class OrientableIface {
-    public baseIface: GObject.TypeInterface;
+    public baseIface?: GObject.TypeInterface;
   }
   
   export class OverlayClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     getChildPosition : { (overlay: Overlay, widget: Widget, allocation: Allocation): boolean; };
     _gtkReserved1 : { (): void; };
@@ -4289,11 +4298,11 @@ declare module "Gtk" {
   }
   
   export class PadActionEntry {
-    public type: PadActionType;
-    public index: number;
-    public mode: number;
-    public label: string;
-    public actionName: string;
+    public type?: PadActionType;
+    public index?: number;
+    public mode?: number;
+    public label?: string;
+    public actionName?: string;
   }
   
   export class PadControllerClass {
@@ -4301,12 +4310,12 @@ declare module "Gtk" {
   }
   
   export class PageRange {
-    public start: number;
-    public end: number;
+    public start?: number;
+    public end?: number;
   }
   
   export class PanedAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class PanedAccessiblePrivate {
@@ -4314,7 +4323,7 @@ declare module "Gtk" {
   }
   
   export class PanedClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     cycleChildFocus : { (paned: Paned, reverse: boolean): boolean; };
     toggleHandleFocus : { (paned: Paned): boolean; };
@@ -4357,7 +4366,7 @@ declare module "Gtk" {
   }
   
   export class PlugClass {
-    public parentClass: WindowClass;
+    public parentClass?: WindowClass;
     
     embedded : { (plug: Plug): void; };
     _gtkReserved1 : { (): void; };
@@ -4371,19 +4380,19 @@ declare module "Gtk" {
   }
   
   export class PopoverAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class PopoverClass {
-    public parentClass: BinClass;
-    public reserved: any[];
+    public parentClass?: BinClass;
+    public reserved?: any[];
     
     closed : { (popover: Popover): void; };
   }
   
   export class PopoverMenuClass {
-    public parentClass: PopoverClass;
-    public reserved: any[];
+    public parentClass?: PopoverClass;
+    public reserved?: any[];
   }
   
   export class PopoverPrivate {
@@ -4391,7 +4400,7 @@ declare module "Gtk" {
   }
   
   export class PrintOperationClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     done : { (operation: PrintOperation, result: PrintOperationResult): void; };
     beginPrint : { (operation: PrintOperation, context: PrintContext): void; };
@@ -4415,7 +4424,7 @@ declare module "Gtk" {
   }
   
   export class PrintOperationPreviewIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     ready : { (preview: PrintOperationPreview, context: PrintContext): void; };
     gotPageSize : { (preview: PrintOperationPreview, context: PrintContext, pageSetup: PageSetup): void; };
@@ -4437,7 +4446,7 @@ declare module "Gtk" {
   }
   
   export class ProgressBarAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class ProgressBarAccessiblePrivate {
@@ -4445,7 +4454,7 @@ declare module "Gtk" {
   }
   
   export class ProgressBarClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4458,7 +4467,7 @@ declare module "Gtk" {
   }
   
   export class RadioActionClass {
-    public parentClass: ToggleActionClass;
+    public parentClass?: ToggleActionClass;
     
     changed : { (action: RadioAction, current: RadioAction): void; };
     _gtkReserved1 : { (): void; };
@@ -4468,12 +4477,12 @@ declare module "Gtk" {
   }
   
   export class RadioActionEntry {
-    public name: string;
-    public stockId: string;
-    public label: string;
-    public accelerator: string;
-    public tooltip: string;
-    public value: number;
+    public name?: string;
+    public stockId?: string;
+    public label?: string;
+    public accelerator?: string;
+    public tooltip?: string;
+    public value?: number;
   }
   
   export class RadioActionPrivate {
@@ -4481,7 +4490,7 @@ declare module "Gtk" {
   }
   
   export class RadioButtonAccessibleClass {
-    public parentClass: ToggleButtonAccessibleClass;
+    public parentClass?: ToggleButtonAccessibleClass;
   }
   
   export class RadioButtonAccessiblePrivate {
@@ -4489,7 +4498,7 @@ declare module "Gtk" {
   }
   
   export class RadioButtonClass {
-    public parentClass: CheckButtonClass;
+    public parentClass?: CheckButtonClass;
     
     groupChanged : { (radioButton: RadioButton): void; };
     _gtkReserved1 : { (): void; };
@@ -4503,7 +4512,7 @@ declare module "Gtk" {
   }
   
   export class RadioMenuItemAccessibleClass {
-    public parentClass: CheckMenuItemAccessibleClass;
+    public parentClass?: CheckMenuItemAccessibleClass;
   }
   
   export class RadioMenuItemAccessiblePrivate {
@@ -4511,7 +4520,7 @@ declare module "Gtk" {
   }
   
   export class RadioMenuItemClass {
-    public parentClass: CheckMenuItemClass;
+    public parentClass?: CheckMenuItemClass;
     
     groupChanged : { (radioMenuItem: RadioMenuItem): void; };
     _gtkReserved1 : { (): void; };
@@ -4525,7 +4534,7 @@ declare module "Gtk" {
   }
   
   export class RadioToolButtonClass {
-    public parentClass: ToggleToolButtonClass;
+    public parentClass?: ToggleToolButtonClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4534,7 +4543,7 @@ declare module "Gtk" {
   }
   
   export class RangeAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class RangeAccessiblePrivate {
@@ -4542,9 +4551,9 @@ declare module "Gtk" {
   }
   
   export class RangeClass {
-    public parentClass: WidgetClass;
-    public sliderDetail: string;
-    public stepperDetail: string;
+    public parentClass?: WidgetClass;
+    public sliderDetail?: string;
+    public stepperDetail?: string;
     
     valueChanged : { (range: Range): void; };
     adjustBounds : { (range: Range, newValue: number): void; };
@@ -4566,14 +4575,14 @@ declare module "Gtk" {
   }
   
   export class RcProperty {
-    public typeName: GLib.Quark;
-    public propertyName: GLib.Quark;
-    public origin: string;
-    public value: GObject.Value;
+    public typeName?: GLib.Quark;
+    public propertyName?: GLib.Quark;
+    public origin?: string;
+    public value?: GObject.Value;
   }
   
   export class RcStyleClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     createRcStyle : { (rcStyle: RcStyle): RcStyle; };
     parse : { (rcStyle: RcStyle, settings: Settings, scanner: GLib.Scanner): number; };
@@ -4586,7 +4595,7 @@ declare module "Gtk" {
   }
   
   export class RecentActionClass {
-    public parentClass: ActionClass;
+    public parentClass?: ActionClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4599,7 +4608,7 @@ declare module "Gtk" {
   }
   
   export class RecentChooserDialogClass {
-    public parentClass: DialogClass;
+    public parentClass?: DialogClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4612,7 +4621,7 @@ declare module "Gtk" {
   }
   
   export class RecentChooserIface {
-    public baseIface: GObject.TypeInterface;
+    public baseIface?: GObject.TypeInterface;
     
     setCurrentUri : { (chooser: RecentChooser, uri: string): boolean; };
     getCurrentUri : { (chooser: RecentChooser): string; };
@@ -4631,7 +4640,7 @@ declare module "Gtk" {
   }
   
   export class RecentChooserMenuClass {
-    public parentClass: MenuClass;
+    public parentClass?: MenuClass;
     
     gtkRecent1 : { (): void; };
     gtkRecent2 : { (): void; };
@@ -4644,7 +4653,7 @@ declare module "Gtk" {
   }
   
   export class RecentChooserWidgetClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4657,23 +4666,23 @@ declare module "Gtk" {
   }
   
   export class RecentData {
-    public displayName: string;
-    public description: string;
-    public mimeType: string;
-    public appName: string;
-    public appExec: string;
-    public groups: string[];
-    public isPrivate: boolean;
+    public displayName?: string;
+    public description?: string;
+    public mimeType?: string;
+    public appName?: string;
+    public appExec?: string;
+    public groups?: string[];
+    public isPrivate?: boolean;
   }
   
   export class RecentFilterInfo {
-    public contains: RecentFilterFlags;
-    public uri: string;
-    public displayName: string;
-    public mimeType: string;
-    public applications: string[];
-    public groups: string[];
-    public age: number;
+    public contains?: RecentFilterFlags;
+    public uri?: string;
+    public displayName?: string;
+    public mimeType?: string;
+    public applications?: string[];
+    public groups?: string[];
+    public age?: number;
   }
   
   export class RecentInfo {
@@ -4705,7 +4714,7 @@ declare module "Gtk" {
   }
   
   export class RecentManagerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     changed : { (manager: RecentManager): void; };
     _gtkRecent1 : { (): void; };
@@ -4719,7 +4728,7 @@ declare module "Gtk" {
   }
   
   export class RendererCellAccessibleClass {
-    public parentClass: CellAccessibleClass;
+    public parentClass?: CellAccessibleClass;
   }
   
   export class RendererCellAccessiblePrivate {
@@ -4727,25 +4736,25 @@ declare module "Gtk" {
   }
   
   export class RequestedSize {
-    public data: any;
-    public minimumSize: number;
-    public naturalSize: number;
+    public data?: any;
+    public minimumSize?: number;
+    public naturalSize?: number;
   }
   
   export class Requisition {
-    public width: number;
-    public height: number;
+    public width?: number;
+    public height?: number;
     
     public copy(): Requisition;
     public free(): void;
   }
   
   export class RevealerClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
   }
   
   export class ScaleAccessibleClass {
-    public parentClass: RangeAccessibleClass;
+    public parentClass?: RangeAccessibleClass;
   }
   
   export class ScaleAccessiblePrivate {
@@ -4753,7 +4762,7 @@ declare module "Gtk" {
   }
   
   export class ScaleButtonAccessibleClass {
-    public parentClass: ButtonAccessibleClass;
+    public parentClass?: ButtonAccessibleClass;
   }
   
   export class ScaleButtonAccessiblePrivate {
@@ -4761,7 +4770,7 @@ declare module "Gtk" {
   }
   
   export class ScaleButtonClass {
-    public parentClass: ButtonClass;
+    public parentClass?: ButtonClass;
     
     valueChanged : { (button: ScaleButton, value: number): void; };
     _gtkReserved1 : { (): void; };
@@ -4775,7 +4784,7 @@ declare module "Gtk" {
   }
   
   export class ScaleClass {
-    public parentClass: RangeClass;
+    public parentClass?: RangeClass;
     
     formatValue : { (scale: Scale, value: number): string; };
     drawValue : { (scale: Scale): void; };
@@ -4791,13 +4800,13 @@ declare module "Gtk" {
   }
   
   export class ScrollableInterface {
-    public baseIface: GObject.TypeInterface;
+    public baseIface?: GObject.TypeInterface;
     
     getBorder : { (scrollable: Scrollable, border: Border): boolean; };
   }
   
   export class ScrollbarClass {
-    public parentClass: RangeClass;
+    public parentClass?: RangeClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4806,7 +4815,7 @@ declare module "Gtk" {
   }
   
   export class ScrolledWindowAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class ScrolledWindowAccessiblePrivate {
@@ -4814,8 +4823,8 @@ declare module "Gtk" {
   }
   
   export class ScrolledWindowClass {
-    public parentClass: BinClass;
-    public scrollbarSpacing: number;
+    public parentClass?: BinClass;
+    public scrollbarSpacing?: number;
     
     scrollChild : { (scrolledWindow: ScrolledWindow, scroll: ScrollType, horizontal: boolean): boolean; };
     moveFocusOut : { (scrolledWindow: ScrolledWindow, direction: DirectionType): void; };
@@ -4830,7 +4839,7 @@ declare module "Gtk" {
   }
   
   export class SearchBarClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4839,7 +4848,7 @@ declare module "Gtk" {
   }
   
   export class SearchEntryClass {
-    public parentClass: EntryClass;
+    public parentClass?: EntryClass;
     
     searchChanged : { (entry: SearchEntry): void; };
     nextMatch : { (entry: SearchEntry): void; };
@@ -4873,7 +4882,7 @@ declare module "Gtk" {
   }
   
   export class SeparatorClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4882,7 +4891,7 @@ declare module "Gtk" {
   }
   
   export class SeparatorMenuItemClass {
-    public parentClass: MenuItemClass;
+    public parentClass?: MenuItemClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4895,7 +4904,7 @@ declare module "Gtk" {
   }
   
   export class SeparatorToolItemClass {
-    public parentClass: ToolItemClass;
+    public parentClass?: ToolItemClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4908,7 +4917,7 @@ declare module "Gtk" {
   }
   
   export class SettingsClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4921,8 +4930,8 @@ declare module "Gtk" {
   }
   
   export class SettingsValue {
-    public origin: string;
-    public value: GObject.Value;
+    public origin?: string;
+    public value?: GObject.Value;
   }
   
   export class ShortcutLabelClass {
@@ -4942,14 +4951,14 @@ declare module "Gtk" {
   }
   
   export class ShortcutsWindowClass {
-    public parentClass: WindowClass;
+    public parentClass?: WindowClass;
     
     close : { (self: ShortcutsWindow): void; };
     search : { (self: ShortcutsWindow): void; };
   }
   
   export class SizeGroupClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -4962,7 +4971,7 @@ declare module "Gtk" {
   }
   
   export class SocketClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     plugAdded : { (socket_: Socket): void; };
     plugRemoved : { (socket_: Socket): boolean; };
@@ -4977,7 +4986,7 @@ declare module "Gtk" {
   }
   
   export class SpinButtonAccessibleClass {
-    public parentClass: EntryAccessibleClass;
+    public parentClass?: EntryAccessibleClass;
   }
   
   export class SpinButtonAccessiblePrivate {
@@ -4985,7 +4994,7 @@ declare module "Gtk" {
   }
   
   export class SpinButtonClass {
-    public parentClass: EntryClass;
+    public parentClass?: EntryClass;
     
     input : { (spinButton: SpinButton, newValue: number): number; };
     output : { (spinButton: SpinButton): number; };
@@ -5003,7 +5012,7 @@ declare module "Gtk" {
   }
   
   export class SpinnerAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class SpinnerAccessiblePrivate {
@@ -5011,7 +5020,7 @@ declare module "Gtk" {
   }
   
   export class SpinnerClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5024,15 +5033,15 @@ declare module "Gtk" {
   }
   
   export class StackAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class StackClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
   }
   
   export class StackSidebarClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5045,7 +5054,7 @@ declare module "Gtk" {
   }
   
   export class StackSwitcherClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5054,11 +5063,11 @@ declare module "Gtk" {
   }
   
   export class StatusIconClass {
-    public parentClass: GObject.ObjectClass;
-    public _GtkReserved1: any;
-    public _GtkReserved2: any;
-    public _GtkReserved3: any;
-    public _GtkReserved4: any;
+    public parentClass?: GObject.ObjectClass;
+    public _GtkReserved1?: any;
+    public _GtkReserved2?: any;
+    public _GtkReserved3?: any;
+    public _GtkReserved4?: any;
     
     activate : { (statusIcon: StatusIcon): void; };
     popupMenu : { (statusIcon: StatusIcon, button: number, activateTime: number): void; };
@@ -5074,7 +5083,7 @@ declare module "Gtk" {
   }
   
   export class StatusbarAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class StatusbarAccessiblePrivate {
@@ -5082,8 +5091,8 @@ declare module "Gtk" {
   }
   
   export class StatusbarClass {
-    public parentClass: BoxClass;
-    public reserved: any;
+    public parentClass?: BoxClass;
+    public reserved?: any;
     
     textPushed : { (statusbar: Statusbar, contextId: number, text: string): void; };
     textPopped : { (statusbar: Statusbar, contextId: number, text: string): void; };
@@ -5098,18 +5107,18 @@ declare module "Gtk" {
   }
   
   export class StockItem {
-    public stockId: string;
-    public label: string;
-    public modifier: Gdk.ModifierType;
-    public keyval: number;
-    public translationDomain: string;
+    public stockId?: string;
+    public label?: string;
+    public modifier?: Gdk.ModifierType;
+    public keyval?: number;
+    public translationDomain?: string;
     
     public copy(): StockItem;
     public free(): void;
   }
   
   export class StyleClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     realize : { (style: Style): void; };
     unrealize : { (style: Style): void; };
@@ -5152,7 +5161,7 @@ declare module "Gtk" {
   }
   
   export class StyleContextClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     changed : { (context: StyleContext): void; };
     _gtkReserved1 : { (): void; };
@@ -5166,7 +5175,7 @@ declare module "Gtk" {
   }
   
   export class StylePropertiesClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5179,7 +5188,7 @@ declare module "Gtk" {
   }
   
   export class StyleProviderIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getStyle : { (provider: StyleProvider, path: WidgetPath): StyleProperties; };
     getStyleProperty : { (provider: StyleProvider, path: WidgetPath, state: StateFlags, pspec: GObject.ParamSpec, value: GObject.Value): boolean; };
@@ -5187,7 +5196,7 @@ declare module "Gtk" {
   }
   
   export class SwitchAccessibleClass {
-    public parentClass: WidgetAccessibleClass;
+    public parentClass?: WidgetAccessibleClass;
   }
   
   export class SwitchAccessiblePrivate {
@@ -5195,7 +5204,7 @@ declare module "Gtk" {
   }
   
   export class SwitchClass {
-    public parentClass: WidgetClass;
+    public parentClass?: WidgetClass;
     
     activate : { (sw: Switch): void; };
     stateSet : { (sw: Switch, state: boolean): boolean; };
@@ -5218,23 +5227,23 @@ declare module "Gtk" {
   }
   
   export class TableChild {
-    public widget: Widget;
-    public leftAttach: number;
-    public rightAttach: number;
-    public topAttach: number;
-    public bottomAttach: number;
-    public xpadding: number;
-    public ypadding: number;
-    public xexpand: number;
-    public yexpand: number;
-    public xshrink: number;
-    public yshrink: number;
-    public xfill: number;
-    public yfill: number;
+    public widget?: Widget;
+    public leftAttach?: number;
+    public rightAttach?: number;
+    public topAttach?: number;
+    public bottomAttach?: number;
+    public xpadding?: number;
+    public ypadding?: number;
+    public xexpand?: number;
+    public yexpand?: number;
+    public xshrink?: number;
+    public yshrink?: number;
+    public xfill?: number;
+    public yfill?: number;
   }
   
   export class TableClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5247,20 +5256,20 @@ declare module "Gtk" {
   }
   
   export class TableRowCol {
-    public requisition: number;
-    public allocation: number;
-    public spacing: number;
-    public needExpand: number;
-    public needShrink: number;
-    public expand: number;
-    public shrink: number;
-    public empty: number;
+    public requisition?: number;
+    public allocation?: number;
+    public spacing?: number;
+    public needExpand?: number;
+    public needShrink?: number;
+    public expand?: number;
+    public shrink?: number;
+    public empty?: number;
   }
   
   export class TargetEntry {
-    public target: string;
-    public flags: number;
-    public info: number;
+    public target?: string;
+    public flags?: number;
+    public info?: number;
     
     public copy(): TargetEntry;
     public free(): void;
@@ -5280,13 +5289,13 @@ declare module "Gtk" {
   }
   
   export class TargetPair {
-    public target: Gdk.Atom;
-    public flags: number;
-    public info: number;
+    public target?: Gdk.Atom;
+    public flags?: number;
+    public info?: number;
   }
   
   export class TearoffMenuItemClass {
-    public parentClass: MenuItemClass;
+    public parentClass?: MenuItemClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5299,39 +5308,39 @@ declare module "Gtk" {
   }
   
   export class TextAppearance {
-    public bgColor: Gdk.Color;
-    public fgColor: Gdk.Color;
-    public rise: number;
-    public underline: number;
-    public strikethrough: number;
-    public drawBg: number;
-    public insideSelection: number;
-    public isText: number;
+    public bgColor?: Gdk.Color;
+    public fgColor?: Gdk.Color;
+    public rise?: number;
+    public underline?: number;
+    public strikethrough?: number;
+    public drawBg?: number;
+    public insideSelection?: number;
+    public isText?: number;
   }
   
   export class TextAttributes {
-    public refcount: number;
-    public appearance: TextAppearance;
-    public justification: Justification;
-    public direction: TextDirection;
-    public font: Pango.FontDescription;
-    public fontScale: number;
-    public leftMargin: number;
-    public rightMargin: number;
-    public indent: number;
-    public pixelsAboveLines: number;
-    public pixelsBelowLines: number;
-    public pixelsInsideWrap: number;
-    public tabs: Pango.TabArray;
-    public wrapMode: WrapMode;
-    public language: Pango.Language;
-    public pgBgColor: Gdk.Color;
-    public invisible: number;
-    public bgFullHeight: number;
-    public editable: number;
-    public noFallback: number;
-    public pgBgRgba: Gdk.RGBA;
-    public letterSpacing: number;
+    public refcount?: number;
+    public appearance?: TextAppearance;
+    public justification?: Justification;
+    public direction?: TextDirection;
+    public font?: Pango.FontDescription;
+    public fontScale?: number;
+    public leftMargin?: number;
+    public rightMargin?: number;
+    public indent?: number;
+    public pixelsAboveLines?: number;
+    public pixelsBelowLines?: number;
+    public pixelsInsideWrap?: number;
+    public tabs?: Pango.TabArray;
+    public wrapMode?: WrapMode;
+    public language?: Pango.Language;
+    public pgBgColor?: Gdk.Color;
+    public invisible?: number;
+    public bgFullHeight?: number;
+    public editable?: number;
+    public noFallback?: number;
+    public pgBgRgba?: Gdk.RGBA;
+    public letterSpacing?: number;
     
     public copy(): TextAttributes;
     public copyValues(dest: TextAttributes): void;
@@ -5344,7 +5353,7 @@ declare module "Gtk" {
   }
   
   export class TextBufferClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     insertText : { (buffer: TextBuffer, pos: TextIter, newText: string, newTextLength: number): void; };
     insertPixbuf : { (buffer: TextBuffer, iter: TextIter, pixbuf: GdkPixbuf.Pixbuf): void; };
@@ -5370,7 +5379,7 @@ declare module "Gtk" {
   }
   
   export class TextCellAccessibleClass {
-    public parentClass: RendererCellAccessibleClass;
+    public parentClass?: RendererCellAccessibleClass;
   }
   
   export class TextCellAccessiblePrivate {
@@ -5378,7 +5387,7 @@ declare module "Gtk" {
   }
   
   export class TextChildAnchorClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5387,20 +5396,20 @@ declare module "Gtk" {
   }
   
   export class TextIter {
-    public dummy1: any;
-    public dummy2: any;
-    public dummy3: number;
-    public dummy4: number;
-    public dummy5: number;
-    public dummy6: number;
-    public dummy7: number;
-    public dummy8: number;
-    public dummy9: any;
-    public dummy10: any;
-    public dummy11: number;
-    public dummy12: number;
-    public dummy13: number;
-    public dummy14: any;
+    public dummy1?: any;
+    public dummy2?: any;
+    public dummy3?: number;
+    public dummy4?: number;
+    public dummy5?: number;
+    public dummy6?: number;
+    public dummy7?: number;
+    public dummy8?: number;
+    public dummy9?: any;
+    public dummy10?: any;
+    public dummy11?: number;
+    public dummy12?: number;
+    public dummy13?: number;
+    public dummy14?: any;
     
     public assign(other: TextIter): void;
     public backwardChar(): boolean;
@@ -5497,7 +5506,7 @@ declare module "Gtk" {
   }
   
   export class TextMarkClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5506,7 +5515,7 @@ declare module "Gtk" {
   }
   
   export class TextTagClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     event : { (tag: TextTag, eventObject: GObject.Object, event: Gdk.Event, iter: TextIter): boolean; };
     _gtkReserved1 : { (): void; };
@@ -5520,7 +5529,7 @@ declare module "Gtk" {
   }
   
   export class TextTagTableClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     tagChanged : { (table: TextTagTable, tag: TextTag, sizeChanged: boolean): void; };
     tagAdded : { (table: TextTagTable, tag: TextTag): void; };
@@ -5536,7 +5545,7 @@ declare module "Gtk" {
   }
   
   export class TextViewAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class TextViewAccessiblePrivate {
@@ -5544,7 +5553,7 @@ declare module "Gtk" {
   }
   
   export class TextViewClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     populatePopup : { (textView: TextView, popup: Widget): void; };
     moveCursor : { (textView: TextView, step: MovementStep, count: number, extendSelection: boolean): void; };
@@ -5575,8 +5584,8 @@ declare module "Gtk" {
   }
   
   export class ThemingEngineClass {
-    public parentClass: GObject.ObjectClass;
-    public padding: any[];
+    public parentClass?: GObject.ObjectClass;
+    public padding?: any[];
     
     renderLine : { (engine: ThemingEngine, cr: cairo.Context, x0: number, y0: number, x1: number, y1: number): void; };
     renderBackground : { (engine: ThemingEngine, cr: cairo.Context, x: number, _y: number, width: number, height: number): void; };
@@ -5602,7 +5611,7 @@ declare module "Gtk" {
   }
   
   export class ToggleActionClass {
-    public parentClass: ActionClass;
+    public parentClass?: ActionClass;
     
     toggled : { (action: ToggleAction): void; };
     _gtkReserved1 : { (): void; };
@@ -5612,13 +5621,13 @@ declare module "Gtk" {
   }
   
   export class ToggleActionEntry {
-    public name: string;
-    public stockId: string;
-    public label: string;
-    public accelerator: string;
-    public tooltip: string;
-    public callback: GObject.Callback;
-    public isActive: boolean;
+    public name?: string;
+    public stockId?: string;
+    public label?: string;
+    public accelerator?: string;
+    public tooltip?: string;
+    public callback?: GObject.Callback;
+    public isActive?: boolean;
   }
   
   export class ToggleActionPrivate {
@@ -5626,7 +5635,7 @@ declare module "Gtk" {
   }
   
   export class ToggleButtonAccessibleClass {
-    public parentClass: ButtonAccessibleClass;
+    public parentClass?: ButtonAccessibleClass;
   }
   
   export class ToggleButtonAccessiblePrivate {
@@ -5634,7 +5643,7 @@ declare module "Gtk" {
   }
   
   export class ToggleButtonClass {
-    public parentClass: ButtonClass;
+    public parentClass?: ButtonClass;
     
     toggled : { (toggleButton: ToggleButton): void; };
     _gtkReserved1 : { (): void; };
@@ -5648,7 +5657,7 @@ declare module "Gtk" {
   }
   
   export class ToggleToolButtonClass {
-    public parentClass: ToolButtonClass;
+    public parentClass?: ToolButtonClass;
     
     toggled : { (button: ToggleToolButton): void; };
     _gtkReserved1 : { (): void; };
@@ -5662,8 +5671,8 @@ declare module "Gtk" {
   }
   
   export class ToolButtonClass {
-    public parentClass: ToolItemClass;
-    public buttonType: GObject.Type;
+    public parentClass?: ToolItemClass;
+    public buttonType?: GObject.Type;
     
     clicked : { (toolItem: ToolButton): void; };
     _gtkReserved1 : { (): void; };
@@ -5677,7 +5686,7 @@ declare module "Gtk" {
   }
   
   export class ToolItemClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     createMenuProxy : { (toolItem: ToolItem): boolean; };
     toolbarReconfigured : { (toolItem: ToolItem): void; };
@@ -5688,7 +5697,7 @@ declare module "Gtk" {
   }
   
   export class ToolItemGroupClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5705,7 +5714,7 @@ declare module "Gtk" {
   }
   
   export class ToolPaletteClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5718,7 +5727,7 @@ declare module "Gtk" {
   }
   
   export class ToolShellIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     getIconSize : { (shell: ToolShell): IconSize; };
     getOrientation : { (shell: ToolShell): Orientation; };
@@ -5732,7 +5741,7 @@ declare module "Gtk" {
   }
   
   export class ToolbarClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     orientationChanged : { (toolbar: Toolbar, orientation: Orientation): void; };
     styleChanged : { (toolbar: Toolbar, style: ToolbarStyle): void; };
@@ -5748,7 +5757,7 @@ declare module "Gtk" {
   }
   
   export class ToplevelAccessibleClass {
-    public parentClass: Atk.ObjectClass;
+    public parentClass?: Atk.ObjectClass;
   }
   
   export class ToplevelAccessiblePrivate {
@@ -5756,14 +5765,14 @@ declare module "Gtk" {
   }
   
   export class TreeDragDestIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     dragDataReceived : { (dragDest: TreeDragDest, dest: TreePath, selectionData: SelectionData): boolean; };
     rowDropPossible : { (dragDest: TreeDragDest, destPath: TreePath, selectionData: SelectionData): boolean; };
   }
   
   export class TreeDragSourceIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     rowDraggable : { (dragSource: TreeDragSource, path: TreePath): boolean; };
     dragDataGet : { (dragSource: TreeDragSource, path: TreePath, selectionData: SelectionData): boolean; };
@@ -5771,17 +5780,17 @@ declare module "Gtk" {
   }
   
   export class TreeIter {
-    public stamp: number;
-    public userData: any;
-    public userData2: any;
-    public userData3: any;
+    public stamp?: number;
+    public userData?: any;
+    public userData2?: any;
+    public userData3?: any;
     
     public copy(): TreeIter;
     public free(): void;
   }
   
   export class TreeModelFilterClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     visible : { (self: TreeModelFilter, childModel: TreeModel, iter: TreeIter): boolean; };
     modify : { (self: TreeModelFilter, childModel: TreeModel, iter: TreeIter, value: GObject.Value, column: number): void; };
@@ -5796,7 +5805,7 @@ declare module "Gtk" {
   }
   
   export class TreeModelIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     rowChanged : { (treeModel: TreeModel, path: TreePath, iter: TreeIter): void; };
     rowInserted : { (treeModel: TreeModel, path: TreePath, iter: TreeIter): void; };
@@ -5821,7 +5830,7 @@ declare module "Gtk" {
   }
   
   export class TreeModelSortClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5860,7 +5869,7 @@ declare module "Gtk" {
   }
   
   export class TreeSelectionClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     changed : { (selection: TreeSelection): void; };
     _gtkReserved1 : { (): void; };
@@ -5874,7 +5883,7 @@ declare module "Gtk" {
   }
   
   export class TreeSortableIface {
-    public gIface: GObject.TypeInterface;
+    public gIface?: GObject.TypeInterface;
     
     sortColumnChanged : { (sortable: TreeSortable): void; };
     getSortColumnId : { (sortable: TreeSortable, sortColumnId: number, order: SortType): boolean; };
@@ -5885,7 +5894,7 @@ declare module "Gtk" {
   }
   
   export class TreeStoreClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -5898,7 +5907,7 @@ declare module "Gtk" {
   }
   
   export class TreeViewAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class TreeViewAccessiblePrivate {
@@ -5906,7 +5915,7 @@ declare module "Gtk" {
   }
   
   export class TreeViewClass {
-    public parentClass: ContainerClass;
+    public parentClass?: ContainerClass;
     
     rowActivated : { (treeView: TreeView, path: TreePath, column: TreeViewColumn): void; };
     testExpandRow : { (treeView: TreeView, iter: TreeIter, path: TreePath): boolean; };
@@ -5934,7 +5943,7 @@ declare module "Gtk" {
   }
   
   export class TreeViewColumnClass {
-    public parentClass: GObject.InitiallyUnownedClass;
+    public parentClass?: GObject.InitiallyUnownedClass;
     
     clicked : { (treeColumn: TreeViewColumn): void; };
     _gtkReserved1 : { (): void; };
@@ -5952,7 +5961,7 @@ declare module "Gtk" {
   }
   
   export class UIManagerClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     addWidget : { (manager: UIManager, widget: Widget): void; };
     actionsChanged : { (manager: UIManager): void; };
@@ -5973,31 +5982,31 @@ declare module "Gtk" {
   }
   
   export class VBoxClass {
-    public parentClass: BoxClass;
+    public parentClass?: BoxClass;
   }
   
   export class VButtonBoxClass {
-    public parentClass: ButtonBoxClass;
+    public parentClass?: ButtonBoxClass;
   }
   
   export class VPanedClass {
-    public parentClass: PanedClass;
+    public parentClass?: PanedClass;
   }
   
   export class VScaleClass {
-    public parentClass: ScaleClass;
+    public parentClass?: ScaleClass;
   }
   
   export class VScrollbarClass {
-    public parentClass: ScrollbarClass;
+    public parentClass?: ScrollbarClass;
   }
   
   export class VSeparatorClass {
-    public parentClass: SeparatorClass;
+    public parentClass?: SeparatorClass;
   }
   
   export class ViewportClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -6010,7 +6019,7 @@ declare module "Gtk" {
   }
   
   export class VolumeButtonClass {
-    public parentClass: ScaleButtonClass;
+    public parentClass?: ScaleButtonClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -6019,7 +6028,7 @@ declare module "Gtk" {
   }
   
   export class WidgetAccessibleClass {
-    public parentClass: AccessibleClass;
+    public parentClass?: AccessibleClass;
     
     notifyGtk : { (object: GObject.Object, pspec: GObject.ParamSpec): void; };
   }
@@ -6029,9 +6038,9 @@ declare module "Gtk" {
   }
   
   export class WidgetClass {
-    public parentClass: GObject.InitiallyUnownedClass;
-    public activateSignal: number;
-    public priv: WidgetClassPrivate;
+    public parentClass?: GObject.InitiallyUnownedClass;
+    public activateSignal?: number;
+    public priv?: WidgetClassPrivate;
     
     dispatchChildPropertiesChanged : { (widget: Widget, nPspecs: number, pspecs: GObject.ParamSpec): void; };
     destroy : { (widget: Widget): void; };
@@ -6182,7 +6191,7 @@ declare module "Gtk" {
   }
   
   export class WindowAccessibleClass {
-    public parentClass: ContainerAccessibleClass;
+    public parentClass?: ContainerAccessibleClass;
   }
   
   export class WindowAccessiblePrivate {
@@ -6190,7 +6199,7 @@ declare module "Gtk" {
   }
   
   export class WindowClass {
-    public parentClass: BinClass;
+    public parentClass?: BinClass;
     
     setFocus : { (window: Window, focus: Widget): void; };
     activateFocus : { (window: Window): void; };
@@ -6207,7 +6216,7 @@ declare module "Gtk" {
   }
   
   export class WindowGroupClass {
-    public parentClass: GObject.ObjectClass;
+    public parentClass?: GObject.ObjectClass;
     
     _gtkReserved1 : { (): void; };
     _gtkReserved2 : { (): void; };
@@ -6540,21 +6549,21 @@ declare module "Gtk" {
   export class AboutDialog extends Dialog implements Atk.ImplementorIface, Buildable {
     constructor(props?: AboutDialogProps);
     
-    artists: string[];
-    authors: string[];
-    comments: string;
-    copyright: string;
-    documenters: string[];
-    license: string;
-    licenseType: License;
-    logo: GdkPixbuf.Pixbuf;
-    logoIconName: string;
-    programName: string;
-    translatorCredits: string;
-    version: string;
-    website: string;
-    websiteLabel: string;
-    wrapLicense: boolean;
+    artists?: string[];
+    authors?: string[];
+    comments?: string;
+    copyright?: string;
+    documenters?: string[];
+    license?: string;
+    licenseType?: License;
+    logo?: GdkPixbuf.Pixbuf;
+    logoIconName?: string;
+    programName?: string;
+    translatorCredits?: string;
+    version?: string;
+    website?: string;
+    websiteLabel?: string;
+    wrapLicense?: boolean;
     
     public addCreditSection(sectionName: string, people: string[]): void;
     public getArtists(): string[];
@@ -6588,31 +6597,33 @@ declare module "Gtk" {
     public setWebsiteLabel(websiteLabel: string): void;
     public setWrapLicense(wrapLicense: boolean): void;
     public activateLink(uri: string): boolean;
+    
+    public on(event: 'activateLink', listener: (uri: string) => boolean): this;
   }
   
   interface AboutDialogProps extends DialogProps, Atk.ImplementorIfaceProps, BuildableProps {
-    artists: string[];
-    authors: string[];
-    comments: string;
-    copyright: string;
-    documenters: string[];
-    license: string;
-    licenseType: License;
-    logo: GdkPixbuf.Pixbuf;
-    logoIconName: string;
-    programName: string;
-    translatorCredits: string;
-    version: string;
-    website: string;
-    websiteLabel: string;
-    wrapLicense: boolean;
+    artists?: string[];
+    authors?: string[];
+    comments?: string;
+    copyright?: string;
+    documenters?: string[];
+    license?: string;
+    licenseType?: License;
+    logo?: GdkPixbuf.Pixbuf;
+    logoIconName?: string;
+    programName?: string;
+    translatorCredits?: string;
+    version?: string;
+    website?: string;
+    websiteLabel?: string;
+    wrapLicense?: boolean;
   }
   
   export class AccelGroup extends GObject.Object {
     constructor(props?: AccelGroupProps);
     
-    isLocked: boolean;
-    modifierMask: Gdk.ModifierType;
+    isLocked?: boolean;
+    modifierMask?: Gdk.ModifierType;
     
     public activate(accelQuark: GLib.Quark, acceleratable: GObject.Object, accelKey: number, accelMods: Gdk.ModifierType): boolean;
     public connect(accelKey: number, accelMods: Gdk.ModifierType, accelFlags: AccelFlags, closure: GObject.Closure): void;
@@ -6627,19 +6638,22 @@ declare module "Gtk" {
     public unlock(): void;
     public accelChanged(keyval: number, modifier: Gdk.ModifierType, accelClosure: GObject.Closure): void;
     
+    public on(event: 'accelActivate', listener: (acceleratable: GObject.Object, keyval: number, modifier: Gdk.ModifierType) => boolean): this;
+    public on(event: 'accelChanged', listener: (keyval: number, modifier: Gdk.ModifierType, accelClosure: GObject.Closure) => void): this;
+    
     public static fromAccelClosure(closure: GObject.Closure): AccelGroup;
   }
   
   interface AccelGroupProps extends GObject.ObjectProps {
-    isLocked: boolean;
-    modifierMask: Gdk.ModifierType;
+    isLocked?: boolean;
+    modifierMask?: Gdk.ModifierType;
   }
   
   export class AccelLabel extends Label implements Atk.ImplementorIface, Buildable {
     constructor(props?: AccelLabelProps);
     
-    accelClosure: GObject.Closure;
-    accelWidget: Widget;
+    accelClosure?: GObject.Closure;
+    accelWidget?: Widget;
     
     public getAccel(acceleratorKey: number, acceleratorMods: Gdk.ModifierType): void;
     public getAccelWidget(): Widget;
@@ -6651,12 +6665,14 @@ declare module "Gtk" {
   }
   
   interface AccelLabelProps extends LabelProps, Atk.ImplementorIfaceProps, BuildableProps {
-    accelClosure: GObject.Closure;
-    accelWidget: Widget;
+    accelClosure?: GObject.Closure;
+    accelWidget?: Widget;
   }
   
   export class AccelMap extends GObject.Object {
     constructor(props?: AccelMapProps);
+    
+    public on(event: 'changed', listener: (accelPath: string, accelKey: number, accelMods: Gdk.ModifierType) => void): this;
     
     public static addEntry(accelPath: string, accelKey: number, accelMods: Gdk.ModifierType): void;
     public static addFilter(filterPattern: string): void;
@@ -6681,7 +6697,7 @@ declare module "Gtk" {
   export class Accessible extends Atk.Object {
     constructor(props?: AccessibleProps);
     
-    widget: Widget;
+    widget?: Widget;
     
     public connectWidgetDestroyed(): void;
     public getWidget(): Widget;
@@ -6691,28 +6707,28 @@ declare module "Gtk" {
   }
   
   interface AccessibleProps extends Atk.ObjectProps {
-    widget: Widget;
+    widget?: Widget;
   }
   
   export class Action extends GObject.Object implements Buildable {
     constructor(props?: ActionProps);
     
-    actionGroup: ActionGroup;
-    alwaysShowImage: boolean;
-    gicon: Gio.Icon;
-    hideIfEmpty: boolean;
-    iconName: string;
-    isImportant: boolean;
-    label: string;
-    name: string;
-    sensitive: boolean;
-    shortLabel: string;
-    stockId: string;
-    tooltip: string;
-    visible: boolean;
-    visibleHorizontal: boolean;
-    visibleOverflown: boolean;
-    visibleVertical: boolean;
+    actionGroup?: ActionGroup;
+    alwaysShowImage?: boolean;
+    gicon?: Gio.Icon;
+    hideIfEmpty?: boolean;
+    iconName?: string;
+    isImportant?: boolean;
+    label?: string;
+    name?: string;
+    sensitive?: boolean;
+    shortLabel?: string;
+    stockId?: string;
+    tooltip?: string;
+    visible?: boolean;
+    visibleHorizontal?: boolean;
+    visibleOverflown?: boolean;
+    visibleVertical?: boolean;
     
     public activate(): void;
     public blockActivate(): void;
@@ -6757,25 +6773,27 @@ declare module "Gtk" {
     public unblockActivate(): void;
     public connectProxy(proxy: Widget): void;
     public disconnectProxy(proxy: Widget): void;
+    
+    public on(event: 'activate', listener: () => void): this;
   }
   
   interface ActionProps extends GObject.ObjectProps, BuildableProps {
-    actionGroup: ActionGroup;
-    alwaysShowImage: boolean;
-    gicon: Gio.Icon;
-    hideIfEmpty: boolean;
-    iconName: string;
-    isImportant: boolean;
-    label: string;
-    name: string;
-    sensitive: boolean;
-    shortLabel: string;
-    stockId: string;
-    tooltip: string;
-    visible: boolean;
-    visibleHorizontal: boolean;
-    visibleOverflown: boolean;
-    visibleVertical: boolean;
+    actionGroup?: ActionGroup;
+    alwaysShowImage?: boolean;
+    gicon?: Gio.Icon;
+    hideIfEmpty?: boolean;
+    iconName?: string;
+    isImportant?: boolean;
+    label?: string;
+    name?: string;
+    sensitive?: boolean;
+    shortLabel?: string;
+    stockId?: string;
+    tooltip?: string;
+    visible?: boolean;
+    visibleHorizontal?: boolean;
+    visibleOverflown?: boolean;
+    visibleVertical?: boolean;
   }
   
   export class ActionBar extends Bin implements Atk.ImplementorIface, Buildable {
@@ -6794,10 +6812,10 @@ declare module "Gtk" {
   export class ActionGroup extends GObject.Object implements Buildable {
     constructor(props?: ActionGroupProps);
     
-    accelGroup: AccelGroup;
-    name: string;
-    sensitive: boolean;
-    visible: boolean;
+    accelGroup?: AccelGroup;
+    name?: string;
+    sensitive?: boolean;
+    visible?: boolean;
     
     public addAction(action: Action): void;
     public addActionWithAccel(action: Action, accelerator: string): void;
@@ -6820,24 +6838,29 @@ declare module "Gtk" {
     public setTranslationDomain(domain: string): void;
     public setVisible(visible: boolean): void;
     public translateString(string: string): string;
+    
+    public on(event: 'connectProxy', listener: (action: Action, proxy: Widget) => void): this;
+    public on(event: 'disconnectProxy', listener: (action: Action, proxy: Widget) => void): this;
+    public on(event: 'postActivate', listener: (action: Action) => void): this;
+    public on(event: 'preActivate', listener: (action: Action) => void): this;
   }
   
   interface ActionGroupProps extends GObject.ObjectProps, BuildableProps {
-    accelGroup: AccelGroup;
-    name: string;
-    sensitive: boolean;
-    visible: boolean;
+    accelGroup?: AccelGroup;
+    name?: string;
+    sensitive?: boolean;
+    visible?: boolean;
   }
   
   export class Adjustment extends GObject.InitiallyUnowned {
     constructor(props?: AdjustmentProps);
     
-    lower: number;
-    pageIncrement: number;
-    pageSize: number;
-    stepIncrement: number;
-    upper: number;
-    value: number;
+    lower?: number;
+    pageIncrement?: number;
+    pageSize?: number;
+    stepIncrement?: number;
+    upper?: number;
+    value?: number;
     
     public changed(): void;
     public clampPage(lower: number, upper: number): void;
@@ -6856,28 +6879,31 @@ declare module "Gtk" {
     public setUpper(upper: number): void;
     public setValue(value: number): void;
     public valueChanged(): void;
+    
+    public on(event: 'changed', listener: () => void): this;
+    public on(event: 'valueChanged', listener: () => void): this;
   }
   
   interface AdjustmentProps extends GObject.InitiallyUnownedProps {
-    lower: number;
-    pageIncrement: number;
-    pageSize: number;
-    stepIncrement: number;
-    upper: number;
-    value: number;
+    lower?: number;
+    pageIncrement?: number;
+    pageSize?: number;
+    stepIncrement?: number;
+    upper?: number;
+    value?: number;
   }
   
   export class Alignment extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: AlignmentProps);
     
-    bottomPadding: number;
-    leftPadding: number;
-    rightPadding: number;
-    topPadding: number;
-    xalign: number;
-    xscale: number;
-    yalign: number;
-    yscale: number;
+    bottomPadding?: number;
+    leftPadding?: number;
+    rightPadding?: number;
+    topPadding?: number;
+    xalign?: number;
+    xscale?: number;
+    yalign?: number;
+    yscale?: number;
     
     public getPadding(paddingTop: number, paddingBottom: number, paddingLeft: number, paddingRight: number): void;
     public set(xalign: number, yalign: number, xscale: number, yscale: number): void;
@@ -6885,22 +6911,22 @@ declare module "Gtk" {
   }
   
   interface AlignmentProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    bottomPadding: number;
-    leftPadding: number;
-    rightPadding: number;
-    topPadding: number;
-    xalign: number;
-    xscale: number;
-    yalign: number;
-    yscale: number;
+    bottomPadding?: number;
+    leftPadding?: number;
+    rightPadding?: number;
+    topPadding?: number;
+    xalign?: number;
+    xscale?: number;
+    yalign?: number;
+    yscale?: number;
   }
   
   export class AppChooserButton extends ComboBox implements Atk.ImplementorIface, AppChooser, Buildable, CellEditable, CellLayout {
     constructor(props?: AppChooserButtonProps);
     
-    heading: string;
-    showDefaultItem: boolean;
-    showDialogItem: boolean;
+    heading?: string;
+    showDefaultItem?: boolean;
+    showDialogItem?: boolean;
     
     public appendCustomItem(name: string, label: string, icon: Gio.Icon): void;
     public appendSeparator(): void;
@@ -6912,19 +6938,21 @@ declare module "Gtk" {
     public setShowDefaultItem(setting: boolean): void;
     public setShowDialogItem(setting: boolean): void;
     public customItemActivated(itemName: string): void;
+    
+    public on(event: 'customItemActivated', listener: (itemName: string) => void): this;
   }
   
   interface AppChooserButtonProps extends ComboBoxProps, Atk.ImplementorIfaceProps, AppChooserProps, BuildableProps, CellEditableProps, CellLayoutProps {
-    heading: string;
-    showDefaultItem: boolean;
-    showDialogItem: boolean;
+    heading?: string;
+    showDefaultItem?: boolean;
+    showDialogItem?: boolean;
   }
   
   export class AppChooserDialog extends Dialog implements Atk.ImplementorIface, AppChooser, Buildable {
     constructor(props?: AppChooserDialogProps);
     
-    gfile: Gio.File;
-    heading: string;
+    gfile?: Gio.File;
+    heading?: string;
     
     public getHeading(): string;
     public getWidget(): Widget;
@@ -6932,19 +6960,19 @@ declare module "Gtk" {
   }
   
   interface AppChooserDialogProps extends DialogProps, Atk.ImplementorIfaceProps, AppChooserProps, BuildableProps {
-    gfile: Gio.File;
-    heading: string;
+    gfile?: Gio.File;
+    heading?: string;
   }
   
   export class AppChooserWidget extends Box implements Atk.ImplementorIface, AppChooser, Buildable, Orientable {
     constructor(props?: AppChooserWidgetProps);
     
-    defaultText: string;
-    showAll: boolean;
-    showDefault: boolean;
-    showFallback: boolean;
-    showOther: boolean;
-    showRecommended: boolean;
+    defaultText?: string;
+    showAll?: boolean;
+    showDefault?: boolean;
+    showFallback?: boolean;
+    showOther?: boolean;
+    showRecommended?: boolean;
     
     public getDefaultText(): string;
     public getShowAll(): boolean;
@@ -6961,24 +6989,28 @@ declare module "Gtk" {
     public applicationActivated(appInfo: Gio.AppInfo): void;
     public applicationSelected(appInfo: Gio.AppInfo): void;
     public populatePopup(menu: Menu, appInfo: Gio.AppInfo): void;
+    
+    public on(event: 'applicationActivated', listener: (application: Gio.AppInfo) => void): this;
+    public on(event: 'applicationSelected', listener: (application: Gio.AppInfo) => void): this;
+    public on(event: 'populatePopup', listener: (menu: Menu, application: Gio.AppInfo) => void): this;
   }
   
   interface AppChooserWidgetProps extends BoxProps, Atk.ImplementorIfaceProps, AppChooserProps, BuildableProps, OrientableProps {
-    defaultText: string;
-    showAll: boolean;
-    showDefault: boolean;
-    showFallback: boolean;
-    showOther: boolean;
-    showRecommended: boolean;
+    defaultText?: string;
+    showAll?: boolean;
+    showDefault?: boolean;
+    showFallback?: boolean;
+    showOther?: boolean;
+    showRecommended?: boolean;
   }
   
   export class Application extends Gio.Application implements Gio.ActionGroup, Gio.ActionMap {
     constructor(props?: ApplicationProps);
     
-    activeWindow: Window;
-    appMenu: Gio.MenuModel;
-    menubar: Gio.MenuModel;
-    registerSession: boolean;
+    activeWindow?: Window;
+    appMenu?: Gio.MenuModel;
+    menubar?: Gio.MenuModel;
+    registerSession?: boolean;
     
     public addAccelerator(accelerator: string, actionName: string, parameter: GLib.Variant): void;
     public addWindow(window: Window): void;
@@ -7002,19 +7034,22 @@ declare module "Gtk" {
     public uninhibit(cookie: number): void;
     public windowAdded(window: Window): void;
     public windowRemoved(window: Window): void;
+    
+    public on(event: 'windowAdded', listener: (window: Window) => void): this;
+    public on(event: 'windowRemoved', listener: (window: Window) => void): this;
   }
   
   interface ApplicationProps extends Gio.ApplicationProps, Gio.ActionGroupProps, Gio.ActionMapProps {
-    activeWindow: Window;
-    appMenu: Gio.MenuModel;
-    menubar: Gio.MenuModel;
-    registerSession: boolean;
+    activeWindow?: Window;
+    appMenu?: Gio.MenuModel;
+    menubar?: Gio.MenuModel;
+    registerSession?: boolean;
   }
   
   export class ApplicationWindow extends Window implements Atk.ImplementorIface, Gio.ActionGroup, Gio.ActionMap, Buildable {
     constructor(props?: ApplicationWindowProps);
     
-    showMenubar: boolean;
+    showMenubar?: boolean;
     
     public getHelpOverlay(): ShortcutsWindow;
     public getId(): number;
@@ -7024,21 +7059,21 @@ declare module "Gtk" {
   }
   
   interface ApplicationWindowProps extends WindowProps, Atk.ImplementorIfaceProps, Gio.ActionGroupProps, Gio.ActionMapProps, BuildableProps {
-    showMenubar: boolean;
+    showMenubar?: boolean;
   }
   
   export class Arrow extends Misc implements Atk.ImplementorIface, Buildable {
     constructor(props?: ArrowProps);
     
-    arrowType: ArrowType;
-    shadowType: ShadowType;
+    arrowType?: ArrowType;
+    shadowType?: ShadowType;
     
     public set(arrowType: ArrowType, shadowType: ShadowType): void;
   }
   
   interface ArrowProps extends MiscProps, Atk.ImplementorIfaceProps, BuildableProps {
-    arrowType: ArrowType;
-    shadowType: ShadowType;
+    arrowType?: ArrowType;
+    shadowType?: ShadowType;
   }
   
   export class ArrowAccessible extends WidgetAccessible implements Atk.Component, Atk.Image {
@@ -7052,25 +7087,25 @@ declare module "Gtk" {
   export class AspectFrame extends Frame implements Atk.ImplementorIface, Buildable {
     constructor(props?: AspectFrameProps);
     
-    obeyChild: boolean;
-    ratio: number;
-    xalign: number;
-    yalign: number;
+    obeyChild?: boolean;
+    ratio?: number;
+    xalign?: number;
+    yalign?: number;
     
     public set(xalign: number, yalign: number, ratio: number, obeyChild: boolean): void;
   }
   
   interface AspectFrameProps extends FrameProps, Atk.ImplementorIfaceProps, BuildableProps {
-    obeyChild: boolean;
-    ratio: number;
-    xalign: number;
-    yalign: number;
+    obeyChild?: boolean;
+    ratio?: number;
+    xalign?: number;
+    yalign?: number;
   }
   
   export class Assistant extends Window implements Atk.ImplementorIface, Buildable {
     constructor(props?: AssistantProps);
     
-    useHeaderBar: number;
+    useHeaderBar?: number;
     
     public addActionWidget(child: Widget): void;
     public appendPage(page: Widget): number;
@@ -7103,10 +7138,16 @@ declare module "Gtk" {
     public cancel(): void;
     public close(): void;
     public prepare(page: Widget): void;
+    
+    public on(event: 'apply', listener: () => void): this;
+    public on(event: 'cancel', listener: () => void): this;
+    public on(event: 'close', listener: () => void): this;
+    public on(event: 'escape', listener: () => void): this;
+    public on(event: 'prepare', listener: (page: Widget) => void): this;
   }
   
   interface AssistantProps extends WindowProps, Atk.ImplementorIfaceProps, BuildableProps {
-    useHeaderBar: number;
+    useHeaderBar?: number;
   }
   
   export class Bin extends Container implements Atk.ImplementorIface, Buildable {
@@ -7130,9 +7171,9 @@ declare module "Gtk" {
   export class Box extends Container implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: BoxProps);
     
-    baselinePosition: BaselinePosition;
-    homogeneous: boolean;
-    spacing: number;
+    baselinePosition?: BaselinePosition;
+    homogeneous?: boolean;
+    spacing?: number;
     
     public getBaselinePosition(): BaselinePosition;
     public getCenterWidget(): Widget;
@@ -7150,15 +7191,15 @@ declare module "Gtk" {
   }
   
   interface BoxProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    baselinePosition: BaselinePosition;
-    homogeneous: boolean;
-    spacing: number;
+    baselinePosition?: BaselinePosition;
+    homogeneous?: boolean;
+    spacing?: number;
   }
   
   export class Builder extends GObject.Object {
     constructor(props?: BuilderProps);
     
-    translationDomain: string;
+    translationDomain?: string;
     
     public addCallbackSymbol(callbackName: string, callbackSymbol: GObject.Callback): void;
     public addCallbackSymbols(firstCallbackName: string, firstCallbackSymbol: GObject.Callback, ...params: any[]): void;
@@ -7185,21 +7226,21 @@ declare module "Gtk" {
   }
   
   interface BuilderProps extends GObject.ObjectProps {
-    translationDomain: string;
+    translationDomain?: string;
   }
   
   export class Button extends Bin implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: ButtonProps);
     
-    alwaysShowImage: boolean;
-    image: Widget;
-    imagePosition: PositionType;
-    label: string;
-    relief: ReliefStyle;
-    useStock: boolean;
-    useUnderline: boolean;
-    xalign: number;
-    yalign: number;
+    alwaysShowImage?: boolean;
+    image?: Widget;
+    imagePosition?: PositionType;
+    label?: string;
+    relief?: ReliefStyle;
+    useStock?: boolean;
+    useUnderline?: boolean;
+    xalign?: number;
+    yalign?: number;
     
     public clicked(): void;
     public enter(): void;
@@ -7226,18 +7267,25 @@ declare module "Gtk" {
     public setUseStock(useStock: boolean): void;
     public setUseUnderline(useUnderline: boolean): void;
     public activate(): void;
+    
+    public on(event: 'activate', listener: () => void): this;
+    public on(event: 'clicked', listener: () => void): this;
+    public on(event: 'enter', listener: () => void): this;
+    public on(event: 'leave', listener: () => void): this;
+    public on(event: 'pressed', listener: () => void): this;
+    public on(event: 'released', listener: () => void): this;
   }
   
   interface ButtonProps extends BinProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    alwaysShowImage: boolean;
-    image: Widget;
-    imagePosition: PositionType;
-    label: string;
-    relief: ReliefStyle;
-    useStock: boolean;
-    useUnderline: boolean;
-    xalign: number;
-    yalign: number;
+    alwaysShowImage?: boolean;
+    image?: Widget;
+    imagePosition?: PositionType;
+    label?: string;
+    relief?: ReliefStyle;
+    useStock?: boolean;
+    useUnderline?: boolean;
+    xalign?: number;
+    yalign?: number;
   }
   
   export class ButtonAccessible extends ContainerAccessible implements Atk.Action, Atk.Component, Atk.Image {
@@ -7251,7 +7299,7 @@ declare module "Gtk" {
   export class ButtonBox extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ButtonBoxProps);
     
-    layoutStyle: ButtonBoxStyle;
+    layoutStyle?: ButtonBoxStyle;
     
     public getChildNonHomogeneous(child: Widget): boolean;
     public getChildSecondary(child: Widget): boolean;
@@ -7262,22 +7310,22 @@ declare module "Gtk" {
   }
   
   interface ButtonBoxProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    layoutStyle: ButtonBoxStyle;
+    layoutStyle?: ButtonBoxStyle;
   }
   
   export class Calendar extends Widget implements Atk.ImplementorIface, Buildable {
     constructor(props?: CalendarProps);
     
-    day: number;
-    detailHeightRows: number;
-    detailWidthChars: number;
-    month: number;
-    noMonthChange: boolean;
-    showDayNames: boolean;
-    showDetails: boolean;
-    showHeading: boolean;
-    showWeekNumbers: boolean;
-    year: number;
+    day?: number;
+    detailHeightRows?: number;
+    detailWidthChars?: number;
+    month?: number;
+    noMonthChange?: boolean;
+    showDayNames?: boolean;
+    showDetails?: boolean;
+    showHeading?: boolean;
+    showWeekNumbers?: boolean;
+    year?: number;
     
     public clearMarks(): void;
     public getDate(year: number, month: number, day: number): void;
@@ -7300,19 +7348,27 @@ declare module "Gtk" {
     public nextYear(): void;
     public prevMonth(): void;
     public prevYear(): void;
+    
+    public on(event: 'daySelected', listener: () => void): this;
+    public on(event: 'daySelectedDoubleClick', listener: () => void): this;
+    public on(event: 'monthChanged', listener: () => void): this;
+    public on(event: 'nextMonth', listener: () => void): this;
+    public on(event: 'nextYear', listener: () => void): this;
+    public on(event: 'prevMonth', listener: () => void): this;
+    public on(event: 'prevYear', listener: () => void): this;
   }
   
   interface CalendarProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps {
-    day: number;
-    detailHeightRows: number;
-    detailWidthChars: number;
-    month: number;
-    noMonthChange: boolean;
-    showDayNames: boolean;
-    showDetails: boolean;
-    showHeading: boolean;
-    showWeekNumbers: boolean;
-    year: number;
+    day?: number;
+    detailHeightRows?: number;
+    detailWidthChars?: number;
+    month?: number;
+    noMonthChange?: boolean;
+    showDayNames?: boolean;
+    showDetails?: boolean;
+    showHeading?: boolean;
+    showWeekNumbers?: boolean;
+    year?: number;
   }
   
   export class CellAccessible extends Accessible implements Atk.Action, Atk.Component {
@@ -7328,9 +7384,9 @@ declare module "Gtk" {
   export class CellArea extends GObject.InitiallyUnowned implements Buildable, CellLayout {
     constructor(props?: CellAreaProps);
     
-    editWidget: CellEditable;
-    editedCell: CellRenderer;
-    focusCell: CellRenderer;
+    editWidget?: CellEditable;
+    editedCell?: CellRenderer;
+    focusCell?: CellRenderer;
     
     public activate(context: CellAreaContext, widget: Widget, cellArea: Gdk.Rectangle, flags: CellRendererState, editOnly: boolean): boolean;
     public activateCell(widget: Widget, renderer: CellRenderer, event: Gdk.Event, cellArea: Gdk.Rectangle, flags: CellRendererState): boolean;
@@ -7378,18 +7434,23 @@ declare module "Gtk" {
     public stopEditing(canceled: boolean): void;
     public getCellProperty(renderer: CellRenderer, propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void;
     public setCellProperty(renderer: CellRenderer, propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void;
+    
+    public on(event: 'addEditable', listener: (renderer: CellRenderer, editable: CellEditable, cellArea: Gdk.Rectangle, path: string) => void): this;
+    public on(event: 'applyAttributes', listener: (model: TreeModel, iter: TreeIter, isExpander: boolean, isExpanded: boolean) => void): this;
+    public on(event: 'focusChanged', listener: (renderer: CellRenderer, path: string) => void): this;
+    public on(event: 'removeEditable', listener: (renderer: CellRenderer, editable: CellEditable) => void): this;
   }
   
   interface CellAreaProps extends GObject.InitiallyUnownedProps, BuildableProps, CellLayoutProps {
-    editWidget: CellEditable;
-    editedCell: CellRenderer;
-    focusCell: CellRenderer;
+    editWidget?: CellEditable;
+    editedCell?: CellRenderer;
+    focusCell?: CellRenderer;
   }
   
   export class CellAreaBox extends CellArea implements Buildable, CellLayout, Orientable {
     constructor(props?: CellAreaBoxProps);
     
-    spacing: number;
+    spacing?: number;
     
     public getSpacing(): number;
     public packEnd(renderer: CellRenderer, expand: boolean, align: boolean, fixed: boolean): void;
@@ -7398,17 +7459,17 @@ declare module "Gtk" {
   }
   
   interface CellAreaBoxProps extends CellAreaProps, BuildableProps, CellLayoutProps, OrientableProps {
-    spacing: number;
+    spacing?: number;
   }
   
   export class CellAreaContext extends GObject.Object {
     constructor(props?: CellAreaContextProps);
     
-    area: CellArea;
-    minimumHeight: number;
-    minimumWidth: number;
-    naturalHeight: number;
-    naturalWidth: number;
+    area?: CellArea;
+    minimumHeight?: number;
+    minimumWidth?: number;
+    naturalHeight?: number;
+    naturalWidth?: number;
     
     public allocate(width: number, height: number): void;
     public getAllocation(width: number, height: number): void;
@@ -7423,32 +7484,32 @@ declare module "Gtk" {
   }
   
   interface CellAreaContextProps extends GObject.ObjectProps {
-    area: CellArea;
-    minimumHeight: number;
-    minimumWidth: number;
-    naturalHeight: number;
-    naturalWidth: number;
+    area?: CellArea;
+    minimumHeight?: number;
+    minimumWidth?: number;
+    naturalHeight?: number;
+    naturalWidth?: number;
   }
   
   export class CellRenderer extends GObject.InitiallyUnowned {
     constructor(props?: CellRendererProps);
     
-    cellBackground: string;
-    cellBackgroundGdk: Gdk.Color;
-    cellBackgroundRgba: Gdk.RGBA;
-    cellBackgroundSet: boolean;
-    editing: boolean;
-    height: number;
-    isExpanded: boolean;
-    isExpander: boolean;
-    mode: CellRendererMode;
-    sensitive: boolean;
-    visible: boolean;
-    width: number;
-    xalign: number;
-    xpad: number;
-    yalign: number;
-    ypad: number;
+    cellBackground?: string;
+    cellBackgroundGdk?: Gdk.Color;
+    cellBackgroundRgba?: Gdk.RGBA;
+    cellBackgroundSet?: boolean;
+    editing?: boolean;
+    height?: number;
+    isExpanded?: boolean;
+    isExpander?: boolean;
+    mode?: CellRendererMode;
+    sensitive?: boolean;
+    visible?: boolean;
+    width?: number;
+    xalign?: number;
+    xpad?: number;
+    yalign?: number;
+    ypad?: number;
     
     public activate(event: Gdk.Event, widget: Widget, path: string, backgroundArea: Gdk.Rectangle, cellArea: Gdk.Rectangle, flags: CellRendererState): boolean;
     public getAlignedArea(widget: Widget, flags: CellRendererState, cellArea: Gdk.Rectangle, alignedArea: Gdk.Rectangle): void;
@@ -7476,251 +7537,261 @@ declare module "Gtk" {
     public stopEditing(canceled: boolean): void;
     public editingCanceled(): void;
     public editingStarted(editable: CellEditable, path: string): void;
+    
+    public on(event: 'editingCanceled', listener: () => void): this;
+    public on(event: 'editingStarted', listener: (editable: CellEditable, path: string) => void): this;
   }
   
   interface CellRendererProps extends GObject.InitiallyUnownedProps {
-    cellBackground: string;
-    cellBackgroundGdk: Gdk.Color;
-    cellBackgroundRgba: Gdk.RGBA;
-    cellBackgroundSet: boolean;
-    editing: boolean;
-    height: number;
-    isExpanded: boolean;
-    isExpander: boolean;
-    mode: CellRendererMode;
-    sensitive: boolean;
-    visible: boolean;
-    width: number;
-    xalign: number;
-    xpad: number;
-    yalign: number;
-    ypad: number;
+    cellBackground?: string;
+    cellBackgroundGdk?: Gdk.Color;
+    cellBackgroundRgba?: Gdk.RGBA;
+    cellBackgroundSet?: boolean;
+    editing?: boolean;
+    height?: number;
+    isExpanded?: boolean;
+    isExpander?: boolean;
+    mode?: CellRendererMode;
+    sensitive?: boolean;
+    visible?: boolean;
+    width?: number;
+    xalign?: number;
+    xpad?: number;
+    yalign?: number;
+    ypad?: number;
   }
   
   export class CellRendererAccel extends CellRendererText {
     constructor(props?: CellRendererAccelProps);
     
-    accelKey: number;
-    accelMode: CellRendererAccelMode;
-    accelMods: Gdk.ModifierType;
-    keycode: number;
+    accelKey?: number;
+    accelMode?: CellRendererAccelMode;
+    accelMods?: Gdk.ModifierType;
+    keycode?: number;
     
     public accelCleared(pathString: string): void;
     public accelEdited(pathString: string, accelKey: number, accelMods: Gdk.ModifierType, hardwareKeycode: number): void;
+    
+    public on(event: 'accelCleared', listener: (pathString: string) => void): this;
+    public on(event: 'accelEdited', listener: (pathString: string, accelKey: number, accelMods: Gdk.ModifierType, hardwareKeycode: number) => void): this;
   }
   
   interface CellRendererAccelProps extends CellRendererTextProps {
-    accelKey: number;
-    accelMode: CellRendererAccelMode;
-    accelMods: Gdk.ModifierType;
-    keycode: number;
+    accelKey?: number;
+    accelMode?: CellRendererAccelMode;
+    accelMods?: Gdk.ModifierType;
+    keycode?: number;
   }
   
   export class CellRendererCombo extends CellRendererText {
     constructor(props?: CellRendererComboProps);
     
-    hasEntry: boolean;
-    model: TreeModel;
-    textColumn: number;
+    hasEntry?: boolean;
+    model?: TreeModel;
+    textColumn?: number;
+    
+    public on(event: 'changed', listener: (pathString: string, newIter: TreeIter) => void): this;
   }
   
   interface CellRendererComboProps extends CellRendererTextProps {
-    hasEntry: boolean;
-    model: TreeModel;
-    textColumn: number;
+    hasEntry?: boolean;
+    model?: TreeModel;
+    textColumn?: number;
   }
   
   export class CellRendererPixbuf extends CellRenderer {
     constructor(props?: CellRendererPixbufProps);
     
-    followState: boolean;
-    gicon: Gio.Icon;
-    iconName: string;
-    pixbuf: GdkPixbuf.Pixbuf;
-    pixbufExpanderClosed: GdkPixbuf.Pixbuf;
-    pixbufExpanderOpen: GdkPixbuf.Pixbuf;
-    stockDetail: string;
-    stockId: string;
-    stockSize: number;
-    surface: cairo.Surface;
+    followState?: boolean;
+    gicon?: Gio.Icon;
+    iconName?: string;
+    pixbuf?: GdkPixbuf.Pixbuf;
+    pixbufExpanderClosed?: GdkPixbuf.Pixbuf;
+    pixbufExpanderOpen?: GdkPixbuf.Pixbuf;
+    stockDetail?: string;
+    stockId?: string;
+    stockSize?: number;
+    surface?: cairo.Surface;
   }
   
   interface CellRendererPixbufProps extends CellRendererProps {
-    followState: boolean;
-    gicon: Gio.Icon;
-    iconName: string;
-    pixbuf: GdkPixbuf.Pixbuf;
-    pixbufExpanderClosed: GdkPixbuf.Pixbuf;
-    pixbufExpanderOpen: GdkPixbuf.Pixbuf;
-    stockDetail: string;
-    stockId: string;
-    stockSize: number;
-    surface: cairo.Surface;
+    followState?: boolean;
+    gicon?: Gio.Icon;
+    iconName?: string;
+    pixbuf?: GdkPixbuf.Pixbuf;
+    pixbufExpanderClosed?: GdkPixbuf.Pixbuf;
+    pixbufExpanderOpen?: GdkPixbuf.Pixbuf;
+    stockDetail?: string;
+    stockId?: string;
+    stockSize?: number;
+    surface?: cairo.Surface;
   }
   
   export class CellRendererProgress extends CellRenderer implements Orientable {
     constructor(props?: CellRendererProgressProps);
     
-    inverted: boolean;
-    pulse: number;
-    text: string;
-    textXalign: number;
-    textYalign: number;
-    value: number;
+    inverted?: boolean;
+    pulse?: number;
+    text?: string;
+    textXalign?: number;
+    textYalign?: number;
+    value?: number;
   }
   
   interface CellRendererProgressProps extends CellRendererProps, OrientableProps {
-    inverted: boolean;
-    pulse: number;
-    text: string;
-    textXalign: number;
-    textYalign: number;
-    value: number;
+    inverted?: boolean;
+    pulse?: number;
+    text?: string;
+    textXalign?: number;
+    textYalign?: number;
+    value?: number;
   }
   
   export class CellRendererSpin extends CellRendererText {
     constructor(props?: CellRendererSpinProps);
     
-    adjustment: Adjustment;
-    climbRate: number;
-    digits: number;
+    adjustment?: Adjustment;
+    climbRate?: number;
+    digits?: number;
   }
   
   interface CellRendererSpinProps extends CellRendererTextProps {
-    adjustment: Adjustment;
-    climbRate: number;
-    digits: number;
+    adjustment?: Adjustment;
+    climbRate?: number;
+    digits?: number;
   }
   
   export class CellRendererSpinner extends CellRenderer {
     constructor(props?: CellRendererSpinnerProps);
     
-    active: boolean;
-    pulse: number;
-    size: IconSize;
+    active?: boolean;
+    pulse?: number;
+    size?: IconSize;
   }
   
   interface CellRendererSpinnerProps extends CellRendererProps {
-    active: boolean;
-    pulse: number;
-    size: IconSize;
+    active?: boolean;
+    pulse?: number;
+    size?: IconSize;
   }
   
   export class CellRendererText extends CellRenderer {
     constructor(props?: CellRendererTextProps);
     
-    alignSet: boolean;
-    alignment: Pango.Alignment;
-    attributes: Pango.AttrList;
-    background: string;
-    backgroundGdk: Gdk.Color;
-    backgroundRgba: Gdk.RGBA;
-    backgroundSet: boolean;
-    editable: boolean;
-    editableSet: boolean;
-    ellipsize: Pango.EllipsizeMode;
-    ellipsizeSet: boolean;
-    family: string;
-    familySet: boolean;
-    font: string;
-    fontDesc: Pango.FontDescription;
-    foreground: string;
-    foregroundGdk: Gdk.Color;
-    foregroundRgba: Gdk.RGBA;
-    foregroundSet: boolean;
-    language: string;
-    languageSet: boolean;
-    markup: string;
-    maxWidthChars: number;
-    placeholderText: string;
-    rise: number;
-    riseSet: boolean;
-    scale: number;
-    scaleSet: boolean;
-    singleParagraphMode: boolean;
-    size: number;
-    sizePoints: number;
-    sizeSet: boolean;
-    stretch: Pango.Stretch;
-    stretchSet: boolean;
-    strikethrough: boolean;
-    strikethroughSet: boolean;
-    style: Pango.Style;
-    styleSet: boolean;
-    text: string;
-    underline: Pango.Underline;
-    underlineSet: boolean;
-    variant: Pango.Variant;
-    variantSet: boolean;
-    weight: number;
-    weightSet: boolean;
-    widthChars: number;
-    wrapMode: Pango.WrapMode;
-    wrapWidth: number;
+    alignSet?: boolean;
+    alignment?: Pango.Alignment;
+    attributes?: Pango.AttrList;
+    background?: string;
+    backgroundGdk?: Gdk.Color;
+    backgroundRgba?: Gdk.RGBA;
+    backgroundSet?: boolean;
+    editable?: boolean;
+    editableSet?: boolean;
+    ellipsize?: Pango.EllipsizeMode;
+    ellipsizeSet?: boolean;
+    family?: string;
+    familySet?: boolean;
+    font?: string;
+    fontDesc?: Pango.FontDescription;
+    foreground?: string;
+    foregroundGdk?: Gdk.Color;
+    foregroundRgba?: Gdk.RGBA;
+    foregroundSet?: boolean;
+    language?: string;
+    languageSet?: boolean;
+    markup?: string;
+    maxWidthChars?: number;
+    placeholderText?: string;
+    rise?: number;
+    riseSet?: boolean;
+    scale?: number;
+    scaleSet?: boolean;
+    singleParagraphMode?: boolean;
+    size?: number;
+    sizePoints?: number;
+    sizeSet?: boolean;
+    stretch?: Pango.Stretch;
+    stretchSet?: boolean;
+    strikethrough?: boolean;
+    strikethroughSet?: boolean;
+    style?: Pango.Style;
+    styleSet?: boolean;
+    text?: string;
+    underline?: Pango.Underline;
+    underlineSet?: boolean;
+    variant?: Pango.Variant;
+    variantSet?: boolean;
+    weight?: number;
+    weightSet?: boolean;
+    widthChars?: number;
+    wrapMode?: Pango.WrapMode;
+    wrapWidth?: number;
     
     public setFixedHeightFromFont(numberOfRows: number): void;
     public edited(path: string, newText: string): void;
+    
+    public on(event: 'edited', listener: (path: string, newText: string) => void): this;
   }
   
   interface CellRendererTextProps extends CellRendererProps {
-    alignSet: boolean;
-    alignment: Pango.Alignment;
-    attributes: Pango.AttrList;
-    background: string;
-    backgroundGdk: Gdk.Color;
-    backgroundRgba: Gdk.RGBA;
-    backgroundSet: boolean;
-    editable: boolean;
-    editableSet: boolean;
-    ellipsize: Pango.EllipsizeMode;
-    ellipsizeSet: boolean;
-    family: string;
-    familySet: boolean;
-    font: string;
-    fontDesc: Pango.FontDescription;
-    foreground: string;
-    foregroundGdk: Gdk.Color;
-    foregroundRgba: Gdk.RGBA;
-    foregroundSet: boolean;
-    language: string;
-    languageSet: boolean;
-    markup: string;
-    maxWidthChars: number;
-    placeholderText: string;
-    rise: number;
-    riseSet: boolean;
-    scale: number;
-    scaleSet: boolean;
-    singleParagraphMode: boolean;
-    size: number;
-    sizePoints: number;
-    sizeSet: boolean;
-    stretch: Pango.Stretch;
-    stretchSet: boolean;
-    strikethrough: boolean;
-    strikethroughSet: boolean;
-    style: Pango.Style;
-    styleSet: boolean;
-    text: string;
-    underline: Pango.Underline;
-    underlineSet: boolean;
-    variant: Pango.Variant;
-    variantSet: boolean;
-    weight: number;
-    weightSet: boolean;
-    widthChars: number;
-    wrapMode: Pango.WrapMode;
-    wrapWidth: number;
+    alignSet?: boolean;
+    alignment?: Pango.Alignment;
+    attributes?: Pango.AttrList;
+    background?: string;
+    backgroundGdk?: Gdk.Color;
+    backgroundRgba?: Gdk.RGBA;
+    backgroundSet?: boolean;
+    editable?: boolean;
+    editableSet?: boolean;
+    ellipsize?: Pango.EllipsizeMode;
+    ellipsizeSet?: boolean;
+    family?: string;
+    familySet?: boolean;
+    font?: string;
+    fontDesc?: Pango.FontDescription;
+    foreground?: string;
+    foregroundGdk?: Gdk.Color;
+    foregroundRgba?: Gdk.RGBA;
+    foregroundSet?: boolean;
+    language?: string;
+    languageSet?: boolean;
+    markup?: string;
+    maxWidthChars?: number;
+    placeholderText?: string;
+    rise?: number;
+    riseSet?: boolean;
+    scale?: number;
+    scaleSet?: boolean;
+    singleParagraphMode?: boolean;
+    size?: number;
+    sizePoints?: number;
+    sizeSet?: boolean;
+    stretch?: Pango.Stretch;
+    stretchSet?: boolean;
+    strikethrough?: boolean;
+    strikethroughSet?: boolean;
+    style?: Pango.Style;
+    styleSet?: boolean;
+    text?: string;
+    underline?: Pango.Underline;
+    underlineSet?: boolean;
+    variant?: Pango.Variant;
+    variantSet?: boolean;
+    weight?: number;
+    weightSet?: boolean;
+    widthChars?: number;
+    wrapMode?: Pango.WrapMode;
+    wrapWidth?: number;
   }
   
   export class CellRendererToggle extends CellRenderer {
     constructor(props?: CellRendererToggleProps);
     
-    activatable: boolean;
-    active: boolean;
-    inconsistent: boolean;
-    indicatorSize: number;
-    radio: boolean;
+    activatable?: boolean;
+    active?: boolean;
+    inconsistent?: boolean;
+    indicatorSize?: number;
+    radio?: boolean;
     
     public getActivatable(): boolean;
     public getActive(): boolean;
@@ -7729,28 +7800,30 @@ declare module "Gtk" {
     public setActive(setting: boolean): void;
     public setRadio(radio: boolean): void;
     public toggled(path: string): void;
+    
+    public on(event: 'toggled', listener: (path: string) => void): this;
   }
   
   interface CellRendererToggleProps extends CellRendererProps {
-    activatable: boolean;
-    active: boolean;
-    inconsistent: boolean;
-    indicatorSize: number;
-    radio: boolean;
+    activatable?: boolean;
+    active?: boolean;
+    inconsistent?: boolean;
+    indicatorSize?: number;
+    radio?: boolean;
   }
   
   export class CellView extends Widget implements Atk.ImplementorIface, Buildable, CellLayout, Orientable {
     constructor(props?: CellViewProps);
     
-    background: string;
-    backgroundGdk: Gdk.Color;
-    backgroundRgba: Gdk.RGBA;
-    backgroundSet: boolean;
-    cellArea: CellArea;
-    cellAreaContext: CellAreaContext;
-    drawSensitive: boolean;
-    fitModel: boolean;
-    model: TreeModel;
+    background?: string;
+    backgroundGdk?: Gdk.Color;
+    backgroundRgba?: Gdk.RGBA;
+    backgroundSet?: boolean;
+    cellArea?: CellArea;
+    cellAreaContext?: CellAreaContext;
+    drawSensitive?: boolean;
+    fitModel?: boolean;
+    model?: TreeModel;
     
     public getDisplayedRow(): TreePath;
     public getDrawSensitive(): boolean;
@@ -7766,15 +7839,15 @@ declare module "Gtk" {
   }
   
   interface CellViewProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps, CellLayoutProps, OrientableProps {
-    background: string;
-    backgroundGdk: Gdk.Color;
-    backgroundRgba: Gdk.RGBA;
-    backgroundSet: boolean;
-    cellArea: CellArea;
-    cellAreaContext: CellAreaContext;
-    drawSensitive: boolean;
-    fitModel: boolean;
-    model: TreeModel;
+    background?: string;
+    backgroundGdk?: Gdk.Color;
+    backgroundRgba?: Gdk.RGBA;
+    backgroundSet?: boolean;
+    cellArea?: CellArea;
+    cellAreaContext?: CellAreaContext;
+    drawSensitive?: boolean;
+    fitModel?: boolean;
+    model?: TreeModel;
   }
   
   export class CheckButton extends ToggleButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
@@ -7790,9 +7863,9 @@ declare module "Gtk" {
   export class CheckMenuItem extends MenuItem implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: CheckMenuItemProps);
     
-    active: boolean;
-    drawAsRadio: boolean;
-    inconsistent: boolean;
+    active?: boolean;
+    drawAsRadio?: boolean;
+    inconsistent?: boolean;
     
     public getActive(): boolean;
     public getDrawAsRadio(): boolean;
@@ -7802,12 +7875,14 @@ declare module "Gtk" {
     public setInconsistent(setting: boolean): void;
     public toggled(): void;
     public drawIndicator(cr: cairo.Context): void;
+    
+    public on(event: 'toggled', listener: () => void): this;
   }
   
   interface CheckMenuItemProps extends MenuItemProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    active: boolean;
-    drawAsRadio: boolean;
-    inconsistent: boolean;
+    active?: boolean;
+    drawAsRadio?: boolean;
+    inconsistent?: boolean;
   }
   
   export class CheckMenuItemAccessible extends MenuItemAccessible implements Atk.Action, Atk.Component, Atk.Selection {
@@ -7849,6 +7924,8 @@ declare module "Gtk" {
     public waitIsTextAvailable(): boolean;
     public waitIsUrisAvailable(): boolean;
     
+    public on(event: 'ownerChange', listener: (event: Gdk.EventOwnerChange) => void): this;
+    
     public static get(selection: Gdk.Atom): Clipboard;
     public static getDefault(display: Gdk.Display): Clipboard;
     public static getForDisplay(display: Gdk.Display, selection: Gdk.Atom): Clipboard;
@@ -7861,12 +7938,12 @@ declare module "Gtk" {
   export class ColorButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable, ColorChooser {
     constructor(props?: ColorButtonProps);
     
-    alpha: number;
-    color: Gdk.Color;
-    rgba: Gdk.RGBA;
-    showEditor: boolean;
-    title: string;
-    useAlpha: boolean;
+    alpha?: number;
+    color?: Gdk.Color;
+    rgba?: Gdk.RGBA;
+    showEditor?: boolean;
+    title?: string;
+    useAlpha?: boolean;
     
     public getAlpha(): number;
     public getColor(color: Gdk.Color): void;
@@ -7879,45 +7956,47 @@ declare module "Gtk" {
     public setTitle(title: string): void;
     public setUseAlpha(useAlpha: boolean): void;
     public colorSet(): void;
+    
+    public on(event: 'colorSet', listener: () => void): this;
   }
   
   interface ColorButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps, ColorChooserProps {
-    alpha: number;
-    color: Gdk.Color;
-    rgba: Gdk.RGBA;
-    showEditor: boolean;
-    title: string;
-    useAlpha: boolean;
+    alpha?: number;
+    color?: Gdk.Color;
+    rgba?: Gdk.RGBA;
+    showEditor?: boolean;
+    title?: string;
+    useAlpha?: boolean;
   }
   
   export class ColorChooserDialog extends Dialog implements Atk.ImplementorIface, Buildable, ColorChooser {
     constructor(props?: ColorChooserDialogProps);
     
-    showEditor: boolean;
+    showEditor?: boolean;
   }
   
   interface ColorChooserDialogProps extends DialogProps, Atk.ImplementorIfaceProps, BuildableProps, ColorChooserProps {
-    showEditor: boolean;
+    showEditor?: boolean;
   }
   
   export class ColorChooserWidget extends Box implements Atk.ImplementorIface, Buildable, ColorChooser, Orientable {
     constructor(props?: ColorChooserWidgetProps);
     
-    showEditor: boolean;
+    showEditor?: boolean;
   }
   
   interface ColorChooserWidgetProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, ColorChooserProps, OrientableProps {
-    showEditor: boolean;
+    showEditor?: boolean;
   }
   
   export class ColorSelection extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ColorSelectionProps);
     
-    currentAlpha: number;
-    currentColor: Gdk.Color;
-    currentRgba: Gdk.RGBA;
-    hasOpacityControl: boolean;
-    hasPalette: boolean;
+    currentAlpha?: number;
+    currentColor?: Gdk.Color;
+    currentRgba?: Gdk.RGBA;
+    hasOpacityControl?: boolean;
+    hasPalette?: boolean;
     
     public getCurrentAlpha(): number;
     public getCurrentColor(color: Gdk.Color): void;
@@ -7938,56 +8017,58 @@ declare module "Gtk" {
     public setPreviousRgba(rgba: Gdk.RGBA): void;
     public colorChanged(): void;
     
+    public on(event: 'colorChanged', listener: () => void): this;
+    
     public static paletteFromString(str: string, colors: Gdk.Color[], nColors: number): boolean;
     public static paletteToString(colors: Gdk.Color[], nColors: number): string;
     public static setChangePaletteWithScreenHook(func: ColorSelectionChangePaletteWithScreenFunc): ColorSelectionChangePaletteWithScreenFunc;
   }
   
   interface ColorSelectionProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    currentAlpha: number;
-    currentColor: Gdk.Color;
-    currentRgba: Gdk.RGBA;
-    hasOpacityControl: boolean;
-    hasPalette: boolean;
+    currentAlpha?: number;
+    currentColor?: Gdk.Color;
+    currentRgba?: Gdk.RGBA;
+    hasOpacityControl?: boolean;
+    hasPalette?: boolean;
   }
   
   export class ColorSelectionDialog extends Dialog implements Atk.ImplementorIface, Buildable {
     constructor(props?: ColorSelectionDialogProps);
     
-    cancelButton: Widget;
-    colorSelection: Widget;
-    helpButton: Widget;
-    okButton: Widget;
+    cancelButton?: Widget;
+    colorSelection?: Widget;
+    helpButton?: Widget;
+    okButton?: Widget;
     
     public getColorSelection(): Widget;
   }
   
   interface ColorSelectionDialogProps extends DialogProps, Atk.ImplementorIfaceProps, BuildableProps {
-    cancelButton: Widget;
-    colorSelection: Widget;
-    helpButton: Widget;
-    okButton: Widget;
+    cancelButton?: Widget;
+    colorSelection?: Widget;
+    helpButton?: Widget;
+    okButton?: Widget;
   }
   
   export class ComboBox extends Bin implements Atk.ImplementorIface, Buildable, CellEditable, CellLayout {
     constructor(props?: ComboBoxProps);
     
-    active: number;
-    activeId: string;
-    addTearoffs: boolean;
-    buttonSensitivity: SensitivityType;
-    cellArea: CellArea;
-    columnSpanColumn: number;
-    entryTextColumn: number;
-    hasEntry: boolean;
-    hasFrame: boolean;
-    idColumn: number;
-    model: TreeModel;
-    popupFixedWidth: boolean;
-    popupShown: boolean;
-    rowSpanColumn: number;
-    tearoffTitle: string;
-    wrapWidth: number;
+    active?: number;
+    activeId?: string;
+    addTearoffs?: boolean;
+    buttonSensitivity?: SensitivityType;
+    cellArea?: CellArea;
+    columnSpanColumn?: number;
+    entryTextColumn?: number;
+    hasEntry?: boolean;
+    hasFrame?: boolean;
+    idColumn?: number;
+    model?: TreeModel;
+    popupFixedWidth?: boolean;
+    popupShown?: boolean;
+    rowSpanColumn?: number;
+    tearoffTitle?: string;
+    wrapWidth?: number;
     
     public getActive(): number;
     public getActiveId(): string;
@@ -8026,25 +8107,31 @@ declare module "Gtk" {
     public setWrapWidth(width: number): void;
     public changed(): void;
     public formatEntryText(path: string): string;
+    
+    public on(event: 'changed', listener: () => void): this;
+    public on(event: 'formatEntryText', listener: (path: string) => string): this;
+    public on(event: 'moveActive', listener: (scrollType: ScrollType) => void): this;
+    public on(event: 'popdown', listener: () => boolean): this;
+    public on(event: 'popup', listener: () => void): this;
   }
   
   interface ComboBoxProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps, CellEditableProps, CellLayoutProps {
-    active: number;
-    activeId: string;
-    addTearoffs: boolean;
-    buttonSensitivity: SensitivityType;
-    cellArea: CellArea;
-    columnSpanColumn: number;
-    entryTextColumn: number;
-    hasEntry: boolean;
-    hasFrame: boolean;
-    idColumn: number;
-    model: TreeModel;
-    popupFixedWidth: boolean;
-    popupShown: boolean;
-    rowSpanColumn: number;
-    tearoffTitle: string;
-    wrapWidth: number;
+    active?: number;
+    activeId?: string;
+    addTearoffs?: boolean;
+    buttonSensitivity?: SensitivityType;
+    cellArea?: CellArea;
+    columnSpanColumn?: number;
+    entryTextColumn?: number;
+    hasEntry?: boolean;
+    hasFrame?: boolean;
+    idColumn?: number;
+    model?: TreeModel;
+    popupFixedWidth?: boolean;
+    popupShown?: boolean;
+    rowSpanColumn?: number;
+    tearoffTitle?: string;
+    wrapWidth?: number;
   }
   
   export class ComboBoxAccessible extends ContainerAccessible implements Atk.Action, Atk.Component, Atk.Selection {
@@ -8076,9 +8163,9 @@ declare module "Gtk" {
   export class Container extends Widget implements Atk.ImplementorIface, Buildable {
     constructor(props?: ContainerProps);
     
-    borderWidth: number;
-    child: Widget;
-    resizeMode: ResizeMode;
+    borderWidth?: number;
+    child?: Widget;
+    resizeMode?: ResizeMode;
     
     public add(widget: Widget): void;
     public addWithProperties(widget: Widget, firstPropName: string, ...params: any[]): void;
@@ -8116,12 +8203,17 @@ declare module "Gtk" {
     public compositeName(child: Widget): string;
     public getChildProperty(child: Widget, propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void;
     public setChildProperty(child: Widget, propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void;
+    
+    public on(event: 'add', listener: (object: Widget) => void): this;
+    public on(event: 'checkResize', listener: () => void): this;
+    public on(event: 'remove', listener: (object: Widget) => void): this;
+    public on(event: 'setFocusChild', listener: (object: Widget) => void): this;
   }
   
   interface ContainerProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps {
-    borderWidth: number;
-    child: Widget;
-    resizeMode: ResizeMode;
+    borderWidth?: number;
+    child?: Widget;
+    resizeMode?: ResizeMode;
   }
   
   export class ContainerAccessible extends WidgetAccessible implements Atk.Component {
@@ -8154,6 +8246,8 @@ declare module "Gtk" {
     public toString(): string;
     public parsingError(section: CssSection, error: GLib.Error): void;
     
+    public on(event: 'parsingError', listener: (section: CssSection, error: GLib.Error) => void): this;
+    
     public static getDefault(): CssProvider;
     public static getNamed(name: string, variant: string): CssProvider;
   }
@@ -8165,7 +8259,7 @@ declare module "Gtk" {
   export class Dialog extends Window implements Atk.ImplementorIface, Buildable {
     constructor(props?: DialogProps);
     
-    useHeaderBar: number;
+    useHeaderBar?: number;
     
     public addActionWidget(child: Widget, responseId: number): void;
     public addButton(buttonText: string, responseId: number): Widget;
@@ -8182,10 +8276,13 @@ declare module "Gtk" {
     public setDefaultResponse(responseId: number): void;
     public setResponseSensitive(responseId: number, setting: boolean): void;
     public close(): void;
+    
+    public on(event: 'close', listener: () => void): this;
+    public on(event: 'response', listener: (responseId: number) => void): this;
   }
   
   interface DialogProps extends WindowProps, Atk.ImplementorIfaceProps, BuildableProps {
-    useHeaderBar: number;
+    useHeaderBar?: number;
   }
   
   export class DrawingArea extends Widget implements Atk.ImplementorIface, Buildable {
@@ -8199,55 +8296,55 @@ declare module "Gtk" {
   export class Entry extends Widget implements Atk.ImplementorIface, Buildable, CellEditable, Editable {
     constructor(props?: EntryProps);
     
-    activatesDefault: boolean;
-    attributes: Pango.AttrList;
-    buffer: EntryBuffer;
-    capsLockWarning: boolean;
-    completion: EntryCompletion;
-    cursorPosition: number;
-    editable: boolean;
-    hasFrame: boolean;
-    imModule: string;
-    innerBorder: Border;
-    inputHints: InputHints;
-    inputPurpose: InputPurpose;
-    invisibleChar: number;
-    invisibleCharSet: boolean;
-    maxLength: number;
-    maxWidthChars: number;
-    overwriteMode: boolean;
-    placeholderText: string;
-    populateAll: boolean;
-    primaryIconActivatable: boolean;
-    primaryIconGicon: Gio.Icon;
-    primaryIconName: string;
-    primaryIconPixbuf: GdkPixbuf.Pixbuf;
-    primaryIconSensitive: boolean;
-    primaryIconStock: string;
-    primaryIconStorageType: ImageType;
-    primaryIconTooltipMarkup: string;
-    primaryIconTooltipText: string;
-    progressFraction: number;
-    progressPulseStep: number;
-    scrollOffset: number;
-    secondaryIconActivatable: boolean;
-    secondaryIconGicon: Gio.Icon;
-    secondaryIconName: string;
-    secondaryIconPixbuf: GdkPixbuf.Pixbuf;
-    secondaryIconSensitive: boolean;
-    secondaryIconStock: string;
-    secondaryIconStorageType: ImageType;
-    secondaryIconTooltipMarkup: string;
-    secondaryIconTooltipText: string;
-    selectionBound: number;
-    shadowType: ShadowType;
-    tabs: Pango.TabArray;
-    text: string;
-    textLength: number;
-    truncateMultiline: boolean;
-    visibility: boolean;
-    widthChars: number;
-    xalign: number;
+    activatesDefault?: boolean;
+    attributes?: Pango.AttrList;
+    buffer?: EntryBuffer;
+    capsLockWarning?: boolean;
+    completion?: EntryCompletion;
+    cursorPosition?: number;
+    editable?: boolean;
+    hasFrame?: boolean;
+    imModule?: string;
+    innerBorder?: Border;
+    inputHints?: InputHints;
+    inputPurpose?: InputPurpose;
+    invisibleChar?: number;
+    invisibleCharSet?: boolean;
+    maxLength?: number;
+    maxWidthChars?: number;
+    overwriteMode?: boolean;
+    placeholderText?: string;
+    populateAll?: boolean;
+    primaryIconActivatable?: boolean;
+    primaryIconGicon?: Gio.Icon;
+    primaryIconName?: string;
+    primaryIconPixbuf?: GdkPixbuf.Pixbuf;
+    primaryIconSensitive?: boolean;
+    primaryIconStock?: string;
+    primaryIconStorageType?: ImageType;
+    primaryIconTooltipMarkup?: string;
+    primaryIconTooltipText?: string;
+    progressFraction?: number;
+    progressPulseStep?: number;
+    scrollOffset?: number;
+    secondaryIconActivatable?: boolean;
+    secondaryIconGicon?: Gio.Icon;
+    secondaryIconName?: string;
+    secondaryIconPixbuf?: GdkPixbuf.Pixbuf;
+    secondaryIconSensitive?: boolean;
+    secondaryIconStock?: string;
+    secondaryIconStorageType?: ImageType;
+    secondaryIconTooltipMarkup?: string;
+    secondaryIconTooltipText?: string;
+    selectionBound?: number;
+    shadowType?: ShadowType;
+    tabs?: Pango.TabArray;
+    text?: string;
+    textLength?: number;
+    truncateMultiline?: boolean;
+    visibility?: boolean;
+    widthChars?: number;
+    xalign?: number;
     
     public getActivatesDefault(): boolean;
     public getAlignment(): number;
@@ -8335,58 +8432,72 @@ declare module "Gtk" {
     public pasteClipboard(): void;
     public populatePopup(popup: Widget): void;
     public toggleOverwrite(): void;
+    
+    public on(event: 'activate', listener: () => void): this;
+    public on(event: 'backspace', listener: () => void): this;
+    public on(event: 'copyClipboard', listener: () => void): this;
+    public on(event: 'cutClipboard', listener: () => void): this;
+    public on(event: 'deleteFromCursor', listener: (type: DeleteType, count: number) => void): this;
+    public on(event: 'iconPress', listener: (iconPos: EntryIconPosition, event: Gdk.EventButton) => void): this;
+    public on(event: 'iconRelease', listener: (iconPos: EntryIconPosition, event: Gdk.EventButton) => void): this;
+    public on(event: 'insertAtCursor', listener: (string: string) => void): this;
+    public on(event: 'moveCursor', listener: (step: MovementStep, count: number, extendSelection: boolean) => void): this;
+    public on(event: 'pasteClipboard', listener: () => void): this;
+    public on(event: 'populatePopup', listener: (widget: Widget) => void): this;
+    public on(event: 'preeditChanged', listener: (preedit: string) => void): this;
+    public on(event: 'toggleOverwrite', listener: () => void): this;
   }
   
   interface EntryProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps, CellEditableProps, EditableProps {
-    activatesDefault: boolean;
-    attributes: Pango.AttrList;
-    buffer: EntryBuffer;
-    capsLockWarning: boolean;
-    completion: EntryCompletion;
-    cursorPosition: number;
-    editable: boolean;
-    hasFrame: boolean;
-    imModule: string;
-    innerBorder: Border;
-    inputHints: InputHints;
-    inputPurpose: InputPurpose;
-    invisibleChar: number;
-    invisibleCharSet: boolean;
-    maxLength: number;
-    maxWidthChars: number;
-    overwriteMode: boolean;
-    placeholderText: string;
-    populateAll: boolean;
-    primaryIconActivatable: boolean;
-    primaryIconGicon: Gio.Icon;
-    primaryIconName: string;
-    primaryIconPixbuf: GdkPixbuf.Pixbuf;
-    primaryIconSensitive: boolean;
-    primaryIconStock: string;
-    primaryIconStorageType: ImageType;
-    primaryIconTooltipMarkup: string;
-    primaryIconTooltipText: string;
-    progressFraction: number;
-    progressPulseStep: number;
-    scrollOffset: number;
-    secondaryIconActivatable: boolean;
-    secondaryIconGicon: Gio.Icon;
-    secondaryIconName: string;
-    secondaryIconPixbuf: GdkPixbuf.Pixbuf;
-    secondaryIconSensitive: boolean;
-    secondaryIconStock: string;
-    secondaryIconStorageType: ImageType;
-    secondaryIconTooltipMarkup: string;
-    secondaryIconTooltipText: string;
-    selectionBound: number;
-    shadowType: ShadowType;
-    tabs: Pango.TabArray;
-    text: string;
-    textLength: number;
-    truncateMultiline: boolean;
-    visibility: boolean;
-    widthChars: number;
-    xalign: number;
+    activatesDefault?: boolean;
+    attributes?: Pango.AttrList;
+    buffer?: EntryBuffer;
+    capsLockWarning?: boolean;
+    completion?: EntryCompletion;
+    cursorPosition?: number;
+    editable?: boolean;
+    hasFrame?: boolean;
+    imModule?: string;
+    innerBorder?: Border;
+    inputHints?: InputHints;
+    inputPurpose?: InputPurpose;
+    invisibleChar?: number;
+    invisibleCharSet?: boolean;
+    maxLength?: number;
+    maxWidthChars?: number;
+    overwriteMode?: boolean;
+    placeholderText?: string;
+    populateAll?: boolean;
+    primaryIconActivatable?: boolean;
+    primaryIconGicon?: Gio.Icon;
+    primaryIconName?: string;
+    primaryIconPixbuf?: GdkPixbuf.Pixbuf;
+    primaryIconSensitive?: boolean;
+    primaryIconStock?: string;
+    primaryIconStorageType?: ImageType;
+    primaryIconTooltipMarkup?: string;
+    primaryIconTooltipText?: string;
+    progressFraction?: number;
+    progressPulseStep?: number;
+    scrollOffset?: number;
+    secondaryIconActivatable?: boolean;
+    secondaryIconGicon?: Gio.Icon;
+    secondaryIconName?: string;
+    secondaryIconPixbuf?: GdkPixbuf.Pixbuf;
+    secondaryIconSensitive?: boolean;
+    secondaryIconStock?: string;
+    secondaryIconStorageType?: ImageType;
+    secondaryIconTooltipMarkup?: string;
+    secondaryIconTooltipText?: string;
+    selectionBound?: number;
+    shadowType?: ShadowType;
+    tabs?: Pango.TabArray;
+    text?: string;
+    textLength?: number;
+    truncateMultiline?: boolean;
+    visibility?: boolean;
+    widthChars?: number;
+    xalign?: number;
   }
   
   export class EntryAccessible extends WidgetAccessible implements Atk.Action, Atk.Component, Atk.EditableText, Atk.Text {
@@ -8400,9 +8511,9 @@ declare module "Gtk" {
   export class EntryBuffer extends GObject.Object {
     constructor(props?: EntryBufferProps);
     
-    length: number;
-    maxLength: number;
-    text: string;
+    length?: number;
+    maxLength?: number;
+    text?: string;
     
     public deleteText(position: number, nChars: number): number;
     public emitDeletedText(position: number, nChars: number): void;
@@ -8416,26 +8527,29 @@ declare module "Gtk" {
     public setText(chars: string, nChars: number): void;
     public deletedText(position: number, nChars: number): void;
     public insertedText(position: number, chars: string, nChars: number): void;
+    
+    public on(event: 'deletedText', listener: (position: number, nChars: number) => void): this;
+    public on(event: 'insertedText', listener: (position: number, chars: string, nChars: number) => void): this;
   }
   
   interface EntryBufferProps extends GObject.ObjectProps {
-    length: number;
-    maxLength: number;
-    text: string;
+    length?: number;
+    maxLength?: number;
+    text?: string;
   }
   
   export class EntryCompletion extends GObject.Object implements Buildable, CellLayout {
     constructor(props?: EntryCompletionProps);
     
-    cellArea: CellArea;
-    inlineCompletion: boolean;
-    inlineSelection: boolean;
-    minimumKeyLength: number;
-    model: TreeModel;
-    popupCompletion: boolean;
-    popupSetWidth: boolean;
-    popupSingleMatch: boolean;
-    textColumn: number;
+    cellArea?: CellArea;
+    inlineCompletion?: boolean;
+    inlineSelection?: boolean;
+    minimumKeyLength?: number;
+    model?: TreeModel;
+    popupCompletion?: boolean;
+    popupSetWidth?: boolean;
+    popupSingleMatch?: boolean;
+    textColumn?: number;
     
     public complete(): void;
     public computePrefix(key: string): string;
@@ -8466,18 +8580,24 @@ declare module "Gtk" {
     public cursorOnMatch(model: TreeModel, iter: TreeIter): boolean;
     public matchSelected(model: TreeModel, iter: TreeIter): boolean;
     public noMatches(): void;
+    
+    public on(event: 'actionActivated', listener: (index: number) => void): this;
+    public on(event: 'cursorOnMatch', listener: (model: TreeModel, iter: TreeIter) => boolean): this;
+    public on(event: 'insertPrefix', listener: (prefix: string) => boolean): this;
+    public on(event: 'matchSelected', listener: (model: TreeModel, iter: TreeIter) => boolean): this;
+    public on(event: 'noMatches', listener: () => void): this;
   }
   
   interface EntryCompletionProps extends GObject.ObjectProps, BuildableProps, CellLayoutProps {
-    cellArea: CellArea;
-    inlineCompletion: boolean;
-    inlineSelection: boolean;
-    minimumKeyLength: number;
-    model: TreeModel;
-    popupCompletion: boolean;
-    popupSetWidth: boolean;
-    popupSingleMatch: boolean;
-    textColumn: number;
+    cellArea?: CellArea;
+    inlineCompletion?: boolean;
+    inlineSelection?: boolean;
+    minimumKeyLength?: number;
+    model?: TreeModel;
+    popupCompletion?: boolean;
+    popupSetWidth?: boolean;
+    popupSingleMatch?: boolean;
+    textColumn?: number;
   }
   
   export class EntryIconAccessible extends Atk.Object implements Atk.Action, Atk.Component {
@@ -8491,8 +8611,8 @@ declare module "Gtk" {
   export class EventBox extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: EventBoxProps);
     
-    aboveChild: boolean;
-    visibleWindow: boolean;
+    aboveChild?: boolean;
+    visibleWindow?: boolean;
     
     public getAboveChild(): boolean;
     public getVisibleWindow(): boolean;
@@ -8501,15 +8621,15 @@ declare module "Gtk" {
   }
   
   interface EventBoxProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    aboveChild: boolean;
-    visibleWindow: boolean;
+    aboveChild?: boolean;
+    visibleWindow?: boolean;
   }
   
   export class EventController extends GObject.Object {
     constructor(props?: EventControllerProps);
     
-    propagationPhase: PropagationPhase;
-    widget: Widget;
+    propagationPhase?: PropagationPhase;
+    widget?: Widget;
     
     public getPropagationPhase(): PropagationPhase;
     public getWidget(): Widget;
@@ -8519,21 +8639,21 @@ declare module "Gtk" {
   }
   
   interface EventControllerProps extends GObject.ObjectProps {
-    propagationPhase: PropagationPhase;
-    widget: Widget;
+    propagationPhase?: PropagationPhase;
+    widget?: Widget;
   }
   
   export class Expander extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: ExpanderProps);
     
-    expanded: boolean;
-    label: string;
-    labelFill: boolean;
-    labelWidget: Widget;
-    resizeToplevel: boolean;
-    spacing: number;
-    useMarkup: boolean;
-    useUnderline: boolean;
+    expanded?: boolean;
+    label?: string;
+    labelFill?: boolean;
+    labelWidget?: Widget;
+    resizeToplevel?: boolean;
+    spacing?: number;
+    useMarkup?: boolean;
+    useUnderline?: boolean;
     
     public getExpanded(): boolean;
     public getLabel(): string;
@@ -8552,17 +8672,19 @@ declare module "Gtk" {
     public setUseMarkup(useMarkup: boolean): void;
     public setUseUnderline(useUnderline: boolean): void;
     public activate(): void;
+    
+    public on(event: 'activate', listener: () => void): this;
   }
   
   interface ExpanderProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    expanded: boolean;
-    label: string;
-    labelFill: boolean;
-    labelWidget: Widget;
-    resizeToplevel: boolean;
-    spacing: number;
-    useMarkup: boolean;
-    useUnderline: boolean;
+    expanded?: boolean;
+    label?: string;
+    labelFill?: boolean;
+    labelWidget?: Widget;
+    resizeToplevel?: boolean;
+    spacing?: number;
+    useMarkup?: boolean;
+    useUnderline?: boolean;
   }
   
   export class ExpanderAccessible extends ContainerAccessible implements Atk.Action, Atk.Component {
@@ -8576,9 +8698,9 @@ declare module "Gtk" {
   export class FileChooserButton extends Box implements Atk.ImplementorIface, Buildable, FileChooser, Orientable {
     constructor(props?: FileChooserButtonProps);
     
-    dialog: FileChooser;
-    title: string;
-    widthChars: number;
+    dialog?: FileChooser;
+    title?: string;
+    widthChars?: number;
     
     public getFocusOnClick(): boolean;
     public getTitle(): string;
@@ -8587,12 +8709,14 @@ declare module "Gtk" {
     public setTitle(title: string): void;
     public setWidthChars(nChars: number): void;
     public fileSet(): void;
+    
+    public on(event: 'fileSet', listener: () => void): this;
   }
   
   interface FileChooserButtonProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, FileChooserProps, OrientableProps {
-    dialog: FileChooser;
-    title: string;
-    widthChars: number;
+    dialog?: FileChooser;
+    title?: string;
+    widthChars?: number;
   }
   
   export class FileChooserDialog extends Dialog implements Atk.ImplementorIface, Buildable, FileChooser {
@@ -8606,8 +8730,8 @@ declare module "Gtk" {
   export class FileChooserNative extends NativeDialog implements FileChooser {
     constructor(props?: FileChooserNativeProps);
     
-    acceptLabel: string;
-    cancelLabel: string;
+    acceptLabel?: string;
+    cancelLabel?: string;
     
     public getAcceptLabel(): string;
     public getCancelLabel(): string;
@@ -8616,20 +8740,33 @@ declare module "Gtk" {
   }
   
   interface FileChooserNativeProps extends NativeDialogProps, FileChooserProps {
-    acceptLabel: string;
-    cancelLabel: string;
+    acceptLabel?: string;
+    cancelLabel?: string;
   }
   
   export class FileChooserWidget extends Box implements Atk.ImplementorIface, Buildable, FileChooser, Orientable {
     constructor(props?: FileChooserWidgetProps);
     
-    searchMode: boolean;
-    subtitle: string;
+    searchMode?: boolean;
+    subtitle?: string;
+    
+    public on(event: 'desktopFolder', listener: () => void): this;
+    public on(event: 'downFolder', listener: () => void): this;
+    public on(event: 'homeFolder', listener: () => void): this;
+    public on(event: 'locationPopup', listener: (path: string) => void): this;
+    public on(event: 'locationPopupOnPaste', listener: () => void): this;
+    public on(event: 'locationTogglePopup', listener: () => void): this;
+    public on(event: 'placesShortcut', listener: () => void): this;
+    public on(event: 'quickBookmark', listener: (bookmarkIndex: number) => void): this;
+    public on(event: 'recentShortcut', listener: () => void): this;
+    public on(event: 'searchShortcut', listener: () => void): this;
+    public on(event: 'showHidden', listener: () => void): this;
+    public on(event: 'upFolder', listener: () => void): this;
   }
   
   interface FileChooserWidgetProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, FileChooserProps, OrientableProps {
-    searchMode: boolean;
-    subtitle: string;
+    searchMode?: boolean;
+    subtitle?: string;
   }
   
   export class FileFilter extends GObject.InitiallyUnowned implements Buildable {
@@ -8664,13 +8801,13 @@ declare module "Gtk" {
   export class FlowBox extends Container implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: FlowBoxProps);
     
-    activateOnSingleClick: boolean;
-    columnSpacing: number;
-    homogeneous: boolean;
-    maxChildrenPerLine: number;
-    minChildrenPerLine: number;
-    rowSpacing: number;
-    selectionMode: SelectionMode;
+    activateOnSingleClick?: boolean;
+    columnSpacing?: number;
+    homogeneous?: boolean;
+    maxChildrenPerLine?: number;
+    minChildrenPerLine?: number;
+    rowSpacing?: number;
+    selectionMode?: SelectionMode;
     
     public bindModel(model: Gio.ListModel, createWidgetFunc: FlowBoxCreateWidgetFunc, userData: any, userDataFreeFunc: GLib.DestroyNotify): void;
     public getActivateOnSingleClick(): boolean;
@@ -8707,16 +8844,24 @@ declare module "Gtk" {
     public moveCursor(step: MovementStep, count: number): boolean;
     public selectedChildrenChanged(): void;
     public toggleCursorChild(): void;
+    
+    public on(event: 'activateCursorChild', listener: () => void): this;
+    public on(event: 'childActivated', listener: (child: FlowBoxChild) => void): this;
+    public on(event: 'moveCursor', listener: (step: MovementStep, count: number) => boolean): this;
+    public on(event: 'selectAll', listener: () => void): this;
+    public on(event: 'selectedChildrenChanged', listener: () => void): this;
+    public on(event: 'toggleCursorChild', listener: () => void): this;
+    public on(event: 'unselectAll', listener: () => void): this;
   }
   
   interface FlowBoxProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    activateOnSingleClick: boolean;
-    columnSpacing: number;
-    homogeneous: boolean;
-    maxChildrenPerLine: number;
-    minChildrenPerLine: number;
-    rowSpacing: number;
-    selectionMode: SelectionMode;
+    activateOnSingleClick?: boolean;
+    columnSpacing?: number;
+    homogeneous?: boolean;
+    maxChildrenPerLine?: number;
+    minChildrenPerLine?: number;
+    rowSpacing?: number;
+    selectionMode?: SelectionMode;
   }
   
   export class FlowBoxAccessible extends ContainerAccessible implements Atk.Component, Atk.Selection {
@@ -8734,6 +8879,8 @@ declare module "Gtk" {
     public getIndex(): number;
     public isSelected(): boolean;
     public activate(): void;
+    
+    public on(event: 'activate', listener: () => void): this;
   }
   
   interface FlowBoxChildProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
@@ -8751,12 +8898,12 @@ declare module "Gtk" {
   export class FontButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable, FontChooser {
     constructor(props?: FontButtonProps);
     
-    fontName: string;
-    showSize: boolean;
-    showStyle: boolean;
-    title: string;
-    useFont: boolean;
-    useSize: boolean;
+    fontName?: string;
+    showSize?: boolean;
+    showStyle?: boolean;
+    title?: string;
+    useFont?: boolean;
+    useSize?: boolean;
     
     public getFontName(): string;
     public getShowSize(): boolean;
@@ -8771,15 +8918,17 @@ declare module "Gtk" {
     public setUseFont(useFont: boolean): void;
     public setUseSize(useSize: boolean): void;
     public fontSet(): void;
+    
+    public on(event: 'fontSet', listener: () => void): this;
   }
   
   interface FontButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps, FontChooserProps {
-    fontName: string;
-    showSize: boolean;
-    showStyle: boolean;
-    title: string;
-    useFont: boolean;
-    useSize: boolean;
+    fontName?: string;
+    showSize?: boolean;
+    showStyle?: boolean;
+    title?: string;
+    useFont?: boolean;
+    useSize?: boolean;
   }
   
   export class FontChooserDialog extends Dialog implements Atk.ImplementorIface, Buildable, FontChooser {
@@ -8801,8 +8950,8 @@ declare module "Gtk" {
   export class FontSelection extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: FontSelectionProps);
     
-    fontName: string;
-    previewText: string;
+    fontName?: string;
+    previewText?: string;
     
     public getFace(): Pango.FontFace;
     public getFaceList(): Widget;
@@ -8819,8 +8968,8 @@ declare module "Gtk" {
   }
   
   interface FontSelectionProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    fontName: string;
-    previewText: string;
+    fontName?: string;
+    previewText?: string;
   }
   
   export class FontSelectionDialog extends Dialog implements Atk.ImplementorIface, Buildable {
@@ -8842,11 +8991,11 @@ declare module "Gtk" {
   export class Frame extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: FrameProps);
     
-    label: string;
-    labelWidget: Widget;
-    labelXalign: number;
-    labelYalign: number;
-    shadowType: ShadowType;
+    label?: string;
+    labelWidget?: Widget;
+    labelXalign?: number;
+    labelYalign?: number;
+    shadowType?: ShadowType;
     
     public getLabel(): string;
     public getLabelAlign(xalign: number, yalign: number): void;
@@ -8860,11 +9009,11 @@ declare module "Gtk" {
   }
   
   interface FrameProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    label: string;
-    labelWidget: Widget;
-    labelXalign: number;
-    labelYalign: number;
-    shadowType: ShadowType;
+    label?: string;
+    labelWidget?: Widget;
+    labelXalign?: number;
+    labelYalign?: number;
+    shadowType?: ShadowType;
   }
   
   export class FrameAccessible extends ContainerAccessible implements Atk.Component {
@@ -8878,12 +9027,12 @@ declare module "Gtk" {
   export class GLArea extends Widget implements Atk.ImplementorIface, Buildable {
     constructor(props?: GLAreaProps);
     
-    autoRender: boolean;
-    context: Gdk.GLContext;
-    hasAlpha: boolean;
-    hasDepthBuffer: boolean;
-    hasStencilBuffer: boolean;
-    useEs: boolean;
+    autoRender?: boolean;
+    context?: Gdk.GLContext;
+    hasAlpha?: boolean;
+    hasDepthBuffer?: boolean;
+    hasStencilBuffer?: boolean;
+    useEs?: boolean;
     
     public attachBuffers(): void;
     public getAutoRender(): boolean;
@@ -8906,22 +9055,26 @@ declare module "Gtk" {
     public createContext(): Gdk.GLContext;
     public render(context: Gdk.GLContext): boolean;
     public resize(width: number, height: number): void;
+    
+    public on(event: 'createContext', listener: () => Gdk.GLContext): this;
+    public on(event: 'render', listener: (context: Gdk.GLContext) => boolean): this;
+    public on(event: 'resize', listener: (width: number, height: number) => void): this;
   }
   
   interface GLAreaProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps {
-    autoRender: boolean;
-    context: Gdk.GLContext;
-    hasAlpha: boolean;
-    hasDepthBuffer: boolean;
-    hasStencilBuffer: boolean;
-    useEs: boolean;
+    autoRender?: boolean;
+    context?: Gdk.GLContext;
+    hasAlpha?: boolean;
+    hasDepthBuffer?: boolean;
+    hasStencilBuffer?: boolean;
+    useEs?: boolean;
   }
   
   export class Gesture extends EventController {
     constructor(props?: GestureProps);
     
-    nPoints: number;
-    window: Gdk.Window;
+    nPoints?: number;
+    window?: Gdk.Window;
     
     public getBoundingBox(rect: Gdk.Rectangle): boolean;
     public getBoundingBoxCenter(x: number, _y: number): boolean;
@@ -8942,11 +9095,17 @@ declare module "Gtk" {
     public setState(state: EventSequenceState): boolean;
     public setWindow(window: Gdk.Window): void;
     public ungroup(): void;
+    
+    public on(event: 'begin', listener: (sequence: Gdk.EventSequence) => void): this;
+    public on(event: 'cancel', listener: (sequence: Gdk.EventSequence) => void): this;
+    public on(event: 'end', listener: (sequence: Gdk.EventSequence) => void): this;
+    public on(event: 'sequenceStateChanged', listener: (sequence: Gdk.EventSequence, state: EventSequenceState) => void): this;
+    public on(event: 'update', listener: (sequence: Gdk.EventSequence) => void): this;
   }
   
   interface GestureProps extends EventControllerProps {
-    nPoints: number;
-    window: Gdk.Window;
+    nPoints?: number;
+    window?: Gdk.Window;
   }
   
   export class GestureDrag extends GestureSingle {
@@ -8954,6 +9113,10 @@ declare module "Gtk" {
     
     public getOffset(x: number, _y: number): boolean;
     public getStartPoint(x: number, _y: number): boolean;
+    
+    public on(event: 'dragBegin', listener: (startX: number, startY: number) => void): this;
+    public on(event: 'dragEnd', listener: (offsetX: number, offsetY: number) => void): this;
+    public on(event: 'dragUpdate', listener: (offsetX: number, offsetY: number) => void): this;
   }
   
   interface GestureDragProps extends GestureSingleProps {
@@ -8963,11 +9126,14 @@ declare module "Gtk" {
   export class GestureLongPress extends GestureSingle {
     constructor(props?: GestureLongPressProps);
     
-    delayFactor: number;
+    delayFactor?: number;
+    
+    public on(event: 'cancelled', listener: () => void): this;
+    public on(event: 'pressed', listener: (x: number, _y: number) => void): this;
   }
   
   interface GestureLongPressProps extends GestureSingleProps {
-    delayFactor: number;
+    delayFactor?: number;
   }
   
   export class GestureMultiPress extends GestureSingle {
@@ -8975,6 +9141,10 @@ declare module "Gtk" {
     
     public getArea(rect: Gdk.Rectangle): boolean;
     public setArea(rect: Gdk.Rectangle): void;
+    
+    public on(event: 'pressed', listener: (nPress: number, x: number, _y: number) => void): this;
+    public on(event: 'released', listener: (nPress: number, x: number, _y: number) => void): this;
+    public on(event: 'stopped', listener: () => void): this;
   }
   
   interface GestureMultiPressProps extends GestureSingleProps {
@@ -8984,20 +9154,24 @@ declare module "Gtk" {
   export class GesturePan extends GestureDrag {
     constructor(props?: GesturePanProps);
     
-    orientation: Orientation;
+    orientation?: Orientation;
     
     public getOrientation(): Orientation;
     public setOrientation(orientation: Orientation): void;
+    
+    public on(event: 'pan', listener: (direction: PanDirection, offset: number) => void): this;
   }
   
   interface GesturePanProps extends GestureDragProps {
-    orientation: Orientation;
+    orientation?: Orientation;
   }
   
   export class GestureRotate extends Gesture {
     constructor(props?: GestureRotateProps);
     
     public getAngleDelta(): number;
+    
+    public on(event: 'angleChanged', listener: (angle: number, angleDelta: number) => void): this;
   }
   
   interface GestureRotateProps extends GestureProps {
@@ -9007,9 +9181,9 @@ declare module "Gtk" {
   export class GestureSingle extends Gesture {
     constructor(props?: GestureSingleProps);
     
-    button: number;
-    exclusive: boolean;
-    touchOnly: boolean;
+    button?: number;
+    exclusive?: boolean;
+    touchOnly?: boolean;
     
     public getButton(): number;
     public getCurrentButton(): number;
@@ -9022,15 +9196,17 @@ declare module "Gtk" {
   }
   
   interface GestureSingleProps extends GestureProps {
-    button: number;
-    exclusive: boolean;
-    touchOnly: boolean;
+    button?: number;
+    exclusive?: boolean;
+    touchOnly?: boolean;
   }
   
   export class GestureSwipe extends GestureSingle {
     constructor(props?: GestureSwipeProps);
     
     public getVelocity(velocityX: number, velocityY: number): boolean;
+    
+    public on(event: 'swipe', listener: (velocityX: number, velocityY: number) => void): this;
   }
   
   interface GestureSwipeProps extends GestureSingleProps {
@@ -9041,6 +9217,8 @@ declare module "Gtk" {
     constructor(props?: GestureZoomProps);
     
     public getScaleDelta(): number;
+    
+    public on(event: 'scaleChanged', listener: (scale: number) => void): this;
   }
   
   interface GestureZoomProps extends GestureProps {
@@ -9050,11 +9228,11 @@ declare module "Gtk" {
   export class Grid extends Container implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: GridProps);
     
-    baselineRow: number;
-    columnHomogeneous: boolean;
-    columnSpacing: number;
-    rowHomogeneous: boolean;
-    rowSpacing: number;
+    baselineRow?: number;
+    columnHomogeneous?: boolean;
+    columnSpacing?: number;
+    rowHomogeneous?: boolean;
+    rowSpacing?: number;
     
     public attach(child: Widget, left: number, top: number, width: number, height: number): void;
     public attachNextTo(child: Widget, sibling: Widget, side: PositionType, width: number, height: number): void;
@@ -9079,11 +9257,11 @@ declare module "Gtk" {
   }
   
   interface GridProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    baselineRow: number;
-    columnHomogeneous: boolean;
-    columnSpacing: number;
-    rowHomogeneous: boolean;
-    rowSpacing: number;
+    baselineRow?: number;
+    columnHomogeneous?: boolean;
+    columnSpacing?: number;
+    rowHomogeneous?: boolean;
+    rowSpacing?: number;
   }
   
   export class HBox extends Box implements Atk.ImplementorIface, Buildable, Orientable {
@@ -9121,6 +9299,9 @@ declare module "Gtk" {
     public changed(): void;
     public move(type: DirectionType): void;
     
+    public on(event: 'changed', listener: () => void): this;
+    public on(event: 'move', listener: (object: DirectionType) => void): this;
+    
     public static toRgb(_h: number, _s: number, v: number, _r: number, _g: number, b: number): void;
   }
   
@@ -9155,11 +9336,11 @@ declare module "Gtk" {
   export class HandleBox extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: HandleBoxProps);
     
-    childDetached: boolean;
-    handlePosition: PositionType;
-    shadowType: ShadowType;
-    snapEdge: PositionType;
-    snapEdgeSet: boolean;
+    childDetached?: boolean;
+    handlePosition?: PositionType;
+    shadowType?: ShadowType;
+    snapEdge?: PositionType;
+    snapEdgeSet?: boolean;
     
     public getChildDetached(): boolean;
     public getHandlePosition(): PositionType;
@@ -9170,27 +9351,30 @@ declare module "Gtk" {
     public setSnapEdge(edge: PositionType): void;
     public childAttached(child: Widget): void;
     public childDetached(child: Widget): void;
+    
+    public on(event: 'childAttached', listener: (widget: Widget) => void): this;
+    public on(event: 'childDetached', listener: (widget: Widget) => void): this;
   }
   
   interface HandleBoxProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    childDetached: boolean;
-    handlePosition: PositionType;
-    shadowType: ShadowType;
-    snapEdge: PositionType;
-    snapEdgeSet: boolean;
+    childDetached?: boolean;
+    handlePosition?: PositionType;
+    shadowType?: ShadowType;
+    snapEdge?: PositionType;
+    snapEdgeSet?: boolean;
   }
   
   export class HeaderBar extends Container implements Atk.ImplementorIface, Buildable {
     constructor(props?: HeaderBarProps);
     
-    customTitle: Widget;
-    decorationLayout: string;
-    decorationLayoutSet: boolean;
-    hasSubtitle: boolean;
-    showCloseButton: boolean;
-    spacing: number;
-    subtitle: string;
-    title: string;
+    customTitle?: Widget;
+    decorationLayout?: string;
+    decorationLayoutSet?: boolean;
+    hasSubtitle?: boolean;
+    showCloseButton?: boolean;
+    spacing?: number;
+    subtitle?: string;
+    title?: string;
     
     public getCustomTitle(): Widget;
     public getDecorationLayout(): string;
@@ -9209,21 +9393,21 @@ declare module "Gtk" {
   }
   
   interface HeaderBarProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
-    customTitle: Widget;
-    decorationLayout: string;
-    decorationLayoutSet: boolean;
-    hasSubtitle: boolean;
-    showCloseButton: boolean;
-    spacing: number;
-    subtitle: string;
-    title: string;
+    customTitle?: Widget;
+    decorationLayout?: string;
+    decorationLayoutSet?: boolean;
+    hasSubtitle?: boolean;
+    showCloseButton?: boolean;
+    spacing?: number;
+    subtitle?: string;
+    title?: string;
   }
   
   export class IMContext extends GObject.Object {
     constructor(props?: IMContextProps);
     
-    inputHints: InputHints;
-    inputPurpose: InputPurpose;
+    inputHints?: InputHints;
+    inputPurpose?: InputPurpose;
     
     public deleteSurrounding(offset: number, nChars: number): boolean;
     public filterKeypress(event: Gdk.EventKey): boolean;
@@ -9241,11 +9425,18 @@ declare module "Gtk" {
     public preeditEnd(): void;
     public preeditStart(): void;
     public retrieveSurrounding(): boolean;
+    
+    public on(event: 'commit', listener: (str: string) => void): this;
+    public on(event: 'deleteSurrounding', listener: (offset: number, nChars: number) => boolean): this;
+    public on(event: 'preeditChanged', listener: () => void): this;
+    public on(event: 'preeditEnd', listener: () => void): this;
+    public on(event: 'preeditStart', listener: () => void): this;
+    public on(event: 'retrieveSurrounding', listener: () => boolean): this;
   }
   
   interface IMContextProps extends GObject.ObjectProps {
-    inputHints: InputHints;
-    inputPurpose: InputPurpose;
+    inputHints?: InputHints;
+    inputPurpose?: InputPurpose;
   }
   
   export class IMContextSimple extends IMContext {
@@ -9344,6 +9535,8 @@ declare module "Gtk" {
     public setSearchPath(path: string[], nElements: number): void;
     public changed(): void;
     
+    public on(event: 'changed', listener: () => void): this;
+    
     public static addBuiltinIcon(iconName: string, size: number, pixbuf: GdkPixbuf.Pixbuf): void;
     public static getDefault(): IconTheme;
     public static getForScreen(screen: Gdk.Screen): IconTheme;
@@ -9356,23 +9549,23 @@ declare module "Gtk" {
   export class IconView extends Container implements Atk.ImplementorIface, Buildable, CellLayout, Scrollable {
     constructor(props?: IconViewProps);
     
-    activateOnSingleClick: boolean;
-    cellArea: CellArea;
-    columnSpacing: number;
-    columns: number;
-    itemOrientation: Orientation;
-    itemPadding: number;
-    itemWidth: number;
-    margin: number;
-    markupColumn: number;
-    model: TreeModel;
-    pixbufColumn: number;
-    reorderable: boolean;
-    rowSpacing: number;
-    selectionMode: SelectionMode;
-    spacing: number;
-    textColumn: number;
-    tooltipColumn: number;
+    activateOnSingleClick?: boolean;
+    cellArea?: CellArea;
+    columnSpacing?: number;
+    columns?: number;
+    itemOrientation?: Orientation;
+    itemPadding?: number;
+    itemWidth?: number;
+    margin?: number;
+    markupColumn?: number;
+    model?: TreeModel;
+    pixbufColumn?: number;
+    reorderable?: boolean;
+    rowSpacing?: number;
+    selectionMode?: SelectionMode;
+    spacing?: number;
+    textColumn?: number;
+    tooltipColumn?: number;
     
     public convertWidgetToBinWindowCoords(wx: number, wy: number, bx: number, by: number): void;
     public createDragIcon(path: TreePath): cairo.Surface;
@@ -9440,26 +9633,35 @@ declare module "Gtk" {
     public selectCursorItem(): void;
     public selectionChanged(): void;
     public toggleCursorItem(): void;
+    
+    public on(event: 'activateCursorItem', listener: () => boolean): this;
+    public on(event: 'itemActivated', listener: (path: TreePath) => void): this;
+    public on(event: 'moveCursor', listener: (step: MovementStep, count: number) => boolean): this;
+    public on(event: 'selectAll', listener: () => void): this;
+    public on(event: 'selectCursorItem', listener: () => void): this;
+    public on(event: 'selectionChanged', listener: () => void): this;
+    public on(event: 'toggleCursorItem', listener: () => void): this;
+    public on(event: 'unselectAll', listener: () => void): this;
   }
   
   interface IconViewProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, CellLayoutProps, ScrollableProps {
-    activateOnSingleClick: boolean;
-    cellArea: CellArea;
-    columnSpacing: number;
-    columns: number;
-    itemOrientation: Orientation;
-    itemPadding: number;
-    itemWidth: number;
-    margin: number;
-    markupColumn: number;
-    model: TreeModel;
-    pixbufColumn: number;
-    reorderable: boolean;
-    rowSpacing: number;
-    selectionMode: SelectionMode;
-    spacing: number;
-    textColumn: number;
-    tooltipColumn: number;
+    activateOnSingleClick?: boolean;
+    cellArea?: CellArea;
+    columnSpacing?: number;
+    columns?: number;
+    itemOrientation?: Orientation;
+    itemPadding?: number;
+    itemWidth?: number;
+    margin?: number;
+    markupColumn?: number;
+    model?: TreeModel;
+    pixbufColumn?: number;
+    reorderable?: boolean;
+    rowSpacing?: number;
+    selectionMode?: SelectionMode;
+    spacing?: number;
+    textColumn?: number;
+    tooltipColumn?: number;
   }
   
   export class IconViewAccessible extends ContainerAccessible implements Atk.Component, Atk.Selection {
@@ -9473,19 +9675,19 @@ declare module "Gtk" {
   export class Image extends Misc implements Atk.ImplementorIface, Buildable {
     constructor(props?: ImageProps);
     
-    file: string;
-    gicon: Gio.Icon;
-    iconName: string;
-    iconSet: IconSet;
-    iconSize: number;
-    pixbuf: GdkPixbuf.Pixbuf;
-    pixbufAnimation: GdkPixbuf.PixbufAnimation;
-    pixelSize: number;
-    resource: string;
-    stock: string;
-    storageType: ImageType;
-    surface: cairo.Surface;
-    useFallback: boolean;
+    file?: string;
+    gicon?: Gio.Icon;
+    iconName?: string;
+    iconSet?: IconSet;
+    iconSize?: number;
+    pixbuf?: GdkPixbuf.Pixbuf;
+    pixbufAnimation?: GdkPixbuf.PixbufAnimation;
+    pixelSize?: number;
+    resource?: string;
+    stock?: string;
+    storageType?: ImageType;
+    surface?: cairo.Surface;
+    useFallback?: boolean;
     
     public clear(): void;
     public getAnimation(): GdkPixbuf.PixbufAnimation;
@@ -9509,19 +9711,19 @@ declare module "Gtk" {
   }
   
   interface ImageProps extends MiscProps, Atk.ImplementorIfaceProps, BuildableProps {
-    file: string;
-    gicon: Gio.Icon;
-    iconName: string;
-    iconSet: IconSet;
-    iconSize: number;
-    pixbuf: GdkPixbuf.Pixbuf;
-    pixbufAnimation: GdkPixbuf.PixbufAnimation;
-    pixelSize: number;
-    resource: string;
-    stock: string;
-    storageType: ImageType;
-    surface: cairo.Surface;
-    useFallback: boolean;
+    file?: string;
+    gicon?: Gio.Icon;
+    iconName?: string;
+    iconSet?: IconSet;
+    iconSize?: number;
+    pixbuf?: GdkPixbuf.Pixbuf;
+    pixbufAnimation?: GdkPixbuf.PixbufAnimation;
+    pixelSize?: number;
+    resource?: string;
+    stock?: string;
+    storageType?: ImageType;
+    surface?: cairo.Surface;
+    useFallback?: boolean;
   }
   
   export class ImageAccessible extends WidgetAccessible implements Atk.Component, Atk.Image {
@@ -9543,10 +9745,10 @@ declare module "Gtk" {
   export class ImageMenuItem extends MenuItem implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: ImageMenuItemProps);
     
-    accelGroup: AccelGroup;
-    alwaysShowImage: boolean;
-    image: Widget;
-    useStock: boolean;
+    accelGroup?: AccelGroup;
+    alwaysShowImage?: boolean;
+    image?: Widget;
+    useStock?: boolean;
     
     public getAlwaysShowImage(): boolean;
     public getImage(): Widget;
@@ -9558,17 +9760,17 @@ declare module "Gtk" {
   }
   
   interface ImageMenuItemProps extends MenuItemProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    accelGroup: AccelGroup;
-    alwaysShowImage: boolean;
-    image: Widget;
-    useStock: boolean;
+    accelGroup?: AccelGroup;
+    alwaysShowImage?: boolean;
+    image?: Widget;
+    useStock?: boolean;
   }
   
   export class InfoBar extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: InfoBarProps);
     
-    messageType: MessageType;
-    showCloseButton: boolean;
+    messageType?: MessageType;
+    showCloseButton?: boolean;
     
     public addActionWidget(child: Widget, responseId: number): void;
     public addButton(buttonText: string, responseId: number): Button;
@@ -9583,51 +9785,54 @@ declare module "Gtk" {
     public setResponseSensitive(responseId: number, setting: boolean): void;
     public setShowCloseButton(setting: boolean): void;
     public close(): void;
+    
+    public on(event: 'close', listener: () => void): this;
+    public on(event: 'response', listener: (responseId: number) => void): this;
   }
   
   interface InfoBarProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    messageType: MessageType;
-    showCloseButton: boolean;
+    messageType?: MessageType;
+    showCloseButton?: boolean;
   }
   
   export class Invisible extends Widget implements Atk.ImplementorIface, Buildable {
     constructor(props?: InvisibleProps);
     
-    screen: Gdk.Screen;
+    screen?: Gdk.Screen;
     
     public getScreen(): Gdk.Screen;
     public setScreen(screen: Gdk.Screen): void;
   }
   
   interface InvisibleProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps {
-    screen: Gdk.Screen;
+    screen?: Gdk.Screen;
   }
   
   export class Label extends Misc implements Atk.ImplementorIface, Buildable {
     constructor(props?: LabelProps);
     
-    angle: number;
-    attributes: Pango.AttrList;
-    cursorPosition: number;
-    ellipsize: Pango.EllipsizeMode;
-    justify: Justification;
-    label: string;
-    lines: number;
-    maxWidthChars: number;
-    mnemonicKeyval: number;
-    mnemonicWidget: Widget;
-    pattern: string;
-    selectable: boolean;
-    selectionBound: number;
-    singleLineMode: boolean;
-    trackVisitedLinks: boolean;
-    useMarkup: boolean;
-    useUnderline: boolean;
-    widthChars: number;
-    wrap: boolean;
-    wrapMode: Pango.WrapMode;
-    xalign: number;
-    yalign: number;
+    angle?: number;
+    attributes?: Pango.AttrList;
+    cursorPosition?: number;
+    ellipsize?: Pango.EllipsizeMode;
+    justify?: Justification;
+    label?: string;
+    lines?: number;
+    maxWidthChars?: number;
+    mnemonicKeyval?: number;
+    mnemonicWidget?: Widget;
+    pattern?: string;
+    selectable?: boolean;
+    selectionBound?: number;
+    singleLineMode?: boolean;
+    trackVisitedLinks?: boolean;
+    useMarkup?: boolean;
+    useUnderline?: boolean;
+    widthChars?: number;
+    wrap?: boolean;
+    wrapMode?: Pango.WrapMode;
+    xalign?: number;
+    yalign?: number;
     
     public getAngle(): number;
     public getAttributes(): Pango.AttrList;
@@ -9681,31 +9886,37 @@ declare module "Gtk" {
     public copyClipboard(): void;
     public moveCursor(step: MovementStep, count: number, extendSelection: boolean): void;
     public populatePopup(menu: Menu): void;
+    
+    public on(event: 'activateCurrentLink', listener: () => void): this;
+    public on(event: 'activateLink', listener: (uri: string) => boolean): this;
+    public on(event: 'copyClipboard', listener: () => void): this;
+    public on(event: 'moveCursor', listener: (step: MovementStep, count: number, extendSelection: boolean) => void): this;
+    public on(event: 'populatePopup', listener: (menu: Menu) => void): this;
   }
   
   interface LabelProps extends MiscProps, Atk.ImplementorIfaceProps, BuildableProps {
-    angle: number;
-    attributes: Pango.AttrList;
-    cursorPosition: number;
-    ellipsize: Pango.EllipsizeMode;
-    justify: Justification;
-    label: string;
-    lines: number;
-    maxWidthChars: number;
-    mnemonicKeyval: number;
-    mnemonicWidget: Widget;
-    pattern: string;
-    selectable: boolean;
-    selectionBound: number;
-    singleLineMode: boolean;
-    trackVisitedLinks: boolean;
-    useMarkup: boolean;
-    useUnderline: boolean;
-    widthChars: number;
-    wrap: boolean;
-    wrapMode: Pango.WrapMode;
-    xalign: number;
-    yalign: number;
+    angle?: number;
+    attributes?: Pango.AttrList;
+    cursorPosition?: number;
+    ellipsize?: Pango.EllipsizeMode;
+    justify?: Justification;
+    label?: string;
+    lines?: number;
+    maxWidthChars?: number;
+    mnemonicKeyval?: number;
+    mnemonicWidget?: Widget;
+    pattern?: string;
+    selectable?: boolean;
+    selectionBound?: number;
+    singleLineMode?: boolean;
+    trackVisitedLinks?: boolean;
+    useMarkup?: boolean;
+    useUnderline?: boolean;
+    widthChars?: number;
+    wrap?: boolean;
+    wrapMode?: Pango.WrapMode;
+    xalign?: number;
+    yalign?: number;
   }
   
   export class LabelAccessible extends WidgetAccessible implements Atk.Component, Atk.Hypertext, Atk.Text {
@@ -9719,8 +9930,8 @@ declare module "Gtk" {
   export class Layout extends Container implements Atk.ImplementorIface, Buildable, Scrollable {
     constructor(props?: LayoutProps);
     
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
     
     public getBinWindow(): Gdk.Window;
     public getHadjustment(): Adjustment;
@@ -9734,18 +9945,18 @@ declare module "Gtk" {
   }
   
   interface LayoutProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, ScrollableProps {
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
   }
   
   export class LevelBar extends Widget implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: LevelBarProps);
     
-    inverted: boolean;
-    maxValue: number;
-    minValue: number;
-    mode: LevelBarMode;
-    value: number;
+    inverted?: boolean;
+    maxValue?: number;
+    minValue?: number;
+    mode?: LevelBarMode;
+    value?: number;
     
     public addOffsetValue(name: string, value: number): void;
     public getInverted(): boolean;
@@ -9761,14 +9972,16 @@ declare module "Gtk" {
     public setMode(mode: LevelBarMode): void;
     public setValue(value: number): void;
     public offsetChanged(name: string): void;
+    
+    public on(event: 'offsetChanged', listener: (name: string) => void): this;
   }
   
   interface LevelBarProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    inverted: boolean;
-    maxValue: number;
-    minValue: number;
-    mode: LevelBarMode;
-    value: number;
+    inverted?: boolean;
+    maxValue?: number;
+    minValue?: number;
+    mode?: LevelBarMode;
+    value?: number;
   }
   
   export class LevelBarAccessible extends WidgetAccessible implements Atk.Component, Atk.Value {
@@ -9782,19 +9995,21 @@ declare module "Gtk" {
   export class LinkButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: LinkButtonProps);
     
-    uri: string;
-    visited: boolean;
+    uri?: string;
+    visited?: boolean;
     
     public getUri(): string;
     public getVisited(): boolean;
     public setUri(uri: string): void;
     public setVisited(visited: boolean): void;
     public activateLink(): boolean;
+    
+    public on(event: 'activateLink', listener: () => boolean): this;
   }
   
   interface LinkButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    uri: string;
-    visited: boolean;
+    uri?: string;
+    visited?: boolean;
   }
   
   export class LinkButtonAccessible extends ButtonAccessible implements Atk.Action, Atk.Component, Atk.HyperlinkImpl, Atk.Image {
@@ -9808,8 +10023,8 @@ declare module "Gtk" {
   export class ListBox extends Container implements Atk.ImplementorIface, Buildable {
     constructor(props?: ListBoxProps);
     
-    activateOnSingleClick: boolean;
-    selectionMode: SelectionMode;
+    activateOnSingleClick?: boolean;
+    selectionMode?: SelectionMode;
     
     public bindModel(model: Gio.ListModel, createWidgetFunc: ListBoxCreateWidgetFunc, userData: any, userDataFreeFunc: GLib.DestroyNotify): void;
     public dragHighlightRow(_row: ListBoxRow): void;
@@ -9844,11 +10059,20 @@ declare module "Gtk" {
     public rowSelected(_row: ListBoxRow): void;
     public selectedRowsChanged(): void;
     public toggleCursorRow(): void;
+    
+    public on(event: 'activateCursorRow', listener: () => void): this;
+    public on(event: 'moveCursor', listener: (object: MovementStep, p0: number) => void): this;
+    public on(event: 'rowActivated', listener: (_row: ListBoxRow) => void): this;
+    public on(event: 'rowSelected', listener: (_row: ListBoxRow) => void): this;
+    public on(event: 'selectAll', listener: () => void): this;
+    public on(event: 'selectedRowsChanged', listener: () => void): this;
+    public on(event: 'toggleCursorRow', listener: () => void): this;
+    public on(event: 'unselectAll', listener: () => void): this;
   }
   
   interface ListBoxProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
-    activateOnSingleClick: boolean;
-    selectionMode: SelectionMode;
+    activateOnSingleClick?: boolean;
+    selectionMode?: SelectionMode;
   }
   
   export class ListBoxAccessible extends ContainerAccessible implements Atk.Component, Atk.Selection {
@@ -9862,8 +10086,8 @@ declare module "Gtk" {
   export class ListBoxRow extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: ListBoxRowProps);
     
-    activatable: boolean;
-    selectable: boolean;
+    activatable?: boolean;
+    selectable?: boolean;
     
     public changed(): void;
     public getActivatable(): boolean;
@@ -9875,11 +10099,13 @@ declare module "Gtk" {
     public setHeader(header: Widget): void;
     public setSelectable(selectable: boolean): void;
     public activate(): void;
+    
+    public on(event: 'activate', listener: () => void): this;
   }
   
   interface ListBoxRowProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    activatable: boolean;
-    selectable: boolean;
+    activatable?: boolean;
+    selectable?: boolean;
   }
   
   export class ListBoxRowAccessible extends ContainerAccessible implements Atk.Component {
@@ -9921,24 +10147,24 @@ declare module "Gtk" {
   export class LockButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: LockButtonProps);
     
-    permission: Gio.Permission;
-    textLock: string;
-    textUnlock: string;
-    tooltipLock: string;
-    tooltipNotAuthorized: string;
-    tooltipUnlock: string;
+    permission?: Gio.Permission;
+    textLock?: string;
+    textUnlock?: string;
+    tooltipLock?: string;
+    tooltipNotAuthorized?: string;
+    tooltipUnlock?: string;
     
     public getPermission(): Gio.Permission;
     public setPermission(permission: Gio.Permission): void;
   }
   
   interface LockButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    permission: Gio.Permission;
-    textLock: string;
-    textUnlock: string;
-    tooltipLock: string;
-    tooltipNotAuthorized: string;
-    tooltipUnlock: string;
+    permission?: Gio.Permission;
+    textLock?: string;
+    textUnlock?: string;
+    tooltipLock?: string;
+    tooltipNotAuthorized?: string;
+    tooltipUnlock?: string;
   }
   
   export class LockButtonAccessible extends ButtonAccessible implements Atk.Action, Atk.Component, Atk.Image {
@@ -9952,18 +10178,18 @@ declare module "Gtk" {
   export class Menu extends MenuShell implements Atk.ImplementorIface, Buildable {
     constructor(props?: MenuProps);
     
-    accelGroup: AccelGroup;
-    accelPath: string;
-    active: number;
-    anchorHints: Gdk.AnchorHints;
-    attachWidget: Widget;
-    menuTypeHint: Gdk.WindowTypeHint;
-    monitor: number;
-    rectAnchorDx: number;
-    rectAnchorDy: number;
-    reserveToggleSize: boolean;
-    tearoffState: boolean;
-    tearoffTitle: string;
+    accelGroup?: AccelGroup;
+    accelPath?: string;
+    active?: number;
+    anchorHints?: Gdk.AnchorHints;
+    attachWidget?: Widget;
+    menuTypeHint?: Gdk.WindowTypeHint;
+    monitor?: number;
+    rectAnchorDx?: number;
+    rectAnchorDy?: number;
+    reserveToggleSize?: boolean;
+    tearoffState?: boolean;
+    tearoffTitle?: string;
     
     public attach(child: Widget, leftAttach: number, rightAttach: number, topAttach: number, bottomAttach: number): void;
     public attachToWidget(attachWidget: Widget, detacher: MenuDetachFunc): void;
@@ -9994,22 +10220,25 @@ declare module "Gtk" {
     public setTearoffState(tornOff: boolean): void;
     public setTitle(title: string): void;
     
+    public on(event: 'moveScroll', listener: (scrollType: ScrollType) => void): this;
+    public on(event: 'poppedUp', listener: (flippedRect: any, finalRect: any, flippedX: boolean, flippedY: boolean) => void): this;
+    
     public static getForAttachWidget(widget: Widget): GLib.List;
   }
   
   interface MenuProps extends MenuShellProps, Atk.ImplementorIfaceProps, BuildableProps {
-    accelGroup: AccelGroup;
-    accelPath: string;
-    active: number;
-    anchorHints: Gdk.AnchorHints;
-    attachWidget: Widget;
-    menuTypeHint: Gdk.WindowTypeHint;
-    monitor: number;
-    rectAnchorDx: number;
-    rectAnchorDy: number;
-    reserveToggleSize: boolean;
-    tearoffState: boolean;
-    tearoffTitle: string;
+    accelGroup?: AccelGroup;
+    accelPath?: string;
+    active?: number;
+    anchorHints?: Gdk.AnchorHints;
+    attachWidget?: Widget;
+    menuTypeHint?: Gdk.WindowTypeHint;
+    monitor?: number;
+    rectAnchorDx?: number;
+    rectAnchorDy?: number;
+    reserveToggleSize?: boolean;
+    tearoffState?: boolean;
+    tearoffTitle?: string;
   }
   
   export class MenuAccessible extends MenuShellAccessible implements Atk.Component, Atk.Selection {
@@ -10023,8 +10252,8 @@ declare module "Gtk" {
   export class MenuBar extends MenuShell implements Atk.ImplementorIface, Buildable {
     constructor(props?: MenuBarProps);
     
-    childPackDirection: PackDirection;
-    packDirection: PackDirection;
+    childPackDirection?: PackDirection;
+    packDirection?: PackDirection;
     
     public getChildPackDirection(): PackDirection;
     public getPackDirection(): PackDirection;
@@ -10033,19 +10262,19 @@ declare module "Gtk" {
   }
   
   interface MenuBarProps extends MenuShellProps, Atk.ImplementorIfaceProps, BuildableProps {
-    childPackDirection: PackDirection;
-    packDirection: PackDirection;
+    childPackDirection?: PackDirection;
+    packDirection?: PackDirection;
   }
   
   export class MenuButton extends ToggleButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: MenuButtonProps);
     
-    alignWidget: Container;
-    direction: ArrowType;
-    menuModel: Gio.MenuModel;
-    popover: Popover;
-    popup: Menu;
-    usePopover: boolean;
+    alignWidget?: Container;
+    direction?: ArrowType;
+    menuModel?: Gio.MenuModel;
+    popover?: Popover;
+    popup?: Menu;
+    usePopover?: boolean;
     
     public getAlignWidget(): Widget;
     public getDirection(): ArrowType;
@@ -10062,12 +10291,12 @@ declare module "Gtk" {
   }
   
   interface MenuButtonProps extends ToggleButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    alignWidget: Container;
-    direction: ArrowType;
-    menuModel: Gio.MenuModel;
-    popover: Popover;
-    popup: Menu;
-    usePopover: boolean;
+    alignWidget?: Container;
+    direction?: ArrowType;
+    menuModel?: Gio.MenuModel;
+    popover?: Popover;
+    popup?: Menu;
+    usePopover?: boolean;
   }
   
   export class MenuButtonAccessible extends ToggleButtonAccessible implements Atk.Action, Atk.Component, Atk.Image {
@@ -10081,11 +10310,11 @@ declare module "Gtk" {
   export class MenuItem extends Bin implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: MenuItemProps);
     
-    accelPath: string;
-    label: string;
-    rightJustified: boolean;
-    submenu: Menu;
-    useUnderline: boolean;
+    accelPath?: string;
+    label?: string;
+    rightJustified?: boolean;
+    submenu?: Menu;
+    useUnderline?: boolean;
     
     public activate(): void;
     public deselect(): void;
@@ -10105,14 +10334,21 @@ declare module "Gtk" {
     public toggleSizeAllocate(allocation: number): void;
     public toggleSizeRequest(requisition: number): void;
     public activateItem(): void;
+    
+    public on(event: 'activate', listener: () => void): this;
+    public on(event: 'activateItem', listener: () => void): this;
+    public on(event: 'deselect', listener: () => void): this;
+    public on(event: 'select', listener: () => void): this;
+    public on(event: 'toggleSizeAllocate', listener: (object: number) => void): this;
+    public on(event: 'toggleSizeRequest', listener: (object: any) => void): this;
   }
   
   interface MenuItemProps extends BinProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    accelPath: string;
-    label: string;
-    rightJustified: boolean;
-    submenu: Menu;
-    useUnderline: boolean;
+    accelPath?: string;
+    label?: string;
+    rightJustified?: boolean;
+    submenu?: Menu;
+    useUnderline?: boolean;
   }
   
   export class MenuItemAccessible extends ContainerAccessible implements Atk.Action, Atk.Component, Atk.Selection {
@@ -10126,7 +10362,7 @@ declare module "Gtk" {
   export class MenuShell extends Container implements Atk.ImplementorIface, Buildable {
     constructor(props?: MenuShellProps);
     
-    takeFocus: boolean;
+    takeFocus?: boolean;
     
     public activateItem(menuItem: Widget, forceDeactivate: boolean): void;
     public append(child: MenuItem): void;
@@ -10147,10 +10383,19 @@ declare module "Gtk" {
     public moveCurrent(direction: MenuDirectionType): void;
     public moveSelected(distance: number): boolean;
     public selectionDone(): void;
+    
+    public on(event: 'activateCurrent', listener: (forceHide: boolean) => void): this;
+    public on(event: 'cancel', listener: () => void): this;
+    public on(event: 'cycleFocus', listener: (direction: DirectionType) => void): this;
+    public on(event: 'deactivate', listener: () => void): this;
+    public on(event: 'insert', listener: (child: Widget, position: number) => void): this;
+    public on(event: 'moveCurrent', listener: (direction: MenuDirectionType) => void): this;
+    public on(event: 'moveSelected', listener: (distance: number) => boolean): this;
+    public on(event: 'selectionDone', listener: () => void): this;
   }
   
   interface MenuShellProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
-    takeFocus: boolean;
+    takeFocus?: boolean;
   }
   
   export class MenuShellAccessible extends ContainerAccessible implements Atk.Component, Atk.Selection {
@@ -10164,30 +10409,32 @@ declare module "Gtk" {
   export class MenuToolButton extends ToolButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: MenuToolButtonProps);
     
-    menu: Menu;
+    menu?: Menu;
     
     public getMenu(): Widget;
     public setArrowTooltipMarkup(markup: string): void;
     public setArrowTooltipText(text: string): void;
     public setMenu(menu: Widget): void;
     public showMenu(): void;
+    
+    public on(event: 'showMenu', listener: () => void): this;
   }
   
   interface MenuToolButtonProps extends ToolButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    menu: Menu;
+    menu?: Menu;
   }
   
   export class MessageDialog extends Dialog implements Atk.ImplementorIface, Buildable {
     constructor(props?: MessageDialogProps);
     
-    buttons: ButtonsType;
-    image: Widget;
-    messageArea: Widget;
-    messageType: MessageType;
-    secondaryText: string;
-    secondaryUseMarkup: boolean;
-    text: string;
-    useMarkup: boolean;
+    buttons?: ButtonsType;
+    image?: Widget;
+    messageArea?: Widget;
+    messageType?: MessageType;
+    secondaryText?: string;
+    secondaryUseMarkup?: boolean;
+    text?: string;
+    useMarkup?: boolean;
     
     public formatSecondaryMarkup(messageFormat: string, ...params: any[]): void;
     public formatSecondaryText(messageFormat: string, ...params: any[]): void;
@@ -10198,23 +10445,23 @@ declare module "Gtk" {
   }
   
   interface MessageDialogProps extends DialogProps, Atk.ImplementorIfaceProps, BuildableProps {
-    buttons: ButtonsType;
-    image: Widget;
-    messageArea: Widget;
-    messageType: MessageType;
-    secondaryText: string;
-    secondaryUseMarkup: boolean;
-    text: string;
-    useMarkup: boolean;
+    buttons?: ButtonsType;
+    image?: Widget;
+    messageArea?: Widget;
+    messageType?: MessageType;
+    secondaryText?: string;
+    secondaryUseMarkup?: boolean;
+    text?: string;
+    useMarkup?: boolean;
   }
   
   export class Misc extends Widget implements Atk.ImplementorIface, Buildable {
     constructor(props?: MiscProps);
     
-    xalign: number;
-    xpad: number;
-    yalign: number;
-    ypad: number;
+    xalign?: number;
+    xpad?: number;
+    yalign?: number;
+    ypad?: number;
     
     public getAlignment(xalign: number, yalign: number): void;
     public getPadding(xpad: number, ypad: number): void;
@@ -10223,42 +10470,42 @@ declare module "Gtk" {
   }
   
   interface MiscProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps {
-    xalign: number;
-    xpad: number;
-    yalign: number;
-    ypad: number;
+    xalign?: number;
+    xpad?: number;
+    yalign?: number;
+    ypad?: number;
   }
   
   export class ModelButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: ModelButtonProps);
     
-    active: boolean;
-    centered: boolean;
-    icon: Gio.Icon;
-    iconic: boolean;
-    inverted: boolean;
-    menuName: string;
-    role: ButtonRole;
-    text: string;
+    active?: boolean;
+    centered?: boolean;
+    icon?: Gio.Icon;
+    iconic?: boolean;
+    inverted?: boolean;
+    menuName?: string;
+    role?: ButtonRole;
+    text?: string;
   }
   
   interface ModelButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    active: boolean;
-    centered: boolean;
-    icon: Gio.Icon;
-    iconic: boolean;
-    inverted: boolean;
-    menuName: string;
-    role: ButtonRole;
-    text: string;
+    active?: boolean;
+    centered?: boolean;
+    icon?: Gio.Icon;
+    iconic?: boolean;
+    inverted?: boolean;
+    menuName?: string;
+    role?: ButtonRole;
+    text?: string;
   }
   
   export class MountOperation extends Gio.MountOperation {
     constructor(props?: MountOperationProps);
     
-    isShowing: boolean;
-    parent: Window;
-    screen: Gdk.Screen;
+    isShowing?: boolean;
+    parent?: Window;
+    screen?: Gdk.Screen;
     
     public getParent(): Window;
     public getScreen(): Gdk.Screen;
@@ -10268,18 +10515,18 @@ declare module "Gtk" {
   }
   
   interface MountOperationProps extends Gio.MountOperationProps {
-    isShowing: boolean;
-    parent: Window;
-    screen: Gdk.Screen;
+    isShowing?: boolean;
+    parent?: Window;
+    screen?: Gdk.Screen;
   }
   
   export class NativeDialog extends GObject.Object {
     constructor(props?: NativeDialogProps);
     
-    modal: boolean;
-    title: string;
-    transientFor: Window;
-    visible: boolean;
+    modal?: boolean;
+    title?: string;
+    transientFor?: Window;
+    visible?: boolean;
     
     public destroy(): void;
     public getModal(): boolean;
@@ -10293,25 +10540,27 @@ declare module "Gtk" {
     public setTransientFor(parent: Window): void;
     public show(): void;
     public response(responseId: number): void;
+    
+    public on(event: 'response', listener: (responseId: number) => void): this;
   }
   
   interface NativeDialogProps extends GObject.ObjectProps {
-    modal: boolean;
-    title: string;
-    transientFor: Window;
-    visible: boolean;
+    modal?: boolean;
+    title?: string;
+    transientFor?: Window;
+    visible?: boolean;
   }
   
   export class Notebook extends Container implements Atk.ImplementorIface, Buildable {
     constructor(props?: NotebookProps);
     
-    enablePopup: boolean;
-    groupName: string;
-    page: number;
-    scrollable: boolean;
-    showBorder: boolean;
-    showTabs: boolean;
-    tabPos: PositionType;
+    enablePopup?: boolean;
+    groupName?: string;
+    page?: number;
+    scrollable?: boolean;
+    showBorder?: boolean;
+    showTabs?: boolean;
+    tabPos?: PositionType;
     
     public appendPage(child: Widget, tabLabel: Widget): number;
     public appendPageMenu(child: Widget, tabLabel: Widget, menuLabel: Widget): number;
@@ -10367,16 +10616,27 @@ declare module "Gtk" {
     public reorderTab(direction: DirectionType, moveToLast: boolean): boolean;
     public selectPage(moveFocus: boolean): boolean;
     public switchPage(page: Widget, pageNum: number): void;
+    
+    public on(event: 'changeCurrentPage', listener: (object: number) => boolean): this;
+    public on(event: 'createWindow', listener: (page: Widget, x: number, _y: number) => Notebook): this;
+    public on(event: 'focusTab', listener: (object: NotebookTab) => boolean): this;
+    public on(event: 'moveFocusOut', listener: (object: DirectionType) => void): this;
+    public on(event: 'pageAdded', listener: (child: Widget, pageNum: number) => void): this;
+    public on(event: 'pageRemoved', listener: (child: Widget, pageNum: number) => void): this;
+    public on(event: 'pageReordered', listener: (child: Widget, pageNum: number) => void): this;
+    public on(event: 'reorderTab', listener: (object: DirectionType, p0: boolean) => boolean): this;
+    public on(event: 'selectPage', listener: (object: boolean) => boolean): this;
+    public on(event: 'switchPage', listener: (page: Widget, pageNum: number) => void): this;
   }
   
   interface NotebookProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
-    enablePopup: boolean;
-    groupName: string;
-    page: number;
-    scrollable: boolean;
-    showBorder: boolean;
-    showTabs: boolean;
-    tabPos: PositionType;
+    enablePopup?: boolean;
+    groupName?: string;
+    page?: number;
+    scrollable?: boolean;
+    showBorder?: boolean;
+    showTabs?: boolean;
+    tabPos?: PositionType;
   }
   
   export class NotebookAccessible extends ContainerAccessible implements Atk.Component, Atk.Selection {
@@ -10400,11 +10660,11 @@ declare module "Gtk" {
   export class NumerableIcon extends Gio.EmblemedIcon implements Gio.Icon {
     constructor(props?: NumerableIconProps);
     
-    backgroundIcon: Gio.Icon;
-    backgroundIconName: string;
-    count: number;
-    label: string;
-    styleContext: StyleContext;
+    backgroundIcon?: Gio.Icon;
+    backgroundIconName?: string;
+    count?: number;
+    label?: string;
+    styleContext?: StyleContext;
     
     public getBackgroundGicon(): Gio.Icon;
     public getBackgroundIconName(): string;
@@ -10422,11 +10682,11 @@ declare module "Gtk" {
   }
   
   interface NumerableIconProps extends Gio.EmblemedIconProps, Gio.IconProps {
-    backgroundIcon: Gio.Icon;
-    backgroundIconName: string;
-    count: number;
-    label: string;
-    styleContext: StyleContext;
+    backgroundIcon?: Gio.Icon;
+    backgroundIconName?: string;
+    count?: number;
+    label?: string;
+    styleContext?: StyleContext;
   }
   
   export class OffscreenWindow extends Window implements Atk.ImplementorIface, Buildable {
@@ -10448,6 +10708,8 @@ declare module "Gtk" {
     public reorderOverlay(child: Widget, position: number): void;
     public setOverlayPassThrough(widget: Widget, passThrough: boolean): void;
     public getChildPosition(widget: Widget, allocation: Allocation): boolean;
+    
+    public on(event: 'getChildPosition', listener: (widget: Widget, allocation: Gdk.Rectangle) => boolean): this;
   }
   
   interface OverlayProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
@@ -10457,16 +10719,16 @@ declare module "Gtk" {
   export class PadController extends EventController {
     constructor(props?: PadControllerProps);
     
-    actionGroup: Gio.ActionGroup;
-    pad: Gdk.Device;
+    actionGroup?: Gio.ActionGroup;
+    pad?: Gdk.Device;
     
     public setAction(type: PadActionType, index: number, mode: number, label: string, actionName: string): void;
     public setActionEntries(entries: PadActionEntry[], nEntries: number): void;
   }
   
   interface PadControllerProps extends EventControllerProps {
-    actionGroup: Gio.ActionGroup;
-    pad: Gdk.Device;
+    actionGroup?: Gio.ActionGroup;
+    pad?: Gdk.Device;
   }
   
   export class PageSetup extends GObject.Object {
@@ -10504,11 +10766,11 @@ declare module "Gtk" {
   export class Paned extends Container implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: PanedProps);
     
-    maxPosition: number;
-    minPosition: number;
-    position: number;
-    positionSet: boolean;
-    wideHandle: boolean;
+    maxPosition?: number;
+    minPosition?: number;
+    position?: number;
+    positionSet?: boolean;
+    wideHandle?: boolean;
     
     public add1(child: Widget): void;
     public add2(child: Widget): void;
@@ -10527,14 +10789,21 @@ declare module "Gtk" {
     public cycleHandleFocus(reverse: boolean): boolean;
     public moveHandle(scroll: ScrollType): boolean;
     public toggleHandleFocus(): boolean;
+    
+    public on(event: 'acceptPosition', listener: () => boolean): this;
+    public on(event: 'cancelPosition', listener: () => boolean): this;
+    public on(event: 'cycleChildFocus', listener: (reversed: boolean) => boolean): this;
+    public on(event: 'cycleHandleFocus', listener: (reversed: boolean) => boolean): this;
+    public on(event: 'moveHandle', listener: (scrollType: ScrollType) => boolean): this;
+    public on(event: 'toggleHandleFocus', listener: () => boolean): this;
   }
   
   interface PanedProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    maxPosition: number;
-    minPosition: number;
-    position: number;
-    positionSet: boolean;
-    wideHandle: boolean;
+    maxPosition?: number;
+    minPosition?: number;
+    position?: number;
+    positionSet?: boolean;
+    wideHandle?: boolean;
   }
   
   export class PanedAccessible extends ContainerAccessible implements Atk.Component, Atk.Value {
@@ -10548,16 +10817,16 @@ declare module "Gtk" {
   export class PlacesSidebar extends ScrolledWindow implements Atk.ImplementorIface, Buildable {
     constructor(props?: PlacesSidebarProps);
     
-    localOnly: boolean;
-    location: Gio.File;
-    openFlags: PlacesOpenFlags;
-    populateAll: boolean;
-    showConnectToServer: boolean;
-    showDesktop: boolean;
-    showEnterLocation: boolean;
-    showOtherLocations: boolean;
-    showRecent: boolean;
-    showTrash: boolean;
+    localOnly?: boolean;
+    location?: Gio.File;
+    openFlags?: PlacesOpenFlags;
+    populateAll?: boolean;
+    showConnectToServer?: boolean;
+    showDesktop?: boolean;
+    showEnterLocation?: boolean;
+    showOtherLocations?: boolean;
+    showRecent?: boolean;
+    showTrash?: boolean;
     
     public addShortcut(location: Gio.File): void;
     public getLocalOnly(): boolean;
@@ -10582,26 +10851,39 @@ declare module "Gtk" {
     public setShowOtherLocations(showOtherLocations: boolean): void;
     public setShowRecent(showRecent: boolean): void;
     public setShowTrash(showTrash: boolean): void;
+    
+    public on(event: 'dragActionAsk', listener: (actions: number) => number): this;
+    public on(event: 'dragActionRequested', listener: (context: Gdk.DragContext, destFile: Gio.File, sourceFileList: GLib.List) => number): this;
+    public on(event: 'dragPerformDrop', listener: (destFile: Gio.File, sourceFileList: GLib.List, action: number) => void): this;
+    public on(event: 'mount', listener: (mountOperation: Gio.MountOperation) => void): this;
+    public on(event: 'openLocation', listener: (location: Gio.File, openFlags: PlacesOpenFlags) => void): this;
+    public on(event: 'populatePopup', listener: (container: Widget, selectedItem: Gio.File, selectedVolume: Gio.Volume) => void): this;
+    public on(event: 'showConnectToServer', listener: () => void): this;
+    public on(event: 'showEnterLocation', listener: () => void): this;
+    public on(event: 'showErrorMessage', listener: (primary: string, secondary: string) => void): this;
+    public on(event: 'showOtherLocations', listener: () => void): this;
+    public on(event: 'showOtherLocationsWithFlags', listener: (openFlags: PlacesOpenFlags) => void): this;
+    public on(event: 'unmount', listener: (mountOperation: Gio.MountOperation) => void): this;
   }
   
   interface PlacesSidebarProps extends ScrolledWindowProps, Atk.ImplementorIfaceProps, BuildableProps {
-    localOnly: boolean;
-    location: Gio.File;
-    openFlags: PlacesOpenFlags;
-    populateAll: boolean;
-    showConnectToServer: boolean;
-    showDesktop: boolean;
-    showEnterLocation: boolean;
-    showOtherLocations: boolean;
-    showRecent: boolean;
-    showTrash: boolean;
+    localOnly?: boolean;
+    location?: Gio.File;
+    openFlags?: PlacesOpenFlags;
+    populateAll?: boolean;
+    showConnectToServer?: boolean;
+    showDesktop?: boolean;
+    showEnterLocation?: boolean;
+    showOtherLocations?: boolean;
+    showRecent?: boolean;
+    showTrash?: boolean;
   }
   
   export class Plug extends Window implements Atk.ImplementorIface, Buildable {
     constructor(props?: PlugProps);
     
-    embedded: boolean;
-    socketWindow: Gdk.Window;
+    embedded?: boolean;
+    socketWindow?: Gdk.Window;
     
     public construct(socketId: xlib.Window): void;
     public constructForDisplay(display: Gdk.Display, socketId: xlib.Window): void;
@@ -10609,22 +10891,24 @@ declare module "Gtk" {
     public getId(): xlib.Window;
     public getSocketWindow(): Gdk.Window;
     public embedded(): void;
+    
+    public on(event: 'embedded', listener: () => void): this;
   }
   
   interface PlugProps extends WindowProps, Atk.ImplementorIfaceProps, BuildableProps {
-    embedded: boolean;
-    socketWindow: Gdk.Window;
+    embedded?: boolean;
+    socketWindow?: Gdk.Window;
   }
   
   export class Popover extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: PopoverProps);
     
-    constrainTo: PopoverConstraint;
-    modal: boolean;
-    pointingTo: Gdk.Rectangle;
-    position: PositionType;
-    relativeTo: Widget;
-    transitionsEnabled: boolean;
+    constrainTo?: PopoverConstraint;
+    modal?: boolean;
+    pointingTo?: Gdk.Rectangle;
+    position?: PositionType;
+    relativeTo?: Widget;
+    transitionsEnabled?: boolean;
     
     public bindModel(model: Gio.MenuModel, actionNamespace: string): void;
     public getConstrainTo(): PopoverConstraint;
@@ -10644,15 +10928,17 @@ declare module "Gtk" {
     public setRelativeTo(relativeTo: Widget): void;
     public setTransitionsEnabled(transitionsEnabled: boolean): void;
     public closed(): void;
+    
+    public on(event: 'closed', listener: () => void): this;
   }
   
   interface PopoverProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    constrainTo: PopoverConstraint;
-    modal: boolean;
-    pointingTo: Gdk.Rectangle;
-    position: PositionType;
-    relativeTo: Widget;
-    transitionsEnabled: boolean;
+    constrainTo?: PopoverConstraint;
+    modal?: boolean;
+    pointingTo?: Gdk.Rectangle;
+    position?: PositionType;
+    relativeTo?: Widget;
+    transitionsEnabled?: boolean;
   }
   
   export class PopoverAccessible extends ContainerAccessible implements Atk.Component {
@@ -10666,13 +10952,13 @@ declare module "Gtk" {
   export class PopoverMenu extends Popover implements Atk.ImplementorIface, Buildable {
     constructor(props?: PopoverMenuProps);
     
-    visibleSubmenu: string;
+    visibleSubmenu?: string;
     
     public openSubmenu(name: string): void;
   }
   
   interface PopoverMenuProps extends PopoverProps, Atk.ImplementorIfaceProps, BuildableProps {
-    visibleSubmenu: string;
+    visibleSubmenu?: string;
   }
   
   export class PrintContext extends GObject.Object {
@@ -10698,24 +10984,24 @@ declare module "Gtk" {
   export class PrintOperation extends GObject.Object implements PrintOperationPreview {
     constructor(props?: PrintOperationProps);
     
-    allowAsync: boolean;
-    currentPage: number;
-    customTabLabel: string;
-    defaultPageSetup: PageSetup;
-    embedPageSetup: boolean;
-    exportFilename: string;
-    hasSelection: boolean;
-    jobName: string;
-    nPages: number;
-    nPagesToPrint: number;
-    printSettings: PrintSettings;
-    showProgress: boolean;
-    status: PrintStatus;
-    statusString: string;
-    supportSelection: boolean;
-    trackPrintStatus: boolean;
-    unit: Unit;
-    useFullPage: boolean;
+    allowAsync?: boolean;
+    currentPage?: number;
+    customTabLabel?: string;
+    defaultPageSetup?: PageSetup;
+    embedPageSetup?: boolean;
+    exportFilename?: string;
+    hasSelection?: boolean;
+    jobName?: string;
+    nPages?: number;
+    nPagesToPrint?: number;
+    printSettings?: PrintSettings;
+    showProgress?: boolean;
+    status?: PrintStatus;
+    statusString?: string;
+    supportSelection?: boolean;
+    trackPrintStatus?: boolean;
+    unit?: Unit;
+    useFullPage?: boolean;
     
     public cancel(): void;
     public drawPageFinish(): void;
@@ -10757,27 +11043,39 @@ declare module "Gtk" {
     public requestPageSetup(context: PrintContext, pageNr: number, setup: PageSetup): void;
     public statusChanged(): void;
     public updateCustomWidget(widget: Widget, setup: PageSetup, settings: PrintSettings): void;
+    
+    public on(event: 'beginPrint', listener: (context: PrintContext) => void): this;
+    public on(event: 'createCustomWidget', listener: () => GObject.Object): this;
+    public on(event: 'customWidgetApply', listener: (widget: Widget) => void): this;
+    public on(event: 'done', listener: (result: PrintOperationResult) => void): this;
+    public on(event: 'drawPage', listener: (context: PrintContext, pageNr: number) => void): this;
+    public on(event: 'endPrint', listener: (context: PrintContext) => void): this;
+    public on(event: 'paginate', listener: (context: PrintContext) => boolean): this;
+    public on(event: 'preview', listener: (preview: PrintOperationPreview, context: PrintContext, parent: Window) => boolean): this;
+    public on(event: 'requestPageSetup', listener: (context: PrintContext, pageNr: number, setup: PageSetup) => void): this;
+    public on(event: 'statusChanged', listener: () => void): this;
+    public on(event: 'updateCustomWidget', listener: (widget: Widget, setup: PageSetup, settings: PrintSettings) => void): this;
   }
   
   interface PrintOperationProps extends GObject.ObjectProps, PrintOperationPreviewProps {
-    allowAsync: boolean;
-    currentPage: number;
-    customTabLabel: string;
-    defaultPageSetup: PageSetup;
-    embedPageSetup: boolean;
-    exportFilename: string;
-    hasSelection: boolean;
-    jobName: string;
-    nPages: number;
-    nPagesToPrint: number;
-    printSettings: PrintSettings;
-    showProgress: boolean;
-    status: PrintStatus;
-    statusString: string;
-    supportSelection: boolean;
-    trackPrintStatus: boolean;
-    unit: Unit;
-    useFullPage: boolean;
+    allowAsync?: boolean;
+    currentPage?: number;
+    customTabLabel?: string;
+    defaultPageSetup?: PageSetup;
+    embedPageSetup?: boolean;
+    exportFilename?: string;
+    hasSelection?: boolean;
+    jobName?: string;
+    nPages?: number;
+    nPagesToPrint?: number;
+    printSettings?: PrintSettings;
+    showProgress?: boolean;
+    status?: PrintStatus;
+    statusString?: string;
+    supportSelection?: boolean;
+    trackPrintStatus?: boolean;
+    unit?: Unit;
+    useFullPage?: boolean;
   }
   
   export class PrintSettings extends GObject.Object {
@@ -10864,12 +11162,12 @@ declare module "Gtk" {
   export class ProgressBar extends Widget implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ProgressBarProps);
     
-    ellipsize: Pango.EllipsizeMode;
-    fraction: number;
-    inverted: boolean;
-    pulseStep: number;
-    showText: boolean;
-    text: string;
+    ellipsize?: Pango.EllipsizeMode;
+    fraction?: number;
+    inverted?: boolean;
+    pulseStep?: number;
+    showText?: boolean;
+    text?: string;
     
     public getEllipsize(): Pango.EllipsizeMode;
     public getFraction(): number;
@@ -10887,12 +11185,12 @@ declare module "Gtk" {
   }
   
   interface ProgressBarProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    ellipsize: Pango.EllipsizeMode;
-    fraction: number;
-    inverted: boolean;
-    pulseStep: number;
-    showText: boolean;
-    text: string;
+    ellipsize?: Pango.EllipsizeMode;
+    fraction?: number;
+    inverted?: boolean;
+    pulseStep?: number;
+    showText?: boolean;
+    text?: string;
   }
   
   export class ProgressBarAccessible extends WidgetAccessible implements Atk.Component, Atk.Value {
@@ -10906,9 +11204,9 @@ declare module "Gtk" {
   export class RadioAction extends ToggleAction implements Buildable {
     constructor(props?: RadioActionProps);
     
-    currentValue: number;
-    group: RadioAction;
-    value: number;
+    currentValue?: number;
+    group?: RadioAction;
+    value?: number;
     
     public getCurrentValue(): number;
     public getGroup(): GLib.SList;
@@ -10916,27 +11214,31 @@ declare module "Gtk" {
     public setCurrentValue(currentValue: number): void;
     public setGroup(group: GLib.SList): void;
     public changed(current: RadioAction): void;
+    
+    public on(event: 'changed', listener: (current: RadioAction) => void): this;
   }
   
   interface RadioActionProps extends ToggleActionProps, BuildableProps {
-    currentValue: number;
-    group: RadioAction;
-    value: number;
+    currentValue?: number;
+    group?: RadioAction;
+    value?: number;
   }
   
   export class RadioButton extends CheckButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: RadioButtonProps);
     
-    group: RadioButton;
+    group?: RadioButton;
     
     public getGroup(): GLib.SList;
     public joinGroup(groupSource: RadioButton): void;
     public setGroup(group: GLib.SList): void;
     public groupChanged(): void;
+    
+    public on(event: 'groupChanged', listener: () => void): this;
   }
   
   interface RadioButtonProps extends CheckButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    group: RadioButton;
+    group?: RadioButton;
   }
   
   export class RadioButtonAccessible extends ToggleButtonAccessible implements Atk.Action, Atk.Component, Atk.Image {
@@ -10950,16 +11252,18 @@ declare module "Gtk" {
   export class RadioMenuItem extends CheckMenuItem implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: RadioMenuItemProps);
     
-    group: RadioMenuItem;
+    group?: RadioMenuItem;
     
     public getGroup(): GLib.SList;
     public joinGroup(groupSource: RadioMenuItem): void;
     public setGroup(group: GLib.SList): void;
     public groupChanged(): void;
+    
+    public on(event: 'groupChanged', listener: () => void): this;
   }
   
   interface RadioMenuItemProps extends CheckMenuItemProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    group: RadioMenuItem;
+    group?: RadioMenuItem;
   }
   
   export class RadioMenuItemAccessible extends CheckMenuItemAccessible implements Atk.Action, Atk.Component, Atk.Selection {
@@ -10973,27 +11277,27 @@ declare module "Gtk" {
   export class RadioToolButton extends ToggleToolButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: RadioToolButtonProps);
     
-    group: RadioToolButton;
+    group?: RadioToolButton;
     
     public getGroup(): GLib.SList;
     public setGroup(group: GLib.SList): void;
   }
   
   interface RadioToolButtonProps extends ToggleToolButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    group: RadioToolButton;
+    group?: RadioToolButton;
   }
   
   export class Range extends Widget implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: RangeProps);
     
-    adjustment: Adjustment;
-    fillLevel: number;
-    inverted: boolean;
-    lowerStepperSensitivity: SensitivityType;
-    restrictToFillLevel: boolean;
-    roundDigits: number;
-    showFillLevel: boolean;
-    upperStepperSensitivity: SensitivityType;
+    adjustment?: Adjustment;
+    fillLevel?: number;
+    inverted?: boolean;
+    lowerStepperSensitivity?: SensitivityType;
+    restrictToFillLevel?: boolean;
+    roundDigits?: number;
+    showFillLevel?: boolean;
+    upperStepperSensitivity?: SensitivityType;
     
     public getAdjustment(): Adjustment;
     public getFillLevel(): number;
@@ -11029,17 +11333,22 @@ declare module "Gtk" {
     public getRangeSizeRequest(orientation: Orientation, minimum: number, natural: number): void;
     public moveSlider(scroll: ScrollType): void;
     public valueChanged(): void;
+    
+    public on(event: 'adjustBounds', listener: (value: number) => void): this;
+    public on(event: 'changeValue', listener: (scroll: ScrollType, value: number) => boolean): this;
+    public on(event: 'moveSlider', listener: (step: ScrollType) => void): this;
+    public on(event: 'valueChanged', listener: () => void): this;
   }
   
   interface RangeProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    adjustment: Adjustment;
-    fillLevel: number;
-    inverted: boolean;
-    lowerStepperSensitivity: SensitivityType;
-    restrictToFillLevel: boolean;
-    roundDigits: number;
-    showFillLevel: boolean;
-    upperStepperSensitivity: SensitivityType;
+    adjustment?: Adjustment;
+    fillLevel?: number;
+    inverted?: boolean;
+    lowerStepperSensitivity?: SensitivityType;
+    restrictToFillLevel?: boolean;
+    roundDigits?: number;
+    showFillLevel?: boolean;
+    upperStepperSensitivity?: SensitivityType;
   }
   
   export class RangeAccessible extends WidgetAccessible implements Atk.Component, Atk.Value {
@@ -11067,14 +11376,14 @@ declare module "Gtk" {
   export class RecentAction extends Action implements Buildable, RecentChooser {
     constructor(props?: RecentActionProps);
     
-    showNumbers: boolean;
+    showNumbers?: boolean;
     
     public getShowNumbers(): boolean;
     public setShowNumbers(showNumbers: boolean): void;
   }
   
   interface RecentActionProps extends ActionProps, BuildableProps, RecentChooserProps {
-    showNumbers: boolean;
+    showNumbers?: boolean;
   }
   
   export class RecentChooserDialog extends Dialog implements Atk.ImplementorIface, Buildable, RecentChooser {
@@ -11088,14 +11397,14 @@ declare module "Gtk" {
   export class RecentChooserMenu extends Menu implements Atk.ImplementorIface, Activatable, Buildable, RecentChooser {
     constructor(props?: RecentChooserMenuProps);
     
-    showNumbers: boolean;
+    showNumbers?: boolean;
     
     public getShowNumbers(): boolean;
     public setShowNumbers(showNumbers: boolean): void;
   }
   
   interface RecentChooserMenuProps extends MenuProps, Atk.ImplementorIfaceProps, ActivatableProps, BuildableProps, RecentChooserProps {
-    showNumbers: boolean;
+    showNumbers?: boolean;
   }
   
   export class RecentChooserWidget extends Box implements Atk.ImplementorIface, Buildable, Orientable, RecentChooser {
@@ -11129,8 +11438,8 @@ declare module "Gtk" {
   export class RecentManager extends GObject.Object {
     constructor(props?: RecentManagerProps);
     
-    filename: string;
-    size: number;
+    filename?: string;
+    size?: number;
     
     public addFull(uri: string, recentData: RecentData): boolean;
     public addItem(uri: string): boolean;
@@ -11142,31 +11451,33 @@ declare module "Gtk" {
     public removeItem(uri: string): boolean;
     public changed(): void;
     
+    public on(event: 'changed', listener: () => void): this;
+    
     public static getDefault(): RecentManager;
   }
   
   interface RecentManagerProps extends GObject.ObjectProps {
-    filename: string;
-    size: number;
+    filename?: string;
+    size?: number;
   }
   
   export class RendererCellAccessible extends CellAccessible implements Atk.Action, Atk.Component {
     constructor(props?: RendererCellAccessibleProps);
     
-    renderer: CellRenderer;
+    renderer?: CellRenderer;
   }
   
   interface RendererCellAccessibleProps extends CellAccessibleProps, Atk.ActionProps, Atk.ComponentProps {
-    renderer: CellRenderer;
+    renderer?: CellRenderer;
   }
   
   export class Revealer extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: RevealerProps);
     
-    childRevealed: boolean;
-    revealChild: boolean;
-    transitionDuration: number;
-    transitionType: RevealerTransitionType;
+    childRevealed?: boolean;
+    revealChild?: boolean;
+    transitionDuration?: number;
+    transitionType?: RevealerTransitionType;
     
     public getChildRevealed(): boolean;
     public getRevealChild(): boolean;
@@ -11178,19 +11489,19 @@ declare module "Gtk" {
   }
   
   interface RevealerProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    childRevealed: boolean;
-    revealChild: boolean;
-    transitionDuration: number;
-    transitionType: RevealerTransitionType;
+    childRevealed?: boolean;
+    revealChild?: boolean;
+    transitionDuration?: number;
+    transitionType?: RevealerTransitionType;
   }
   
   export class Scale extends Range implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ScaleProps);
     
-    digits: number;
-    drawValue: boolean;
-    hasOrigin: boolean;
-    valuePos: PositionType;
+    digits?: number;
+    drawValue?: boolean;
+    hasOrigin?: boolean;
+    valuePos?: PositionType;
     
     public addMark(value: number, position: PositionType, markup: string): void;
     public clearMarks(): void;
@@ -11206,13 +11517,15 @@ declare module "Gtk" {
     public setValuePos(pos: PositionType): void;
     public drawValue(): void;
     public formatValue(value: number): string;
+    
+    public on(event: 'formatValue', listener: (value: number) => string): this;
   }
   
   interface ScaleProps extends RangeProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    digits: number;
-    drawValue: boolean;
-    hasOrigin: boolean;
-    valuePos: PositionType;
+    digits?: number;
+    drawValue?: boolean;
+    hasOrigin?: boolean;
+    valuePos?: PositionType;
   }
   
   export class ScaleAccessible extends RangeAccessible implements Atk.Component, Atk.Value {
@@ -11226,10 +11539,10 @@ declare module "Gtk" {
   export class ScaleButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable, Orientable {
     constructor(props?: ScaleButtonProps);
     
-    adjustment: Adjustment;
-    icons: string[];
-    size: IconSize;
-    value: number;
+    adjustment?: Adjustment;
+    icons?: string[];
+    size?: IconSize;
+    value?: number;
     
     public getAdjustment(): Adjustment;
     public getMinusButton(): Button;
@@ -11240,13 +11553,17 @@ declare module "Gtk" {
     public setIcons(icons: string[]): void;
     public setValue(value: number): void;
     public valueChanged(value: number): void;
+    
+    public on(event: 'popdown', listener: () => void): this;
+    public on(event: 'popup', listener: () => void): this;
+    public on(event: 'valueChanged', listener: (value: number) => void): this;
   }
   
   interface ScaleButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps, OrientableProps {
-    adjustment: Adjustment;
-    icons: string[];
-    size: IconSize;
-    value: number;
+    adjustment?: Adjustment;
+    icons?: string[];
+    size?: IconSize;
+    value?: number;
   }
   
   export class ScaleButtonAccessible extends ButtonAccessible implements Atk.Action, Atk.Component, Atk.Image, Atk.Value {
@@ -11268,21 +11585,21 @@ declare module "Gtk" {
   export class ScrolledWindow extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: ScrolledWindowProps);
     
-    hadjustment: Adjustment;
-    hscrollbarPolicy: PolicyType;
-    kineticScrolling: boolean;
-    maxContentHeight: number;
-    maxContentWidth: number;
-    minContentHeight: number;
-    minContentWidth: number;
-    overlayScrolling: boolean;
-    propagateNaturalHeight: boolean;
-    propagateNaturalWidth: boolean;
-    shadowType: ShadowType;
-    vadjustment: Adjustment;
-    vscrollbarPolicy: PolicyType;
-    windowPlacement: CornerType;
-    windowPlacementSet: boolean;
+    hadjustment?: Adjustment;
+    hscrollbarPolicy?: PolicyType;
+    kineticScrolling?: boolean;
+    maxContentHeight?: number;
+    maxContentWidth?: number;
+    minContentHeight?: number;
+    minContentWidth?: number;
+    overlayScrolling?: boolean;
+    propagateNaturalHeight?: boolean;
+    propagateNaturalWidth?: boolean;
+    shadowType?: ShadowType;
+    vadjustment?: Adjustment;
+    vscrollbarPolicy?: PolicyType;
+    windowPlacement?: CornerType;
+    windowPlacementSet?: boolean;
     
     public addWithViewport(child: Widget): void;
     public getCaptureButtonPress(): boolean;
@@ -11318,24 +11635,29 @@ declare module "Gtk" {
     public unsetPlacement(): void;
     public moveFocusOut(direction: DirectionType): void;
     public scrollChild(scroll: ScrollType, horizontal: boolean): boolean;
+    
+    public on(event: 'edgeOvershot', listener: (pos: PositionType) => void): this;
+    public on(event: 'edgeReached', listener: (pos: PositionType) => void): this;
+    public on(event: 'moveFocusOut', listener: (directionType: DirectionType) => void): this;
+    public on(event: 'scrollChild', listener: (scroll: ScrollType, horizontal: boolean) => boolean): this;
   }
   
   interface ScrolledWindowProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    hadjustment: Adjustment;
-    hscrollbarPolicy: PolicyType;
-    kineticScrolling: boolean;
-    maxContentHeight: number;
-    maxContentWidth: number;
-    minContentHeight: number;
-    minContentWidth: number;
-    overlayScrolling: boolean;
-    propagateNaturalHeight: boolean;
-    propagateNaturalWidth: boolean;
-    shadowType: ShadowType;
-    vadjustment: Adjustment;
-    vscrollbarPolicy: PolicyType;
-    windowPlacement: CornerType;
-    windowPlacementSet: boolean;
+    hadjustment?: Adjustment;
+    hscrollbarPolicy?: PolicyType;
+    kineticScrolling?: boolean;
+    maxContentHeight?: number;
+    maxContentWidth?: number;
+    minContentHeight?: number;
+    minContentWidth?: number;
+    overlayScrolling?: boolean;
+    propagateNaturalHeight?: boolean;
+    propagateNaturalWidth?: boolean;
+    shadowType?: ShadowType;
+    vadjustment?: Adjustment;
+    vscrollbarPolicy?: PolicyType;
+    windowPlacement?: CornerType;
+    windowPlacementSet?: boolean;
   }
   
   export class ScrolledWindowAccessible extends ContainerAccessible implements Atk.Component {
@@ -11349,8 +11671,8 @@ declare module "Gtk" {
   export class SearchBar extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: SearchBarProps);
     
-    searchModeEnabled: boolean;
-    showCloseButton: boolean;
+    searchModeEnabled?: boolean;
+    showCloseButton?: boolean;
     
     public connectEntry(entry: Entry): void;
     public getSearchMode(): boolean;
@@ -11361,8 +11683,8 @@ declare module "Gtk" {
   }
   
   interface SearchBarProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    searchModeEnabled: boolean;
-    showCloseButton: boolean;
+    searchModeEnabled?: boolean;
+    showCloseButton?: boolean;
   }
   
   export class SearchEntry extends Entry implements Atk.ImplementorIface, Buildable, CellEditable, Editable {
@@ -11373,6 +11695,11 @@ declare module "Gtk" {
     public previousMatch(): void;
     public searchChanged(): void;
     public stopSearch(): void;
+    
+    public on(event: 'nextMatch', listener: () => void): this;
+    public on(event: 'previousMatch', listener: () => void): this;
+    public on(event: 'searchChanged', listener: () => void): this;
+    public on(event: 'stopSearch', listener: () => void): this;
   }
   
   interface SearchEntryProps extends EntryProps, Atk.ImplementorIfaceProps, BuildableProps, CellEditableProps, EditableProps {
@@ -11398,102 +11725,102 @@ declare module "Gtk" {
   export class SeparatorToolItem extends ToolItem implements Atk.ImplementorIface, Activatable, Buildable {
     constructor(props?: SeparatorToolItemProps);
     
-    draw: boolean;
+    draw?: boolean;
     
     public getDraw(): boolean;
     public setDraw(draw: boolean): void;
   }
   
   interface SeparatorToolItemProps extends ToolItemProps, Atk.ImplementorIfaceProps, ActivatableProps, BuildableProps {
-    draw: boolean;
+    draw?: boolean;
   }
   
   export class Settings extends GObject.Object implements StyleProvider {
     constructor(props?: SettingsProps);
     
-    colorHash: GLib.HashTable;
-    gtkAlternativeButtonOrder: boolean;
-    gtkAlternativeSortArrows: boolean;
-    gtkApplicationPreferDarkTheme: boolean;
-    gtkAutoMnemonics: boolean;
-    gtkButtonImages: boolean;
-    gtkCanChangeAccels: boolean;
-    gtkColorPalette: string;
-    gtkColorScheme: string;
-    gtkCursorBlink: boolean;
-    gtkCursorBlinkTime: number;
-    gtkCursorBlinkTimeout: number;
-    gtkCursorThemeName: string;
-    gtkCursorThemeSize: number;
-    gtkDecorationLayout: string;
-    gtkDialogsUseHeader: boolean;
-    gtkDndDragThreshold: number;
-    gtkDoubleClickDistance: number;
-    gtkDoubleClickTime: number;
-    gtkEnableAccels: boolean;
-    gtkEnableAnimations: boolean;
-    gtkEnableEventSounds: boolean;
-    gtkEnableInputFeedbackSounds: boolean;
-    gtkEnableMnemonics: boolean;
-    gtkEnablePrimaryPaste: boolean;
-    gtkEnableTooltips: boolean;
-    gtkEntryPasswordHintTimeout: number;
-    gtkEntrySelectOnFocus: boolean;
-    gtkErrorBell: boolean;
-    gtkFallbackIconTheme: string;
-    gtkFileChooserBackend: string;
-    gtkFontName: string;
-    gtkFontconfigTimestamp: number;
-    gtkIconSizes: string;
-    gtkIconThemeName: string;
-    gtkImModule: string;
-    gtkImPreeditStyle: IMPreeditStyle;
-    gtkImStatusStyle: IMStatusStyle;
-    gtkKeyThemeName: string;
-    gtkKeynavCursorOnly: boolean;
-    gtkKeynavUseCaret: boolean;
-    gtkKeynavWrapAround: boolean;
-    gtkLabelSelectOnFocus: boolean;
-    gtkLongPressTime: number;
-    gtkMenuBarAccel: string;
-    gtkMenuBarPopupDelay: number;
-    gtkMenuImages: boolean;
-    gtkMenuPopdownDelay: number;
-    gtkMenuPopupDelay: number;
-    gtkModules: string;
-    gtkPrimaryButtonWarpsSlider: boolean;
-    gtkPrintBackends: string;
-    gtkPrintPreviewCommand: string;
-    gtkRecentFilesEnabled: boolean;
-    gtkRecentFilesLimit: number;
-    gtkRecentFilesMaxAge: number;
-    gtkScrolledWindowPlacement: CornerType;
-    gtkShellShowsAppMenu: boolean;
-    gtkShellShowsDesktop: boolean;
-    gtkShellShowsMenubar: boolean;
-    gtkShowInputMethodMenu: boolean;
-    gtkShowUnicodeMenu: boolean;
-    gtkSoundThemeName: string;
-    gtkSplitCursor: boolean;
-    gtkThemeName: string;
-    gtkTimeoutExpand: number;
-    gtkTimeoutInitial: number;
-    gtkTimeoutRepeat: number;
-    gtkTitlebarDoubleClick: string;
-    gtkTitlebarMiddleClick: string;
-    gtkTitlebarRightClick: string;
-    gtkToolbarIconSize: IconSize;
-    gtkToolbarStyle: ToolbarStyle;
-    gtkTooltipBrowseModeTimeout: number;
-    gtkTooltipBrowseTimeout: number;
-    gtkTooltipTimeout: number;
-    gtkTouchscreenMode: boolean;
-    gtkVisibleFocus: PolicyType;
-    gtkXftAntialias: number;
-    gtkXftDpi: number;
-    gtkXftHinting: number;
-    gtkXftHintstyle: string;
-    gtkXftRgba: string;
+    colorHash?: GLib.HashTable;
+    gtkAlternativeButtonOrder?: boolean;
+    gtkAlternativeSortArrows?: boolean;
+    gtkApplicationPreferDarkTheme?: boolean;
+    gtkAutoMnemonics?: boolean;
+    gtkButtonImages?: boolean;
+    gtkCanChangeAccels?: boolean;
+    gtkColorPalette?: string;
+    gtkColorScheme?: string;
+    gtkCursorBlink?: boolean;
+    gtkCursorBlinkTime?: number;
+    gtkCursorBlinkTimeout?: number;
+    gtkCursorThemeName?: string;
+    gtkCursorThemeSize?: number;
+    gtkDecorationLayout?: string;
+    gtkDialogsUseHeader?: boolean;
+    gtkDndDragThreshold?: number;
+    gtkDoubleClickDistance?: number;
+    gtkDoubleClickTime?: number;
+    gtkEnableAccels?: boolean;
+    gtkEnableAnimations?: boolean;
+    gtkEnableEventSounds?: boolean;
+    gtkEnableInputFeedbackSounds?: boolean;
+    gtkEnableMnemonics?: boolean;
+    gtkEnablePrimaryPaste?: boolean;
+    gtkEnableTooltips?: boolean;
+    gtkEntryPasswordHintTimeout?: number;
+    gtkEntrySelectOnFocus?: boolean;
+    gtkErrorBell?: boolean;
+    gtkFallbackIconTheme?: string;
+    gtkFileChooserBackend?: string;
+    gtkFontName?: string;
+    gtkFontconfigTimestamp?: number;
+    gtkIconSizes?: string;
+    gtkIconThemeName?: string;
+    gtkImModule?: string;
+    gtkImPreeditStyle?: IMPreeditStyle;
+    gtkImStatusStyle?: IMStatusStyle;
+    gtkKeyThemeName?: string;
+    gtkKeynavCursorOnly?: boolean;
+    gtkKeynavUseCaret?: boolean;
+    gtkKeynavWrapAround?: boolean;
+    gtkLabelSelectOnFocus?: boolean;
+    gtkLongPressTime?: number;
+    gtkMenuBarAccel?: string;
+    gtkMenuBarPopupDelay?: number;
+    gtkMenuImages?: boolean;
+    gtkMenuPopdownDelay?: number;
+    gtkMenuPopupDelay?: number;
+    gtkModules?: string;
+    gtkPrimaryButtonWarpsSlider?: boolean;
+    gtkPrintBackends?: string;
+    gtkPrintPreviewCommand?: string;
+    gtkRecentFilesEnabled?: boolean;
+    gtkRecentFilesLimit?: number;
+    gtkRecentFilesMaxAge?: number;
+    gtkScrolledWindowPlacement?: CornerType;
+    gtkShellShowsAppMenu?: boolean;
+    gtkShellShowsDesktop?: boolean;
+    gtkShellShowsMenubar?: boolean;
+    gtkShowInputMethodMenu?: boolean;
+    gtkShowUnicodeMenu?: boolean;
+    gtkSoundThemeName?: string;
+    gtkSplitCursor?: boolean;
+    gtkThemeName?: string;
+    gtkTimeoutExpand?: number;
+    gtkTimeoutInitial?: number;
+    gtkTimeoutRepeat?: number;
+    gtkTitlebarDoubleClick?: string;
+    gtkTitlebarMiddleClick?: string;
+    gtkTitlebarRightClick?: string;
+    gtkToolbarIconSize?: IconSize;
+    gtkToolbarStyle?: ToolbarStyle;
+    gtkTooltipBrowseModeTimeout?: number;
+    gtkTooltipBrowseTimeout?: number;
+    gtkTooltipTimeout?: number;
+    gtkTouchscreenMode?: boolean;
+    gtkVisibleFocus?: PolicyType;
+    gtkXftAntialias?: number;
+    gtkXftDpi?: number;
+    gtkXftHinting?: number;
+    gtkXftHintstyle?: string;
+    gtkXftRgba?: string;
     
     public resetProperty(name: string): void;
     public setDoubleProperty(name: string, vDouble: number, origin: string): void;
@@ -11508,96 +11835,96 @@ declare module "Gtk" {
   }
   
   interface SettingsProps extends GObject.ObjectProps, StyleProviderProps {
-    colorHash: GLib.HashTable;
-    gtkAlternativeButtonOrder: boolean;
-    gtkAlternativeSortArrows: boolean;
-    gtkApplicationPreferDarkTheme: boolean;
-    gtkAutoMnemonics: boolean;
-    gtkButtonImages: boolean;
-    gtkCanChangeAccels: boolean;
-    gtkColorPalette: string;
-    gtkColorScheme: string;
-    gtkCursorBlink: boolean;
-    gtkCursorBlinkTime: number;
-    gtkCursorBlinkTimeout: number;
-    gtkCursorThemeName: string;
-    gtkCursorThemeSize: number;
-    gtkDecorationLayout: string;
-    gtkDialogsUseHeader: boolean;
-    gtkDndDragThreshold: number;
-    gtkDoubleClickDistance: number;
-    gtkDoubleClickTime: number;
-    gtkEnableAccels: boolean;
-    gtkEnableAnimations: boolean;
-    gtkEnableEventSounds: boolean;
-    gtkEnableInputFeedbackSounds: boolean;
-    gtkEnableMnemonics: boolean;
-    gtkEnablePrimaryPaste: boolean;
-    gtkEnableTooltips: boolean;
-    gtkEntryPasswordHintTimeout: number;
-    gtkEntrySelectOnFocus: boolean;
-    gtkErrorBell: boolean;
-    gtkFallbackIconTheme: string;
-    gtkFileChooserBackend: string;
-    gtkFontName: string;
-    gtkFontconfigTimestamp: number;
-    gtkIconSizes: string;
-    gtkIconThemeName: string;
-    gtkImModule: string;
-    gtkImPreeditStyle: IMPreeditStyle;
-    gtkImStatusStyle: IMStatusStyle;
-    gtkKeyThemeName: string;
-    gtkKeynavCursorOnly: boolean;
-    gtkKeynavUseCaret: boolean;
-    gtkKeynavWrapAround: boolean;
-    gtkLabelSelectOnFocus: boolean;
-    gtkLongPressTime: number;
-    gtkMenuBarAccel: string;
-    gtkMenuBarPopupDelay: number;
-    gtkMenuImages: boolean;
-    gtkMenuPopdownDelay: number;
-    gtkMenuPopupDelay: number;
-    gtkModules: string;
-    gtkPrimaryButtonWarpsSlider: boolean;
-    gtkPrintBackends: string;
-    gtkPrintPreviewCommand: string;
-    gtkRecentFilesEnabled: boolean;
-    gtkRecentFilesLimit: number;
-    gtkRecentFilesMaxAge: number;
-    gtkScrolledWindowPlacement: CornerType;
-    gtkShellShowsAppMenu: boolean;
-    gtkShellShowsDesktop: boolean;
-    gtkShellShowsMenubar: boolean;
-    gtkShowInputMethodMenu: boolean;
-    gtkShowUnicodeMenu: boolean;
-    gtkSoundThemeName: string;
-    gtkSplitCursor: boolean;
-    gtkThemeName: string;
-    gtkTimeoutExpand: number;
-    gtkTimeoutInitial: number;
-    gtkTimeoutRepeat: number;
-    gtkTitlebarDoubleClick: string;
-    gtkTitlebarMiddleClick: string;
-    gtkTitlebarRightClick: string;
-    gtkToolbarIconSize: IconSize;
-    gtkToolbarStyle: ToolbarStyle;
-    gtkTooltipBrowseModeTimeout: number;
-    gtkTooltipBrowseTimeout: number;
-    gtkTooltipTimeout: number;
-    gtkTouchscreenMode: boolean;
-    gtkVisibleFocus: PolicyType;
-    gtkXftAntialias: number;
-    gtkXftDpi: number;
-    gtkXftHinting: number;
-    gtkXftHintstyle: string;
-    gtkXftRgba: string;
+    colorHash?: GLib.HashTable;
+    gtkAlternativeButtonOrder?: boolean;
+    gtkAlternativeSortArrows?: boolean;
+    gtkApplicationPreferDarkTheme?: boolean;
+    gtkAutoMnemonics?: boolean;
+    gtkButtonImages?: boolean;
+    gtkCanChangeAccels?: boolean;
+    gtkColorPalette?: string;
+    gtkColorScheme?: string;
+    gtkCursorBlink?: boolean;
+    gtkCursorBlinkTime?: number;
+    gtkCursorBlinkTimeout?: number;
+    gtkCursorThemeName?: string;
+    gtkCursorThemeSize?: number;
+    gtkDecorationLayout?: string;
+    gtkDialogsUseHeader?: boolean;
+    gtkDndDragThreshold?: number;
+    gtkDoubleClickDistance?: number;
+    gtkDoubleClickTime?: number;
+    gtkEnableAccels?: boolean;
+    gtkEnableAnimations?: boolean;
+    gtkEnableEventSounds?: boolean;
+    gtkEnableInputFeedbackSounds?: boolean;
+    gtkEnableMnemonics?: boolean;
+    gtkEnablePrimaryPaste?: boolean;
+    gtkEnableTooltips?: boolean;
+    gtkEntryPasswordHintTimeout?: number;
+    gtkEntrySelectOnFocus?: boolean;
+    gtkErrorBell?: boolean;
+    gtkFallbackIconTheme?: string;
+    gtkFileChooserBackend?: string;
+    gtkFontName?: string;
+    gtkFontconfigTimestamp?: number;
+    gtkIconSizes?: string;
+    gtkIconThemeName?: string;
+    gtkImModule?: string;
+    gtkImPreeditStyle?: IMPreeditStyle;
+    gtkImStatusStyle?: IMStatusStyle;
+    gtkKeyThemeName?: string;
+    gtkKeynavCursorOnly?: boolean;
+    gtkKeynavUseCaret?: boolean;
+    gtkKeynavWrapAround?: boolean;
+    gtkLabelSelectOnFocus?: boolean;
+    gtkLongPressTime?: number;
+    gtkMenuBarAccel?: string;
+    gtkMenuBarPopupDelay?: number;
+    gtkMenuImages?: boolean;
+    gtkMenuPopdownDelay?: number;
+    gtkMenuPopupDelay?: number;
+    gtkModules?: string;
+    gtkPrimaryButtonWarpsSlider?: boolean;
+    gtkPrintBackends?: string;
+    gtkPrintPreviewCommand?: string;
+    gtkRecentFilesEnabled?: boolean;
+    gtkRecentFilesLimit?: number;
+    gtkRecentFilesMaxAge?: number;
+    gtkScrolledWindowPlacement?: CornerType;
+    gtkShellShowsAppMenu?: boolean;
+    gtkShellShowsDesktop?: boolean;
+    gtkShellShowsMenubar?: boolean;
+    gtkShowInputMethodMenu?: boolean;
+    gtkShowUnicodeMenu?: boolean;
+    gtkSoundThemeName?: string;
+    gtkSplitCursor?: boolean;
+    gtkThemeName?: string;
+    gtkTimeoutExpand?: number;
+    gtkTimeoutInitial?: number;
+    gtkTimeoutRepeat?: number;
+    gtkTitlebarDoubleClick?: string;
+    gtkTitlebarMiddleClick?: string;
+    gtkTitlebarRightClick?: string;
+    gtkToolbarIconSize?: IconSize;
+    gtkToolbarStyle?: ToolbarStyle;
+    gtkTooltipBrowseModeTimeout?: number;
+    gtkTooltipBrowseTimeout?: number;
+    gtkTooltipTimeout?: number;
+    gtkTouchscreenMode?: boolean;
+    gtkVisibleFocus?: PolicyType;
+    gtkXftAntialias?: number;
+    gtkXftDpi?: number;
+    gtkXftHinting?: number;
+    gtkXftHintstyle?: string;
+    gtkXftRgba?: string;
   }
   
   export class ShortcutLabel extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ShortcutLabelProps);
     
-    accelerator: string;
-    disabledText: string;
+    accelerator?: string;
+    disabledText?: string;
     
     public getAccelerator(): string;
     public getDisabledText(): string;
@@ -11606,94 +11933,99 @@ declare module "Gtk" {
   }
   
   interface ShortcutLabelProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    accelerator: string;
-    disabledText: string;
+    accelerator?: string;
+    disabledText?: string;
   }
   
   export class ShortcutsGroup extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ShortcutsGroupProps);
     
-    accelSizeGroup: SizeGroup;
-    height: number;
-    title: string;
-    titleSizeGroup: SizeGroup;
-    view: string;
+    accelSizeGroup?: SizeGroup;
+    height?: number;
+    title?: string;
+    titleSizeGroup?: SizeGroup;
+    view?: string;
   }
   
   interface ShortcutsGroupProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    accelSizeGroup: SizeGroup;
-    height: number;
-    title: string;
-    titleSizeGroup: SizeGroup;
-    view: string;
+    accelSizeGroup?: SizeGroup;
+    height?: number;
+    title?: string;
+    titleSizeGroup?: SizeGroup;
+    view?: string;
   }
   
   export class ShortcutsSection extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ShortcutsSectionProps);
     
-    maxHeight: number;
-    sectionName: string;
-    title: string;
-    viewName: string;
+    maxHeight?: number;
+    sectionName?: string;
+    title?: string;
+    viewName?: string;
+    
+    public on(event: 'changeCurrentPage', listener: (object: number) => boolean): this;
   }
   
   interface ShortcutsSectionProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    maxHeight: number;
-    sectionName: string;
-    title: string;
-    viewName: string;
+    maxHeight?: number;
+    sectionName?: string;
+    title?: string;
+    viewName?: string;
   }
   
   export class ShortcutsShortcut extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: ShortcutsShortcutProps);
     
-    accelSizeGroup: SizeGroup;
-    accelerator: string;
-    actionName: string;
-    direction: TextDirection;
-    icon: Gio.Icon;
-    iconSet: boolean;
-    shortcutType: ShortcutType;
-    subtitle: string;
-    subtitleSet: boolean;
-    title: string;
-    titleSizeGroup: SizeGroup;
+    accelSizeGroup?: SizeGroup;
+    accelerator?: string;
+    actionName?: string;
+    direction?: TextDirection;
+    icon?: Gio.Icon;
+    iconSet?: boolean;
+    shortcutType?: ShortcutType;
+    subtitle?: string;
+    subtitleSet?: boolean;
+    title?: string;
+    titleSizeGroup?: SizeGroup;
   }
   
   interface ShortcutsShortcutProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    accelSizeGroup: SizeGroup;
-    accelerator: string;
-    actionName: string;
-    direction: TextDirection;
-    icon: Gio.Icon;
-    iconSet: boolean;
-    shortcutType: ShortcutType;
-    subtitle: string;
-    subtitleSet: boolean;
-    title: string;
-    titleSizeGroup: SizeGroup;
+    accelSizeGroup?: SizeGroup;
+    accelerator?: string;
+    actionName?: string;
+    direction?: TextDirection;
+    icon?: Gio.Icon;
+    iconSet?: boolean;
+    shortcutType?: ShortcutType;
+    subtitle?: string;
+    subtitleSet?: boolean;
+    title?: string;
+    titleSizeGroup?: SizeGroup;
   }
   
   export class ShortcutsWindow extends Window implements Atk.ImplementorIface, Buildable {
     constructor(props?: ShortcutsWindowProps);
     
-    sectionName: string;
-    viewName: string;
+    sectionName?: string;
+    viewName?: string;
     
     public close(): void;
     public search(): void;
+    
+    public on(event: 'close', listener: () => void): this;
+    public on(event: 'search', listener: () => void): this;
   }
   
   interface ShortcutsWindowProps extends WindowProps, Atk.ImplementorIfaceProps, BuildableProps {
-    sectionName: string;
-    viewName: string;
+    sectionName?: string;
+    viewName?: string;
   }
   
   export class SizeGroup extends GObject.Object implements Buildable {
     constructor(props?: SizeGroupProps);
     
-    ignoreHidden: boolean;
-    mode: SizeGroupMode;
+    ignoreHidden?: boolean;
+    mode?: SizeGroupMode;
     
     public addWidget(widget: Widget): void;
     public getIgnoreHidden(): boolean;
@@ -11705,8 +12037,8 @@ declare module "Gtk" {
   }
   
   interface SizeGroupProps extends GObject.ObjectProps, BuildableProps {
-    ignoreHidden: boolean;
-    mode: SizeGroupMode;
+    ignoreHidden?: boolean;
+    mode?: SizeGroupMode;
   }
   
   export class Socket extends Container implements Atk.ImplementorIface, Buildable {
@@ -11717,6 +12049,9 @@ declare module "Gtk" {
     public getPlugWindow(): Gdk.Window;
     public plugAdded(): void;
     public plugRemoved(): boolean;
+    
+    public on(event: 'plugAdded', listener: () => void): this;
+    public on(event: 'plugRemoved', listener: () => boolean): this;
   }
   
   interface SocketProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
@@ -11726,14 +12061,14 @@ declare module "Gtk" {
   export class SpinButton extends Entry implements Atk.ImplementorIface, Buildable, CellEditable, Editable, Orientable {
     constructor(props?: SpinButtonProps);
     
-    adjustment: Adjustment;
-    climbRate: number;
-    digits: number;
-    numeric: boolean;
-    snapToTicks: boolean;
-    updatePolicy: SpinButtonUpdatePolicy;
-    value: number;
-    wrap: boolean;
+    adjustment?: Adjustment;
+    climbRate?: number;
+    digits?: number;
+    numeric?: boolean;
+    snapToTicks?: boolean;
+    updatePolicy?: SpinButtonUpdatePolicy;
+    value?: number;
+    wrap?: boolean;
     
     public configure(adjustment: Adjustment, climbRate: number, digits: number): void;
     public getAdjustment(): Adjustment;
@@ -11762,17 +12097,23 @@ declare module "Gtk" {
     public output(): number;
     public valueChanged(): void;
     public wrapped(): void;
+    
+    public on(event: 'changeValue', listener: (scroll: ScrollType) => void): this;
+    public on(event: 'input', listener: (newValue: number) => number): this;
+    public on(event: 'output', listener: () => boolean): this;
+    public on(event: 'valueChanged', listener: () => void): this;
+    public on(event: 'wrapped', listener: () => void): this;
   }
   
   interface SpinButtonProps extends EntryProps, Atk.ImplementorIfaceProps, BuildableProps, CellEditableProps, EditableProps, OrientableProps {
-    adjustment: Adjustment;
-    climbRate: number;
-    digits: number;
-    numeric: boolean;
-    snapToTicks: boolean;
-    updatePolicy: SpinButtonUpdatePolicy;
-    value: number;
-    wrap: boolean;
+    adjustment?: Adjustment;
+    climbRate?: number;
+    digits?: number;
+    numeric?: boolean;
+    snapToTicks?: boolean;
+    updatePolicy?: SpinButtonUpdatePolicy;
+    value?: number;
+    wrap?: boolean;
   }
   
   export class SpinButtonAccessible extends EntryAccessible implements Atk.Action, Atk.Component, Atk.EditableText, Atk.Text, Atk.Value {
@@ -11786,14 +12127,14 @@ declare module "Gtk" {
   export class Spinner extends Widget implements Atk.ImplementorIface, Buildable {
     constructor(props?: SpinnerProps);
     
-    active: boolean;
+    active?: boolean;
     
     public start(): void;
     public stop(): void;
   }
   
   interface SpinnerProps extends WidgetProps, Atk.ImplementorIfaceProps, BuildableProps {
-    active: boolean;
+    active?: boolean;
   }
   
   export class SpinnerAccessible extends WidgetAccessible implements Atk.Component, Atk.Image {
@@ -11807,15 +12148,15 @@ declare module "Gtk" {
   export class Stack extends Container implements Atk.ImplementorIface, Buildable {
     constructor(props?: StackProps);
     
-    hhomogeneous: boolean;
-    homogeneous: boolean;
-    interpolateSize: boolean;
-    transitionDuration: number;
-    transitionRunning: boolean;
-    transitionType: StackTransitionType;
-    vhomogeneous: boolean;
-    visibleChild: Widget;
-    visibleChildName: string;
+    hhomogeneous?: boolean;
+    homogeneous?: boolean;
+    interpolateSize?: boolean;
+    transitionDuration?: number;
+    transitionRunning?: boolean;
+    transitionType?: StackTransitionType;
+    vhomogeneous?: boolean;
+    visibleChild?: Widget;
+    visibleChildName?: string;
     
     public addNamed(child: Widget, name: string): void;
     public addTitled(child: Widget, name: string, title: string): void;
@@ -11841,15 +12182,15 @@ declare module "Gtk" {
   }
   
   interface StackProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
-    hhomogeneous: boolean;
-    homogeneous: boolean;
-    interpolateSize: boolean;
-    transitionDuration: number;
-    transitionRunning: boolean;
-    transitionType: StackTransitionType;
-    vhomogeneous: boolean;
-    visibleChild: Widget;
-    visibleChildName: string;
+    hhomogeneous?: boolean;
+    homogeneous?: boolean;
+    interpolateSize?: boolean;
+    transitionDuration?: number;
+    transitionRunning?: boolean;
+    transitionType?: StackTransitionType;
+    vhomogeneous?: boolean;
+    visibleChild?: Widget;
+    visibleChildName?: string;
   }
   
   export class StackAccessible extends ContainerAccessible implements Atk.Component {
@@ -11863,49 +12204,49 @@ declare module "Gtk" {
   export class StackSidebar extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: StackSidebarProps);
     
-    stack: Stack;
+    stack?: Stack;
     
     public getStack(): Stack;
     public setStack(stack: Stack): void;
   }
   
   interface StackSidebarProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    stack: Stack;
+    stack?: Stack;
   }
   
   export class StackSwitcher extends Box implements Atk.ImplementorIface, Buildable, Orientable {
     constructor(props?: StackSwitcherProps);
     
-    iconSize: number;
-    stack: Stack;
+    iconSize?: number;
+    stack?: Stack;
     
     public getStack(): Stack;
     public setStack(stack: Stack): void;
   }
   
   interface StackSwitcherProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
-    iconSize: number;
-    stack: Stack;
+    iconSize?: number;
+    stack?: Stack;
   }
   
   export class StatusIcon extends GObject.Object {
     constructor(props?: StatusIconProps);
     
-    embedded: boolean;
-    file: string;
-    gicon: Gio.Icon;
-    hasTooltip: boolean;
-    iconName: string;
-    orientation: Orientation;
-    pixbuf: GdkPixbuf.Pixbuf;
-    screen: Gdk.Screen;
-    size: number;
-    stock: string;
-    storageType: ImageType;
-    title: string;
-    tooltipMarkup: string;
-    tooltipText: string;
-    visible: boolean;
+    embedded?: boolean;
+    file?: string;
+    gicon?: Gio.Icon;
+    hasTooltip?: boolean;
+    iconName?: string;
+    orientation?: Orientation;
+    pixbuf?: GdkPixbuf.Pixbuf;
+    screen?: Gdk.Screen;
+    size?: number;
+    stock?: string;
+    storageType?: ImageType;
+    title?: string;
+    tooltipMarkup?: string;
+    tooltipText?: string;
+    visible?: boolean;
     
     public getGeometry(screen: Gdk.Screen, area: Gdk.Rectangle, orientation: Orientation): boolean;
     public getGicon(): Gio.Icon;
@@ -11942,25 +12283,33 @@ declare module "Gtk" {
     public scrollEvent(event: Gdk.EventScroll): boolean;
     public sizeChanged(size: number): boolean;
     
+    public on(event: 'activate', listener: () => void): this;
+    public on(event: 'buttonPressEvent', listener: (event: Gdk.EventButton) => boolean): this;
+    public on(event: 'buttonReleaseEvent', listener: (event: Gdk.EventButton) => boolean): this;
+    public on(event: 'popupMenu', listener: (button: number, activateTime: number) => void): this;
+    public on(event: 'queryTooltip', listener: (x: number, _y: number, keyboardMode: boolean, tooltip: Tooltip) => boolean): this;
+    public on(event: 'scrollEvent', listener: (event: Gdk.EventScroll) => boolean): this;
+    public on(event: 'sizeChanged', listener: (size: number) => boolean): this;
+    
     public static positionMenu(menu: Menu, x: number, _y: number, pushIn: boolean, userData: StatusIcon): void;
   }
   
   interface StatusIconProps extends GObject.ObjectProps {
-    embedded: boolean;
-    file: string;
-    gicon: Gio.Icon;
-    hasTooltip: boolean;
-    iconName: string;
-    orientation: Orientation;
-    pixbuf: GdkPixbuf.Pixbuf;
-    screen: Gdk.Screen;
-    size: number;
-    stock: string;
-    storageType: ImageType;
-    title: string;
-    tooltipMarkup: string;
-    tooltipText: string;
-    visible: boolean;
+    embedded?: boolean;
+    file?: string;
+    gicon?: Gio.Icon;
+    hasTooltip?: boolean;
+    iconName?: string;
+    orientation?: Orientation;
+    pixbuf?: GdkPixbuf.Pixbuf;
+    screen?: Gdk.Screen;
+    size?: number;
+    stock?: string;
+    storageType?: ImageType;
+    title?: string;
+    tooltipMarkup?: string;
+    tooltipText?: string;
+    visible?: boolean;
   }
   
   export class Statusbar extends Box implements Atk.ImplementorIface, Buildable, Orientable {
@@ -11974,6 +12323,9 @@ declare module "Gtk" {
     public removeAll(contextId: number): void;
     public textPopped(contextId: number, text: string): void;
     public textPushed(contextId: number, text: string): void;
+    
+    public on(event: 'textPopped', listener: (contextId: number, text: string) => void): this;
+    public on(event: 'textPushed', listener: (contextId: number, text: string) => void): this;
   }
   
   interface StatusbarProps extends BoxProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps {
@@ -11991,7 +12343,7 @@ declare module "Gtk" {
   export class Style extends GObject.Object {
     constructor(props?: StyleProps);
     
-    context: StyleContext;
+    context?: StyleContext;
     
     public applyDefaultBackground(cr: cairo.Context, window: Gdk.Window, stateType: StateType, x: number, _y: number, width: number, height: number): void;
     public attach(window: Gdk.Window): Style;
@@ -12029,19 +12381,22 @@ declare module "Gtk" {
     public initFromRc(rcStyle: RcStyle): void;
     public realize(): void;
     public unrealize(): void;
+    
+    public on(event: 'realize', listener: () => void): this;
+    public on(event: 'unrealize', listener: () => void): this;
   }
   
   interface StyleProps extends GObject.ObjectProps {
-    context: StyleContext;
+    context?: StyleContext;
   }
   
   export class StyleContext extends GObject.Object {
     constructor(props?: StyleContextProps);
     
-    direction: TextDirection;
-    paintClock: Gdk.FrameClock;
-    parent: StyleContext;
-    screen: Gdk.Screen;
+    direction?: TextDirection;
+    paintClock?: Gdk.FrameClock;
+    parent?: StyleContext;
+    screen?: Gdk.Screen;
     
     public addClass(className: string): void;
     public addProvider(provider: StyleProvider, priority: number): void;
@@ -12098,16 +12453,18 @@ declare module "Gtk" {
     public toString(flags: StyleContextPrintFlags): string;
     public changed(): void;
     
+    public on(event: 'changed', listener: () => void): this;
+    
     public static addProviderForScreen(screen: Gdk.Screen, provider: StyleProvider, priority: number): void;
     public static removeProviderForScreen(screen: Gdk.Screen, provider: StyleProvider): void;
     public static resetWidgets(screen: Gdk.Screen): void;
   }
   
   interface StyleContextProps extends GObject.ObjectProps {
-    direction: TextDirection;
-    paintClock: Gdk.FrameClock;
-    parent: StyleContext;
-    screen: Gdk.Screen;
+    direction?: TextDirection;
+    paintClock?: Gdk.FrameClock;
+    parent?: StyleContext;
+    screen?: Gdk.Screen;
   }
   
   export class StyleProperties extends GObject.Object implements StyleProvider {
@@ -12136,8 +12493,8 @@ declare module "Gtk" {
   export class Switch extends Widget implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: SwitchProps);
     
-    active: boolean;
-    state: boolean;
+    active?: boolean;
+    state?: boolean;
     
     public getActive(): boolean;
     public getState(): boolean;
@@ -12145,11 +12502,14 @@ declare module "Gtk" {
     public setState(state: boolean): void;
     public activate(): void;
     public stateSet(state: boolean): boolean;
+    
+    public on(event: 'activate', listener: () => void): this;
+    public on(event: 'stateSet', listener: (state: boolean) => boolean): this;
   }
   
   interface SwitchProps extends WidgetProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    active: boolean;
-    state: boolean;
+    active?: boolean;
+    state?: boolean;
   }
   
   export class SwitchAccessible extends WidgetAccessible implements Atk.Action, Atk.Component {
@@ -12163,11 +12523,11 @@ declare module "Gtk" {
   export class Table extends Container implements Atk.ImplementorIface, Buildable {
     constructor(props?: TableProps);
     
-    columnSpacing: number;
-    homogeneous: boolean;
-    nColumns: number;
-    nRows: number;
-    rowSpacing: number;
+    columnSpacing?: number;
+    homogeneous?: boolean;
+    nColumns?: number;
+    nRows?: number;
+    rowSpacing?: number;
     
     public attach(child: Widget, leftAttach: number, rightAttach: number, topAttach: number, bottomAttach: number, xoptions: AttachOptions, yoptions: AttachOptions, xpadding: number, ypadding: number): void;
     public attachDefaults(widget: Widget, leftAttach: number, rightAttach: number, topAttach: number, bottomAttach: number): void;
@@ -12186,11 +12546,11 @@ declare module "Gtk" {
   }
   
   interface TableProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps {
-    columnSpacing: number;
-    homogeneous: boolean;
-    nColumns: number;
-    nRows: number;
-    rowSpacing: number;
+    columnSpacing?: number;
+    homogeneous?: boolean;
+    nColumns?: number;
+    nRows?: number;
+    rowSpacing?: number;
   }
   
   export class TearoffMenuItem extends MenuItem implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
@@ -12204,12 +12564,12 @@ declare module "Gtk" {
   export class TextBuffer extends GObject.Object {
     constructor(props?: TextBufferProps);
     
-    copyTargetList: TargetList;
-    cursorPosition: number;
-    hasSelection: boolean;
-    pasteTargetList: TargetList;
-    tagTable: TextTagTable;
-    text: string;
+    copyTargetList?: TargetList;
+    cursorPosition?: number;
+    hasSelection?: boolean;
+    pasteTargetList?: TargetList;
+    tagTable?: TextTagTable;
+    text?: string;
     
     public addMark(mark: TextMark, where: TextIter): void;
     public addSelectionClipboard(clipboard: Clipboard): void;
@@ -12291,15 +12651,29 @@ declare module "Gtk" {
     public markSet(location: TextIter, mark: TextMark): void;
     public modifiedChanged(): void;
     public pasteDone(clipboard: Clipboard): void;
+    
+    public on(event: 'applyTag', listener: (tag: TextTag, start: TextIter, end: TextIter) => void): this;
+    public on(event: 'beginUserAction', listener: () => void): this;
+    public on(event: 'changed', listener: () => void): this;
+    public on(event: 'deleteRange', listener: (start: TextIter, end: TextIter) => void): this;
+    public on(event: 'endUserAction', listener: () => void): this;
+    public on(event: 'insertChildAnchor', listener: (location: TextIter, anchor: TextChildAnchor) => void): this;
+    public on(event: 'insertPixbuf', listener: (location: TextIter, pixbuf: GdkPixbuf.Pixbuf) => void): this;
+    public on(event: 'insertText', listener: (location: TextIter, text: string, len: number) => void): this;
+    public on(event: 'markDeleted', listener: (mark: TextMark) => void): this;
+    public on(event: 'markSet', listener: (location: TextIter, mark: TextMark) => void): this;
+    public on(event: 'modifiedChanged', listener: () => void): this;
+    public on(event: 'pasteDone', listener: (clipboard: Clipboard) => void): this;
+    public on(event: 'removeTag', listener: (tag: TextTag, start: TextIter, end: TextIter) => void): this;
   }
   
   interface TextBufferProps extends GObject.ObjectProps {
-    copyTargetList: TargetList;
-    cursorPosition: number;
-    hasSelection: boolean;
-    pasteTargetList: TargetList;
-    tagTable: TextTagTable;
-    text: string;
+    copyTargetList?: TargetList;
+    cursorPosition?: number;
+    hasSelection?: boolean;
+    pasteTargetList?: TargetList;
+    tagTable?: TextTagTable;
+    text?: string;
   }
   
   export class TextCellAccessible extends RendererCellAccessible implements Atk.Action, Atk.Component, Atk.Text {
@@ -12324,8 +12698,8 @@ declare module "Gtk" {
   export class TextMark extends GObject.Object {
     constructor(props?: TextMarkProps);
     
-    leftGravity: boolean;
-    name: string;
+    leftGravity?: boolean;
+    name?: string;
     
     public getBuffer(): TextBuffer;
     public getDeleted(): boolean;
@@ -12336,169 +12710,171 @@ declare module "Gtk" {
   }
   
   interface TextMarkProps extends GObject.ObjectProps {
-    leftGravity: boolean;
-    name: string;
+    leftGravity?: boolean;
+    name?: string;
   }
   
   export class TextTag extends GObject.Object {
     constructor(props?: TextTagProps);
     
-    accumulativeMargin: boolean;
-    background: string;
-    backgroundFullHeight: boolean;
-    backgroundFullHeightSet: boolean;
-    backgroundGdk: Gdk.Color;
-    backgroundRgba: Gdk.RGBA;
-    backgroundSet: boolean;
-    direction: TextDirection;
-    editable: boolean;
-    editableSet: boolean;
-    fallback: boolean;
-    fallbackSet: boolean;
-    family: string;
-    familySet: boolean;
-    font: string;
-    fontDesc: Pango.FontDescription;
-    fontFeatures: string;
-    fontFeaturesSet: boolean;
-    foreground: string;
-    foregroundGdk: Gdk.Color;
-    foregroundRgba: Gdk.RGBA;
-    foregroundSet: boolean;
-    indent: number;
-    indentSet: boolean;
-    invisible: boolean;
-    invisibleSet: boolean;
-    justification: Justification;
-    justificationSet: boolean;
-    language: string;
-    languageSet: boolean;
-    leftMargin: number;
-    leftMarginSet: boolean;
-    letterSpacing: number;
-    letterSpacingSet: boolean;
-    name: string;
-    paragraphBackground: string;
-    paragraphBackgroundGdk: Gdk.Color;
-    paragraphBackgroundRgba: Gdk.RGBA;
-    paragraphBackgroundSet: boolean;
-    pixelsAboveLines: number;
-    pixelsAboveLinesSet: boolean;
-    pixelsBelowLines: number;
-    pixelsBelowLinesSet: boolean;
-    pixelsInsideWrap: number;
-    pixelsInsideWrapSet: boolean;
-    rightMargin: number;
-    rightMarginSet: boolean;
-    rise: number;
-    riseSet: boolean;
-    scale: number;
-    scaleSet: boolean;
-    size: number;
-    sizePoints: number;
-    sizeSet: boolean;
-    stretch: Pango.Stretch;
-    stretchSet: boolean;
-    strikethrough: boolean;
-    strikethroughRgba: Gdk.RGBA;
-    strikethroughRgbaSet: boolean;
-    strikethroughSet: boolean;
-    style: Pango.Style;
-    styleSet: boolean;
-    tabs: Pango.TabArray;
-    tabsSet: boolean;
-    underline: Pango.Underline;
-    underlineRgba: Gdk.RGBA;
-    underlineRgbaSet: boolean;
-    underlineSet: boolean;
-    variant: Pango.Variant;
-    variantSet: boolean;
-    weight: number;
-    weightSet: boolean;
-    wrapMode: WrapMode;
-    wrapModeSet: boolean;
+    accumulativeMargin?: boolean;
+    background?: string;
+    backgroundFullHeight?: boolean;
+    backgroundFullHeightSet?: boolean;
+    backgroundGdk?: Gdk.Color;
+    backgroundRgba?: Gdk.RGBA;
+    backgroundSet?: boolean;
+    direction?: TextDirection;
+    editable?: boolean;
+    editableSet?: boolean;
+    fallback?: boolean;
+    fallbackSet?: boolean;
+    family?: string;
+    familySet?: boolean;
+    font?: string;
+    fontDesc?: Pango.FontDescription;
+    fontFeatures?: string;
+    fontFeaturesSet?: boolean;
+    foreground?: string;
+    foregroundGdk?: Gdk.Color;
+    foregroundRgba?: Gdk.RGBA;
+    foregroundSet?: boolean;
+    indent?: number;
+    indentSet?: boolean;
+    invisible?: boolean;
+    invisibleSet?: boolean;
+    justification?: Justification;
+    justificationSet?: boolean;
+    language?: string;
+    languageSet?: boolean;
+    leftMargin?: number;
+    leftMarginSet?: boolean;
+    letterSpacing?: number;
+    letterSpacingSet?: boolean;
+    name?: string;
+    paragraphBackground?: string;
+    paragraphBackgroundGdk?: Gdk.Color;
+    paragraphBackgroundRgba?: Gdk.RGBA;
+    paragraphBackgroundSet?: boolean;
+    pixelsAboveLines?: number;
+    pixelsAboveLinesSet?: boolean;
+    pixelsBelowLines?: number;
+    pixelsBelowLinesSet?: boolean;
+    pixelsInsideWrap?: number;
+    pixelsInsideWrapSet?: boolean;
+    rightMargin?: number;
+    rightMarginSet?: boolean;
+    rise?: number;
+    riseSet?: boolean;
+    scale?: number;
+    scaleSet?: boolean;
+    size?: number;
+    sizePoints?: number;
+    sizeSet?: boolean;
+    stretch?: Pango.Stretch;
+    stretchSet?: boolean;
+    strikethrough?: boolean;
+    strikethroughRgba?: Gdk.RGBA;
+    strikethroughRgbaSet?: boolean;
+    strikethroughSet?: boolean;
+    style?: Pango.Style;
+    styleSet?: boolean;
+    tabs?: Pango.TabArray;
+    tabsSet?: boolean;
+    underline?: Pango.Underline;
+    underlineRgba?: Gdk.RGBA;
+    underlineRgbaSet?: boolean;
+    underlineSet?: boolean;
+    variant?: Pango.Variant;
+    variantSet?: boolean;
+    weight?: number;
+    weightSet?: boolean;
+    wrapMode?: WrapMode;
+    wrapModeSet?: boolean;
     
     public changed(sizeChanged: boolean): void;
     public event(eventObject: GObject.Object, event: Gdk.Event, iter: TextIter): boolean;
     public getPriority(): number;
     public setPriority(priority: number): void;
+    
+    public on(event: 'event', listener: (object: GObject.Object, event: Gdk.Event, iter: TextIter) => boolean): this;
   }
   
   interface TextTagProps extends GObject.ObjectProps {
-    accumulativeMargin: boolean;
-    background: string;
-    backgroundFullHeight: boolean;
-    backgroundFullHeightSet: boolean;
-    backgroundGdk: Gdk.Color;
-    backgroundRgba: Gdk.RGBA;
-    backgroundSet: boolean;
-    direction: TextDirection;
-    editable: boolean;
-    editableSet: boolean;
-    fallback: boolean;
-    fallbackSet: boolean;
-    family: string;
-    familySet: boolean;
-    font: string;
-    fontDesc: Pango.FontDescription;
-    fontFeatures: string;
-    fontFeaturesSet: boolean;
-    foreground: string;
-    foregroundGdk: Gdk.Color;
-    foregroundRgba: Gdk.RGBA;
-    foregroundSet: boolean;
-    indent: number;
-    indentSet: boolean;
-    invisible: boolean;
-    invisibleSet: boolean;
-    justification: Justification;
-    justificationSet: boolean;
-    language: string;
-    languageSet: boolean;
-    leftMargin: number;
-    leftMarginSet: boolean;
-    letterSpacing: number;
-    letterSpacingSet: boolean;
-    name: string;
-    paragraphBackground: string;
-    paragraphBackgroundGdk: Gdk.Color;
-    paragraphBackgroundRgba: Gdk.RGBA;
-    paragraphBackgroundSet: boolean;
-    pixelsAboveLines: number;
-    pixelsAboveLinesSet: boolean;
-    pixelsBelowLines: number;
-    pixelsBelowLinesSet: boolean;
-    pixelsInsideWrap: number;
-    pixelsInsideWrapSet: boolean;
-    rightMargin: number;
-    rightMarginSet: boolean;
-    rise: number;
-    riseSet: boolean;
-    scale: number;
-    scaleSet: boolean;
-    size: number;
-    sizePoints: number;
-    sizeSet: boolean;
-    stretch: Pango.Stretch;
-    stretchSet: boolean;
-    strikethrough: boolean;
-    strikethroughRgba: Gdk.RGBA;
-    strikethroughRgbaSet: boolean;
-    strikethroughSet: boolean;
-    style: Pango.Style;
-    styleSet: boolean;
-    tabs: Pango.TabArray;
-    tabsSet: boolean;
-    underline: Pango.Underline;
-    underlineRgba: Gdk.RGBA;
-    underlineRgbaSet: boolean;
-    underlineSet: boolean;
-    variant: Pango.Variant;
-    variantSet: boolean;
-    weight: number;
-    weightSet: boolean;
-    wrapMode: WrapMode;
-    wrapModeSet: boolean;
+    accumulativeMargin?: boolean;
+    background?: string;
+    backgroundFullHeight?: boolean;
+    backgroundFullHeightSet?: boolean;
+    backgroundGdk?: Gdk.Color;
+    backgroundRgba?: Gdk.RGBA;
+    backgroundSet?: boolean;
+    direction?: TextDirection;
+    editable?: boolean;
+    editableSet?: boolean;
+    fallback?: boolean;
+    fallbackSet?: boolean;
+    family?: string;
+    familySet?: boolean;
+    font?: string;
+    fontDesc?: Pango.FontDescription;
+    fontFeatures?: string;
+    fontFeaturesSet?: boolean;
+    foreground?: string;
+    foregroundGdk?: Gdk.Color;
+    foregroundRgba?: Gdk.RGBA;
+    foregroundSet?: boolean;
+    indent?: number;
+    indentSet?: boolean;
+    invisible?: boolean;
+    invisibleSet?: boolean;
+    justification?: Justification;
+    justificationSet?: boolean;
+    language?: string;
+    languageSet?: boolean;
+    leftMargin?: number;
+    leftMarginSet?: boolean;
+    letterSpacing?: number;
+    letterSpacingSet?: boolean;
+    name?: string;
+    paragraphBackground?: string;
+    paragraphBackgroundGdk?: Gdk.Color;
+    paragraphBackgroundRgba?: Gdk.RGBA;
+    paragraphBackgroundSet?: boolean;
+    pixelsAboveLines?: number;
+    pixelsAboveLinesSet?: boolean;
+    pixelsBelowLines?: number;
+    pixelsBelowLinesSet?: boolean;
+    pixelsInsideWrap?: number;
+    pixelsInsideWrapSet?: boolean;
+    rightMargin?: number;
+    rightMarginSet?: boolean;
+    rise?: number;
+    riseSet?: boolean;
+    scale?: number;
+    scaleSet?: boolean;
+    size?: number;
+    sizePoints?: number;
+    sizeSet?: boolean;
+    stretch?: Pango.Stretch;
+    stretchSet?: boolean;
+    strikethrough?: boolean;
+    strikethroughRgba?: Gdk.RGBA;
+    strikethroughRgbaSet?: boolean;
+    strikethroughSet?: boolean;
+    style?: Pango.Style;
+    styleSet?: boolean;
+    tabs?: Pango.TabArray;
+    tabsSet?: boolean;
+    underline?: Pango.Underline;
+    underlineRgba?: Gdk.RGBA;
+    underlineRgbaSet?: boolean;
+    underlineSet?: boolean;
+    variant?: Pango.Variant;
+    variantSet?: boolean;
+    weight?: number;
+    weightSet?: boolean;
+    wrapMode?: WrapMode;
+    wrapModeSet?: boolean;
   }
   
   export class TextTagTable extends GObject.Object implements Buildable {
@@ -12512,6 +12888,10 @@ declare module "Gtk" {
     public tagAdded(tag: TextTag): void;
     public tagChanged(tag: TextTag, sizeChanged: boolean): void;
     public tagRemoved(tag: TextTag): void;
+    
+    public on(event: 'tagAdded', listener: (tag: TextTag) => void): this;
+    public on(event: 'tagChanged', listener: (tag: TextTag, sizeChanged: boolean) => void): this;
+    public on(event: 'tagRemoved', listener: (tag: TextTag) => void): this;
   }
   
   interface TextTagTableProps extends GObject.ObjectProps, BuildableProps {
@@ -12521,27 +12901,27 @@ declare module "Gtk" {
   export class TextView extends Container implements Atk.ImplementorIface, Buildable, Scrollable {
     constructor(props?: TextViewProps);
     
-    acceptsTab: boolean;
-    bottomMargin: number;
-    buffer: TextBuffer;
-    cursorVisible: boolean;
-    editable: boolean;
-    imModule: string;
-    indent: number;
-    inputHints: InputHints;
-    inputPurpose: InputPurpose;
-    justification: Justification;
-    leftMargin: number;
-    monospace: boolean;
-    overwrite: boolean;
-    pixelsAboveLines: number;
-    pixelsBelowLines: number;
-    pixelsInsideWrap: number;
-    populateAll: boolean;
-    rightMargin: number;
-    tabs: Pango.TabArray;
-    topMargin: number;
-    wrapMode: WrapMode;
+    acceptsTab?: boolean;
+    bottomMargin?: number;
+    buffer?: TextBuffer;
+    cursorVisible?: boolean;
+    editable?: boolean;
+    imModule?: string;
+    indent?: number;
+    inputHints?: InputHints;
+    inputPurpose?: InputPurpose;
+    justification?: Justification;
+    leftMargin?: number;
+    monospace?: boolean;
+    overwrite?: boolean;
+    pixelsAboveLines?: number;
+    pixelsBelowLines?: number;
+    pixelsInsideWrap?: number;
+    populateAll?: boolean;
+    rightMargin?: number;
+    tabs?: Pango.TabArray;
+    topMargin?: number;
+    wrapMode?: WrapMode;
     
     public addChildAtAnchor(child: Widget, anchor: TextChildAnchor): void;
     public addChildInWindow(child: Widget, whichWindow: TextWindowType, xpos: number, ypos: number): void;
@@ -12627,30 +13007,46 @@ declare module "Gtk" {
     public populatePopup(popup: Widget): void;
     public setAnchor(): void;
     public toggleOverwrite(): void;
+    
+    public on(event: 'backspace', listener: () => void): this;
+    public on(event: 'copyClipboard', listener: () => void): this;
+    public on(event: 'cutClipboard', listener: () => void): this;
+    public on(event: 'deleteFromCursor', listener: (type: DeleteType, count: number) => void): this;
+    public on(event: 'extendSelection', listener: (granularity: TextExtendSelection, location: TextIter, start: TextIter, end: TextIter) => boolean): this;
+    public on(event: 'insertAtCursor', listener: (string: string) => void): this;
+    public on(event: 'moveCursor', listener: (step: MovementStep, count: number, extendSelection: boolean) => void): this;
+    public on(event: 'moveViewport', listener: (step: ScrollStep, count: number) => void): this;
+    public on(event: 'pasteClipboard', listener: () => void): this;
+    public on(event: 'populatePopup', listener: (popup: Widget) => void): this;
+    public on(event: 'preeditChanged', listener: (preedit: string) => void): this;
+    public on(event: 'selectAll', listener: (select: boolean) => void): this;
+    public on(event: 'setAnchor', listener: () => void): this;
+    public on(event: 'toggleCursorVisible', listener: () => void): this;
+    public on(event: 'toggleOverwrite', listener: () => void): this;
   }
   
   interface TextViewProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, ScrollableProps {
-    acceptsTab: boolean;
-    bottomMargin: number;
-    buffer: TextBuffer;
-    cursorVisible: boolean;
-    editable: boolean;
-    imModule: string;
-    indent: number;
-    inputHints: InputHints;
-    inputPurpose: InputPurpose;
-    justification: Justification;
-    leftMargin: number;
-    monospace: boolean;
-    overwrite: boolean;
-    pixelsAboveLines: number;
-    pixelsBelowLines: number;
-    pixelsInsideWrap: number;
-    populateAll: boolean;
-    rightMargin: number;
-    tabs: Pango.TabArray;
-    topMargin: number;
-    wrapMode: WrapMode;
+    acceptsTab?: boolean;
+    bottomMargin?: number;
+    buffer?: TextBuffer;
+    cursorVisible?: boolean;
+    editable?: boolean;
+    imModule?: string;
+    indent?: number;
+    inputHints?: InputHints;
+    inputPurpose?: InputPurpose;
+    justification?: Justification;
+    leftMargin?: number;
+    monospace?: boolean;
+    overwrite?: boolean;
+    pixelsAboveLines?: number;
+    pixelsBelowLines?: number;
+    pixelsInsideWrap?: number;
+    populateAll?: boolean;
+    rightMargin?: number;
+    tabs?: Pango.TabArray;
+    topMargin?: number;
+    wrapMode?: WrapMode;
   }
   
   export class TextViewAccessible extends ContainerAccessible implements Atk.Component, Atk.EditableText, Atk.StreamableContent, Atk.Text {
@@ -12664,7 +13060,7 @@ declare module "Gtk" {
   export class ThemingEngine extends GObject.Object {
     constructor(props?: ThemingEngineProps);
     
-    name: string;
+    name?: string;
     
     public get(state: StateFlags, ...params: any[]): void;
     public getBackgroundColor(state: StateFlags, color: Gdk.RGBA): void;
@@ -12711,33 +13107,35 @@ declare module "Gtk" {
   }
   
   interface ThemingEngineProps extends GObject.ObjectProps {
-    name: string;
+    name?: string;
   }
   
   export class ToggleAction extends Action implements Buildable {
     constructor(props?: ToggleActionProps);
     
-    active: boolean;
-    drawAsRadio: boolean;
+    active?: boolean;
+    drawAsRadio?: boolean;
     
     public getActive(): boolean;
     public getDrawAsRadio(): boolean;
     public setActive(isActive: boolean): void;
     public setDrawAsRadio(drawAsRadio: boolean): void;
     public toggled(): void;
+    
+    public on(event: 'toggled', listener: () => void): this;
   }
   
   interface ToggleActionProps extends ActionProps, BuildableProps {
-    active: boolean;
-    drawAsRadio: boolean;
+    active?: boolean;
+    drawAsRadio?: boolean;
   }
   
   export class ToggleButton extends Button implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: ToggleButtonProps);
     
-    active: boolean;
-    drawIndicator: boolean;
-    inconsistent: boolean;
+    active?: boolean;
+    drawIndicator?: boolean;
+    inconsistent?: boolean;
     
     public getActive(): boolean;
     public getInconsistent(): boolean;
@@ -12746,12 +13144,14 @@ declare module "Gtk" {
     public setInconsistent(setting: boolean): void;
     public setMode(drawIndicator: boolean): void;
     public toggled(): void;
+    
+    public on(event: 'toggled', listener: () => void): this;
   }
   
   interface ToggleButtonProps extends ButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    active: boolean;
-    drawIndicator: boolean;
-    inconsistent: boolean;
+    active?: boolean;
+    drawIndicator?: boolean;
+    inconsistent?: boolean;
   }
   
   export class ToggleButtonAccessible extends ButtonAccessible implements Atk.Action, Atk.Component, Atk.Image {
@@ -12765,26 +13165,28 @@ declare module "Gtk" {
   export class ToggleToolButton extends ToolButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: ToggleToolButtonProps);
     
-    active: boolean;
+    active?: boolean;
     
     public getActive(): boolean;
     public setActive(isActive: boolean): void;
     public toggled(): void;
+    
+    public on(event: 'toggled', listener: () => void): this;
   }
   
   interface ToggleToolButtonProps extends ToolButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    active: boolean;
+    active?: boolean;
   }
   
   export class ToolButton extends ToolItem implements Atk.ImplementorIface, Actionable, Activatable, Buildable {
     constructor(props?: ToolButtonProps);
     
-    iconName: string;
-    iconWidget: Widget;
-    label: string;
-    labelWidget: Widget;
-    stockId: string;
-    useUnderline: boolean;
+    iconName?: string;
+    iconWidget?: Widget;
+    label?: string;
+    labelWidget?: Widget;
+    stockId?: string;
+    useUnderline?: boolean;
     
     public getIconName(): string;
     public getIconWidget(): Widget;
@@ -12799,23 +13201,25 @@ declare module "Gtk" {
     public setStockId(stockId: string): void;
     public setUseUnderline(useUnderline: boolean): void;
     public clicked(): void;
+    
+    public on(event: 'clicked', listener: () => void): this;
   }
   
   interface ToolButtonProps extends ToolItemProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps {
-    iconName: string;
-    iconWidget: Widget;
-    label: string;
-    labelWidget: Widget;
-    stockId: string;
-    useUnderline: boolean;
+    iconName?: string;
+    iconWidget?: Widget;
+    label?: string;
+    labelWidget?: Widget;
+    stockId?: string;
+    useUnderline?: boolean;
   }
   
   export class ToolItem extends Bin implements Atk.ImplementorIface, Activatable, Buildable {
     constructor(props?: ToolItemProps);
     
-    isImportant: boolean;
-    visibleHorizontal: boolean;
-    visibleVertical: boolean;
+    isImportant?: boolean;
+    visibleHorizontal?: boolean;
+    visibleVertical?: boolean;
     
     public getEllipsizeMode(): Pango.EllipsizeMode;
     public getExpand(): boolean;
@@ -12845,22 +13249,25 @@ declare module "Gtk" {
     public setVisibleVertical(visibleVertical: boolean): void;
     public toolbarReconfigured(): void;
     public createMenuProxy(): boolean;
+    
+    public on(event: 'createMenuProxy', listener: () => boolean): this;
+    public on(event: 'toolbarReconfigured', listener: () => void): this;
   }
   
   interface ToolItemProps extends BinProps, Atk.ImplementorIfaceProps, ActivatableProps, BuildableProps {
-    isImportant: boolean;
-    visibleHorizontal: boolean;
-    visibleVertical: boolean;
+    isImportant?: boolean;
+    visibleHorizontal?: boolean;
+    visibleVertical?: boolean;
   }
   
   export class ToolItemGroup extends Container implements Atk.ImplementorIface, Buildable, ToolShell {
     constructor(props?: ToolItemGroupProps);
     
-    collapsed: boolean;
-    ellipsize: Pango.EllipsizeMode;
-    headerRelief: ReliefStyle;
-    label: string;
-    labelWidget: Widget;
+    collapsed?: boolean;
+    ellipsize?: Pango.EllipsizeMode;
+    headerRelief?: ReliefStyle;
+    label?: string;
+    labelWidget?: Widget;
     
     public getCollapsed(): boolean;
     public getDropItem(x: number, _y: number): ToolItem;
@@ -12881,19 +13288,19 @@ declare module "Gtk" {
   }
   
   interface ToolItemGroupProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, ToolShellProps {
-    collapsed: boolean;
-    ellipsize: Pango.EllipsizeMode;
-    headerRelief: ReliefStyle;
-    label: string;
-    labelWidget: Widget;
+    collapsed?: boolean;
+    ellipsize?: Pango.EllipsizeMode;
+    headerRelief?: ReliefStyle;
+    label?: string;
+    labelWidget?: Widget;
   }
   
   export class ToolPalette extends Container implements Atk.ImplementorIface, Buildable, Orientable, Scrollable {
     constructor(props?: ToolPaletteProps);
     
-    iconSize: IconSize;
-    iconSizeSet: boolean;
-    toolbarStyle: ToolbarStyle;
+    iconSize?: IconSize;
+    iconSizeSet?: boolean;
+    toolbarStyle?: ToolbarStyle;
     
     public addDragDest(widget: Widget, flags: DestDefaults, targets: ToolPaletteDragTargets, actions: Gdk.DragAction): void;
     public getDragItem(selection: SelectionData): Widget;
@@ -12920,18 +13327,18 @@ declare module "Gtk" {
   }
   
   interface ToolPaletteProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps, ScrollableProps {
-    iconSize: IconSize;
-    iconSizeSet: boolean;
-    toolbarStyle: ToolbarStyle;
+    iconSize?: IconSize;
+    iconSizeSet?: boolean;
+    toolbarStyle?: ToolbarStyle;
   }
   
   export class Toolbar extends Container implements Atk.ImplementorIface, Buildable, Orientable, ToolShell {
     constructor(props?: ToolbarProps);
     
-    iconSize: IconSize;
-    iconSizeSet: boolean;
-    showArrow: boolean;
-    toolbarStyle: ToolbarStyle;
+    iconSize?: IconSize;
+    iconSizeSet?: boolean;
+    showArrow?: boolean;
+    toolbarStyle?: ToolbarStyle;
     
     public getDropIndex(x: number, _y: number): number;
     public getIconSize(): IconSize;
@@ -12951,13 +13358,18 @@ declare module "Gtk" {
     public orientationChanged(orientation: Orientation): void;
     public popupContextMenu(x: number, _y: number, buttonNumber: number): boolean;
     public styleChanged(style: ToolbarStyle): void;
+    
+    public on(event: 'focusHomeOrEnd', listener: (focusHome: boolean) => boolean): this;
+    public on(event: 'orientationChanged', listener: (orientation: Orientation) => void): this;
+    public on(event: 'popupContextMenu', listener: (x: number, _y: number, button: number) => boolean): this;
+    public on(event: 'styleChanged', listener: (style: ToolbarStyle) => void): this;
   }
   
   interface ToolbarProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, OrientableProps, ToolShellProps {
-    iconSize: IconSize;
-    iconSizeSet: boolean;
-    showArrow: boolean;
-    toolbarStyle: ToolbarStyle;
+    iconSize?: IconSize;
+    iconSizeSet?: boolean;
+    showArrow?: boolean;
+    toolbarStyle?: ToolbarStyle;
   }
   
   export class Tooltip extends GObject.Object {
@@ -12992,8 +13404,8 @@ declare module "Gtk" {
   export class TreeModelFilter extends GObject.Object implements TreeDragSource, TreeModel {
     constructor(props?: TreeModelFilterProps);
     
-    childModel: TreeModel;
-    virtualRoot: TreePath;
+    childModel?: TreeModel;
+    virtualRoot?: TreePath;
     
     public clearCache(): void;
     public convertChildIterToIter(filterIter: TreeIter, childIter: TreeIter): boolean;
@@ -13010,14 +13422,14 @@ declare module "Gtk" {
   }
   
   interface TreeModelFilterProps extends GObject.ObjectProps, TreeDragSourceProps, TreeModelProps {
-    childModel: TreeModel;
-    virtualRoot: TreePath;
+    childModel?: TreeModel;
+    virtualRoot?: TreePath;
   }
   
   export class TreeModelSort extends GObject.Object implements TreeDragSource, TreeModel, TreeSortable {
     constructor(props?: TreeModelSortProps);
     
-    model: TreeModel;
+    model?: TreeModel;
     
     public clearCache(): void;
     public convertChildIterToIter(sortIter: TreeIter, childIter: TreeIter): boolean;
@@ -13030,13 +13442,13 @@ declare module "Gtk" {
   }
   
   interface TreeModelSortProps extends GObject.ObjectProps, TreeDragSourceProps, TreeModelProps, TreeSortableProps {
-    model: TreeModel;
+    model?: TreeModel;
   }
   
   export class TreeSelection extends GObject.Object {
     constructor(props?: TreeSelectionProps);
     
-    mode: SelectionMode;
+    mode?: SelectionMode;
     
     public countSelectedRows(): number;
     public getMode(): SelectionMode;
@@ -13059,10 +13471,12 @@ declare module "Gtk" {
     public unselectPath(path: TreePath): void;
     public unselectRange(startPath: TreePath, endPath: TreePath): void;
     public changed(): void;
+    
+    public on(event: 'changed', listener: () => void): this;
   }
   
   interface TreeSelectionProps extends GObject.ObjectProps {
-    mode: SelectionMode;
+    mode?: SelectionMode;
   }
   
   export class TreeStore extends GObject.Object implements Buildable, TreeDragDest, TreeDragSource, TreeModel, TreeSortable {
@@ -13098,24 +13512,24 @@ declare module "Gtk" {
   export class TreeView extends Container implements Atk.ImplementorIface, Buildable, Scrollable {
     constructor(props?: TreeViewProps);
     
-    activateOnSingleClick: boolean;
-    enableGridLines: TreeViewGridLines;
-    enableSearch: boolean;
-    enableTreeLines: boolean;
-    expanderColumn: TreeViewColumn;
-    fixedHeightMode: boolean;
-    headersClickable: boolean;
-    headersVisible: boolean;
-    hoverExpand: boolean;
-    hoverSelection: boolean;
-    levelIndentation: number;
-    model: TreeModel;
-    reorderable: boolean;
-    rubberBanding: boolean;
-    rulesHint: boolean;
-    searchColumn: number;
-    showExpanders: boolean;
-    tooltipColumn: number;
+    activateOnSingleClick?: boolean;
+    enableGridLines?: TreeViewGridLines;
+    enableSearch?: boolean;
+    enableTreeLines?: boolean;
+    expanderColumn?: TreeViewColumn;
+    fixedHeightMode?: boolean;
+    headersClickable?: boolean;
+    headersVisible?: boolean;
+    hoverExpand?: boolean;
+    hoverSelection?: boolean;
+    levelIndentation?: number;
+    model?: TreeModel;
+    reorderable?: boolean;
+    rubberBanding?: boolean;
+    rulesHint?: boolean;
+    searchColumn?: number;
+    showExpanders?: boolean;
+    tooltipColumn?: number;
     
     public appendColumn(column: TreeViewColumn): number;
     public collapseAll(): void;
@@ -13229,27 +13643,43 @@ declare module "Gtk" {
     public testExpandRow(iter: TreeIter, path: TreePath): boolean;
     public toggleCursorRow(): boolean;
     public unselectAll(): boolean;
+    
+    public on(event: 'columnsChanged', listener: () => void): this;
+    public on(event: 'cursorChanged', listener: () => void): this;
+    public on(event: 'expandCollapseCursorRow', listener: (object: boolean, p0: boolean, p1: boolean) => boolean): this;
+    public on(event: 'moveCursor', listener: (step: MovementStep, direction: number) => boolean): this;
+    public on(event: 'rowActivated', listener: (path: TreePath, column: TreeViewColumn) => void): this;
+    public on(event: 'rowCollapsed', listener: (iter: TreeIter, path: TreePath) => void): this;
+    public on(event: 'rowExpanded', listener: (iter: TreeIter, path: TreePath) => void): this;
+    public on(event: 'selectAll', listener: () => boolean): this;
+    public on(event: 'selectCursorParent', listener: () => boolean): this;
+    public on(event: 'selectCursorRow', listener: (object: boolean) => boolean): this;
+    public on(event: 'startInteractiveSearch', listener: () => boolean): this;
+    public on(event: 'testCollapseRow', listener: (iter: TreeIter, path: TreePath) => boolean): this;
+    public on(event: 'testExpandRow', listener: (iter: TreeIter, path: TreePath) => boolean): this;
+    public on(event: 'toggleCursorRow', listener: () => boolean): this;
+    public on(event: 'unselectAll', listener: () => boolean): this;
   }
   
   interface TreeViewProps extends ContainerProps, Atk.ImplementorIfaceProps, BuildableProps, ScrollableProps {
-    activateOnSingleClick: boolean;
-    enableGridLines: TreeViewGridLines;
-    enableSearch: boolean;
-    enableTreeLines: boolean;
-    expanderColumn: TreeViewColumn;
-    fixedHeightMode: boolean;
-    headersClickable: boolean;
-    headersVisible: boolean;
-    hoverExpand: boolean;
-    hoverSelection: boolean;
-    levelIndentation: number;
-    model: TreeModel;
-    reorderable: boolean;
-    rubberBanding: boolean;
-    rulesHint: boolean;
-    searchColumn: number;
-    showExpanders: boolean;
-    tooltipColumn: number;
+    activateOnSingleClick?: boolean;
+    enableGridLines?: TreeViewGridLines;
+    enableSearch?: boolean;
+    enableTreeLines?: boolean;
+    expanderColumn?: TreeViewColumn;
+    fixedHeightMode?: boolean;
+    headersClickable?: boolean;
+    headersVisible?: boolean;
+    hoverExpand?: boolean;
+    hoverSelection?: boolean;
+    levelIndentation?: number;
+    model?: TreeModel;
+    reorderable?: boolean;
+    rubberBanding?: boolean;
+    rulesHint?: boolean;
+    searchColumn?: number;
+    showExpanders?: boolean;
+    tooltipColumn?: number;
   }
   
   export class TreeViewAccessible extends ContainerAccessible implements Atk.Component, Atk.Selection, Atk.Table, CellAccessibleParent {
@@ -13263,25 +13693,25 @@ declare module "Gtk" {
   export class TreeViewColumn extends GObject.InitiallyUnowned implements Buildable, CellLayout {
     constructor(props?: TreeViewColumnProps);
     
-    alignment: number;
-    cellArea: CellArea;
-    clickable: boolean;
-    expand: boolean;
-    fixedWidth: number;
-    maxWidth: number;
-    minWidth: number;
-    reorderable: boolean;
-    resizable: boolean;
-    sizing: TreeViewColumnSizing;
-    sortColumnId: number;
-    sortIndicator: boolean;
-    sortOrder: SortType;
-    spacing: number;
-    title: string;
-    visible: boolean;
-    widget: Widget;
-    width: number;
-    xOffset: number;
+    alignment?: number;
+    cellArea?: CellArea;
+    clickable?: boolean;
+    expand?: boolean;
+    fixedWidth?: number;
+    maxWidth?: number;
+    minWidth?: number;
+    reorderable?: boolean;
+    resizable?: boolean;
+    sizing?: TreeViewColumnSizing;
+    sortColumnId?: number;
+    sortIndicator?: boolean;
+    sortOrder?: SortType;
+    spacing?: number;
+    title?: string;
+    visible?: boolean;
+    widget?: Widget;
+    width?: number;
+    xOffset?: number;
     
     public addAttribute(cellRenderer: CellRenderer, attribute: string, column: number): void;
     public cellGetPosition(cellRenderer: CellRenderer, xOffset: number, width: number): boolean;
@@ -13333,35 +13763,37 @@ declare module "Gtk" {
     public setTitle(title: string): void;
     public setVisible(visible: boolean): void;
     public setWidget(widget: Widget): void;
+    
+    public on(event: 'clicked', listener: () => void): this;
   }
   
   interface TreeViewColumnProps extends GObject.InitiallyUnownedProps, BuildableProps, CellLayoutProps {
-    alignment: number;
-    cellArea: CellArea;
-    clickable: boolean;
-    expand: boolean;
-    fixedWidth: number;
-    maxWidth: number;
-    minWidth: number;
-    reorderable: boolean;
-    resizable: boolean;
-    sizing: TreeViewColumnSizing;
-    sortColumnId: number;
-    sortIndicator: boolean;
-    sortOrder: SortType;
-    spacing: number;
-    title: string;
-    visible: boolean;
-    widget: Widget;
-    width: number;
-    xOffset: number;
+    alignment?: number;
+    cellArea?: CellArea;
+    clickable?: boolean;
+    expand?: boolean;
+    fixedWidth?: number;
+    maxWidth?: number;
+    minWidth?: number;
+    reorderable?: boolean;
+    resizable?: boolean;
+    sizing?: TreeViewColumnSizing;
+    sortColumnId?: number;
+    sortIndicator?: boolean;
+    sortOrder?: SortType;
+    spacing?: number;
+    title?: string;
+    visible?: boolean;
+    widget?: Widget;
+    width?: number;
+    xOffset?: number;
   }
   
   export class UIManager extends GObject.Object implements Buildable {
     constructor(props?: UIManagerProps);
     
-    addTearoffs: boolean;
-    ui: string;
+    addTearoffs?: boolean;
+    ui?: string;
     
     public addUi(mergeId: number, path: string, name: string, action: string, type: UIManagerItemType, top: boolean): void;
     public addUiFromFile(filename: string): number;
@@ -13386,11 +13818,18 @@ declare module "Gtk" {
     public disconnectProxy(action: Action, proxy: Widget): void;
     public postActivate(action: Action): void;
     public preActivate(action: Action): void;
+    
+    public on(event: 'actionsChanged', listener: () => void): this;
+    public on(event: 'addWidget', listener: (widget: Widget) => void): this;
+    public on(event: 'connectProxy', listener: (action: Action, proxy: Widget) => void): this;
+    public on(event: 'disconnectProxy', listener: (action: Action, proxy: Widget) => void): this;
+    public on(event: 'postActivate', listener: (action: Action) => void): this;
+    public on(event: 'preActivate', listener: (action: Action) => void): this;
   }
   
   interface UIManagerProps extends GObject.ObjectProps, BuildableProps {
-    addTearoffs: boolean;
-    ui: string;
+    addTearoffs?: boolean;
+    ui?: string;
   }
   
   export class VBox extends Box implements Atk.ImplementorIface, Buildable, Orientable {
@@ -13444,7 +13883,7 @@ declare module "Gtk" {
   export class Viewport extends Bin implements Atk.ImplementorIface, Buildable, Scrollable {
     constructor(props?: ViewportProps);
     
-    shadowType: ShadowType;
+    shadowType?: ShadowType;
     
     public getBinWindow(): Gdk.Window;
     public getHadjustment(): Adjustment;
@@ -13457,61 +13896,61 @@ declare module "Gtk" {
   }
   
   interface ViewportProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps, ScrollableProps {
-    shadowType: ShadowType;
+    shadowType?: ShadowType;
   }
   
   export class VolumeButton extends ScaleButton implements Atk.ImplementorIface, Actionable, Activatable, Buildable, Orientable {
     constructor(props?: VolumeButtonProps);
     
-    useSymbolic: boolean;
+    useSymbolic?: boolean;
   }
   
   interface VolumeButtonProps extends ScaleButtonProps, Atk.ImplementorIfaceProps, ActionableProps, ActivatableProps, BuildableProps, OrientableProps {
-    useSymbolic: boolean;
+    useSymbolic?: boolean;
   }
   
   export class Widget extends GObject.InitiallyUnowned implements Atk.ImplementorIface, Buildable {
     constructor(props?: WidgetProps);
     
-    appPaintable: boolean;
-    canDefault: boolean;
-    canFocus: boolean;
-    compositeChild: boolean;
-    doubleBuffered: boolean;
-    events: Gdk.EventMask;
-    expand: boolean;
-    focusOnClick: boolean;
-    halign: Align;
-    hasDefault: boolean;
-    hasFocus: boolean;
-    hasTooltip: boolean;
-    heightRequest: number;
-    hexpand: boolean;
-    hexpandSet: boolean;
-    isFocus: boolean;
-    margin: number;
-    marginBottom: number;
-    marginEnd: number;
-    marginLeft: number;
-    marginRight: number;
-    marginStart: number;
-    marginTop: number;
-    name: string;
-    noShowAll: boolean;
-    opacity: number;
-    parent: Container;
-    receivesDefault: boolean;
-    scaleFactor: number;
-    sensitive: boolean;
-    style: Style;
-    tooltipMarkup: string;
-    tooltipText: string;
-    valign: Align;
-    vexpand: boolean;
-    vexpandSet: boolean;
-    visible: boolean;
-    widthRequest: number;
-    window: Gdk.Window;
+    appPaintable?: boolean;
+    canDefault?: boolean;
+    canFocus?: boolean;
+    compositeChild?: boolean;
+    doubleBuffered?: boolean;
+    events?: Gdk.EventMask;
+    expand?: boolean;
+    focusOnClick?: boolean;
+    halign?: Align;
+    hasDefault?: boolean;
+    hasFocus?: boolean;
+    hasTooltip?: boolean;
+    heightRequest?: number;
+    hexpand?: boolean;
+    hexpandSet?: boolean;
+    isFocus?: boolean;
+    margin?: number;
+    marginBottom?: number;
+    marginEnd?: number;
+    marginLeft?: number;
+    marginRight?: number;
+    marginStart?: number;
+    marginTop?: number;
+    name?: string;
+    noShowAll?: boolean;
+    opacity?: number;
+    parent?: Container;
+    receivesDefault?: boolean;
+    scaleFactor?: number;
+    sensitive?: boolean;
+    style?: Style;
+    tooltipMarkup?: string;
+    tooltipText?: string;
+    valign?: Align;
+    vexpand?: boolean;
+    vexpandSet?: boolean;
+    visible?: boolean;
+    widthRequest?: number;
+    window?: Gdk.Window;
     
     public activate(): boolean;
     public addAccelerator(accelSignal: string, accelGroup: AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: AccelFlags): void;
@@ -13833,6 +14272,76 @@ declare module "Gtk" {
     public visibilityNotifyEvent(event: Gdk.EventVisibility): boolean;
     public windowStateEvent(event: Gdk.EventWindowState): boolean;
     
+    public on(event: 'accelClosuresChanged', listener: () => void): this;
+    public on(event: 'buttonPressEvent', listener: (event: Gdk.EventButton) => boolean): this;
+    public on(event: 'buttonReleaseEvent', listener: (event: Gdk.EventButton) => boolean): this;
+    public on(event: 'canActivateAccel', listener: (signalId: number) => boolean): this;
+    public on(event: 'childNotify', listener: (childProperty: GObject.ParamSpec) => void): this;
+    public on(event: 'compositedChanged', listener: () => void): this;
+    public on(event: 'configureEvent', listener: (event: Gdk.EventConfigure) => boolean): this;
+    public on(event: 'damageEvent', listener: (event: Gdk.EventExpose) => boolean): this;
+    public on(event: 'deleteEvent', listener: (event: Gdk.Event) => boolean): this;
+    public on(event: 'destroy', listener: () => void): this;
+    public on(event: 'destroyEvent', listener: (event: Gdk.Event) => boolean): this;
+    public on(event: 'directionChanged', listener: (previousDirection: TextDirection) => void): this;
+    public on(event: 'dragBegin', listener: (context: Gdk.DragContext) => void): this;
+    public on(event: 'dragDataDelete', listener: (context: Gdk.DragContext) => void): this;
+    public on(event: 'dragDataGet', listener: (context: Gdk.DragContext, data: SelectionData, info: number, time: number) => void): this;
+    public on(event: 'dragDataReceived', listener: (context: Gdk.DragContext, x: number, _y: number, data: SelectionData, info: number, time: number) => void): this;
+    public on(event: 'dragDrop', listener: (context: Gdk.DragContext, x: number, _y: number, time: number) => boolean): this;
+    public on(event: 'dragEnd', listener: (context: Gdk.DragContext) => void): this;
+    public on(event: 'dragFailed', listener: (context: Gdk.DragContext, result: DragResult) => boolean): this;
+    public on(event: 'dragLeave', listener: (context: Gdk.DragContext, time: number) => void): this;
+    public on(event: 'dragMotion', listener: (context: Gdk.DragContext, x: number, _y: number, time: number) => boolean): this;
+    public on(event: 'draw', listener: (cr: cairo.Context) => boolean): this;
+    public on(event: 'enterNotifyEvent', listener: (event: Gdk.EventCrossing) => boolean): this;
+    public on(event: 'event', listener: (event: Gdk.Event) => boolean): this;
+    public on(event: 'eventAfter', listener: (event: Gdk.Event) => void): this;
+    public on(event: 'focus', listener: (direction: DirectionType) => boolean): this;
+    public on(event: 'focusInEvent', listener: (event: Gdk.EventFocus) => boolean): this;
+    public on(event: 'focusOutEvent', listener: (event: Gdk.EventFocus) => boolean): this;
+    public on(event: 'grabBrokenEvent', listener: (event: Gdk.EventGrabBroken) => boolean): this;
+    public on(event: 'grabFocus', listener: () => void): this;
+    public on(event: 'grabNotify', listener: (wasGrabbed: boolean) => void): this;
+    public on(event: 'hide', listener: () => void): this;
+    public on(event: 'hierarchyChanged', listener: (previousToplevel: Widget) => void): this;
+    public on(event: 'keyPressEvent', listener: (event: Gdk.EventKey) => boolean): this;
+    public on(event: 'keyReleaseEvent', listener: (event: Gdk.EventKey) => boolean): this;
+    public on(event: 'keynavFailed', listener: (direction: DirectionType) => boolean): this;
+    public on(event: 'leaveNotifyEvent', listener: (event: Gdk.EventCrossing) => boolean): this;
+    public on(event: 'map', listener: () => void): this;
+    public on(event: 'mapEvent', listener: (event: Gdk.EventAny) => boolean): this;
+    public on(event: 'mnemonicActivate', listener: (groupCycling: boolean) => boolean): this;
+    public on(event: 'motionNotifyEvent', listener: (event: Gdk.EventMotion) => boolean): this;
+    public on(event: 'moveFocus', listener: (direction: DirectionType) => void): this;
+    public on(event: 'parentSet', listener: (oldParent: Widget) => void): this;
+    public on(event: 'popupMenu', listener: () => boolean): this;
+    public on(event: 'propertyNotifyEvent', listener: (event: Gdk.EventProperty) => boolean): this;
+    public on(event: 'proximityInEvent', listener: (event: Gdk.EventProximity) => boolean): this;
+    public on(event: 'proximityOutEvent', listener: (event: Gdk.EventProximity) => boolean): this;
+    public on(event: 'queryTooltip', listener: (x: number, _y: number, keyboardMode: boolean, tooltip: Tooltip) => boolean): this;
+    public on(event: 'realize', listener: () => void): this;
+    public on(event: 'screenChanged', listener: (previousScreen: Gdk.Screen) => void): this;
+    public on(event: 'scrollEvent', listener: (event: Gdk.EventScroll) => boolean): this;
+    public on(event: 'selectionClearEvent', listener: (event: Gdk.EventSelection) => boolean): this;
+    public on(event: 'selectionGet', listener: (data: SelectionData, info: number, time: number) => void): this;
+    public on(event: 'selectionNotifyEvent', listener: (event: Gdk.EventSelection) => boolean): this;
+    public on(event: 'selectionReceived', listener: (data: SelectionData, time: number) => void): this;
+    public on(event: 'selectionRequestEvent', listener: (event: Gdk.EventSelection) => boolean): this;
+    public on(event: 'show', listener: () => void): this;
+    public on(event: 'showHelp', listener: (helpType: WidgetHelpType) => boolean): this;
+    public on(event: 'sizeAllocate', listener: (allocation: Allocation) => void): this;
+    public on(event: 'stateChanged', listener: (state: StateType) => void): this;
+    public on(event: 'stateFlagsChanged', listener: (flags: StateFlags) => void): this;
+    public on(event: 'styleSet', listener: (previousStyle: Style) => void): this;
+    public on(event: 'styleUpdated', listener: () => void): this;
+    public on(event: 'touchEvent', listener: (object: Gdk.Event) => boolean): this;
+    public on(event: 'unmap', listener: () => void): this;
+    public on(event: 'unmapEvent', listener: (event: Gdk.EventAny) => boolean): this;
+    public on(event: 'unrealize', listener: () => void): this;
+    public on(event: 'visibilityNotifyEvent', listener: (event: Gdk.EventVisibility) => boolean): this;
+    public on(event: 'windowStateEvent', listener: (event: Gdk.EventWindowState) => boolean): this;
+    
     public static getDefaultDirection(): TextDirection;
     public static getDefaultStyle(): Style;
     public static popCompositeChild(): void;
@@ -13841,45 +14350,45 @@ declare module "Gtk" {
   }
   
   interface WidgetProps extends GObject.InitiallyUnownedProps, Atk.ImplementorIfaceProps, BuildableProps {
-    appPaintable: boolean;
-    canDefault: boolean;
-    canFocus: boolean;
-    compositeChild: boolean;
-    doubleBuffered: boolean;
-    events: Gdk.EventMask;
-    expand: boolean;
-    focusOnClick: boolean;
-    halign: Align;
-    hasDefault: boolean;
-    hasFocus: boolean;
-    hasTooltip: boolean;
-    heightRequest: number;
-    hexpand: boolean;
-    hexpandSet: boolean;
-    isFocus: boolean;
-    margin: number;
-    marginBottom: number;
-    marginEnd: number;
-    marginLeft: number;
-    marginRight: number;
-    marginStart: number;
-    marginTop: number;
-    name: string;
-    noShowAll: boolean;
-    opacity: number;
-    parent: Container;
-    receivesDefault: boolean;
-    scaleFactor: number;
-    sensitive: boolean;
-    style: Style;
-    tooltipMarkup: string;
-    tooltipText: string;
-    valign: Align;
-    vexpand: boolean;
-    vexpandSet: boolean;
-    visible: boolean;
-    widthRequest: number;
-    window: Gdk.Window;
+    appPaintable?: boolean;
+    canDefault?: boolean;
+    canFocus?: boolean;
+    compositeChild?: boolean;
+    doubleBuffered?: boolean;
+    events?: Gdk.EventMask;
+    expand?: boolean;
+    focusOnClick?: boolean;
+    halign?: Align;
+    hasDefault?: boolean;
+    hasFocus?: boolean;
+    hasTooltip?: boolean;
+    heightRequest?: number;
+    hexpand?: boolean;
+    hexpandSet?: boolean;
+    isFocus?: boolean;
+    margin?: number;
+    marginBottom?: number;
+    marginEnd?: number;
+    marginLeft?: number;
+    marginRight?: number;
+    marginStart?: number;
+    marginTop?: number;
+    name?: string;
+    noShowAll?: boolean;
+    opacity?: number;
+    parent?: Container;
+    receivesDefault?: boolean;
+    scaleFactor?: number;
+    sensitive?: boolean;
+    style?: Style;
+    tooltipMarkup?: string;
+    tooltipText?: string;
+    valign?: Align;
+    vexpand?: boolean;
+    vexpandSet?: boolean;
+    visible?: boolean;
+    widthRequest?: number;
+    window?: Gdk.Window;
   }
   
   export class WidgetAccessible extends Accessible implements Atk.Component {
@@ -13893,39 +14402,39 @@ declare module "Gtk" {
   export class Window extends Bin implements Atk.ImplementorIface, Buildable {
     constructor(props?: WindowProps);
     
-    acceptFocus: boolean;
-    application: Application;
-    attachedTo: Widget;
-    decorated: boolean;
-    defaultHeight: number;
-    defaultWidth: number;
-    deletable: boolean;
-    destroyWithParent: boolean;
-    focusOnMap: boolean;
-    focusVisible: boolean;
-    gravity: Gdk.Gravity;
-    hasResizeGrip: boolean;
-    hasToplevelFocus: boolean;
-    hideTitlebarWhenMaximized: boolean;
-    icon: GdkPixbuf.Pixbuf;
-    iconName: string;
-    isActive: boolean;
-    isMaximized: boolean;
-    mnemonicsVisible: boolean;
-    modal: boolean;
-    resizable: boolean;
-    resizeGripVisible: boolean;
-    role: string;
-    screen: Gdk.Screen;
-    skipPagerHint: boolean;
-    skipTaskbarHint: boolean;
-    startupId: string;
-    title: string;
-    transientFor: Window;
-    type: WindowType;
-    typeHint: Gdk.WindowTypeHint;
-    urgencyHint: boolean;
-    windowPosition: WindowPosition;
+    acceptFocus?: boolean;
+    application?: Application;
+    attachedTo?: Widget;
+    decorated?: boolean;
+    defaultHeight?: number;
+    defaultWidth?: number;
+    deletable?: boolean;
+    destroyWithParent?: boolean;
+    focusOnMap?: boolean;
+    focusVisible?: boolean;
+    gravity?: Gdk.Gravity;
+    hasResizeGrip?: boolean;
+    hasToplevelFocus?: boolean;
+    hideTitlebarWhenMaximized?: boolean;
+    icon?: GdkPixbuf.Pixbuf;
+    iconName?: string;
+    isActive?: boolean;
+    isMaximized?: boolean;
+    mnemonicsVisible?: boolean;
+    modal?: boolean;
+    resizable?: boolean;
+    resizeGripVisible?: boolean;
+    role?: string;
+    screen?: Gdk.Screen;
+    skipPagerHint?: boolean;
+    skipTaskbarHint?: boolean;
+    startupId?: string;
+    title?: string;
+    transientFor?: Window;
+    type?: WindowType;
+    typeHint?: Gdk.WindowTypeHint;
+    urgencyHint?: boolean;
+    windowPosition?: WindowPosition;
     
     public activateDefault(): boolean;
     public activateFocus(): boolean;
@@ -14039,6 +14548,12 @@ declare module "Gtk" {
     public enableDebugging(toggle: boolean): boolean;
     public keysChanged(): void;
     
+    public on(event: 'activateDefault', listener: () => void): this;
+    public on(event: 'activateFocus', listener: () => void): this;
+    public on(event: 'enableDebugging', listener: (toggle: boolean) => boolean): this;
+    public on(event: 'keysChanged', listener: () => void): this;
+    public on(event: 'setFocus', listener: (object: Widget) => void): this;
+    
     public static getDefaultIconList(): GLib.List;
     public static getDefaultIconName(): string;
     public static listToplevels(): GLib.List;
@@ -14051,39 +14566,39 @@ declare module "Gtk" {
   }
   
   interface WindowProps extends BinProps, Atk.ImplementorIfaceProps, BuildableProps {
-    acceptFocus: boolean;
-    application: Application;
-    attachedTo: Widget;
-    decorated: boolean;
-    defaultHeight: number;
-    defaultWidth: number;
-    deletable: boolean;
-    destroyWithParent: boolean;
-    focusOnMap: boolean;
-    focusVisible: boolean;
-    gravity: Gdk.Gravity;
-    hasResizeGrip: boolean;
-    hasToplevelFocus: boolean;
-    hideTitlebarWhenMaximized: boolean;
-    icon: GdkPixbuf.Pixbuf;
-    iconName: string;
-    isActive: boolean;
-    isMaximized: boolean;
-    mnemonicsVisible: boolean;
-    modal: boolean;
-    resizable: boolean;
-    resizeGripVisible: boolean;
-    role: string;
-    screen: Gdk.Screen;
-    skipPagerHint: boolean;
-    skipTaskbarHint: boolean;
-    startupId: string;
-    title: string;
-    transientFor: Window;
-    type: WindowType;
-    typeHint: Gdk.WindowTypeHint;
-    urgencyHint: boolean;
-    windowPosition: WindowPosition;
+    acceptFocus?: boolean;
+    application?: Application;
+    attachedTo?: Widget;
+    decorated?: boolean;
+    defaultHeight?: number;
+    defaultWidth?: number;
+    deletable?: boolean;
+    destroyWithParent?: boolean;
+    focusOnMap?: boolean;
+    focusVisible?: boolean;
+    gravity?: Gdk.Gravity;
+    hasResizeGrip?: boolean;
+    hasToplevelFocus?: boolean;
+    hideTitlebarWhenMaximized?: boolean;
+    icon?: GdkPixbuf.Pixbuf;
+    iconName?: string;
+    isActive?: boolean;
+    isMaximized?: boolean;
+    mnemonicsVisible?: boolean;
+    modal?: boolean;
+    resizable?: boolean;
+    resizeGripVisible?: boolean;
+    role?: string;
+    screen?: Gdk.Screen;
+    skipPagerHint?: boolean;
+    skipTaskbarHint?: boolean;
+    startupId?: string;
+    title?: string;
+    transientFor?: Window;
+    type?: WindowType;
+    typeHint?: Gdk.WindowTypeHint;
+    urgencyHint?: boolean;
+    windowPosition?: WindowPosition;
   }
   
   export class WindowAccessible extends ContainerAccessible implements Atk.Component, Atk.Window {

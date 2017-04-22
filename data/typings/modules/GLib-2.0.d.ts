@@ -1,5 +1,6 @@
 declare module "GLib" {
-
+  
+  
   export type DateDay = number;
   
   export type DateYear = number;
@@ -2368,8 +2369,8 @@ declare module "GLib" {
   }
   
   export class Array {
-    public data: string;
-    public len: number;
+    public data?: string;
+    public len?: number;
   }
   
   export class AsyncQueue {
@@ -2443,8 +2444,8 @@ declare module "GLib" {
   }
   
   export class ByteArray {
-    public data: number;
-    public len: number;
+    public data?: number;
+    public len?: number;
   }
   
   export class Bytes {
@@ -2470,8 +2471,8 @@ declare module "GLib" {
   }
   
   export class Cond {
-    public p: any;
-    public i: number[];
+    public p?: any;
+    public i?: number[];
     
     public broadcast(): void;
     public clear(): void;
@@ -2486,12 +2487,12 @@ declare module "GLib" {
   }
   
   export class Date {
-    public julianDays: number;
-    public julian: number;
-    public dmy: number;
-    public day: number;
-    public month: number;
-    public year: number;
+    public julianDays?: number;
+    public julian?: number;
+    public dmy?: number;
+    public day?: number;
+    public month?: number;
+    public year?: number;
     
     public addDays(nDays: number): void;
     public addMonths(nMonths: number): void;
@@ -2567,8 +2568,8 @@ declare module "GLib" {
   }
   
   export class DebugKey {
-    public key: string;
-    public value: number;
+    public key?: string;
+    public value?: number;
   }
   
   export class Dir {
@@ -2578,9 +2579,9 @@ declare module "GLib" {
   }
   
   export class Error {
-    public domain: Quark;
-    public code: number;
-    public message: string;
+    public domain?: Quark;
+    public code?: number;
+    public message?: string;
     
     public copy(): Error;
     public free(): void;
@@ -2592,12 +2593,12 @@ declare module "GLib" {
   }
   
   export class HashTableIter {
-    public dummy1: any;
-    public dummy2: any;
-    public dummy3: any;
-    public dummy4: number;
-    public dummy5: boolean;
-    public dummy6: any;
+    public dummy1?: any;
+    public dummy2?: any;
+    public dummy3?: any;
+    public dummy4?: number;
+    public dummy5?: boolean;
+    public dummy6?: any;
     
     public getHashTable(): GLib.HashTable;
     public init(hashTable: GLib.HashTable): void;
@@ -2617,26 +2618,26 @@ declare module "GLib" {
   }
   
   export class Hook {
-    public data: any;
-    public next: Hook;
-    public prev: Hook;
-    public refCount: number;
-    public hookId: number;
-    public flags: number;
-    public func: any;
-    public destroy: DestroyNotify;
+    public data?: any;
+    public next?: Hook;
+    public prev?: Hook;
+    public refCount?: number;
+    public hookId?: number;
+    public flags?: number;
+    public func?: any;
+    public destroy?: DestroyNotify;
     
     public compareIds(sibling: Hook): number;
   }
   
   export class HookList {
-    public seqId: number;
-    public hookSize: number;
-    public isSetup: number;
-    public hooks: Hook;
-    public dummy3: any;
-    public finalizeHook: HookFinalizeFunc;
-    public dummy: any[];
+    public seqId?: number;
+    public hookSize?: number;
+    public isSetup?: number;
+    public hooks?: Hook;
+    public dummy3?: any;
+    public finalizeHook?: HookFinalizeFunc;
+    public dummy?: any[];
     
     public clear(): void;
     public init(hookSize: number): void;
@@ -2652,26 +2653,26 @@ declare module "GLib" {
   }
   
   export class IOChannel {
-    public refCount: number;
-    public funcs: IOFuncs;
-    public encoding: string;
-    public readCd: IConv;
-    public writeCd: IConv;
-    public lineTerm: string;
-    public lineTermLen: number;
-    public bufSize: number;
-    public readBuf: String;
-    public encodedReadBuf: String;
-    public writeBuf: String;
-    public partialWriteBuf: string[];
-    public useBuffer: number;
-    public doEncode: number;
-    public closeOnUnref: number;
-    public isReadable: number;
-    public isWriteable: number;
-    public isSeekable: number;
-    public reserved1: any;
-    public reserved2: any;
+    public refCount?: number;
+    public funcs?: IOFuncs;
+    public encoding?: string;
+    public readCd?: IConv;
+    public writeCd?: IConv;
+    public lineTerm?: string;
+    public lineTermLen?: number;
+    public bufSize?: number;
+    public readBuf?: String;
+    public encodedReadBuf?: String;
+    public writeBuf?: String;
+    public partialWriteBuf?: string[];
+    public useBuffer?: number;
+    public doEncode?: number;
+    public closeOnUnref?: number;
+    public isReadable?: number;
+    public isWriteable?: number;
+    public isSeekable?: number;
+    public reserved1?: any;
+    public reserved2?: any;
     
     public close(): void;
     public flush(): IOStatus;
@@ -2768,15 +2769,15 @@ declare module "GLib" {
   }
   
   export class List {
-    public data: any;
-    public next: GLib.List;
-    public prev: GLib.List;
+    public data?: any;
+    public next?: GLib.List;
+    public prev?: GLib.List;
   }
   
   export class LogField {
-    public key: string;
-    public value: any;
-    public length: number;
+    public key?: string;
+    public value?: any;
+    public length?: number;
   }
   
   export class MainContext {
@@ -2874,11 +2875,11 @@ declare module "GLib" {
   }
   
   export class Node {
-    public data: any;
-    public next: Node;
-    public prev: Node;
-    public parent: Node;
-    public children: Node;
+    public data?: any;
+    public next?: Node;
+    public prev?: Node;
+    public parent?: Node;
+    public children?: Node;
     
     public childIndex(data: any): number;
     public childPosition(child: Node): number;
@@ -2908,8 +2909,8 @@ declare module "GLib" {
   }
   
   export class Once {
-    public status: OnceStatus;
-    public retval: any;
+    public status?: OnceStatus;
+    public retval?: any;
     
     public impl(func: ThreadFunc, arg: any): any;
   }
@@ -2938,13 +2939,13 @@ declare module "GLib" {
   }
   
   export class OptionEntry {
-    public longName: string;
-    public shortName: string;
-    public flags: number;
-    public arg: OptionArg;
-    public argData: any;
-    public description: string;
-    public argDescription: string;
+    public longName?: string;
+    public shortName?: string;
+    public flags?: number;
+    public arg?: OptionArg;
+    public argData?: any;
+    public description?: string;
+    public argDescription?: string;
   }
   
   export class OptionGroup {
@@ -2964,15 +2965,15 @@ declare module "GLib" {
   }
   
   export class PollFD {
-    public fd: number;
-    public events: number;
-    public revents: number;
+    public fd?: number;
+    public events?: number;
+    public revents?: number;
   }
   
   export class Private {
-    public p: any;
-    public notify: DestroyNotify;
-    public future: any[];
+    public p?: any;
+    public notify?: DestroyNotify;
+    public future?: any[];
     
     public get(): any;
     public replace(value: any): void;
@@ -2980,14 +2981,14 @@ declare module "GLib" {
   }
   
   export class PtrArray {
-    public pdata: any;
-    public len: number;
+    public pdata?: any;
+    public len?: number;
   }
   
   export class Queue {
-    public head: GLib.List;
-    public tail: GLib.List;
-    public length: number;
+    public head?: GLib.List;
+    public tail?: GLib.List;
+    public length?: number;
     
     public clear(): void;
     public copy(): Queue;
@@ -3031,8 +3032,8 @@ declare module "GLib" {
   }
   
   export class RWLock {
-    public p: any;
-    public i: number[];
+    public p?: any;
+    public i?: number[];
     
     public clear(): void;
     public init(): void;
@@ -3056,8 +3057,8 @@ declare module "GLib" {
   }
   
   export class RecMutex {
-    public p: any;
-    public i: number[];
+    public p?: any;
+    public i?: number[];
     
     public clear(): void;
     public init(): void;
@@ -3089,32 +3090,32 @@ declare module "GLib" {
   }
   
   export class SList {
-    public data: any;
-    public next: GLib.SList;
+    public data?: any;
+    public next?: GLib.SList;
   }
   
   export class Scanner {
-    public userData: any;
-    public maxParseErrors: number;
-    public parseErrors: number;
-    public inputName: string;
-    public qdata: Data;
-    public config: ScannerConfig;
-    public token: TokenType;
-    public value: TokenValue;
-    public line: number;
-    public position: number;
-    public nextToken: TokenType;
-    public nextValue: TokenValue;
-    public nextLine: number;
-    public nextPosition: number;
-    public symbolTable: GLib.HashTable;
-    public inputFd: number;
-    public text: string;
-    public textEnd: string;
-    public buffer: string;
-    public scopeId: number;
-    public msgHandler: ScannerMsgFunc;
+    public userData?: any;
+    public maxParseErrors?: number;
+    public parseErrors?: number;
+    public inputName?: string;
+    public qdata?: Data;
+    public config?: ScannerConfig;
+    public token?: TokenType;
+    public value?: TokenValue;
+    public line?: number;
+    public position?: number;
+    public nextToken?: TokenType;
+    public nextValue?: TokenValue;
+    public nextLine?: number;
+    public nextPosition?: number;
+    public symbolTable?: GLib.HashTable;
+    public inputFd?: number;
+    public text?: string;
+    public textEnd?: string;
+    public buffer?: string;
+    public scopeId?: number;
+    public msgHandler?: ScannerMsgFunc;
     
     public curLine(): number;
     public curPosition(): number;
@@ -3139,33 +3140,33 @@ declare module "GLib" {
   }
   
   export class ScannerConfig {
-    public csetSkipCharacters: string;
-    public csetIdentifierFirst: string;
-    public csetIdentifierNth: string;
-    public cpairCommentSingle: string;
-    public caseSensitive: number;
-    public skipCommentMulti: number;
-    public skipCommentSingle: number;
-    public scanCommentMulti: number;
-    public scanIdentifier: number;
-    public scanIdentifier_1char: number;
-    public scanIdentifier_NULL: number;
-    public scanSymbols: number;
-    public scanBinary: number;
-    public scanOctal: number;
-    public scanFloat: number;
-    public scanHex: number;
-    public scanHexDollar: number;
-    public scanStringSq: number;
-    public scanStringDq: number;
-    public numbers_2Int: number;
-    public int_2Float: number;
-    public identifier_2String: number;
-    public char_2Token: number;
-    public symbol_2Token: number;
-    public scope_0Fallback: number;
-    public storeInt64: number;
-    public paddingDummy: number;
+    public csetSkipCharacters?: string;
+    public csetIdentifierFirst?: string;
+    public csetIdentifierNth?: string;
+    public cpairCommentSingle?: string;
+    public caseSensitive?: number;
+    public skipCommentMulti?: number;
+    public skipCommentSingle?: number;
+    public scanCommentMulti?: number;
+    public scanIdentifier?: number;
+    public scanIdentifier_1char?: number;
+    public scanIdentifier_NULL?: number;
+    public scanSymbols?: number;
+    public scanBinary?: number;
+    public scanOctal?: number;
+    public scanFloat?: number;
+    public scanHex?: number;
+    public scanHexDollar?: number;
+    public scanStringSq?: number;
+    public scanStringDq?: number;
+    public numbers_2Int?: number;
+    public int_2Float?: number;
+    public identifier_2String?: number;
+    public char_2Token?: number;
+    public symbol_2Token?: number;
+    public scope_0Fallback?: number;
+    public storeInt64?: number;
+    public paddingDummy?: number;
   }
   
   export class Sequence {
@@ -3200,19 +3201,19 @@ declare module "GLib" {
   }
   
   export class Source {
-    public callbackData: any;
-    public callbackFuncs: SourceCallbackFuncs;
-    public sourceFuncs: SourceFuncs;
-    public refCount: number;
-    public context: MainContext;
-    public priority: number;
-    public flags: number;
-    public sourceId: number;
-    public pollFds: GLib.SList;
-    public prev: Source;
-    public next: Source;
-    public name: string;
-    public priv: SourcePrivate;
+    public callbackData?: any;
+    public callbackFuncs?: SourceCallbackFuncs;
+    public sourceFuncs?: SourceFuncs;
+    public refCount?: number;
+    public context?: MainContext;
+    public priority?: number;
+    public flags?: number;
+    public sourceId?: number;
+    public pollFds?: GLib.SList;
+    public prev?: Source;
+    public next?: Source;
+    public name?: string;
+    public priv?: SourcePrivate;
     
     public addChildSource(childSource: Source): void;
     public addPoll(fd: PollFD): void;
@@ -3251,8 +3252,8 @@ declare module "GLib" {
   }
   
   export class SourceFuncs {
-    public closureCallback: SourceFunc;
-    public closureMarshal: SourceDummyMarshal;
+    public closureCallback?: SourceFunc;
+    public closureMarshal?: SourceDummyMarshal;
     
     prepare : { (source: Source, timeout_: number): boolean; };
     check : { (source: Source): boolean; };
@@ -3269,9 +3270,9 @@ declare module "GLib" {
   }
   
   export class String {
-    public str: string;
-    public len: number;
-    public allocatedLen: number;
+    public str?: string;
+    public len?: number;
+    public allocatedLen?: number;
     
     public append(_val: string): String;
     public appendC(_c: string): String;
@@ -3319,17 +3320,17 @@ declare module "GLib" {
   }
   
   export class TestConfig {
-    public testInitialized: boolean;
-    public testQuick: boolean;
-    public testPerf: boolean;
-    public testVerbose: boolean;
-    public testQuiet: boolean;
-    public testUndefined: boolean;
+    public testInitialized?: boolean;
+    public testQuick?: boolean;
+    public testPerf?: boolean;
+    public testVerbose?: boolean;
+    public testQuiet?: boolean;
+    public testUndefined?: boolean;
   }
   
   export class TestLogBuffer {
-    public data: String;
-    public msgs: GLib.SList;
+    public data?: String;
+    public msgs?: GLib.SList;
     
     public free(): void;
     public pop(): TestLogMsg;
@@ -3337,11 +3338,11 @@ declare module "GLib" {
   }
   
   export class TestLogMsg {
-    public logType: TestLogType;
-    public nStrings: number;
-    public strings: string;
-    public nNums: number;
-    public nums: number;
+    public logType?: TestLogType;
+    public nStrings?: number;
+    public strings?: string;
+    public nNums?: number;
+    public nums?: number;
     
     public free(): void;
   }
@@ -3358,9 +3359,9 @@ declare module "GLib" {
   }
   
   export class ThreadPool {
-    public func: Func;
-    public userData: any;
-    public exclusive: boolean;
+    public func?: Func;
+    public userData?: any;
+    public exclusive?: boolean;
     
     public free(immediate: boolean, wait_: boolean): void;
     public getMaxThreads(): number;
@@ -3373,8 +3374,8 @@ declare module "GLib" {
   }
   
   export class TimeVal {
-    public tvSec: number;
-    public tvUsec: number;
+    public tvSec?: number;
+    public tvUsec?: number;
     
     public add(microseconds: number): void;
     public toIso8601(): string;
@@ -3400,7 +3401,7 @@ declare module "GLib" {
   }
   
   export class TrashStack {
-    public next: TrashStack;
+    public next?: TrashStack;
   }
   
   export class Tree {
@@ -3505,7 +3506,7 @@ declare module "GLib" {
   }
   
   export class VariantIter {
-    public x: number[];
+    public x?: number[];
     
     public copy(): VariantIter;
     public free(): void;

@@ -1,5 +1,7 @@
 /// <reference path="globals/node.d.ts" />
 /// <reference path="globals/pkg.d.ts" />
+/// <reference path="modules/Atk-1.0.d.ts" />
+/// <reference path="modules/Gdk-3.0.d.ts" />
 /// <reference path="modules/GLib-2.0.d.ts" />
 /// <reference path="modules/GObject-2.0.d.ts" />
 /// <reference path="modules/Gio-2.0.d.ts" />
